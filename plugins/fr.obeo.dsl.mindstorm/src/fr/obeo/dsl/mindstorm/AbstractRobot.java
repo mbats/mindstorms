@@ -1,7 +1,10 @@
 package fr.obeo.dsl.mindstorm;
 
 import lejos.hardware.Button;
+import lejos.hardware.Key;
+import lejos.hardware.KeyListener;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
+import lejos.hardware.motor.EV3MediumRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
@@ -15,27 +18,34 @@ import lejos.robotics.localization.OdometryPoseProvider;
 import lejos.robotics.navigation.DifferentialPilot;
 import lejos.robotics.navigation.MoveController;
 import lejos.robotics.navigation.Pose;
-import lejos.robotics.subsumption.Behavior;
 import lejos.utility.Timer;
 import lejos.utility.TimerListener;
 
 public abstract class AbstractRobot {
-	private static final int TIMER = 30000;
 	private static final int TRACK_WIDTH = 120;
 	private static final int WHEEL_DIAMETER = 56;
 
+	private RegulatedMotor grabMotor = new EV3MediumRegulatedMotor(MotorPort.A);
 	private RegulatedMotor leftMotor = new EV3LargeRegulatedMotor(MotorPort.B);
 	private RegulatedMotor rightMotor = new EV3LargeRegulatedMotor(MotorPort.C);
-	private RegulatedMotor grabMotor = new EV3LargeRegulatedMotor(MotorPort.D);
 	private EV3UltrasonicSensor sonar = new EV3UltrasonicSensor(SensorPort.S4);
 	private EV3TouchSensor touch = new EV3TouchSensor(SensorPort.S3);
 	private EV3ColorSensor color = new EV3ColorSensor(SensorPort.S2);
 	private DifferentialPilot pilot = new DifferentialPilot(WHEEL_DIAMETER, TRACK_WIDTH, leftMotor, rightMotor);
 	private OdometryPoseProvider poseProvider = new OdometryPoseProvider(pilot);
 	private Pose goal;
-
+	private final int gameTime; 
+	
 	public enum PlaygroundArea {
 		BASE, NEUTRAL, OPPONENT_BASE
+	}
+	
+	public AbstractRobot() {
+		this(30000); // 30 seconds : default game time
+	}
+	
+	public AbstractRobot(int gameTime) {
+		this.gameTime = gameTime;
 	}
 
 	public abstract void execute();
@@ -44,13 +54,31 @@ public abstract class AbstractRobot {
 		System.out.println("Ready...");
 		Button.waitForAnyPress();
 	}
+	
+	public void terminateProgramOnExitButton() {
+		Button.ESCAPE.addKeyListener(new KeyListener() {
+			@Override
+			public void keyPressed(Key k) {
+				if (Button.ESCAPE.equals(k)) {					
+					System.exit(0);
+				}
+			}
+
+			@Override
+			public void keyReleased(Key k) {
+			}
+		});
+	}
 
 	public void run() {
 		// Wait for start signal
 		this.waitForStartSignal();
 
+		// Whenever the user push the escape button during the game time, it will exit the program.
+		this.terminateProgramOnExitButton();
+		
 		// Initialize timer
-		Timer timer = new Timer(TIMER, new TimerListener() {
+		Timer timer = new Timer(gameTime, new TimerListener() {
 			@Override
 			public void timedOut() {
 				System.out.println("Stop");
@@ -58,6 +86,8 @@ public abstract class AbstractRobot {
 				leftMotor.close();
 				rightMotor.close();
 				sonar.close();
+				color.close();
+				touch.close();
 				System.exit(0);
 			}
 		});
@@ -83,26 +113,42 @@ public abstract class AbstractRobot {
 		pilot.forward();
 	}
 
-	public Behavior detectObstacle() {
-		return null;
-		// TODO if obstacle detected stop
-	}
-
 	public int getColor() {
-		// TODO Detect color
-		return Color.BLACK;
+		return color.getColorID();
+	}
+	
+	public EV3ColorSensor getColorSensor() {
+		return color;
 	}
 
 	public void returnToBase() {
 		goTo(0, 0);
 	}
 
-	public void goTo(float x, float y) {
+	private void goTo(float x, float y) {
 		Pose currentPose = poseProvider.getPose();
 		float heading = currentPose.relativeBearing(new Point(x, y));
 		float distance = currentPose.distanceTo(new Point(x, y));
 		pilot.rotate(heading);
 		pilot.travel(distance);
+	}
+	
+	/**
+	 * Moves the robot forward. If the given distance is negative, the robot will move backward.
+	 * 
+	 * @param distance distance to travel in centimeters.
+	 */
+	public void travel(double distance) {
+		pilot.travel(distance*10);
+	}
+	
+	/**
+	 * Rotates the robot to a given angle. Positive angle rotate left (anti-clockwise), negative right.
+	 * 
+	 * @param angle angle of rotation in degrees.
+	 */
+	public void rotate(double angle) {
+		pilot.rotate(angle);
 	}
 
 	public void stop() {
@@ -127,6 +173,17 @@ public abstract class AbstractRobot {
 			float[] sample = new float[1];
 			sampleProvider.fetchSample(sample, 0);
 			return sample[0] == 1;
+		} catch (IndexOutOfBoundsException ex) {
+			return false;
+		}
+	}
+	
+	public boolean obstacleDetected() {
+		try {
+			SampleProvider sampleProvider = sonar.getDistanceMode();
+			float[] sample = new float[1];
+			sampleProvider.fetchSample(sample, 0);
+			return sample[0] < 0.30; // 30 cm
 		} catch (IndexOutOfBoundsException ex) {
 			return false;
 		}
