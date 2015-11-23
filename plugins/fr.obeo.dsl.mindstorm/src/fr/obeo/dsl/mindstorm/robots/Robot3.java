@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import fr.obeo.dsl.mindstorm.AbstractRobot;
 import fr.obeo.dsl.mindstorm.behaviors.AvoidObstacle;
 import fr.obeo.dsl.mindstorm.behaviors.GrabBottle;
-import fr.obeo.dsl.mindstorm.behaviors.SearchBottle;
+import fr.obeo.dsl.mindstorm.behaviors.GoForward;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 
@@ -28,7 +28,7 @@ public class Robot3 extends AbstractRobot {
 		definedSequenceOfActions();
 		
 		List<Behavior> behaviors = new ArrayList<Behavior>();
-		behaviors.add(new SearchBottle(robot));
+		behaviors.add(new GoForward(robot));
 		behaviors.add(new GrabBottle(robot));
 		behaviors.add(new AvoidObstacle(robot));
 		// If all behaviors are inactive, then arbitrator stops.

@@ -2,9 +2,9 @@ package fr.obeo.dsl.mindstorm.behaviors;
 
 import fr.obeo.dsl.mindstorm.AbstractRobot;
 
-public class SearchBottle extends RobotBehavior {
+public class GoForward extends RobotBehavior {
 
-	public SearchBottle(AbstractRobot robot) {
+	public GoForward(AbstractRobot robot) {
 		super(robot);
 	}
 

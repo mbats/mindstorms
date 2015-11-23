@@ -17,6 +17,7 @@ import lejos.robotics.geometry.Point;
 import lejos.robotics.localization.OdometryPoseProvider;
 import lejos.robotics.navigation.DifferentialPilot;
 import lejos.robotics.navigation.MoveController;
+import lejos.robotics.navigation.Navigator;
 import lejos.robotics.navigation.Pose;
 import lejos.utility.Timer;
 import lejos.utility.TimerListener;
@@ -32,6 +33,7 @@ public abstract class AbstractRobot {
 	private EV3TouchSensor touch = new EV3TouchSensor(SensorPort.S3);
 	private EV3ColorSensor color = new EV3ColorSensor(SensorPort.S2);
 	private DifferentialPilot pilot = new DifferentialPilot(WHEEL_DIAMETER, TRACK_WIDTH, leftMotor, rightMotor);
+	private Navigator navigator = new Navigator(pilot);
 	private OdometryPoseProvider poseProvider = new OdometryPoseProvider(pilot);
 	private Pose goal;
 	private final int gameTime; 
@@ -131,6 +133,7 @@ public abstract class AbstractRobot {
 		float distance = currentPose.distanceTo(new Point(x, y));
 		pilot.rotate(heading);
 		pilot.travel(distance);
+		
 	}
 	
 	/**
@@ -155,10 +158,14 @@ public abstract class AbstractRobot {
 		pilot.stop();
 	}
 
-	public MoveController getPilot() {
+	public DifferentialPilot getPilot() {
 		return pilot;
 	}
 
+	public Navigator getNavigator() {
+		return navigator;
+	}
+	
 	public Pose getGoal() {
 		return goal;
 	}
