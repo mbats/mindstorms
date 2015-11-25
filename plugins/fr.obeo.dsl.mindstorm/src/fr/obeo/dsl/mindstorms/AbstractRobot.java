@@ -1,4 +1,4 @@
-package fr.obeo.dsl.mindstorm;
+package fr.obeo.dsl.mindstorms;
 
 import lejos.hardware.Button;
 import lejos.hardware.Key;

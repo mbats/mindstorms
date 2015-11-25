@@ -1,11 +1,11 @@
-package fr.obeo.dsl.mindstorm.robots;
+package fr.obeo.dsl.mindstorms.robots;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.obeo.dsl.mindstorm.AbstractRobot;
-import fr.obeo.dsl.mindstorm.behaviors.BringBackPoint;
-import fr.obeo.dsl.mindstorm.behaviors.SearchForPoint;
+import fr.obeo.dsl.mindstorms.AbstractRobot;
+import fr.obeo.dsl.mindstorms.behaviors.BringBackPoint;
+import fr.obeo.dsl.mindstorms.behaviors.SearchForPoint;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 

@@ -1,6 +1,6 @@
-package fr.obeo.dsl.mindstorm.behaviors;
+package fr.obeo.dsl.mindstorms.behaviors;
 
-import fr.obeo.dsl.mindstorm.AbstractRobot;
+import fr.obeo.dsl.mindstorms.AbstractRobot;
 
 public class GoRectangle extends RobotBehavior {
 
