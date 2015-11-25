@@ -13,13 +13,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="main" eType="#//Main" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Main">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="call" upperBound="-1" eType="#//InstructionCall"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calls" upperBound="-1"
+        eType="#//InstructionCall" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Instruction" abstract="true" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Procedure" eSuperTypes="#//Instruction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
-        eType="#//Variable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
         eType="#//Block" containment="true"/>
   </eClassifiers>
@@ -28,8 +26,6 @@
         eType="#//Behavior"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Behavior" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
-        eType="#//Variable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="takeControl" eType="#//Condition"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
@@ -41,29 +37,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="Block" abstract="true" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//Block"/>
   <eClassifiers xsi:type="ecore:EClass" name="Flow" eSuperTypes="#//Block"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//Block #//Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//NamedElement #//Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MathOperator" eSuperTypes="#//Condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Value"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Value"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//OperatorKind"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//Condition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="#//Flow">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
-        eType="#//Variable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
         eType="#//Block" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="While" eSuperTypes="#//Flow">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
-        eType="#//Variable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
@@ -88,11 +70,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="Delay" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ms" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AvoidObstacle" eSuperTypes="#//Behavior"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReturnBottleToBase" eSuperTypes="#//Behavior"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExploreForward" eSuperTypes="#//Behavior"/>
   <eClassifiers xsi:type="ecore:EClass" name="TouchSensor" eSuperTypes="#//Sensor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPressed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UltrasonicSensor" eSuperTypes="#//Sensor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//OperatorKind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Timer" eSuperTypes="#//Sensor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -120,20 +107,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="OperatorKind">
     <eLiterals name="equal"/>
-    <eLiterals name="minus"/>
-    <eLiterals name="upper"/>
-    <eLiterals name="lower"/>
-    <eLiterals name="plus"/>
-    <eLiterals name="diff"/>
+    <eLiterals name="notEqual"/>
     <eLiterals name="upperOrEqual"/>
     <eLiterals name="lowerOrEqual"/>
-    <eLiterals name="mul"/>
-    <eLiterals name="div"/>
-    <eLiterals name="min"/>
-    <eLiterals name="max"/>
-    <eLiterals name="percent"/>
-    <eLiterals name="and"/>
-    <eLiterals name="or"/>
-    <eLiterals name="not"/>
   </eClassifiers>
 </ecore:EPackage>
