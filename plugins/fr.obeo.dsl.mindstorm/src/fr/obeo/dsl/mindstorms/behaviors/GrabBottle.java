@@ -1,8 +1,8 @@
-package fr.obeo.dsl.mindstorm.behaviors;
+package fr.obeo.dsl.mindstorms.behaviors;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import fr.obeo.dsl.mindstorm.AbstractRobot;
+import fr.obeo.dsl.mindstorms.AbstractRobot;
 import lejos.robotics.Color;
 
 public class GrabBottle extends RobotBehavior {

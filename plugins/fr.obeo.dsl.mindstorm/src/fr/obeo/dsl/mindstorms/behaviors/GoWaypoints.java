@@ -1,9 +1,9 @@
-package fr.obeo.dsl.mindstorm.behaviors;
+package fr.obeo.dsl.mindstorms.behaviors;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-import fr.obeo.dsl.mindstorm.AbstractRobot;
+import fr.obeo.dsl.mindstorms.AbstractRobot;
 import lejos.robotics.navigation.NavigationListener;
 import lejos.robotics.navigation.Navigator;
 import lejos.robotics.navigation.Pose;

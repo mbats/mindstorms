@@ -1,12 +1,12 @@
-package fr.obeo.dsl.mindstorm.robots;
+package fr.obeo.dsl.mindstorms.robots;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.obeo.dsl.mindstorm.AbstractRobot;
-import fr.obeo.dsl.mindstorm.behaviors.AvoidObstacle;
-import fr.obeo.dsl.mindstorm.behaviors.GoWaypoints;
-import fr.obeo.dsl.mindstorm.behaviors.GrabBottle;
+import fr.obeo.dsl.mindstorms.AbstractRobot;
+import fr.obeo.dsl.mindstorms.behaviors.AvoidObstacle;
+import fr.obeo.dsl.mindstorms.behaviors.GoWaypoints;
+import fr.obeo.dsl.mindstorms.behaviors.GrabBottle;
 import lejos.robotics.geometry.Point;
 import lejos.robotics.navigation.Waypoint;
 import lejos.robotics.subsumption.Arbitrator;

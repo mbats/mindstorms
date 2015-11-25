@@ -1,13 +1,13 @@
-package fr.obeo.dsl.mindstorm.robots;
+package fr.obeo.dsl.mindstorms.robots;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import fr.obeo.dsl.mindstorm.AbstractRobot;
-import fr.obeo.dsl.mindstorm.behaviors.AvoidObstacle;
-import fr.obeo.dsl.mindstorm.behaviors.GrabBottle;
-import fr.obeo.dsl.mindstorm.behaviors.GoForward;
+import fr.obeo.dsl.mindstorms.AbstractRobot;
+import fr.obeo.dsl.mindstorms.behaviors.AvoidObstacle;
+import fr.obeo.dsl.mindstorms.behaviors.GoForward;
+import fr.obeo.dsl.mindstorms.behaviors.GrabBottle;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 
