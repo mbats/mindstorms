@@ -156,11 +156,6 @@ public class IfItemProvider extends FlowItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MindstormsPackage.Literals.IF__CONDITION,
-				 MindstormsFactory.eINSTANCE.createSensor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.IF__CONDITION,
 				 MindstormsFactory.eINSTANCE.createCondition()));
 
 		newChildDescriptors.add
@@ -182,16 +177,6 @@ public class IfItemProvider extends FlowItemProvider {
 			(createChildParameter
 				(MindstormsPackage.Literals.IF__CONDITION,
 				 MindstormsFactory.eINSTANCE.createColorSensor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.IF__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.IF__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createFlow()));
 
 		newChildDescriptors.add
 			(createChildParameter

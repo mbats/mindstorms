@@ -154,16 +154,6 @@ public class ProcedureItemProvider extends InstructionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createFlow()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createIf()));
 
 		newChildDescriptors.add

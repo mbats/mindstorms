@@ -18,7 +18,7 @@ package fr.obeo.dsl.mindstorms;
  *
  *
  * @see fr.obeo.dsl.mindstorms.MindstormsPackage#getAction()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Action extends Block {

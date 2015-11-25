@@ -35,9 +35,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="instruction" eType="#//Instruction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Block" abstract="true" eSuperTypes="#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//Block"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Flow" eSuperTypes="#//Block"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//NamedElement #//Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" eSuperTypes="#//Block"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Flow" abstract="true" eSuperTypes="#//Block"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" abstract="true" eSuperTypes="#//NamedElement #//Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="#//Flow">
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"

@@ -78,9 +78,6 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 			case MindstormsPackage.ARBITRATOR: return createArbitrator();
 			case MindstormsPackage.BEHAVIOR: return createBehavior();
 			case MindstormsPackage.INSTRUCTION_CALL: return createInstructionCall();
-			case MindstormsPackage.ACTION: return createAction();
-			case MindstormsPackage.FLOW: return createFlow();
-			case MindstormsPackage.SENSOR: return createSensor();
 			case MindstormsPackage.CONDITION: return createCondition();
 			case MindstormsPackage.IF: return createIf();
 			case MindstormsPackage.WHILE: return createWhile();
@@ -197,36 +194,6 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 	public InstructionCall createInstructionCall() {
 		InstructionCallImpl instructionCall = new InstructionCallImpl();
 		return instructionCall;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Action createAction() {
-		ActionImpl action = new ActionImpl();
-		return action;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Flow createFlow() {
-		FlowImpl flow = new FlowImpl();
-		return flow;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Sensor createSensor() {
-		SensorImpl sensor = new SensorImpl();
-		return sensor;
 	}
 
 	/**

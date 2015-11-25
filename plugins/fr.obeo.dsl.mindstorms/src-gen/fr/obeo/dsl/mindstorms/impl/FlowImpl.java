@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class FlowImpl extends BlockImpl implements Flow {
+public abstract class FlowImpl extends BlockImpl implements Flow {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

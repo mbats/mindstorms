@@ -18,7 +18,7 @@ package fr.obeo.dsl.mindstorms;
  *
  *
  * @see fr.obeo.dsl.mindstorms.MindstormsPackage#getSensor()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Sensor extends NamedElement, Condition {

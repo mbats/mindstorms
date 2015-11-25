@@ -18,7 +18,7 @@ package fr.obeo.dsl.mindstorms;
  *
  *
  * @see fr.obeo.dsl.mindstorms.MindstormsPackage#getFlow()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Flow extends Block {

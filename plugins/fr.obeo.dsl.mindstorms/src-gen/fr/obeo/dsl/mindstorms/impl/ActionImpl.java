@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ActionImpl extends BlockImpl implements Action {
+public abstract class ActionImpl extends BlockImpl implements Action {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

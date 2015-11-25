@@ -156,11 +156,6 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
-				 MindstormsFactory.eINSTANCE.createSensor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
 				 MindstormsFactory.eINSTANCE.createCondition()));
 
 		newChildDescriptors.add
@@ -182,16 +177,6 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 			(createChildParameter
 				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
 				 MindstormsFactory.eINSTANCE.createColorSensor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createFlow()));
 
 		newChildDescriptors.add
 			(createChildParameter

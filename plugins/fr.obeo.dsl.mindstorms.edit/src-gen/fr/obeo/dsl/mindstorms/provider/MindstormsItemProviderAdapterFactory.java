@@ -225,75 +225,6 @@ public class MindstormsItemProviderAdapterFactory extends MindstormsAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.Action} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ActionItemProvider actionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.Action}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createActionAdapter() {
-		if (actionItemProvider == null) {
-			actionItemProvider = new ActionItemProvider(this);
-		}
-
-		return actionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.Flow} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected FlowItemProvider flowItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.Flow}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createFlowAdapter() {
-		if (flowItemProvider == null) {
-			flowItemProvider = new FlowItemProvider(this);
-		}
-
-		return flowItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.Sensor} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SensorItemProvider sensorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.Sensor}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSensorAdapter() {
-		if (sensorItemProvider == null) {
-			sensorItemProvider = new SensorItemProvider(this);
-		}
-
-		return sensorItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.Condition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -835,9 +766,6 @@ public class MindstormsItemProviderAdapterFactory extends MindstormsAdapterFacto
 		if (arbitratorItemProvider != null) arbitratorItemProvider.dispose();
 		if (behaviorItemProvider != null) behaviorItemProvider.dispose();
 		if (instructionCallItemProvider != null) instructionCallItemProvider.dispose();
-		if (actionItemProvider != null) actionItemProvider.dispose();
-		if (flowItemProvider != null) flowItemProvider.dispose();
-		if (sensorItemProvider != null) sensorItemProvider.dispose();
 		if (conditionItemProvider != null) conditionItemProvider.dispose();
 		if (ifItemProvider != null) ifItemProvider.dispose();
 		if (whileItemProvider != null) whileItemProvider.dispose();

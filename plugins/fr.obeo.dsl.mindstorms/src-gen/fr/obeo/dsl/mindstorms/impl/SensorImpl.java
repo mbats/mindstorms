@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SensorImpl extends NamedElementImpl implements Sensor {
+public abstract class SensorImpl extends NamedElementImpl implements Sensor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
