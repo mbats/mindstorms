@@ -161,6 +161,16 @@ public class IfItemProvider extends FlowItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MindstormsPackage.Literals.IF__CONDITION,
+				 MindstormsFactory.eINSTANCE.createBinaryCondition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.IF__CONDITION,
+				 MindstormsFactory.eINSTANCE.createUnaryCondition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.IF__CONDITION,
 				 MindstormsFactory.eINSTANCE.createTouchSensor()));
 
 		newChildDescriptors.add

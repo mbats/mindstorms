@@ -248,6 +248,52 @@ public class MindstormsItemProviderAdapterFactory extends MindstormsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.BinaryCondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BinaryConditionItemProvider binaryConditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.BinaryCondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBinaryConditionAdapter() {
+		if (binaryConditionItemProvider == null) {
+			binaryConditionItemProvider = new BinaryConditionItemProvider(this);
+		}
+
+		return binaryConditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.UnaryCondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnaryConditionItemProvider unaryConditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.UnaryCondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnaryConditionAdapter() {
+		if (unaryConditionItemProvider == null) {
+			unaryConditionItemProvider = new UnaryConditionItemProvider(this);
+		}
+
+		return unaryConditionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.If} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -767,6 +813,8 @@ public class MindstormsItemProviderAdapterFactory extends MindstormsAdapterFacto
 		if (behaviorItemProvider != null) behaviorItemProvider.dispose();
 		if (instructionCallItemProvider != null) instructionCallItemProvider.dispose();
 		if (conditionItemProvider != null) conditionItemProvider.dispose();
+		if (binaryConditionItemProvider != null) binaryConditionItemProvider.dispose();
+		if (unaryConditionItemProvider != null) unaryConditionItemProvider.dispose();
 		if (ifItemProvider != null) ifItemProvider.dispose();
 		if (whileItemProvider != null) whileItemProvider.dispose();
 		if (travelItemProvider != null) travelItemProvider.dispose();

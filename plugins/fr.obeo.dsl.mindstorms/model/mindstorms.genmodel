@@ -31,6 +31,7 @@
       <genEnumLiterals ecoreEnumLiteral="mindstorms.ecore#//OperatorKind/notEqual"/>
       <genEnumLiterals ecoreEnumLiteral="mindstorms.ecore#//OperatorKind/upperOrEqual"/>
       <genEnumLiterals ecoreEnumLiteral="mindstorms.ecore#//OperatorKind/lowerOrEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="mindstorms.ecore#//OperatorKind/not"/>
     </genEnums>
     <genClasses image="false" ecoreClass="mindstorms.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//NamedElement/name"/>
@@ -62,6 +63,15 @@
     <genClasses ecoreClass="mindstorms.ecore#//Flow"/>
     <genClasses ecoreClass="mindstorms.ecore#//Sensor"/>
     <genClasses ecoreClass="mindstorms.ecore#//Condition"/>
+    <genClasses ecoreClass="mindstorms.ecore#//BinaryCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//BinaryCondition/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//BinaryCondition/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//BinaryCondition/right"/>
+    </genClasses>
+    <genClasses ecoreClass="mindstorms.ecore#//UnaryCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//UnaryCondition/not"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mindstorms.ecore#//UnaryCondition/condition"/>
+    </genClasses>
     <genClasses ecoreClass="mindstorms.ecore#//If">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//If/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//If/blocks"/>

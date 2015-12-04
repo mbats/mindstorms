@@ -11,9 +11,10 @@
 package fr.obeo.dsl.mindstorms.provider;
 
 
-import fr.obeo.dsl.mindstorms.Behavior;
+import fr.obeo.dsl.mindstorms.BinaryCondition;
 import fr.obeo.dsl.mindstorms.MindstormsFactory;
 import fr.obeo.dsl.mindstorms.MindstormsPackage;
+import fr.obeo.dsl.mindstorms.OperatorKind;
 
 import java.util.Collection;
 import java.util.List;
@@ -23,16 +24,18 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.obeo.dsl.mindstorms.Behavior} object.
+ * This is the item provider adapter for a {@link fr.obeo.dsl.mindstorms.BinaryCondition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class BehaviorItemProvider extends NamedElementItemProvider {
+public class BinaryConditionItemProvider extends ConditionItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,7 +49,7 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BehaviorItemProvider(AdapterFactory adapterFactory) {
+	public BinaryConditionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,8 +64,31 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addOpPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Op feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOpPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BinaryCondition_op_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BinaryCondition_op_feature", "_UI_BinaryCondition_type"),
+				 MindstormsPackage.Literals.BINARY_CONDITION__OP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -77,8 +103,8 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL);
-			childrenFeatures.add(MindstormsPackage.Literals.BEHAVIOR__BLOCKS);
+			childrenFeatures.add(MindstormsPackage.Literals.BINARY_CONDITION__LEFT);
+			childrenFeatures.add(MindstormsPackage.Literals.BINARY_CONDITION__RIGHT);
 		}
 		return childrenFeatures;
 	}
@@ -97,14 +123,14 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This returns Behavior.gif.
+	 * This returns BinaryCondition.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Behavior"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BinaryCondition"));
 	}
 
 	/**
@@ -115,10 +141,11 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Behavior)object).getName();
+		OperatorKind labelValue = ((BinaryCondition)object).getOp();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Behavior_type") :
-			getString("_UI_Behavior_type") + " " + label;
+			getString("_UI_BinaryCondition_type") :
+			getString("_UI_BinaryCondition_type") + " " + label;
 	}
 	
 
@@ -133,9 +160,12 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Behavior.class)) {
-			case MindstormsPackage.BEHAVIOR__TAKE_CONTROL:
-			case MindstormsPackage.BEHAVIOR__BLOCKS:
+		switch (notification.getFeatureID(BinaryCondition.class)) {
+			case MindstormsPackage.BINARY_CONDITION__OP:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case MindstormsPackage.BINARY_CONDITION__LEFT:
+			case MindstormsPackage.BINARY_CONDITION__RIGHT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -155,93 +185,96 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
+				(MindstormsPackage.Literals.BINARY_CONDITION__LEFT,
 				 MindstormsFactory.eINSTANCE.createCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
+				(MindstormsPackage.Literals.BINARY_CONDITION__LEFT,
 				 MindstormsFactory.eINSTANCE.createBinaryCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
+				(MindstormsPackage.Literals.BINARY_CONDITION__LEFT,
 				 MindstormsFactory.eINSTANCE.createUnaryCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
+				(MindstormsPackage.Literals.BINARY_CONDITION__LEFT,
 				 MindstormsFactory.eINSTANCE.createTouchSensor()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
+				(MindstormsPackage.Literals.BINARY_CONDITION__LEFT,
 				 MindstormsFactory.eINSTANCE.createUltrasonicSensor()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
+				(MindstormsPackage.Literals.BINARY_CONDITION__LEFT,
 				 MindstormsFactory.eINSTANCE.createTimer()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
+				(MindstormsPackage.Literals.BINARY_CONDITION__LEFT,
 				 MindstormsFactory.eINSTANCE.createColorSensor()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createIf()));
+				(MindstormsPackage.Literals.BINARY_CONDITION__RIGHT,
+				 MindstormsFactory.eINSTANCE.createCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createWhile()));
+				(MindstormsPackage.Literals.BINARY_CONDITION__RIGHT,
+				 MindstormsFactory.eINSTANCE.createBinaryCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createTravel()));
+				(MindstormsPackage.Literals.BINARY_CONDITION__RIGHT,
+				 MindstormsFactory.eINSTANCE.createUnaryCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createGoForward()));
+				(MindstormsPackage.Literals.BINARY_CONDITION__RIGHT,
+				 MindstormsFactory.eINSTANCE.createTouchSensor()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createGoBackward()));
+				(MindstormsPackage.Literals.BINARY_CONDITION__RIGHT,
+				 MindstormsFactory.eINSTANCE.createUltrasonicSensor()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createRotate()));
+				(MindstormsPackage.Literals.BINARY_CONDITION__RIGHT,
+				 MindstormsFactory.eINSTANCE.createTimer()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createGoTo()));
+				(MindstormsPackage.Literals.BINARY_CONDITION__RIGHT,
+				 MindstormsFactory.eINSTANCE.createColorSensor()));
+	}
 
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createReturnToBase()));
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
 
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createGrab()));
+		boolean qualify =
+			childFeature == MindstormsPackage.Literals.BINARY_CONDITION__LEFT ||
+			childFeature == MindstormsPackage.Literals.BINARY_CONDITION__RIGHT;
 
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createRelease()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createDelay()));
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

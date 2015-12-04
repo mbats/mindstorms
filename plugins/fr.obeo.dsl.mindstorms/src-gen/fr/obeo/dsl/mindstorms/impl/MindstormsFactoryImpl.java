@@ -79,6 +79,8 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 			case MindstormsPackage.BEHAVIOR: return createBehavior();
 			case MindstormsPackage.INSTRUCTION_CALL: return createInstructionCall();
 			case MindstormsPackage.CONDITION: return createCondition();
+			case MindstormsPackage.BINARY_CONDITION: return createBinaryCondition();
+			case MindstormsPackage.UNARY_CONDITION: return createUnaryCondition();
 			case MindstormsPackage.IF: return createIf();
 			case MindstormsPackage.WHILE: return createWhile();
 			case MindstormsPackage.TRAVEL: return createTravel();
@@ -204,6 +206,26 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 	public Condition createCondition() {
 		ConditionImpl condition = new ConditionImpl();
 		return condition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BinaryCondition createBinaryCondition() {
+		BinaryConditionImpl binaryCondition = new BinaryConditionImpl();
+		return binaryCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnaryCondition createUnaryCondition() {
+		UnaryConditionImpl unaryCondition = new UnaryConditionImpl();
+		return unaryCondition;
 	}
 
 	/**
