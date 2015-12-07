@@ -4,133 +4,166 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="MindstormsDiagram" label="Mindstorms" titleExpression="aql:'Mindstorms Diagram'" domainClass="mindstorms.Program" enablePopupBars="true">
       <metamodel href="http://www.obeo.fr/dsl/mindstorms/1.0.0#/"/>
       <defaultLayer name="MindstormsDiagramDefaultLayer">
+        <edgeMappings name="MC_EdgeInstructionCall" label="Edge InstructionCall" sourceMapping="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Main']/@subNodeMappings[name='MN_Call']" targetMapping="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Main']/@subNodeMappings[name='MN_Call']" targetFinderExpression="service:getNextInstructionCall()" reconnections="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MRE_InstructionCall'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MRE_InstructionCallTarget']">
+          <style>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription showIcon="false">
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="MC_EdgeBlock" label="Edge Block" sourceMapping="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Delay'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoBackward'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoForward'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoTo'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Grab'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Release'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_ReturnToBase'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Rotate'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Travel'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_If'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_While']" targetMapping="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Delay'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoBackward'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoForward'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoTo'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Grab'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Release'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_ReturnToBase'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Rotate'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Travel'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_If'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_While']" targetFinderExpression="service:getNextBlock()" reconnections="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MRE_BlockSource'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MRE_BlockTarget']">
+          <style>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="10">
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
         <containerMappings name="MC_Main" label="Container Main" semanticCandidatesExpression="feature:main" domainClass="mindstorms.Main">
-          <subNodeMappings name="MN_Call" label="Node InstructionCall" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="feature:calls" domainClass="mindstorms.InstructionCall">
-            <style xsi:type="style:DotDescription" borderSizeComputationExpression="1" labelExpression="aql:self.instruction.name" labelAlignment="LEFT" tooltipExpression="aql:self.instruction.name" resizeKind="NSEW">
+          <subNodeMappings name="MN_Call" label="Node InstructionCall" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="feature:calls" domainClass="mindstorms.InstructionCall">
+            <style xsi:type="style:DotDescription" borderSizeComputationExpression="1" labelSize="10" labelExpression="aql:self.instruction.name" labelAlignment="LEFT" tooltipExpression="aql:self.instruction.name" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="aql:'Main'" tooltipExpression="aql:'Main'" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Main'" tooltipExpression="aql:'Main'" backgroundStyle="GradientTopToBottom" foregroundColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='Main%20Green']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </containerMappings>
         <containerMappings name="MC_Instructions" label="Container Instructions" semanticCandidatesExpression="aql:self" domainClass="mindstorms.Program">
-          <subContainerMappings name="MC_Procedure" label="Container Procedure" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDE_NamedElement']" semanticCandidatesExpression="aql:self.instructions->filter(mindstorms::Procedure)" domainClass="mindstorms.Procedure">
-            <subNodeMappings name="MN_Travel" label="Node Travel" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::Travel)" domainClass="mindstorms.Travel">
-              <style xsi:type="style:DotDescription" labelExpression="aql:'Travel : ' + self.cm + ' cm'" tooltipExpression="aql:'Travel : ' + self.cm + ' cm'" resizeKind="NSEW">
+          <subContainerMappings name="MC_Procedure" label="Container Procedure" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_NamedElement']" semanticCandidatesExpression="aql:self.instructions->filter(mindstorms::Procedure)" domainClass="mindstorms.Procedure">
+            <subNodeMappings name="MN_Travel" label="Node Travel" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Travel']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::Travel)" domainClass="mindstorms.Travel">
+              <style xsi:type="style:DotDescription" labelSize="10" labelExpression="aql:'Travel : ' + self.cm + ' cm'" tooltipExpression="aql:'Travel : ' + self.cm + ' cm'" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="MN_GoForward" label="Node GoForward" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::GoForward)" domainClass="mindstorms.GoForward">
-              <style xsi:type="style:DotDescription" labelExpression="aql:'Go Forward'" tooltipExpression="aql:'Go Forward'" resizeKind="NSEW">
+            <subNodeMappings name="MN_GoForward" label="Node GoForward" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::GoForward)" domainClass="mindstorms.GoForward">
+              <style xsi:type="style:DotDescription" labelSize="10" labelExpression="aql:'Go Forward'" tooltipExpression="aql:'Go Forward'" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="MN_GoBackward" label="Node GoBackward" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::GoForward)" domainClass="mindstorms.GoBackward">
-              <style xsi:type="style:DotDescription" labelExpression="aql:'Go Backward'" tooltipExpression="aql:'Go Backward'" resizeKind="NSEW">
+            <subNodeMappings name="MN_GoBackward" label="Node GoBackward" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::GoForward)" domainClass="mindstorms.GoBackward">
+              <style xsi:type="style:DotDescription" labelSize="10" labelExpression="aql:'Go Backward'" tooltipExpression="aql:'Go Backward'" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="MN_Grab" label="Node Grab" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::Grab)" domainClass="mindstorms.Grab">
-              <style xsi:type="style:DotDescription" labelExpression="aql:'Grab'" tooltipExpression="aql:'Grab'" resizeKind="NSEW">
+            <subNodeMappings name="MN_Grab" label="Node Grab" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::Grab)" domainClass="mindstorms.Grab">
+              <style xsi:type="style:DotDescription" labelSize="10" labelExpression="aql:'Grab'" tooltipExpression="aql:'Grab'" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="MN_Release" label="Node Release" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::Release)" domainClass="mindstorms.Release">
-              <style xsi:type="style:DotDescription" labelExpression="aql:'Release'" tooltipExpression="aql:'Release'" resizeKind="NSEW">
+            <subNodeMappings name="MN_Release" label="Node Release" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::Release)" domainClass="mindstorms.Release">
+              <style xsi:type="style:DotDescription" labelSize="10" labelExpression="aql:'Release'" tooltipExpression="aql:'Release'" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="MN_Rotate" label="Node Rotate" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::Rotate)" domainClass="mindstorms.Rotate">
-              <style xsi:type="style:DotDescription" labelExpression="aql:'Rotate of ' + self.degrees + '°'" tooltipExpression="aql:'Rotate of ' + self.degrees + '°'" resizeKind="NSEW">
+            <subNodeMappings name="MN_Rotate" label="Node Rotate" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Rotate']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::Rotate)" domainClass="mindstorms.Rotate">
+              <style xsi:type="style:DotDescription" labelSize="10" labelExpression="aql:'Rotate of ' + self.degrees + '°'" tooltipExpression="aql:'Rotate of ' + self.degrees + '°'" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
               </style>
               <conditionnalStyles predicateExpression="aql:self.random = true">
-                <style xsi:type="style:DotDescription" labelExpression="aql:'Rotate randomly between 0 and 360°'" tooltipExpression="aql:'Rotate randomly between 0 and 360°'" resizeKind="NSEW">
+                <style xsi:type="style:DotDescription" labelSize="10" labelExpression="aql:'Rotate randomly between 0 and 360°'" tooltipExpression="aql:'Rotate randomly between 0 and 360°'" resizeKind="NSEW">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
                 </style>
               </conditionnalStyles>
             </subNodeMappings>
-            <subNodeMappings name="MN_GoTo" label="Node GoTo" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::GoTo)" domainClass="mindstorms.GoTo">
-              <style xsi:type="style:DotDescription" labelExpression="aql:'Go to (' + self.x + ',' + 'y' + ')'" tooltipExpression="aql:'Go to (' + self.x + ',' + 'y' + ')'" resizeKind="NSEW">
+            <subNodeMappings name="MN_GoTo" label="Node GoTo" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Goto']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::GoTo)" domainClass="mindstorms.GoTo">
+              <style xsi:type="style:DotDescription" labelSize="10" labelExpression="aql:'Go to (' + self.x + ' ; ' + self.y + ')'" tooltipExpression="aql:'Go to (' + self.x + ' ; ' + self.y + ')'" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="MN_ReturnToBase" label="Node ReturnToBase" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::ReturnToBase)" domainClass="mindstorms.ReturnToBase">
-              <style xsi:type="style:DotDescription" labelExpression="aql:'Return to base'" tooltipExpression="aql:'Return to base'" resizeKind="NSEW">
+            <subNodeMappings name="MN_ReturnToBase" label="Node ReturnToBase" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::ReturnToBase)" domainClass="mindstorms.ReturnToBase">
+              <style xsi:type="style:DotDescription" labelSize="10" labelExpression="aql:'Return to base'" tooltipExpression="aql:'Return to base'" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="MN_Delay" label="Node Delay" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::Delay)" domainClass="mindstorms.Delay">
-              <style xsi:type="style:DotDescription" labelExpression="aql:'Delay of ' + self.ms + ' ms'" tooltipExpression="aql:'Delay of ' + self.ms + ' ms'" labelPosition="node" resizeKind="NSEW">
+            <subNodeMappings name="MN_Delay" label="Node Delay" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Delay']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::Delay)" domainClass="mindstorms.Delay">
+              <style xsi:type="style:DotDescription" labelSize="10" labelExpression="aql:'Delay of ' + self.ms + ' ms'" tooltipExpression="aql:'Delay of ' + self.ms + ' ms'" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <subContainerMappings name="MC_While" label="Container While" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::While)" domainClass="mindstorms.While">
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql:'While'" tooltipExpression="aql:'While'">
+            <subContainerMappings name="MC_While" label="Container While" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::While)" domainClass="mindstorms.While" reusedNodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Delay'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoBackward'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoForward'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoTo'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Grab'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Release'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_ReturnToBase'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Rotate'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Travel']" reusedContainerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_If'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_While']">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" labelExpression="aql:'While'" tooltipExpression="aql:'While'" backgroundStyle="GradientTopToBottom">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
               </style>
             </subContainerMappings>
-            <subContainerMappings name="MC_If" label="Container If" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::If)" domainClass="mindstorms.If">
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql:'If'" tooltipExpression="aql:'If'">
+            <subContainerMappings name="MC_If" label="Container If" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.blocks->filter(mindstorms::If)" domainClass="mindstorms.If" reusedNodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Delay'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoBackward'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoForward'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoTo'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Grab'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Release'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_ReturnToBase'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Rotate'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Travel']" reusedContainerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_If'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_While']" childrenPresentation="HorizontalStack">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" labelExpression="aql:'If'" tooltipExpression="aql:'If'" backgroundStyle="GradientTopToBottom">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
               </style>
             </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" tooltipExpression="feature:name">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" tooltipExpression="feature:name" backgroundStyle="GradientTopToBottom">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="MC_Arbitrator" label="Container Arbitrator" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.instructions->filter(mindstorms::Arbitrator)" domainClass="mindstorms.Arbitrator" childrenPresentation="List">
-            <subNodeMappings name="MN_Behavior" label="Node Behavior" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="feature:behaviors" domainClass="mindstorms.Behavior">
-              <style xsi:type="style:SquareDescription" labelAlignment="LEFT" tooltipExpression="feature:name" labelPosition="node" resizeKind="NSEW">
+          <subContainerMappings name="MC_Arbitrator" label="Container Arbitrator" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_NamedElement']" semanticCandidatesExpression="aql:self.instructions->filter(mindstorms::Arbitrator)" domainClass="mindstorms.Arbitrator" childrenPresentation="List">
+            <subNodeMappings name="MN_Behavior" label="Node Behavior" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="feature:behaviors" domainClass="mindstorms.Behavior">
+              <style xsi:type="style:SquareDescription" labelSize="10" labelAlignment="LEFT" tooltipExpression="feature:name" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" tooltipExpression="feature:name">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" tooltipExpression="feature:name" backgroundStyle="GradientTopToBottom">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="aql:'Instructions'" tooltipExpression="aql:'Instructions'" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Instructions'" tooltipExpression="aql:'Instructions'" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -139,15 +172,16 @@
           </style>
         </containerMappings>
         <containerMappings name="MC_Behaviors" label="Container Behaviors" semanticCandidatesExpression="aql:self" domainClass="mindstorms.Program">
-          <subContainerMappings name="MC_Behavior" label="Container Behavior" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDE_NamedElement']" semanticCandidatesExpression="feature:behaviors" domainClass="mindstorms.Behavior" reusedNodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Delay'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoBackward'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoForward'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoTo'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Grab'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Release'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_ReturnToBase'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Rotate'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Travel']" reusedContainerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_If'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_While']">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" tooltipExpression="feature:name">
+          <subContainerMappings name="MC_Behavior" label="Container Behavior" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_NamedElement']" semanticCandidatesExpression="feature:behaviors" domainClass="mindstorms.Behavior" reusedNodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Delay'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoBackward'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoForward'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoTo'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Grab'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Release'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_ReturnToBase'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Rotate'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Travel']" reusedContainerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_If'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_While']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="10" tooltipExpression="feature:name" backgroundStyle="GradientTopToBottom">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="aql:'Behaviors'" tooltipExpression="aql:'Behaviors'" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Behaviors'" tooltipExpression="aql:'Behaviors'" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -174,111 +208,141 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:PaneBasedSelectionWizardDescription" name="MW_Arbitrator" label="Arbitrator" precondition="aql:container.oclIsKindOf(mindstorms::Program)" windowTitle="Selection of behaviors" message="Select the behaviors that will be part of the Arbitrator :" choiceOfValuesMessage="Choice of behaviors" candidatesExpression="aql:self.eContainerOrSelf(mindstorms::Program).behaviors" selectedValuesMessage="Selected behaviors">
-            <element name="element"/>
-            <containerView name="containerView"/>
-            <container name="container"/>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="MCC_Arbitrator" label="Arbitrator" containerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Arbitrator']">
+            <variable name="container">
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="elements" candidatesExpression="aql:self.eContainerOrSelf(mindstorms::Program).behaviors" multiple="true" message="Select the behaviors that will be part of the Arbitrator :"/>
+            </variable>
+            <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Arbitrator" referenceName="instructions">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="behaviors" valueExpression="aql:element"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'New Arbitrator'"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Travel" label="Travel" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Travel']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Travel" referenceName="blocks">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="cm" valueExpression="0"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_GoForward" label="Go forward" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoForward']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.GoForward" referenceName="blocks"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_GoBackward" label="Go Backward" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoBackward']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.GoBackward" referenceName="blocks"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_GoTo" label="Go to" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoTo']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.GoTo" referenceName="blocks">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="x" valueExpression="0"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="y" valueExpression="0"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_ReturnToBase" label="Return to base" precondition="aql:container.oclIsKindOf(mindstorms::Instruction)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_ReturnToBase']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.ReturnToBase" referenceName="blocks"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Grab" label="Grab" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Grab']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Grab" referenceName="blocks"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Release" label="Release" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Release']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Release" referenceName="blocks"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Rotate" label="Rotate" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Rotate']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Rotate" referenceName="blocks">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="degrees" valueExpression="90"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="random" valueExpression="false"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Delay" label="Delay" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Delay']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Delay" referenceName="blocks">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="ms" valueExpression="1000"/>
+                  <subModelOperations xsi:type="tool_1:For" expression="var:elements">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="behaviors" valueExpression="var:i"/>
+                    </subModelOperations>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="MS_Blocks" label="Blocks">
+          <subSections name="MS_Actions" label="Actions">
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Travel" label="Travel" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Travel']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Travel" referenceName="blocks">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="cm" valueExpression="0"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_GoForward" label="Go forward" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoForward']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.GoForward" referenceName="blocks"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_GoBackward" label="Go Backward" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoBackward']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.GoBackward" referenceName="blocks"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_GoTo" label="Go to" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_GoTo']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.GoTo" referenceName="blocks">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="x" valueExpression="0"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="y" valueExpression="0"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_ReturnToBase" label="Return to base" precondition="aql:container.oclIsKindOf(mindstorms::Instruction)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_ReturnToBase']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.ReturnToBase" referenceName="blocks"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Grab" label="Grab" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Grab']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Grab" referenceName="blocks"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Release" label="Release" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Release']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Release" referenceName="blocks"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Rotate" label="Rotate" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Rotate']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Rotate" referenceName="blocks">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="degrees" valueExpression="90"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="random" valueExpression="false"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Delay" label="Delay" precondition="aql:container.oclIsKindOf(mindstorms::Procedure) or container.oclIsKindOf(mindstorms::Behavior)" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subNodeMappings[name='MN_Delay']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Delay" referenceName="blocks">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="ms" valueExpression="1000"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+          </subSections>
+          <subSections name="MS_Flow" label="Flow">
+            <ownedTools xsi:type="tool:ContainerCreationDescription" name="MCC_While" label="While" containerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_While']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.While" referenceName="blocks"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:ContainerCreationDescription" name="MCC_If" label="If" containerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Instructions']/@subContainerMappings[name='MC_Procedure']/@subContainerMappings[name='MC_If']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.If" referenceName="blocks"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+          </subSections>
+        </toolSections>
+        <toolSections name="MS_Sensor" label="Sensor"/>
         <toolSections name="MT_Call" label="Call">
           <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="MW_InstructionCall" label="Call Instruction" precondition="aql:container.oclIsKindOf(mindstorms::Main)" candidatesExpression="aql:self.eContainerOrSelf(mindstorms::Program).instructions" message="Select instruction to call :">
             <element name="element"/>
@@ -312,8 +376,81 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="MDE_Travel" label="Edit Travel">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="cm" valueExpression="aql:arg0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="MDE_Goto" label="Edit Goto">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.editGoto(arg0)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="MDE_Rotate" label="Edit Rotate">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.editRotate(arg0)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="MDE_Delay" label="Edit Delay">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.editDelay(arg0)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="MRE_InstructionCall" label="Reconnect InstructionCall Source" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:otherEnd.target.reconnectInstructionCallSource(target)"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="MRE_InstructionCallTarget" label="Reconnect InstructionCall Target">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:otherEnd.target.reconnectInstructionCallTarget(target)"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="MRE_BlockSource" label="Reconnect Block Source" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:otherEnd.target.reconnectBlockSource(target)"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="MRE_BlockTarget" label="Reconnect Block Target">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:otherEnd.target.reconnectBlockTarget(target)"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.mindstorms.design.services.EdgeServices"/>
+    <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.mindstorms.design.services.EditServices"/>
   </ownedViewpoints>
+  <userColorsPalettes name="MindstormsColorsPalette">
+    <entries xsi:type="description:UserFixedColor" red="196" green="226" blue="219" name="Main Green"/>
+  </userColorsPalettes>
 </description:Group>

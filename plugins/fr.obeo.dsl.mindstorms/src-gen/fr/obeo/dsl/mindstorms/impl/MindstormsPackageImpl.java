@@ -14,6 +14,7 @@ import fr.obeo.dsl.mindstorms.Action;
 import fr.obeo.dsl.mindstorms.Arbitrator;
 import fr.obeo.dsl.mindstorms.AvoidObstacle;
 import fr.obeo.dsl.mindstorms.Behavior;
+import fr.obeo.dsl.mindstorms.BinaryCondition;
 import fr.obeo.dsl.mindstorms.Block;
 import fr.obeo.dsl.mindstorms.Color;
 import fr.obeo.dsl.mindstorms.ColorSensor;
@@ -44,6 +45,7 @@ import fr.obeo.dsl.mindstorms.Timer;
 import fr.obeo.dsl.mindstorms.TouchSensor;
 import fr.obeo.dsl.mindstorms.Travel;
 import fr.obeo.dsl.mindstorms.UltrasonicSensor;
+import fr.obeo.dsl.mindstorms.UnaryCondition;
 import fr.obeo.dsl.mindstorms.While;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -158,6 +160,20 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * @generated
 	 */
 	private EClass conditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass binaryConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unaryConditionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -572,6 +588,69 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBinaryCondition() {
+		return binaryConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBinaryCondition_Left() {
+		return (EReference)binaryConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBinaryCondition_Op() {
+		return (EAttribute)binaryConditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBinaryCondition_Right() {
+		return (EReference)binaryConditionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUnaryCondition() {
+		return unaryConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUnaryCondition_Not() {
+		return (EAttribute)unaryConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUnaryCondition_Condition() {
+		return (EReference)unaryConditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIf() {
 		return ifEClass;
 	}
@@ -955,6 +1034,15 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 
 		conditionEClass = createEClass(CONDITION);
 
+		binaryConditionEClass = createEClass(BINARY_CONDITION);
+		createEReference(binaryConditionEClass, BINARY_CONDITION__LEFT);
+		createEAttribute(binaryConditionEClass, BINARY_CONDITION__OP);
+		createEReference(binaryConditionEClass, BINARY_CONDITION__RIGHT);
+
+		unaryConditionEClass = createEClass(UNARY_CONDITION);
+		createEAttribute(unaryConditionEClass, UNARY_CONDITION__NOT);
+		createEReference(unaryConditionEClass, UNARY_CONDITION__CONDITION);
+
 		ifEClass = createEClass(IF);
 		createEReference(ifEClass, IF__CONDITION);
 		createEReference(ifEClass, IF__BLOCKS);
@@ -1050,6 +1138,8 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		flowEClass.getESuperTypes().add(this.getBlock());
 		sensorEClass.getESuperTypes().add(this.getNamedElement());
 		sensorEClass.getESuperTypes().add(this.getCondition());
+		binaryConditionEClass.getESuperTypes().add(this.getCondition());
+		unaryConditionEClass.getESuperTypes().add(this.getCondition());
 		ifEClass.getESuperTypes().add(this.getFlow());
 		whileEClass.getESuperTypes().add(this.getFlow());
 		travelEClass.getESuperTypes().add(this.getAction());
@@ -1105,6 +1195,15 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		initEClass(sensorEClass, Sensor.class, "Sensor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(binaryConditionEClass, BinaryCondition.class, "BinaryCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBinaryCondition_Left(), this.getCondition(), null, "left", null, 0, 1, BinaryCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBinaryCondition_Op(), this.getOperatorKind(), "op", null, 0, 1, BinaryCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinaryCondition_Right(), this.getCondition(), null, "right", null, 0, 1, BinaryCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(unaryConditionEClass, UnaryCondition.class, "UnaryCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUnaryCondition_Not(), this.getOperatorKind(), "not", null, 0, 1, UnaryCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUnaryCondition_Condition(), this.getCondition(), null, "condition", null, 0, 1, UnaryCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIf_Condition(), this.getCondition(), null, "condition", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1181,6 +1280,7 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		addEEnumLiteral(operatorKindEEnum, OperatorKind.NOT_EQUAL);
 		addEEnumLiteral(operatorKindEEnum, OperatorKind.UPPER_OR_EQUAL);
 		addEEnumLiteral(operatorKindEEnum, OperatorKind.LOWER_OR_EQUAL);
+		addEEnumLiteral(operatorKindEEnum, OperatorKind.NOT);
 
 		// Create resource
 		createResource(eNS_URI);

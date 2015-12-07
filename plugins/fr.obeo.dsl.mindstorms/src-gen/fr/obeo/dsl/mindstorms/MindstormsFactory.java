@@ -100,6 +100,24 @@ public interface MindstormsFactory extends EFactory {
 	Condition createCondition();
 
 	/**
+	 * Returns a new object of class '<em>Binary Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binary Condition</em>'.
+	 * @generated
+	 */
+	BinaryCondition createBinaryCondition();
+
+	/**
+	 * Returns a new object of class '<em>Unary Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unary Condition</em>'.
+	 * @generated
+	 */
+	UnaryCondition createUnaryCondition();
+
+	/**
 	 * Returns a new object of class '<em>If</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
