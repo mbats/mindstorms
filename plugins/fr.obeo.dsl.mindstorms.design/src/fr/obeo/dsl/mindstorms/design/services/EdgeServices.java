@@ -7,24 +7,24 @@ import org.eclipse.emf.ecore.EObject;
 
 import fr.obeo.dsl.mindstorms.Behavior;
 import fr.obeo.dsl.mindstorms.Block;
-import fr.obeo.dsl.mindstorms.InstructionCall;
+import fr.obeo.dsl.mindstorms.Instruction;
 import fr.obeo.dsl.mindstorms.Main;
 import fr.obeo.dsl.mindstorms.Procedure;
 
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class EdgeServices {
 
-	public InstructionCall getNextInstructionCall(InstructionCall element) {
+	public Instruction getNextInstruction(Instruction element) {
 		EObject container = element.eContainer();
 		if (container instanceof Main) {
-			Object calls = container.eGet(element.eContainingFeature());
-			if (calls instanceof List) {
-				int size = ((List) calls).size();
-				int objectIndex = ((List)calls).indexOf(element);
+			Object blocks = container.eGet(element.eContainingFeature());
+			if (blocks instanceof List) {
+				int size = ((List) blocks).size();
+				int objectIndex = ((List)blocks).indexOf(element);
 				if (objectIndex < size - 1) {
-					Object nextElement = ((List) calls).get(objectIndex+1);
-					if (nextElement instanceof InstructionCall) {
-						return (InstructionCall) nextElement;
+					Object nextElement = ((List) blocks).get(objectIndex+1);
+					if (nextElement instanceof Instruction) {
+						return (Instruction) nextElement;
 					}
 				}
 			}
@@ -50,7 +50,7 @@ public class EdgeServices {
 		return null;
 	}
 	
-	public void reconnectInstructionCallSource(InstructionCall current, InstructionCall newPrev) {
+	public void reconnectInstructionSource(Instruction current, Instruction newPrev) {
 		EObject container = current.eContainer();
 		if (container instanceof Main) {
 			Object calls = container.eGet(current.eContainingFeature());
@@ -67,7 +67,7 @@ public class EdgeServices {
 		}
 	}
 	
-	public void reconnectInstructionCallTarget(InstructionCall current, InstructionCall newNext) {
+	public void reconnectInstructionTarget(Instruction current, Instruction newNext) {
 		EObject container = current.eContainer();
 		if (container instanceof Main) {
 			Object calls = container.eGet(current.eContainingFeature());
