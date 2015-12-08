@@ -72,12 +72,11 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case MindstormsPackage.PROGRAM: return createProgram();
 			case MindstormsPackage.MAIN: return createMain();
 			case MindstormsPackage.PROCEDURE: return createProcedure();
 			case MindstormsPackage.ARBITRATOR: return createArbitrator();
 			case MindstormsPackage.BEHAVIOR: return createBehavior();
-			case MindstormsPackage.INSTRUCTION_CALL: return createInstructionCall();
+			case MindstormsPackage.REUSE_INSTRUCTION: return createReuseInstruction();
 			case MindstormsPackage.CONDITION: return createCondition();
 			case MindstormsPackage.BINARY_CONDITION: return createBinaryCondition();
 			case MindstormsPackage.UNARY_CONDITION: return createUnaryCondition();
@@ -143,16 +142,6 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Program createProgram() {
-		ProgramImpl program = new ProgramImpl();
-		return program;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Main createMain() {
 		MainImpl main = new MainImpl();
 		return main;
@@ -193,9 +182,9 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InstructionCall createInstructionCall() {
-		InstructionCallImpl instructionCall = new InstructionCallImpl();
-		return instructionCall;
+	public ReuseInstruction createReuseInstruction() {
+		ReuseInstructionImpl reuseInstruction = new ReuseInstructionImpl();
+		return reuseInstruction;
 	}
 
 	/**

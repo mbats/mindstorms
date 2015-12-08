@@ -92,7 +92,7 @@ public class MainItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MindstormsPackage.Literals.MAIN__CALLS);
+			childrenFeatures.add(MindstormsPackage.Literals.MAIN__INSTRUCTIONS);
 		}
 		return childrenFeatures;
 	}
@@ -145,7 +145,7 @@ public class MainItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Main.class)) {
-			case MindstormsPackage.MAIN__CALLS:
+			case MindstormsPackage.MAIN__INSTRUCTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -165,8 +165,73 @@ public class MainItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.MAIN__CALLS,
-				 MindstormsFactory.eINSTANCE.createInstructionCall()));
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createProcedure()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createArbitrator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createReuseInstruction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createIf()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createWhile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createTravel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createGoForward()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createGoBackward()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createRotate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createGoTo()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createReturnToBase()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createGrab()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createRelease()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createDelay()));
 	}
 
 	/**

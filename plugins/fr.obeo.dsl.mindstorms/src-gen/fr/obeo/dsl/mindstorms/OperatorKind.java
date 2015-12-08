@@ -64,7 +64,9 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOWER_OR_EQUAL(0, "lowerOrEqual", "lowerOrEqual"), /**
+	LOWER_OR_EQUAL(0, "lowerOrEqual", "lowerOrEqual"),
+
+	/**
 	 * The '<em><b>Not</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

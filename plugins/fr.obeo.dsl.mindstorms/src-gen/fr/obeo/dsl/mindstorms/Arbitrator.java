@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link fr.obeo.dsl.mindstorms.Arbitrator#getBehaviors <em>Behaviors</em>}</li>
+ *   <li>{@link fr.obeo.dsl.mindstorms.Arbitrator#getReuse <em>Reuse</em>}</li>
  * </ul>
  *
  * @see fr.obeo.dsl.mindstorms.MindstormsPackage#getArbitrator()
@@ -37,7 +38,7 @@ public interface Arbitrator extends Instruction {
 	String copyright = "Copyright (c) 2015 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
 
 	/**
-	 * Returns the value of the '<em><b>Behaviors</b></em>' reference list.
+	 * Returns the value of the '<em><b>Behaviors</b></em>' containment reference list.
 	 * The list contents are of type {@link fr.obeo.dsl.mindstorms.Behavior}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -45,11 +46,27 @@ public interface Arbitrator extends Instruction {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Behaviors</em>' reference list.
+	 * @return the value of the '<em>Behaviors</em>' containment reference list.
 	 * @see fr.obeo.dsl.mindstorms.MindstormsPackage#getArbitrator_Behaviors()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Behavior> getBehaviors();
+
+	/**
+	 * Returns the value of the '<em><b>Reuse</b></em>' reference list.
+	 * The list contents are of type {@link fr.obeo.dsl.mindstorms.Behavior}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reuse</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reuse</em>' reference list.
+	 * @see fr.obeo.dsl.mindstorms.MindstormsPackage#getArbitrator_Reuse()
+	 * @model
+	 * @generated
+	 */
+	EList<Behavior> getReuse();
 
 } // Arbitrator

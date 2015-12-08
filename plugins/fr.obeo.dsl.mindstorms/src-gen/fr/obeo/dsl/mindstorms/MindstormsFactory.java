@@ -37,15 +37,6 @@ public interface MindstormsFactory extends EFactory {
 	MindstormsFactory eINSTANCE = fr.obeo.dsl.mindstorms.impl.MindstormsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Program</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Program</em>'.
-	 * @generated
-	 */
-	Program createProgram();
-
-	/**
 	 * Returns a new object of class '<em>Main</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,13 +73,13 @@ public interface MindstormsFactory extends EFactory {
 	Behavior createBehavior();
 
 	/**
-	 * Returns a new object of class '<em>Instruction Call</em>'.
+	 * Returns a new object of class '<em>Reuse Instruction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Instruction Call</em>'.
+	 * @return a new object of class '<em>Reuse Instruction</em>'.
 	 * @generated
 	 */
-	InstructionCall createInstructionCall();
+	ReuseInstruction createReuseInstruction();
 
 	/**
 	 * Returns a new object of class '<em>Condition</em>'.

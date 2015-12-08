@@ -5,16 +5,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Program" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Main">
     <eStructuralFeatures xsi:type="ecore:EReference" name="instructions" upperBound="-1"
         eType="#//Instruction" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviors" upperBound="-1"
-        eType="#//Behavior" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="main" eType="#//Main" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Main">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="calls" upperBound="-1"
-        eType="#//InstructionCall" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Instruction" abstract="true" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Procedure" eSuperTypes="#//Instruction">
@@ -23,6 +16,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Arbitrator" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="behaviors" upperBound="-1"
+        eType="#//Behavior" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reuse" upperBound="-1"
         eType="#//Behavior"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Behavior" eSuperTypes="#//NamedElement">
@@ -31,10 +26,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
         eType="#//Block" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InstructionCall">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="instruction" eType="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReuseInstruction" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reuse" eType="#//Instruction"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Block" abstract="true" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Block" abstract="true" eSuperTypes="#//Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" eSuperTypes="#//Block"/>
   <eClassifiers xsi:type="ecore:EClass" name="Flow" abstract="true" eSuperTypes="#//Block"/>
   <eClassifiers xsi:type="ecore:EClass" name="Sensor" abstract="true" eSuperTypes="#//NamedElement #//Condition"/>

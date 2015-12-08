@@ -12,6 +12,7 @@ package fr.obeo.dsl.mindstorms.provider;
 
 
 import fr.obeo.dsl.mindstorms.MindstormsPackage;
+import fr.obeo.dsl.mindstorms.ReuseInstruction;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,31 +20,16 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link fr.obeo.dsl.mindstorms.InstructionCall} object.
+ * This is the item provider adapter for a {@link fr.obeo.dsl.mindstorms.ReuseInstruction} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class InstructionCallItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class ReuseInstructionItemProvider extends InstructionItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,7 +43,7 @@ public class InstructionCallItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InstructionCallItemProvider(AdapterFactory adapterFactory) {
+	public ReuseInstructionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -72,25 +58,25 @@ public class InstructionCallItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInstructionPropertyDescriptor(object);
+			addReusePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Instruction feature.
+	 * This adds a property descriptor for the Reuse feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInstructionPropertyDescriptor(Object object) {
+	protected void addReusePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InstructionCall_instruction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InstructionCall_instruction_feature", "_UI_InstructionCall_type"),
-				 MindstormsPackage.Literals.INSTRUCTION_CALL__INSTRUCTION,
+				 getString("_UI_ReuseInstruction_reuse_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReuseInstruction_reuse_feature", "_UI_ReuseInstruction_type"),
+				 MindstormsPackage.Literals.REUSE_INSTRUCTION__REUSE,
 				 true,
 				 false,
 				 true,
@@ -100,14 +86,14 @@ public class InstructionCallItemProvider
 	}
 
 	/**
-	 * This returns InstructionCall.gif.
+	 * This returns ReuseInstruction.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InstructionCall"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReuseInstruction"));
 	}
 
 	/**
@@ -118,7 +104,10 @@ public class InstructionCallItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_InstructionCall_type");
+		String label = ((ReuseInstruction)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ReuseInstruction_type") :
+			getString("_UI_ReuseInstruction_type") + " " + label;
 	}
 	
 
@@ -145,17 +134,6 @@ public class InstructionCallItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return MindstormsEditPlugin.INSTANCE;
 	}
 
 }

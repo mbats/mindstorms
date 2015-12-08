@@ -110,23 +110,14 @@ public interface MindstormsPackage extends EPackage {
 	int NAMED_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.ProgramImpl <em>Program</em>}' class.
+	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.MainImpl <em>Main</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see fr.obeo.dsl.mindstorms.impl.ProgramImpl
-	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getProgram()
+	 * @see fr.obeo.dsl.mindstorms.impl.MainImpl
+	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getMain()
 	 * @generated
 	 */
-	int PROGRAM = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM__NAME = NAMED_ELEMENT__NAME;
+	int MAIN = 1;
 
 	/**
 	 * The feature id for the '<em><b>Instructions</b></em>' containment reference list.
@@ -135,62 +126,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM__INSTRUCTIONS = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Behaviors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM__BEHAVIORS = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Main</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM__MAIN = NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Program</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Program</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.MainImpl <em>Main</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.obeo.dsl.mindstorms.impl.MainImpl
-	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getMain()
-	 * @generated
-	 */
-	int MAIN = 2;
-
-	/**
-	 * The feature id for the '<em><b>Calls</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAIN__CALLS = 0;
+	int MAIN__INSTRUCTIONS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Main</em>' class.
@@ -218,7 +154,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getInstruction()
 	 * @generated
 	 */
-	int INSTRUCTION = 3;
+	int INSTRUCTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -255,7 +191,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getProcedure()
 	 * @generated
 	 */
-	int PROCEDURE = 4;
+	int PROCEDURE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -301,7 +237,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getArbitrator()
 	 * @generated
 	 */
-	int ARBITRATOR = 5;
+	int ARBITRATOR = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -313,7 +249,7 @@ public interface MindstormsPackage extends EPackage {
 	int ARBITRATOR__NAME = INSTRUCTION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Behaviors</b></em>' reference list.
+	 * The feature id for the '<em><b>Behaviors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -322,13 +258,22 @@ public interface MindstormsPackage extends EPackage {
 	int ARBITRATOR__BEHAVIORS = INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Reuse</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARBITRATOR__REUSE = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Arbitrator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARBITRATOR_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+	int ARBITRATOR_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Arbitrator</em>' class.
@@ -347,7 +292,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getBehavior()
 	 * @generated
 	 */
-	int BEHAVIOR = 6;
+	int BEHAVIOR = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -395,41 +340,50 @@ public interface MindstormsPackage extends EPackage {
 	int BEHAVIOR_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.InstructionCallImpl <em>Instruction Call</em>}' class.
+	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.ReuseInstructionImpl <em>Reuse Instruction</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see fr.obeo.dsl.mindstorms.impl.InstructionCallImpl
-	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getInstructionCall()
+	 * @see fr.obeo.dsl.mindstorms.impl.ReuseInstructionImpl
+	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getReuseInstruction()
 	 * @generated
 	 */
-	int INSTRUCTION_CALL = 7;
+	int REUSE_INSTRUCTION = 6;
 
 	/**
-	 * The feature id for the '<em><b>Instruction</b></em>' reference.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTRUCTION_CALL__INSTRUCTION = 0;
+	int REUSE_INSTRUCTION__NAME = INSTRUCTION__NAME;
 
 	/**
-	 * The number of structural features of the '<em>Instruction Call</em>' class.
+	 * The feature id for the '<em><b>Reuse</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTRUCTION_CALL_FEATURE_COUNT = 1;
+	int REUSE_INSTRUCTION__REUSE = INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Instruction Call</em>' class.
+	 * The number of structural features of the '<em>Reuse Instruction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTRUCTION_CALL_OPERATION_COUNT = 0;
+	int REUSE_INSTRUCTION_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Reuse Instruction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REUSE_INSTRUCTION_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.BlockImpl <em>Block</em>}' class.
@@ -439,7 +393,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getBlock()
 	 * @generated
 	 */
-	int BLOCK = 8;
+	int BLOCK = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -448,7 +402,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK__NAME = NAMED_ELEMENT__NAME;
+	int BLOCK__NAME = INSTRUCTION__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Block</em>' class.
@@ -457,7 +411,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int BLOCK_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Block</em>' class.
@@ -466,7 +420,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int BLOCK_OPERATION_COUNT = INSTRUCTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.ActionImpl <em>Action</em>}' class.
@@ -476,7 +430,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 9;
+	int ACTION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -513,7 +467,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getFlow()
 	 * @generated
 	 */
-	int FLOW = 10;
+	int FLOW = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -550,7 +504,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getSensor()
 	 * @generated
 	 */
-	int SENSOR = 11;
+	int SENSOR = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -587,7 +541,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getCondition()
 	 * @generated
 	 */
-	int CONDITION = 12;
+	int CONDITION = 11;
 
 	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
@@ -615,7 +569,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getBinaryCondition()
 	 * @generated
 	 */
-	int BINARY_CONDITION = 13;
+	int BINARY_CONDITION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -670,7 +624,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getUnaryCondition()
 	 * @generated
 	 */
-	int UNARY_CONDITION = 14;
+	int UNARY_CONDITION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Not</b></em>' attribute.
@@ -716,7 +670,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getIf()
 	 * @generated
 	 */
-	int IF = 15;
+	int IF = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -771,7 +725,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getWhile()
 	 * @generated
 	 */
-	int WHILE = 16;
+	int WHILE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -826,7 +780,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getTravel()
 	 * @generated
 	 */
-	int TRAVEL = 17;
+	int TRAVEL = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -872,7 +826,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGoForward()
 	 * @generated
 	 */
-	int GO_FORWARD = 18;
+	int GO_FORWARD = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -909,7 +863,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGoBackward()
 	 * @generated
 	 */
-	int GO_BACKWARD = 19;
+	int GO_BACKWARD = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -946,7 +900,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getRotate()
 	 * @generated
 	 */
-	int ROTATE = 20;
+	int ROTATE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1001,7 +955,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGoTo()
 	 * @generated
 	 */
-	int GO_TO = 21;
+	int GO_TO = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1056,7 +1010,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getReturnToBase()
 	 * @generated
 	 */
-	int RETURN_TO_BASE = 22;
+	int RETURN_TO_BASE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1093,7 +1047,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGrab()
 	 * @generated
 	 */
-	int GRAB = 23;
+	int GRAB = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1130,7 +1084,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getRelease()
 	 * @generated
 	 */
-	int RELEASE = 24;
+	int RELEASE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1167,7 +1121,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getDelay()
 	 * @generated
 	 */
-	int DELAY = 25;
+	int DELAY = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1213,7 +1167,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getAvoidObstacle()
 	 * @generated
 	 */
-	int AVOID_OBSTACLE = 26;
+	int AVOID_OBSTACLE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1268,7 +1222,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getReturnBottleToBase()
 	 * @generated
 	 */
-	int RETURN_BOTTLE_TO_BASE = 27;
+	int RETURN_BOTTLE_TO_BASE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1323,7 +1277,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getExploreForward()
 	 * @generated
 	 */
-	int EXPLORE_FORWARD = 28;
+	int EXPLORE_FORWARD = 27;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1378,7 +1332,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getTouchSensor()
 	 * @generated
 	 */
-	int TOUCH_SENSOR = 29;
+	int TOUCH_SENSOR = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1424,7 +1378,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getUltrasonicSensor()
 	 * @generated
 	 */
-	int ULTRASONIC_SENSOR = 30;
+	int ULTRASONIC_SENSOR = 29;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1488,7 +1442,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getTimer()
 	 * @generated
 	 */
-	int TIMER = 31;
+	int TIMER = 30;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1534,7 +1488,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getColorSensor()
 	 * @generated
 	 */
-	int COLOR_SENSOR = 32;
+	int COLOR_SENSOR = 31;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1580,7 +1534,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 33;
+	int COLOR = 32;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.OperatorKind <em>Operator Kind</em>}' enum.
@@ -1590,7 +1544,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getOperatorKind()
 	 * @generated
 	 */
-	int OPERATOR_KIND = 34;
+	int OPERATOR_KIND = 33;
 
 
 	/**
@@ -1615,49 +1569,6 @@ public interface MindstormsPackage extends EPackage {
 	EAttribute getNamedElement_Name();
 
 	/**
-	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.Program <em>Program</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Program</em>'.
-	 * @see fr.obeo.dsl.mindstorms.Program
-	 * @generated
-	 */
-	EClass getProgram();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.mindstorms.Program#getInstructions <em>Instructions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Instructions</em>'.
-	 * @see fr.obeo.dsl.mindstorms.Program#getInstructions()
-	 * @see #getProgram()
-	 * @generated
-	 */
-	EReference getProgram_Instructions();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.mindstorms.Program#getBehaviors <em>Behaviors</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Behaviors</em>'.
-	 * @see fr.obeo.dsl.mindstorms.Program#getBehaviors()
-	 * @see #getProgram()
-	 * @generated
-	 */
-	EReference getProgram_Behaviors();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link fr.obeo.dsl.mindstorms.Program#getMain <em>Main</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Main</em>'.
-	 * @see fr.obeo.dsl.mindstorms.Program#getMain()
-	 * @see #getProgram()
-	 * @generated
-	 */
-	EReference getProgram_Main();
-
-	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.Main <em>Main</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1668,15 +1579,15 @@ public interface MindstormsPackage extends EPackage {
 	EClass getMain();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.mindstorms.Main#getCalls <em>Calls</em>}'.
+	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.mindstorms.Main#getInstructions <em>Instructions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Calls</em>'.
-	 * @see fr.obeo.dsl.mindstorms.Main#getCalls()
+	 * @return the meta object for the containment reference list '<em>Instructions</em>'.
+	 * @see fr.obeo.dsl.mindstorms.Main#getInstructions()
 	 * @see #getMain()
 	 * @generated
 	 */
-	EReference getMain_Calls();
+	EReference getMain_Instructions();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.Instruction <em>Instruction</em>}'.
@@ -1720,15 +1631,26 @@ public interface MindstormsPackage extends EPackage {
 	EClass getArbitrator();
 
 	/**
-	 * Returns the meta object for the reference list '{@link fr.obeo.dsl.mindstorms.Arbitrator#getBehaviors <em>Behaviors</em>}'.
+	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.mindstorms.Arbitrator#getBehaviors <em>Behaviors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Behaviors</em>'.
+	 * @return the meta object for the containment reference list '<em>Behaviors</em>'.
 	 * @see fr.obeo.dsl.mindstorms.Arbitrator#getBehaviors()
 	 * @see #getArbitrator()
 	 * @generated
 	 */
 	EReference getArbitrator_Behaviors();
+
+	/**
+	 * Returns the meta object for the reference list '{@link fr.obeo.dsl.mindstorms.Arbitrator#getReuse <em>Reuse</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Reuse</em>'.
+	 * @see fr.obeo.dsl.mindstorms.Arbitrator#getReuse()
+	 * @see #getArbitrator()
+	 * @generated
+	 */
+	EReference getArbitrator_Reuse();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.Behavior <em>Behavior</em>}'.
@@ -1763,25 +1685,25 @@ public interface MindstormsPackage extends EPackage {
 	EReference getBehavior_Blocks();
 
 	/**
-	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.InstructionCall <em>Instruction Call</em>}'.
+	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.ReuseInstruction <em>Reuse Instruction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Instruction Call</em>'.
-	 * @see fr.obeo.dsl.mindstorms.InstructionCall
+	 * @return the meta object for class '<em>Reuse Instruction</em>'.
+	 * @see fr.obeo.dsl.mindstorms.ReuseInstruction
 	 * @generated
 	 */
-	EClass getInstructionCall();
+	EClass getReuseInstruction();
 
 	/**
-	 * Returns the meta object for the reference '{@link fr.obeo.dsl.mindstorms.InstructionCall#getInstruction <em>Instruction</em>}'.
+	 * Returns the meta object for the reference '{@link fr.obeo.dsl.mindstorms.ReuseInstruction#getReuse <em>Reuse</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Instruction</em>'.
-	 * @see fr.obeo.dsl.mindstorms.InstructionCall#getInstruction()
-	 * @see #getInstructionCall()
+	 * @return the meta object for the reference '<em>Reuse</em>'.
+	 * @see fr.obeo.dsl.mindstorms.ReuseInstruction#getReuse()
+	 * @see #getReuseInstruction()
 	 * @generated
 	 */
-	EReference getInstructionCall_Instruction();
+	EReference getReuseInstruction_Reuse();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.Block <em>Block</em>}'.
@@ -2326,40 +2248,6 @@ public interface MindstormsPackage extends EPackage {
 		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
 		/**
-		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.ProgramImpl <em>Program</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see fr.obeo.dsl.mindstorms.impl.ProgramImpl
-		 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getProgram()
-		 * @generated
-		 */
-		EClass PROGRAM = eINSTANCE.getProgram();
-
-		/**
-		 * The meta object literal for the '<em><b>Instructions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROGRAM__INSTRUCTIONS = eINSTANCE.getProgram_Instructions();
-
-		/**
-		 * The meta object literal for the '<em><b>Behaviors</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROGRAM__BEHAVIORS = eINSTANCE.getProgram_Behaviors();
-
-		/**
-		 * The meta object literal for the '<em><b>Main</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROGRAM__MAIN = eINSTANCE.getProgram_Main();
-
-		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.MainImpl <em>Main</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2370,12 +2258,12 @@ public interface MindstormsPackage extends EPackage {
 		EClass MAIN = eINSTANCE.getMain();
 
 		/**
-		 * The meta object literal for the '<em><b>Calls</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Instructions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MAIN__CALLS = eINSTANCE.getMain_Calls();
+		EReference MAIN__INSTRUCTIONS = eINSTANCE.getMain_Instructions();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.InstructionImpl <em>Instruction</em>}' class.
@@ -2416,12 +2304,20 @@ public interface MindstormsPackage extends EPackage {
 		EClass ARBITRATOR = eINSTANCE.getArbitrator();
 
 		/**
-		 * The meta object literal for the '<em><b>Behaviors</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Behaviors</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference ARBITRATOR__BEHAVIORS = eINSTANCE.getArbitrator_Behaviors();
+
+		/**
+		 * The meta object literal for the '<em><b>Reuse</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARBITRATOR__REUSE = eINSTANCE.getArbitrator_Reuse();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.BehaviorImpl <em>Behavior</em>}' class.
@@ -2450,22 +2346,22 @@ public interface MindstormsPackage extends EPackage {
 		EReference BEHAVIOR__BLOCKS = eINSTANCE.getBehavior_Blocks();
 
 		/**
-		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.InstructionCallImpl <em>Instruction Call</em>}' class.
+		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.ReuseInstructionImpl <em>Reuse Instruction</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see fr.obeo.dsl.mindstorms.impl.InstructionCallImpl
-		 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getInstructionCall()
+		 * @see fr.obeo.dsl.mindstorms.impl.ReuseInstructionImpl
+		 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getReuseInstruction()
 		 * @generated
 		 */
-		EClass INSTRUCTION_CALL = eINSTANCE.getInstructionCall();
+		EClass REUSE_INSTRUCTION = eINSTANCE.getReuseInstruction();
 
 		/**
-		 * The meta object literal for the '<em><b>Instruction</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Reuse</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INSTRUCTION_CALL__INSTRUCTION = eINSTANCE.getInstructionCall_Instruction();
+		EReference REUSE_INSTRUCTION__REUSE = eINSTANCE.getReuseInstruction_Reuse();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.BlockImpl <em>Block</em>}' class.

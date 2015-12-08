@@ -87,10 +87,6 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 				return createNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseProgram(Program object) {
-				return createProgramAdapter();
-			}
-			@Override
 			public Adapter caseMain(Main object) {
 				return createMainAdapter();
 			}
@@ -111,8 +107,8 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 				return createBehaviorAdapter();
 			}
 			@Override
-			public Adapter caseInstructionCall(InstructionCall object) {
-				return createInstructionCallAdapter();
+			public Adapter caseReuseInstruction(ReuseInstruction object) {
+				return createReuseInstructionAdapter();
 			}
 			@Override
 			public Adapter caseBlock(Block object) {
@@ -249,20 +245,6 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.Program <em>Program</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.obeo.dsl.mindstorms.Program
-	 * @generated
-	 */
-	public Adapter createProgramAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.Main <em>Main</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -333,16 +315,16 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.InstructionCall <em>Instruction Call</em>}'.
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.ReuseInstruction <em>Reuse Instruction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.obeo.dsl.mindstorms.InstructionCall
+	 * @see fr.obeo.dsl.mindstorms.ReuseInstruction
 	 * @generated
 	 */
-	public Adapter createInstructionCallAdapter() {
+	public Adapter createReuseInstructionAdapter() {
 		return null;
 	}
 

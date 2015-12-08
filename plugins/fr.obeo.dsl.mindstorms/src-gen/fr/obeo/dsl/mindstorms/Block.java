@@ -21,7 +21,7 @@ package fr.obeo.dsl.mindstorms;
  * @model abstract="true"
  * @generated
  */
-public interface Block extends NamedElement {
+public interface Block extends Instruction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

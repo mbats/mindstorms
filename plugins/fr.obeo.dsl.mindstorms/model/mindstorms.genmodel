@@ -36,27 +36,23 @@
     <genClasses image="false" ecoreClass="mindstorms.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//NamedElement/name"/>
     </genClasses>
-    <genClasses ecoreClass="mindstorms.ecore#//Program">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Program/instructions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Program/behaviors"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Program/main"/>
-    </genClasses>
     <genClasses ecoreClass="mindstorms.ecore#//Main">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Main/calls"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Main/instructions"/>
     </genClasses>
     <genClasses image="false" ecoreClass="mindstorms.ecore#//Instruction"/>
     <genClasses ecoreClass="mindstorms.ecore#//Procedure">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Procedure/blocks"/>
     </genClasses>
     <genClasses ecoreClass="mindstorms.ecore#//Arbitrator">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Arbitrator/behaviors"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Arbitrator/behaviors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Arbitrator/reuse"/>
     </genClasses>
     <genClasses ecoreClass="mindstorms.ecore#//Behavior">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Behavior/takeControl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Behavior/blocks"/>
     </genClasses>
-    <genClasses ecoreClass="mindstorms.ecore#//InstructionCall">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mindstorms.ecore#//InstructionCall/instruction"/>
+    <genClasses ecoreClass="mindstorms.ecore#//ReuseInstruction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mindstorms.ecore#//ReuseInstruction/reuse"/>
     </genClasses>
     <genClasses image="false" ecoreClass="mindstorms.ecore#//Block"/>
     <genClasses ecoreClass="mindstorms.ecore#//Action"/>

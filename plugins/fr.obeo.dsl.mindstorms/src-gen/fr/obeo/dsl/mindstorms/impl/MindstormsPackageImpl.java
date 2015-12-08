@@ -28,17 +28,16 @@ import fr.obeo.dsl.mindstorms.GoTo;
 import fr.obeo.dsl.mindstorms.Grab;
 import fr.obeo.dsl.mindstorms.If;
 import fr.obeo.dsl.mindstorms.Instruction;
-import fr.obeo.dsl.mindstorms.InstructionCall;
 import fr.obeo.dsl.mindstorms.Main;
 import fr.obeo.dsl.mindstorms.MindstormsFactory;
 import fr.obeo.dsl.mindstorms.MindstormsPackage;
 import fr.obeo.dsl.mindstorms.NamedElement;
 import fr.obeo.dsl.mindstorms.OperatorKind;
 import fr.obeo.dsl.mindstorms.Procedure;
-import fr.obeo.dsl.mindstorms.Program;
 import fr.obeo.dsl.mindstorms.Release;
 import fr.obeo.dsl.mindstorms.ReturnBottleToBase;
 import fr.obeo.dsl.mindstorms.ReturnToBase;
+import fr.obeo.dsl.mindstorms.ReuseInstruction;
 import fr.obeo.dsl.mindstorms.Rotate;
 import fr.obeo.dsl.mindstorms.Sensor;
 import fr.obeo.dsl.mindstorms.Timer;
@@ -82,13 +81,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass programEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass mainEClass = null;
 
 	/**
@@ -124,7 +116,7 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass instructionCallEClass = null;
+	private EClass reuseInstructionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -399,42 +391,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProgram() {
-		return programEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProgram_Instructions() {
-		return (EReference)programEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProgram_Behaviors() {
-		return (EReference)programEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProgram_Main() {
-		return (EReference)programEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMain() {
 		return mainEClass;
 	}
@@ -444,7 +400,7 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMain_Calls() {
+	public EReference getMain_Instructions() {
 		return (EReference)mainEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -498,6 +454,15 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getArbitrator_Reuse() {
+		return (EReference)arbitratorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBehavior() {
 		return behaviorEClass;
 	}
@@ -525,8 +490,8 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getInstructionCall() {
-		return instructionCallEClass;
+	public EClass getReuseInstruction() {
+		return reuseInstructionEClass;
 	}
 
 	/**
@@ -534,8 +499,8 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInstructionCall_Instruction() {
-		return (EReference)instructionCallEClass.getEStructuralFeatures().get(0);
+	public EReference getReuseInstruction_Reuse() {
+		return (EReference)reuseInstructionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1001,13 +966,8 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
-		programEClass = createEClass(PROGRAM);
-		createEReference(programEClass, PROGRAM__INSTRUCTIONS);
-		createEReference(programEClass, PROGRAM__BEHAVIORS);
-		createEReference(programEClass, PROGRAM__MAIN);
-
 		mainEClass = createEClass(MAIN);
-		createEReference(mainEClass, MAIN__CALLS);
+		createEReference(mainEClass, MAIN__INSTRUCTIONS);
 
 		instructionEClass = createEClass(INSTRUCTION);
 
@@ -1016,13 +976,14 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 
 		arbitratorEClass = createEClass(ARBITRATOR);
 		createEReference(arbitratorEClass, ARBITRATOR__BEHAVIORS);
+		createEReference(arbitratorEClass, ARBITRATOR__REUSE);
 
 		behaviorEClass = createEClass(BEHAVIOR);
 		createEReference(behaviorEClass, BEHAVIOR__TAKE_CONTROL);
 		createEReference(behaviorEClass, BEHAVIOR__BLOCKS);
 
-		instructionCallEClass = createEClass(INSTRUCTION_CALL);
-		createEReference(instructionCallEClass, INSTRUCTION_CALL__INSTRUCTION);
+		reuseInstructionEClass = createEClass(REUSE_INSTRUCTION);
+		createEReference(reuseInstructionEClass, REUSE_INSTRUCTION__REUSE);
 
 		blockEClass = createEClass(BLOCK);
 
@@ -1128,12 +1089,12 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		programEClass.getESuperTypes().add(this.getNamedElement());
 		instructionEClass.getESuperTypes().add(this.getNamedElement());
 		procedureEClass.getESuperTypes().add(this.getInstruction());
 		arbitratorEClass.getESuperTypes().add(this.getInstruction());
 		behaviorEClass.getESuperTypes().add(this.getNamedElement());
-		blockEClass.getESuperTypes().add(this.getNamedElement());
+		reuseInstructionEClass.getESuperTypes().add(this.getInstruction());
+		blockEClass.getESuperTypes().add(this.getInstruction());
 		actionEClass.getESuperTypes().add(this.getBlock());
 		flowEClass.getESuperTypes().add(this.getBlock());
 		sensorEClass.getESuperTypes().add(this.getNamedElement());
@@ -1163,13 +1124,8 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProgram_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProgram_Behaviors(), this.getBehavior(), null, "behaviors", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProgram_Main(), this.getMain(), null, "main", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(mainEClass, Main.class, "Main", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMain_Calls(), this.getInstructionCall(), null, "calls", null, 0, -1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMain_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(instructionEClass, Instruction.class, "Instruction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1177,14 +1133,15 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		initEReference(getProcedure_Blocks(), this.getBlock(), null, "blocks", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(arbitratorEClass, Arbitrator.class, "Arbitrator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getArbitrator_Behaviors(), this.getBehavior(), null, "behaviors", null, 0, -1, Arbitrator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArbitrator_Behaviors(), this.getBehavior(), null, "behaviors", null, 0, -1, Arbitrator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArbitrator_Reuse(), this.getBehavior(), null, "reuse", null, 0, -1, Arbitrator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(behaviorEClass, Behavior.class, "Behavior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBehavior_TakeControl(), this.getCondition(), null, "takeControl", null, 0, 1, Behavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBehavior_Blocks(), this.getBlock(), null, "blocks", null, 0, -1, Behavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(instructionCallEClass, InstructionCall.class, "InstructionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInstructionCall_Instruction(), this.getInstruction(), null, "instruction", null, 0, 1, InstructionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(reuseInstructionEClass, ReuseInstruction.class, "ReuseInstruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getReuseInstruction_Reuse(), this.getInstruction(), null, "reuse", null, 0, 1, ReuseInstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(blockEClass, Block.class, "Block", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
