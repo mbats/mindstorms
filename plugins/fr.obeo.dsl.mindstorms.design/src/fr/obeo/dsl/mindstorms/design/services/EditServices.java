@@ -1,13 +1,26 @@
 package fr.obeo.dsl.mindstorms.design.services;
 
+import org.eclipse.emf.ecore.EObject;
+
+import fr.obeo.dsl.mindstorms.Color;
+import fr.obeo.dsl.mindstorms.ColorSensor;
 import fr.obeo.dsl.mindstorms.Delay;
 import fr.obeo.dsl.mindstorms.GoTo;
+import fr.obeo.dsl.mindstorms.NamedElement;
 import fr.obeo.dsl.mindstorms.Rotate;
 import fr.obeo.dsl.mindstorms.Travel;
 
 public class EditServices {
 
-	public void editTravel(Travel travel, Object value) {
+	public void editElement(EObject object, Object value) {
+		// Do nothing
+	}
+	
+	public void editElement(NamedElement object, String value) {
+		object.setName(value);
+	}
+	
+	public void editElement(Travel travel, Object value) {
 		String valueOf = String.valueOf(value);
 		try {
 			int parseInt = Integer.parseInt(valueOf);
@@ -17,7 +30,7 @@ public class EditServices {
 		}
 	}
 	
-	public void editRotate(Rotate rotate, Object value) {
+	public void editElement(Rotate rotate, Object value) {
 		String valueOf = String.valueOf(value);
 		try {
 			int parseInt = Integer.parseInt(valueOf);
@@ -36,7 +49,7 @@ public class EditServices {
 		}
 	}
 	
-	public void editGoto(GoTo gt, Object value) {
+	public void editElement(GoTo gt, Object value) {
 		String valueOf = String.valueOf(value);
 		if (valueOf == null) {
 			return;
@@ -58,13 +71,29 @@ public class EditServices {
 		}
 	}
 	
-	public void editDelay(Delay delay, Object value) {
+	public void editElement(Delay delay, Object value) {
 		String valueOf = String.valueOf(value);
 		try {
 			int parseInt = Integer.parseInt(valueOf);
 			delay.setMs(parseInt);
 		} catch (NumberFormatException e) {
 			// Do nothing
+		}
+	}
+	
+	public void editElement(ColorSensor sensor, String value) {
+		String colorPart = "";
+		String[] valueParts = value.split("\\s");
+		if (valueParts.length > 0) {			
+			colorPart = valueParts[valueParts.length - 1];
+		} else {
+			colorPart = value;
+		}
+		for (Color color : Color.VALUES) {
+			if (color.getLiteral().equalsIgnoreCase(colorPart)) {
+				sensor.setColor(color);
+				break;
+			}
 		}
 	}
 }

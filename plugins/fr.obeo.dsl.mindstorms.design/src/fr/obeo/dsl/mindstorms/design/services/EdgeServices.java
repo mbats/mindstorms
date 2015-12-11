@@ -7,9 +7,11 @@ import org.eclipse.emf.ecore.EObject;
 
 import fr.obeo.dsl.mindstorms.Behavior;
 import fr.obeo.dsl.mindstorms.Block;
+import fr.obeo.dsl.mindstorms.If;
 import fr.obeo.dsl.mindstorms.Instruction;
 import fr.obeo.dsl.mindstorms.Main;
 import fr.obeo.dsl.mindstorms.Procedure;
+import fr.obeo.dsl.mindstorms.While;
 
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class EdgeServices {
@@ -34,7 +36,7 @@ public class EdgeServices {
 	
 	public Block getNextBlock(Block element) {
 		EObject container = element.eContainer();
-		if (container instanceof Procedure || container instanceof Behavior) {
+		if (container instanceof Procedure || container instanceof Behavior || container instanceof While || container instanceof If) {
 			Object blocks = container.eGet(element.eContainingFeature());
 			if (blocks instanceof List) {
 				int size = ((List) blocks).size();
