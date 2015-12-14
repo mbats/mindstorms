@@ -156,21 +156,6 @@ public class IfItemProvider extends FlowItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MindstormsPackage.Literals.IF__CONDITION,
-				 MindstormsFactory.eINSTANCE.createCondition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.IF__CONDITION,
-				 MindstormsFactory.eINSTANCE.createBinaryCondition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.IF__CONDITION,
-				 MindstormsFactory.eINSTANCE.createUnaryCondition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.IF__CONDITION,
 				 MindstormsFactory.eINSTANCE.createTouchSensor()));
 
 		newChildDescriptors.add
@@ -197,11 +182,6 @@ public class IfItemProvider extends FlowItemProvider {
 			(createChildParameter
 				(MindstormsPackage.Literals.IF__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createWhile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.IF__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createTravel()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -188,11 +188,6 @@ public class WhileItemProvider extends FlowItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MindstormsPackage.Literals.WHILE__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createTravel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.WHILE__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createGoForward()));
 
 		newChildDescriptors.add

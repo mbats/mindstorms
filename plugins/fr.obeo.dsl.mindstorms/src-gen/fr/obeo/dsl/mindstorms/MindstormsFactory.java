@@ -82,33 +82,6 @@ public interface MindstormsFactory extends EFactory {
 	ReuseInstruction createReuseInstruction();
 
 	/**
-	 * Returns a new object of class '<em>Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition</em>'.
-	 * @generated
-	 */
-	Condition createCondition();
-
-	/**
-	 * Returns a new object of class '<em>Binary Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Binary Condition</em>'.
-	 * @generated
-	 */
-	BinaryCondition createBinaryCondition();
-
-	/**
-	 * Returns a new object of class '<em>Unary Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unary Condition</em>'.
-	 * @generated
-	 */
-	UnaryCondition createUnaryCondition();
-
-	/**
 	 * Returns a new object of class '<em>If</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,15 +98,6 @@ public interface MindstormsFactory extends EFactory {
 	 * @generated
 	 */
 	While createWhile();
-
-	/**
-	 * Returns a new object of class '<em>Travel</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Travel</em>'.
-	 * @generated
-	 */
-	Travel createTravel();
 
 	/**
 	 * Returns a new object of class '<em>Go Forward</em>'.

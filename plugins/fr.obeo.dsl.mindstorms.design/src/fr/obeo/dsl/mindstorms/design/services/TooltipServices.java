@@ -10,85 +10,100 @@ import fr.obeo.dsl.mindstorms.Delay;
 import fr.obeo.dsl.mindstorms.GoBackward;
 import fr.obeo.dsl.mindstorms.GoForward;
 import fr.obeo.dsl.mindstorms.GoTo;
+import fr.obeo.dsl.mindstorms.Grab;
 import fr.obeo.dsl.mindstorms.If;
 import fr.obeo.dsl.mindstorms.Instruction;
 import fr.obeo.dsl.mindstorms.Procedure;
+import fr.obeo.dsl.mindstorms.Release;
+import fr.obeo.dsl.mindstorms.ReturnToBase;
 import fr.obeo.dsl.mindstorms.ReuseInstruction;
 import fr.obeo.dsl.mindstorms.Rotate;
 import fr.obeo.dsl.mindstorms.Timer;
 import fr.obeo.dsl.mindstorms.UltrasonicSensor;
 import fr.obeo.dsl.mindstorms.While;
 
-public class LabelServices {
+public class TooltipServices {
 
-	public String computeLabel(EObject object) {
+	public String computeTooltip(EObject object) {
 		return "";
 	}
 	
-	public String computeLabel(While object) {
+	public String computeTooltip(While object) {
 		String label = "While";
 		Condition condition = object.getCondition();
 		if (condition instanceof Timer) {
 			label +=  " " + computeLabel((Timer)condition);
 		} else if (condition instanceof ColorSensor) {
-			label +=  " " + computeLabel((ColorSensor)condition);
+			label +=  " " + computeTooltip((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
-			label +=  " " + computeLabel((UltrasonicSensor)condition);
+			label +=  " " + computeTooltip((UltrasonicSensor)condition);
 		} else {
 			label += " <insert condition>";
 		}
 		return label;
 	}
 	
-	public String computeLabel(If object) {
+	public String computeTooltip(If object) {
 		String label = "If";
 		Condition condition = object.getCondition();
 		if (condition instanceof Timer) {
 			label +=  " " + computeLabel((Timer)condition);
 		} else if (condition instanceof ColorSensor) {
-			label +=  " " + computeLabel((ColorSensor)condition);
+			label +=  " " + computeTooltip((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
-			label +=  " " + computeLabel((UltrasonicSensor)condition);
+			label +=  " " + computeTooltip((UltrasonicSensor)condition);
 		} else {
 			label += " <insert condition>";
 		}
 		return label;
 	}
 	
-	public String computeLabel(Delay delay) {
-		return "" + delay.getMs() + " ms";
+	public String computeTooltip(Delay object) {
+		return "Delay of " + object.getMs() + " ms";
+	}
+
+	public String computeTooltip(GoTo block) {
+		return "Go to (" + block.getX() + " ; " + block.getY() + ")";
 	}
 	
-	public String computeLabel(GoTo block) {
-		return block.getX() + " ; " + block.getY();
+	public String computeTooltip(Grab block) {
+		return "Grab";
 	}
 	
-	public String computeLabel(Rotate block) {
+	public String computeTooltip(Release block) {
+		return "Release";
+	}
+	
+	public String computeTooltip(ReturnToBase block) {
+		return "Return to base";
+	}
+	
+	public String computeTooltip(Rotate block) {
 		if (block.isRandom()) {
-			return "?";
+			return "Rotate randomly between 0 and 360°";
 		}
-		return "" + block.getDegrees() + "°";
+		return "Rotate of " + block.getDegrees() + "°";
 	}
 	
-	public String computeLabel(GoForward block) {
+	public String computeTooltip(GoForward block) {
 		if (block.isInfinite()) {
-			return "\u221e";
+			return "Go forward indefinitely";
 		}
-		return "" + block.getCm() + " cm";
+		return "Go forward on " + block.getCm() + " cm";
 	}
 	
-	public String computeLabel(GoBackward block) {
+	public String computeTooltip(GoBackward block) {
 		if (block.isInfinite()) {
-			return "\u221e";
+			return "Go backward indefinitely";
 		}
-		return "-" + block.getCm() + " cm";
+		return "Go backward on " + block.getCm() + " cm";
 	}
 	
 	public String computeLabel(Timer timer) {
 		return "Timer : " + timer.getValue() + " ms";
 	}
 	
-	public String computeLabel(UltrasonicSensor sensor) {
+	public String computeTooltip(UltrasonicSensor sensor) {
 		String label = "Distance ";
 		switch (sensor.getOperator()) {
 		case EQUAL:
@@ -113,7 +128,7 @@ public class LabelServices {
 		return label;
 	}
 	
-	public String computeLabel(ColorSensor sensor) {
+	public String computeTooltip(ColorSensor sensor) {
 		String label = "Color is ";
 		Color color = sensor.getColor();
 		if (color != null) {
@@ -122,20 +137,20 @@ public class LabelServices {
 		return label;
 	}
 	
-	public String computeLabel(Procedure object) {
-		return object.getName();
+	public String computeTooltip(Procedure proc) {
+		return proc.getName();
 	}
 	
-	public String computeLabel(Behavior object) {
-		return object.getName();
+	public String computeTooltip(Behavior behavior) {
+		return behavior.getName();
 	}
 	
-	public String computeLabel(ReuseInstruction instruction) {
+	public String computeTooltip(ReuseInstruction instruction) {
 		Instruction reuse = instruction.getReuse();
 		if (reuse instanceof Procedure) {			
-			return "Reuse " + computeLabel((Procedure)reuse);
+			return "Reuse " + computeTooltip((Procedure)reuse);
 		} else if (reuse instanceof Behavior) {			
-			return "Reuse " + computeLabel((Behavior)reuse);
+			return "Reuse " + computeTooltip((Behavior)reuse);
 		}
 		
 		return "Reuse " + reuse.getName();

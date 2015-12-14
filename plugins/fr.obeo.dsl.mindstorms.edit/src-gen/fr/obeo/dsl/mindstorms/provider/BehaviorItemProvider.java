@@ -156,21 +156,6 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
-				 MindstormsFactory.eINSTANCE.createCondition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
-				 MindstormsFactory.eINSTANCE.createBinaryCondition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
-				 MindstormsFactory.eINSTANCE.createUnaryCondition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
 				 MindstormsFactory.eINSTANCE.createTouchSensor()));
 
 		newChildDescriptors.add
@@ -197,11 +182,6 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 			(createChildParameter
 				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createWhile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createTravel()));
 
 		newChildDescriptors.add
 			(createChildParameter

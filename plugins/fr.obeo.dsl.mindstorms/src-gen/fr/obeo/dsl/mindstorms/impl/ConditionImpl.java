@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ConditionImpl extends MinimalEObjectImpl.Container implements Condition {
+public abstract class ConditionImpl extends MinimalEObjectImpl.Container implements Condition {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

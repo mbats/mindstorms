@@ -64,17 +64,7 @@ public enum OperatorKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOWER_OR_EQUAL(0, "lowerOrEqual", "lowerOrEqual"),
-
-	/**
-	 * The '<em><b>Not</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NOT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	NOT(0, "not", "not");
+	LOWER_OR_EQUAL(0, "lowerOrEqual", "lowerOrEqual");
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,21 +134,6 @@ public enum OperatorKind implements Enumerator {
 	public static final int LOWER_OR_EQUAL_VALUE = 0;
 
 	/**
-	 * The '<em><b>Not</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Not</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #NOT
-	 * @model name="not"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int NOT_VALUE = 0;
-
-	/**
 	 * An array of all the '<em><b>Operator Kind</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,7 +145,6 @@ public enum OperatorKind implements Enumerator {
 			NOT_EQUAL,
 			UPPER_OR_EQUAL,
 			LOWER_OR_EQUAL,
-			NOT,
 		};
 
 	/**

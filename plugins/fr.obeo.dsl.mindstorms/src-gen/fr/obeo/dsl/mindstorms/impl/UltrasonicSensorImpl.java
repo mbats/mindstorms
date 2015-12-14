@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.obeo.dsl.mindstorms.impl.UltrasonicSensorImpl#getDistance <em>Distance</em>}</li>
  *   <li>{@link fr.obeo.dsl.mindstorms.impl.UltrasonicSensorImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link fr.obeo.dsl.mindstorms.impl.UltrasonicSensorImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -42,26 +41,6 @@ public class UltrasonicSensorImpl extends SensorImpl implements UltrasonicSensor
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2015 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
-
-	/**
-	 * The default value of the '{@link #getDistance() <em>Distance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDistance()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final float DISTANCE_EDEFAULT = 0.0F;
-
-	/**
-	 * The cached value of the '{@link #getDistance() <em>Distance</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDistance()
-	 * @generated
-	 * @ordered
-	 */
-	protected float distance = DISTANCE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
@@ -127,27 +106,6 @@ public class UltrasonicSensorImpl extends SensorImpl implements UltrasonicSensor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getDistance() {
-		return distance;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDistance(float newDistance) {
-		float oldDistance = distance;
-		distance = newDistance;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MindstormsPackage.ULTRASONIC_SENSOR__DISTANCE, oldDistance, distance));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public OperatorKind getOperator() {
 		return operator;
 	}
@@ -193,8 +151,6 @@ public class UltrasonicSensorImpl extends SensorImpl implements UltrasonicSensor
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MindstormsPackage.ULTRASONIC_SENSOR__DISTANCE:
-				return getDistance();
 			case MindstormsPackage.ULTRASONIC_SENSOR__OPERATOR:
 				return getOperator();
 			case MindstormsPackage.ULTRASONIC_SENSOR__VALUE:
@@ -211,9 +167,6 @@ public class UltrasonicSensorImpl extends SensorImpl implements UltrasonicSensor
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MindstormsPackage.ULTRASONIC_SENSOR__DISTANCE:
-				setDistance((Float)newValue);
-				return;
 			case MindstormsPackage.ULTRASONIC_SENSOR__OPERATOR:
 				setOperator((OperatorKind)newValue);
 				return;
@@ -232,9 +185,6 @@ public class UltrasonicSensorImpl extends SensorImpl implements UltrasonicSensor
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MindstormsPackage.ULTRASONIC_SENSOR__DISTANCE:
-				setDistance(DISTANCE_EDEFAULT);
-				return;
 			case MindstormsPackage.ULTRASONIC_SENSOR__OPERATOR:
 				setOperator(OPERATOR_EDEFAULT);
 				return;
@@ -253,8 +203,6 @@ public class UltrasonicSensorImpl extends SensorImpl implements UltrasonicSensor
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MindstormsPackage.ULTRASONIC_SENSOR__DISTANCE:
-				return distance != DISTANCE_EDEFAULT;
 			case MindstormsPackage.ULTRASONIC_SENSOR__OPERATOR:
 				return operator != OPERATOR_EDEFAULT;
 			case MindstormsPackage.ULTRASONIC_SENSOR__VALUE:
@@ -273,9 +221,7 @@ public class UltrasonicSensorImpl extends SensorImpl implements UltrasonicSensor
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (distance: ");
-		result.append(distance);
-		result.append(", operator: ");
+		result.append(" (operator: ");
 		result.append(operator);
 		result.append(", value: ");
 		result.append(value);

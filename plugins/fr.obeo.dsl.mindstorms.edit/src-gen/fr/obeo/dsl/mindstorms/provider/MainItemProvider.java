@@ -191,11 +191,6 @@ public class MainItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
-				 MindstormsFactory.eINSTANCE.createTravel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
 				 MindstormsFactory.eINSTANCE.createGoForward()));
 
 		newChildDescriptors.add

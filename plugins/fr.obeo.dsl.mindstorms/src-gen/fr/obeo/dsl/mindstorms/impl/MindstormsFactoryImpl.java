@@ -77,12 +77,8 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 			case MindstormsPackage.ARBITRATOR: return createArbitrator();
 			case MindstormsPackage.BEHAVIOR: return createBehavior();
 			case MindstormsPackage.REUSE_INSTRUCTION: return createReuseInstruction();
-			case MindstormsPackage.CONDITION: return createCondition();
-			case MindstormsPackage.BINARY_CONDITION: return createBinaryCondition();
-			case MindstormsPackage.UNARY_CONDITION: return createUnaryCondition();
 			case MindstormsPackage.IF: return createIf();
 			case MindstormsPackage.WHILE: return createWhile();
-			case MindstormsPackage.TRAVEL: return createTravel();
 			case MindstormsPackage.GO_FORWARD: return createGoForward();
 			case MindstormsPackage.GO_BACKWARD: return createGoBackward();
 			case MindstormsPackage.ROTATE: return createRotate();
@@ -192,36 +188,6 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Condition createCondition() {
-		ConditionImpl condition = new ConditionImpl();
-		return condition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BinaryCondition createBinaryCondition() {
-		BinaryConditionImpl binaryCondition = new BinaryConditionImpl();
-		return binaryCondition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnaryCondition createUnaryCondition() {
-		UnaryConditionImpl unaryCondition = new UnaryConditionImpl();
-		return unaryCondition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public If createIf() {
 		IfImpl if_ = new IfImpl();
 		return if_;
@@ -235,16 +201,6 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 	public While createWhile() {
 		WhileImpl while_ = new WhileImpl();
 		return while_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Travel createTravel() {
-		TravelImpl travel = new TravelImpl();
-		return travel;
 	}
 
 	/**

@@ -562,107 +562,6 @@ public interface MindstormsPackage extends EPackage {
 	int CONDITION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.BinaryConditionImpl <em>Binary Condition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.obeo.dsl.mindstorms.impl.BinaryConditionImpl
-	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getBinaryCondition()
-	 * @generated
-	 */
-	int BINARY_CONDITION = 12;
-
-	/**
-	 * The feature id for the '<em><b>Left</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_CONDITION__LEFT = CONDITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Op</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_CONDITION__OP = CONDITION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Right</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_CONDITION__RIGHT = CONDITION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Binary Condition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Binary Condition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.UnaryConditionImpl <em>Unary Condition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.obeo.dsl.mindstorms.impl.UnaryConditionImpl
-	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getUnaryCondition()
-	 * @generated
-	 */
-	int UNARY_CONDITION = 13;
-
-	/**
-	 * The feature id for the '<em><b>Not</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARY_CONDITION__NOT = CONDITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARY_CONDITION__CONDITION = CONDITION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Unary Condition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARY_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Unary Condition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARY_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.IfImpl <em>If</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -670,7 +569,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getIf()
 	 * @generated
 	 */
-	int IF = 14;
+	int IF = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -725,7 +624,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getWhile()
 	 * @generated
 	 */
-	int WHILE = 15;
+	int WHILE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -773,52 +672,6 @@ public interface MindstormsPackage extends EPackage {
 	int WHILE_OPERATION_COUNT = FLOW_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.TravelImpl <em>Travel</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.obeo.dsl.mindstorms.impl.TravelImpl
-	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getTravel()
-	 * @generated
-	 */
-	int TRAVEL = 16;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRAVEL__NAME = ACTION__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Cm</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRAVEL__CM = ACTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Travel</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRAVEL_FEATURE_COUNT = ACTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Travel</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRAVEL_OPERATION_COUNT = ACTION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.GoForwardImpl <em>Go Forward</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -826,7 +679,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGoForward()
 	 * @generated
 	 */
-	int GO_FORWARD = 17;
+	int GO_FORWARD = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -838,13 +691,31 @@ public interface MindstormsPackage extends EPackage {
 	int GO_FORWARD__NAME = ACTION__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Cm</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GO_FORWARD__CM = ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Infinite</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GO_FORWARD__INFINITE = ACTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Go Forward</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GO_FORWARD_FEATURE_COUNT = ACTION_FEATURE_COUNT + 0;
+	int GO_FORWARD_FEATURE_COUNT = ACTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Go Forward</em>' class.
@@ -863,7 +734,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGoBackward()
 	 * @generated
 	 */
-	int GO_BACKWARD = 18;
+	int GO_BACKWARD = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -875,13 +746,31 @@ public interface MindstormsPackage extends EPackage {
 	int GO_BACKWARD__NAME = ACTION__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Cm</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GO_BACKWARD__CM = ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Infinite</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GO_BACKWARD__INFINITE = ACTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Go Backward</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GO_BACKWARD_FEATURE_COUNT = ACTION_FEATURE_COUNT + 0;
+	int GO_BACKWARD_FEATURE_COUNT = ACTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Go Backward</em>' class.
@@ -900,7 +789,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getRotate()
 	 * @generated
 	 */
-	int ROTATE = 19;
+	int ROTATE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -955,7 +844,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGoTo()
 	 * @generated
 	 */
-	int GO_TO = 20;
+	int GO_TO = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1010,7 +899,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getReturnToBase()
 	 * @generated
 	 */
-	int RETURN_TO_BASE = 21;
+	int RETURN_TO_BASE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1047,7 +936,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGrab()
 	 * @generated
 	 */
-	int GRAB = 22;
+	int GRAB = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1084,7 +973,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getRelease()
 	 * @generated
 	 */
-	int RELEASE = 23;
+	int RELEASE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1121,7 +1010,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getDelay()
 	 * @generated
 	 */
-	int DELAY = 24;
+	int DELAY = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1167,7 +1056,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getAvoidObstacle()
 	 * @generated
 	 */
-	int AVOID_OBSTACLE = 25;
+	int AVOID_OBSTACLE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1222,7 +1111,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getReturnBottleToBase()
 	 * @generated
 	 */
-	int RETURN_BOTTLE_TO_BASE = 26;
+	int RETURN_BOTTLE_TO_BASE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1277,7 +1166,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getExploreForward()
 	 * @generated
 	 */
-	int EXPLORE_FORWARD = 27;
+	int EXPLORE_FORWARD = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1332,7 +1221,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getTouchSensor()
 	 * @generated
 	 */
-	int TOUCH_SENSOR = 28;
+	int TOUCH_SENSOR = 25;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1378,7 +1267,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getUltrasonicSensor()
 	 * @generated
 	 */
-	int ULTRASONIC_SENSOR = 29;
+	int ULTRASONIC_SENSOR = 26;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1390,22 +1279,13 @@ public interface MindstormsPackage extends EPackage {
 	int ULTRASONIC_SENSOR__NAME = SENSOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Distance</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ULTRASONIC_SENSOR__DISTANCE = SENSOR_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Operator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ULTRASONIC_SENSOR__OPERATOR = SENSOR_FEATURE_COUNT + 1;
+	int ULTRASONIC_SENSOR__OPERATOR = SENSOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1414,7 +1294,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ULTRASONIC_SENSOR__VALUE = SENSOR_FEATURE_COUNT + 2;
+	int ULTRASONIC_SENSOR__VALUE = SENSOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Ultrasonic Sensor</em>' class.
@@ -1423,7 +1303,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ULTRASONIC_SENSOR_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 3;
+	int ULTRASONIC_SENSOR_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Ultrasonic Sensor</em>' class.
@@ -1442,7 +1322,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getTimer()
 	 * @generated
 	 */
-	int TIMER = 30;
+	int TIMER = 27;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1488,7 +1368,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getColorSensor()
 	 * @generated
 	 */
-	int COLOR_SENSOR = 31;
+	int COLOR_SENSOR = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1534,7 +1414,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 32;
+	int COLOR = 29;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.OperatorKind <em>Operator Kind</em>}' enum.
@@ -1544,7 +1424,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getOperatorKind()
 	 * @generated
 	 */
-	int OPERATOR_KIND = 33;
+	int OPERATOR_KIND = 30;
 
 
 	/**
@@ -1756,81 +1636,6 @@ public interface MindstormsPackage extends EPackage {
 	EClass getCondition();
 
 	/**
-	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.BinaryCondition <em>Binary Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Binary Condition</em>'.
-	 * @see fr.obeo.dsl.mindstorms.BinaryCondition
-	 * @generated
-	 */
-	EClass getBinaryCondition();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link fr.obeo.dsl.mindstorms.BinaryCondition#getLeft <em>Left</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Left</em>'.
-	 * @see fr.obeo.dsl.mindstorms.BinaryCondition#getLeft()
-	 * @see #getBinaryCondition()
-	 * @generated
-	 */
-	EReference getBinaryCondition_Left();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.mindstorms.BinaryCondition#getOp <em>Op</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Op</em>'.
-	 * @see fr.obeo.dsl.mindstorms.BinaryCondition#getOp()
-	 * @see #getBinaryCondition()
-	 * @generated
-	 */
-	EAttribute getBinaryCondition_Op();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link fr.obeo.dsl.mindstorms.BinaryCondition#getRight <em>Right</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Right</em>'.
-	 * @see fr.obeo.dsl.mindstorms.BinaryCondition#getRight()
-	 * @see #getBinaryCondition()
-	 * @generated
-	 */
-	EReference getBinaryCondition_Right();
-
-	/**
-	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.UnaryCondition <em>Unary Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Unary Condition</em>'.
-	 * @see fr.obeo.dsl.mindstorms.UnaryCondition
-	 * @generated
-	 */
-	EClass getUnaryCondition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.mindstorms.UnaryCondition#getNot <em>Not</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Not</em>'.
-	 * @see fr.obeo.dsl.mindstorms.UnaryCondition#getNot()
-	 * @see #getUnaryCondition()
-	 * @generated
-	 */
-	EAttribute getUnaryCondition_Not();
-
-	/**
-	 * Returns the meta object for the reference '{@link fr.obeo.dsl.mindstorms.UnaryCondition#getCondition <em>Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Condition</em>'.
-	 * @see fr.obeo.dsl.mindstorms.UnaryCondition#getCondition()
-	 * @see #getUnaryCondition()
-	 * @generated
-	 */
-	EReference getUnaryCondition_Condition();
-
-	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.If <em>If</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1895,27 +1700,6 @@ public interface MindstormsPackage extends EPackage {
 	EReference getWhile_Blocks();
 
 	/**
-	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.Travel <em>Travel</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Travel</em>'.
-	 * @see fr.obeo.dsl.mindstorms.Travel
-	 * @generated
-	 */
-	EClass getTravel();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.mindstorms.Travel#getCm <em>Cm</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cm</em>'.
-	 * @see fr.obeo.dsl.mindstorms.Travel#getCm()
-	 * @see #getTravel()
-	 * @generated
-	 */
-	EAttribute getTravel_Cm();
-
-	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.GoForward <em>Go Forward</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1926,6 +1710,28 @@ public interface MindstormsPackage extends EPackage {
 	EClass getGoForward();
 
 	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.mindstorms.GoForward#getCm <em>Cm</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cm</em>'.
+	 * @see fr.obeo.dsl.mindstorms.GoForward#getCm()
+	 * @see #getGoForward()
+	 * @generated
+	 */
+	EAttribute getGoForward_Cm();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.mindstorms.GoForward#isInfinite <em>Infinite</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Infinite</em>'.
+	 * @see fr.obeo.dsl.mindstorms.GoForward#isInfinite()
+	 * @see #getGoForward()
+	 * @generated
+	 */
+	EAttribute getGoForward_Infinite();
+
+	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.GoBackward <em>Go Backward</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1934,6 +1740,28 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGoBackward();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.mindstorms.GoBackward#getCm <em>Cm</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cm</em>'.
+	 * @see fr.obeo.dsl.mindstorms.GoBackward#getCm()
+	 * @see #getGoBackward()
+	 * @generated
+	 */
+	EAttribute getGoBackward_Cm();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.mindstorms.GoBackward#isInfinite <em>Infinite</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Infinite</em>'.
+	 * @see fr.obeo.dsl.mindstorms.GoBackward#isInfinite()
+	 * @see #getGoBackward()
+	 * @generated
+	 */
+	EAttribute getGoBackward_Infinite();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.Rotate <em>Rotate</em>}'.
@@ -2110,17 +1938,6 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUltrasonicSensor();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.mindstorms.UltrasonicSensor#getDistance <em>Distance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Distance</em>'.
-	 * @see fr.obeo.dsl.mindstorms.UltrasonicSensor#getDistance()
-	 * @see #getUltrasonicSensor()
-	 * @generated
-	 */
-	EAttribute getUltrasonicSensor_Distance();
 
 	/**
 	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.mindstorms.UltrasonicSensor#getOperator <em>Operator</em>}'.
@@ -2414,66 +2231,6 @@ public interface MindstormsPackage extends EPackage {
 		EClass CONDITION = eINSTANCE.getCondition();
 
 		/**
-		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.BinaryConditionImpl <em>Binary Condition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see fr.obeo.dsl.mindstorms.impl.BinaryConditionImpl
-		 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getBinaryCondition()
-		 * @generated
-		 */
-		EClass BINARY_CONDITION = eINSTANCE.getBinaryCondition();
-
-		/**
-		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BINARY_CONDITION__LEFT = eINSTANCE.getBinaryCondition_Left();
-
-		/**
-		 * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BINARY_CONDITION__OP = eINSTANCE.getBinaryCondition_Op();
-
-		/**
-		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BINARY_CONDITION__RIGHT = eINSTANCE.getBinaryCondition_Right();
-
-		/**
-		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.UnaryConditionImpl <em>Unary Condition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see fr.obeo.dsl.mindstorms.impl.UnaryConditionImpl
-		 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getUnaryCondition()
-		 * @generated
-		 */
-		EClass UNARY_CONDITION = eINSTANCE.getUnaryCondition();
-
-		/**
-		 * The meta object literal for the '<em><b>Not</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UNARY_CONDITION__NOT = eINSTANCE.getUnaryCondition_Not();
-
-		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UNARY_CONDITION__CONDITION = eINSTANCE.getUnaryCondition_Condition();
-
-		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.IfImpl <em>If</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2526,24 +2283,6 @@ public interface MindstormsPackage extends EPackage {
 		EReference WHILE__BLOCKS = eINSTANCE.getWhile_Blocks();
 
 		/**
-		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.TravelImpl <em>Travel</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see fr.obeo.dsl.mindstorms.impl.TravelImpl
-		 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getTravel()
-		 * @generated
-		 */
-		EClass TRAVEL = eINSTANCE.getTravel();
-
-		/**
-		 * The meta object literal for the '<em><b>Cm</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TRAVEL__CM = eINSTANCE.getTravel_Cm();
-
-		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.GoForwardImpl <em>Go Forward</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2554,6 +2293,22 @@ public interface MindstormsPackage extends EPackage {
 		EClass GO_FORWARD = eINSTANCE.getGoForward();
 
 		/**
+		 * The meta object literal for the '<em><b>Cm</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GO_FORWARD__CM = eINSTANCE.getGoForward_Cm();
+
+		/**
+		 * The meta object literal for the '<em><b>Infinite</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GO_FORWARD__INFINITE = eINSTANCE.getGoForward_Infinite();
+
+		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.GoBackwardImpl <em>Go Backward</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2562,6 +2317,22 @@ public interface MindstormsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GO_BACKWARD = eINSTANCE.getGoBackward();
+
+		/**
+		 * The meta object literal for the '<em><b>Cm</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GO_BACKWARD__CM = eINSTANCE.getGoBackward_Cm();
+
+		/**
+		 * The meta object literal for the '<em><b>Infinite</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GO_BACKWARD__INFINITE = eINSTANCE.getGoBackward_Infinite();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.RotateImpl <em>Rotate</em>}' class.
@@ -2720,14 +2491,6 @@ public interface MindstormsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ULTRASONIC_SENSOR = eINSTANCE.getUltrasonicSensor();
-
-		/**
-		 * The meta object literal for the '<em><b>Distance</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ULTRASONIC_SENSOR__DISTANCE = eINSTANCE.getUltrasonicSensor_Distance();
 
 		/**
 		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.

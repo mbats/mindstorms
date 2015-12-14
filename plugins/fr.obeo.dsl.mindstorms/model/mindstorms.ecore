@@ -33,18 +33,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" eSuperTypes="#//Block"/>
   <eClassifiers xsi:type="ecore:EClass" name="Flow" abstract="true" eSuperTypes="#//Block"/>
   <eClassifiers xsi:type="ecore:EClass" name="Sensor" abstract="true" eSuperTypes="#//NamedElement #//Condition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BinaryCondition" eSuperTypes="#//Condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Condition"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="#//OperatorKind"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Condition"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UnaryCondition" eSuperTypes="#//Condition">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="not" eType="#//OperatorKind"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="#//Flow">
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
         containment="true"/>
@@ -57,11 +46,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
         eType="#//Block" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Travel" eSuperTypes="#//Action">
+  <eClassifiers xsi:type="ecore:EClass" name="GoForward" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="infinite" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GoForward" eSuperTypes="#//Action"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GoBackward" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GoBackward" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="infinite" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rotate" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="degrees" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="random" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -83,7 +75,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPressed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UltrasonicSensor" eSuperTypes="#//Sensor">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//OperatorKind"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
@@ -116,6 +107,5 @@
     <eLiterals name="notEqual"/>
     <eLiterals name="upperOrEqual"/>
     <eLiterals name="lowerOrEqual"/>
-    <eLiterals name="not"/>
   </eClassifiers>
 </ecore:EPackage>

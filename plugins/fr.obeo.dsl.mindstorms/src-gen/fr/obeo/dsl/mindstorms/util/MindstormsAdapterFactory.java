@@ -131,24 +131,12 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 				return createConditionAdapter();
 			}
 			@Override
-			public Adapter caseBinaryCondition(BinaryCondition object) {
-				return createBinaryConditionAdapter();
-			}
-			@Override
-			public Adapter caseUnaryCondition(UnaryCondition object) {
-				return createUnaryConditionAdapter();
-			}
-			@Override
 			public Adapter caseIf(If object) {
 				return createIfAdapter();
 			}
 			@Override
 			public Adapter caseWhile(While object) {
 				return createWhileAdapter();
-			}
-			@Override
-			public Adapter caseTravel(Travel object) {
-				return createTravelAdapter();
 			}
 			@Override
 			public Adapter caseGoForward(GoForward object) {
@@ -399,34 +387,6 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.BinaryCondition <em>Binary Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.obeo.dsl.mindstorms.BinaryCondition
-	 * @generated
-	 */
-	public Adapter createBinaryConditionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.UnaryCondition <em>Unary Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.obeo.dsl.mindstorms.UnaryCondition
-	 * @generated
-	 */
-	public Adapter createUnaryConditionAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.If <em>If</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -451,20 +411,6 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createWhileAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.Travel <em>Travel</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.obeo.dsl.mindstorms.Travel
-	 * @generated
-	 */
-	public Adapter createTravelAdapter() {
 		return null;
 	}
 

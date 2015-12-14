@@ -171,20 +171,6 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MindstormsPackage.BINARY_CONDITION: {
-				BinaryCondition binaryCondition = (BinaryCondition)theEObject;
-				T result = caseBinaryCondition(binaryCondition);
-				if (result == null) result = caseCondition(binaryCondition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MindstormsPackage.UNARY_CONDITION: {
-				UnaryCondition unaryCondition = (UnaryCondition)theEObject;
-				T result = caseUnaryCondition(unaryCondition);
-				if (result == null) result = caseCondition(unaryCondition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MindstormsPackage.IF: {
 				If if_ = (If)theEObject;
 				T result = caseIf(if_);
@@ -202,16 +188,6 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBlock(while_);
 				if (result == null) result = caseInstruction(while_);
 				if (result == null) result = caseNamedElement(while_);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MindstormsPackage.TRAVEL: {
-				Travel travel = (Travel)theEObject;
-				T result = caseTravel(travel);
-				if (result == null) result = caseAction(travel);
-				if (result == null) result = caseBlock(travel);
-				if (result == null) result = caseInstruction(travel);
-				if (result == null) result = caseNamedElement(travel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -540,36 +516,6 @@ public class MindstormsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Binary Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Binary Condition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBinaryCondition(BinaryCondition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Unary Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Unary Condition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUnaryCondition(UnaryCondition object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>If</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -596,21 +542,6 @@ public class MindstormsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseWhile(While object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Travel</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Travel</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTravel(Travel object) {
 		return null;
 	}
 
