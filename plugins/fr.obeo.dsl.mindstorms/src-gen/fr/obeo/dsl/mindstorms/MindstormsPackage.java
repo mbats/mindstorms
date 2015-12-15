@@ -184,6 +184,43 @@ public interface MindstormsPackage extends EPackage {
 	int INSTRUCTION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.BlockContainerImpl <em>Block Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.mindstorms.impl.BlockContainerImpl
+	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getBlockContainer()
+	 * @generated
+	 */
+	int BLOCK_CONTAINER = 3;
+
+	/**
+	 * The feature id for the '<em><b>Blocks</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_CONTAINER__BLOCKS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Block Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_CONTAINER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Block Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_CONTAINER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.ProcedureImpl <em>Procedure</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -191,7 +228,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getProcedure()
 	 * @generated
 	 */
-	int PROCEDURE = 3;
+	int PROCEDURE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -237,7 +274,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getArbitrator()
 	 * @generated
 	 */
-	int ARBITRATOR = 4;
+	int ARBITRATOR = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -292,7 +329,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getBehavior()
 	 * @generated
 	 */
-	int BEHAVIOR = 5;
+	int BEHAVIOR = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -304,22 +341,22 @@ public interface MindstormsPackage extends EPackage {
 	int BEHAVIOR__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Take Control</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BEHAVIOR__TAKE_CONTROL = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Blocks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOR__BLOCKS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int BEHAVIOR__BLOCKS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Take Control</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR__TAKE_CONTROL = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Behavior</em>' class.
@@ -347,7 +384,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getReuseInstruction()
 	 * @generated
 	 */
-	int REUSE_INSTRUCTION = 6;
+	int REUSE_INSTRUCTION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -393,7 +430,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getBlock()
 	 * @generated
 	 */
-	int BLOCK = 7;
+	int BLOCK = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -430,7 +467,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 8;
+	int ACTION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -467,7 +504,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getFlow()
 	 * @generated
 	 */
-	int FLOW = 9;
+	int FLOW = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -479,13 +516,31 @@ public interface MindstormsPackage extends EPackage {
 	int FLOW__NAME = BLOCK__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Blocks</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__BLOCKS = BLOCK_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__CONDITION = BLOCK_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Flow</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 0;
+	int FLOW_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Flow</em>' class.
@@ -504,7 +559,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getSensor()
 	 * @generated
 	 */
-	int SENSOR = 10;
+	int SENSOR = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -541,7 +596,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getCondition()
 	 * @generated
 	 */
-	int CONDITION = 11;
+	int CONDITION = 12;
 
 	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
@@ -569,7 +624,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getIf()
 	 * @generated
 	 */
-	int IF = 12;
+	int IF = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -581,22 +636,22 @@ public interface MindstormsPackage extends EPackage {
 	int IF__NAME = FLOW__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IF__CONDITION = FLOW_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Blocks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IF__BLOCKS = FLOW_FEATURE_COUNT + 1;
+	int IF__BLOCKS = FLOW__BLOCKS;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__CONDITION = FLOW__CONDITION;
 
 	/**
 	 * The number of structural features of the '<em>If</em>' class.
@@ -605,7 +660,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IF_FEATURE_COUNT = FLOW_FEATURE_COUNT + 2;
+	int IF_FEATURE_COUNT = FLOW_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>If</em>' class.
@@ -624,7 +679,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getWhile()
 	 * @generated
 	 */
-	int WHILE = 13;
+	int WHILE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -636,22 +691,22 @@ public interface MindstormsPackage extends EPackage {
 	int WHILE__NAME = FLOW__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WHILE__CONDITION = FLOW_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Blocks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WHILE__BLOCKS = FLOW_FEATURE_COUNT + 1;
+	int WHILE__BLOCKS = FLOW__BLOCKS;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE__CONDITION = FLOW__CONDITION;
 
 	/**
 	 * The number of structural features of the '<em>While</em>' class.
@@ -660,7 +715,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WHILE_FEATURE_COUNT = FLOW_FEATURE_COUNT + 2;
+	int WHILE_FEATURE_COUNT = FLOW_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>While</em>' class.
@@ -679,7 +734,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGoForward()
 	 * @generated
 	 */
-	int GO_FORWARD = 14;
+	int GO_FORWARD = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -734,7 +789,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGoBackward()
 	 * @generated
 	 */
-	int GO_BACKWARD = 15;
+	int GO_BACKWARD = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -789,7 +844,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getRotate()
 	 * @generated
 	 */
-	int ROTATE = 16;
+	int ROTATE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -844,7 +899,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGoTo()
 	 * @generated
 	 */
-	int GO_TO = 17;
+	int GO_TO = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -899,7 +954,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getReturnToBase()
 	 * @generated
 	 */
-	int RETURN_TO_BASE = 18;
+	int RETURN_TO_BASE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -936,7 +991,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGrab()
 	 * @generated
 	 */
-	int GRAB = 19;
+	int GRAB = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -973,7 +1028,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getRelease()
 	 * @generated
 	 */
-	int RELEASE = 20;
+	int RELEASE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1010,7 +1065,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getDelay()
 	 * @generated
 	 */
-	int DELAY = 21;
+	int DELAY = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1056,7 +1111,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getAvoidObstacle()
 	 * @generated
 	 */
-	int AVOID_OBSTACLE = 22;
+	int AVOID_OBSTACLE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1068,15 +1123,6 @@ public interface MindstormsPackage extends EPackage {
 	int AVOID_OBSTACLE__NAME = BEHAVIOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Take Control</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVOID_OBSTACLE__TAKE_CONTROL = BEHAVIOR__TAKE_CONTROL;
-
-	/**
 	 * The feature id for the '<em><b>Blocks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1084,6 +1130,15 @@ public interface MindstormsPackage extends EPackage {
 	 * @ordered
 	 */
 	int AVOID_OBSTACLE__BLOCKS = BEHAVIOR__BLOCKS;
+
+	/**
+	 * The feature id for the '<em><b>Take Control</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVOID_OBSTACLE__TAKE_CONTROL = BEHAVIOR__TAKE_CONTROL;
 
 	/**
 	 * The number of structural features of the '<em>Avoid Obstacle</em>' class.
@@ -1111,7 +1166,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getReturnBottleToBase()
 	 * @generated
 	 */
-	int RETURN_BOTTLE_TO_BASE = 23;
+	int RETURN_BOTTLE_TO_BASE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1123,15 +1178,6 @@ public interface MindstormsPackage extends EPackage {
 	int RETURN_BOTTLE_TO_BASE__NAME = BEHAVIOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Take Control</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RETURN_BOTTLE_TO_BASE__TAKE_CONTROL = BEHAVIOR__TAKE_CONTROL;
-
-	/**
 	 * The feature id for the '<em><b>Blocks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1139,6 +1185,15 @@ public interface MindstormsPackage extends EPackage {
 	 * @ordered
 	 */
 	int RETURN_BOTTLE_TO_BASE__BLOCKS = BEHAVIOR__BLOCKS;
+
+	/**
+	 * The feature id for the '<em><b>Take Control</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_BOTTLE_TO_BASE__TAKE_CONTROL = BEHAVIOR__TAKE_CONTROL;
 
 	/**
 	 * The number of structural features of the '<em>Return Bottle To Base</em>' class.
@@ -1166,7 +1221,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getExploreForward()
 	 * @generated
 	 */
-	int EXPLORE_FORWARD = 24;
+	int EXPLORE_FORWARD = 25;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1178,15 +1233,6 @@ public interface MindstormsPackage extends EPackage {
 	int EXPLORE_FORWARD__NAME = BEHAVIOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Take Control</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPLORE_FORWARD__TAKE_CONTROL = BEHAVIOR__TAKE_CONTROL;
-
-	/**
 	 * The feature id for the '<em><b>Blocks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1194,6 +1240,15 @@ public interface MindstormsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXPLORE_FORWARD__BLOCKS = BEHAVIOR__BLOCKS;
+
+	/**
+	 * The feature id for the '<em><b>Take Control</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPLORE_FORWARD__TAKE_CONTROL = BEHAVIOR__TAKE_CONTROL;
 
 	/**
 	 * The number of structural features of the '<em>Explore Forward</em>' class.
@@ -1221,7 +1276,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getTouchSensor()
 	 * @generated
 	 */
-	int TOUCH_SENSOR = 25;
+	int TOUCH_SENSOR = 26;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1267,7 +1322,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getUltrasonicSensor()
 	 * @generated
 	 */
-	int ULTRASONIC_SENSOR = 26;
+	int ULTRASONIC_SENSOR = 27;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1322,7 +1377,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getTimer()
 	 * @generated
 	 */
-	int TIMER = 27;
+	int TIMER = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1368,7 +1423,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getColorSensor()
 	 * @generated
 	 */
-	int COLOR_SENSOR = 28;
+	int COLOR_SENSOR = 29;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1414,7 +1469,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 29;
+	int COLOR = 30;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.OperatorKind <em>Operator Kind</em>}' enum.
@@ -1424,7 +1479,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getOperatorKind()
 	 * @generated
 	 */
-	int OPERATOR_KIND = 30;
+	int OPERATOR_KIND = 31;
 
 
 	/**
@@ -1480,6 +1535,27 @@ public interface MindstormsPackage extends EPackage {
 	EClass getInstruction();
 
 	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.BlockContainer <em>Block Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Block Container</em>'.
+	 * @see fr.obeo.dsl.mindstorms.BlockContainer
+	 * @generated
+	 */
+	EClass getBlockContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.mindstorms.BlockContainer#getBlocks <em>Blocks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Blocks</em>'.
+	 * @see fr.obeo.dsl.mindstorms.BlockContainer#getBlocks()
+	 * @see #getBlockContainer()
+	 * @generated
+	 */
+	EReference getBlockContainer_Blocks();
+
+	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.Procedure <em>Procedure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1488,17 +1564,6 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getProcedure();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.mindstorms.Procedure#getBlocks <em>Blocks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Blocks</em>'.
-	 * @see fr.obeo.dsl.mindstorms.Procedure#getBlocks()
-	 * @see #getProcedure()
-	 * @generated
-	 */
-	EReference getProcedure_Blocks();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.Arbitrator <em>Arbitrator</em>}'.
@@ -1554,17 +1619,6 @@ public interface MindstormsPackage extends EPackage {
 	EReference getBehavior_TakeControl();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.mindstorms.Behavior#getBlocks <em>Blocks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Blocks</em>'.
-	 * @see fr.obeo.dsl.mindstorms.Behavior#getBlocks()
-	 * @see #getBehavior()
-	 * @generated
-	 */
-	EReference getBehavior_Blocks();
-
-	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.ReuseInstruction <em>Reuse Instruction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1616,6 +1670,17 @@ public interface MindstormsPackage extends EPackage {
 	EClass getFlow();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link fr.obeo.dsl.mindstorms.Flow#getCondition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Condition</em>'.
+	 * @see fr.obeo.dsl.mindstorms.Flow#getCondition()
+	 * @see #getFlow()
+	 * @generated
+	 */
+	EReference getFlow_Condition();
+
+	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.Sensor <em>Sensor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1646,28 +1711,6 @@ public interface MindstormsPackage extends EPackage {
 	EClass getIf();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link fr.obeo.dsl.mindstorms.If#getCondition <em>Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Condition</em>'.
-	 * @see fr.obeo.dsl.mindstorms.If#getCondition()
-	 * @see #getIf()
-	 * @generated
-	 */
-	EReference getIf_Condition();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.mindstorms.If#getBlocks <em>Blocks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Blocks</em>'.
-	 * @see fr.obeo.dsl.mindstorms.If#getBlocks()
-	 * @see #getIf()
-	 * @generated
-	 */
-	EReference getIf_Blocks();
-
-	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.While <em>While</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1676,28 +1719,6 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getWhile();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link fr.obeo.dsl.mindstorms.While#getCondition <em>Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Condition</em>'.
-	 * @see fr.obeo.dsl.mindstorms.While#getCondition()
-	 * @see #getWhile()
-	 * @generated
-	 */
-	EReference getWhile_Condition();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link fr.obeo.dsl.mindstorms.While#getBlocks <em>Blocks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Blocks</em>'.
-	 * @see fr.obeo.dsl.mindstorms.While#getBlocks()
-	 * @see #getWhile()
-	 * @generated
-	 */
-	EReference getWhile_Blocks();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.GoForward <em>Go Forward</em>}'.
@@ -2093,6 +2114,24 @@ public interface MindstormsPackage extends EPackage {
 		EClass INSTRUCTION = eINSTANCE.getInstruction();
 
 		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.BlockContainerImpl <em>Block Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.mindstorms.impl.BlockContainerImpl
+		 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getBlockContainer()
+		 * @generated
+		 */
+		EClass BLOCK_CONTAINER = eINSTANCE.getBlockContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Blocks</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BLOCK_CONTAINER__BLOCKS = eINSTANCE.getBlockContainer_Blocks();
+
+		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.ProcedureImpl <em>Procedure</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2101,14 +2140,6 @@ public interface MindstormsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PROCEDURE = eINSTANCE.getProcedure();
-
-		/**
-		 * The meta object literal for the '<em><b>Blocks</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROCEDURE__BLOCKS = eINSTANCE.getProcedure_Blocks();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.ArbitratorImpl <em>Arbitrator</em>}' class.
@@ -2153,14 +2184,6 @@ public interface MindstormsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BEHAVIOR__TAKE_CONTROL = eINSTANCE.getBehavior_TakeControl();
-
-		/**
-		 * The meta object literal for the '<em><b>Blocks</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BEHAVIOR__BLOCKS = eINSTANCE.getBehavior_Blocks();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.ReuseInstructionImpl <em>Reuse Instruction</em>}' class.
@@ -2211,6 +2234,14 @@ public interface MindstormsPackage extends EPackage {
 		EClass FLOW = eINSTANCE.getFlow();
 
 		/**
+		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLOW__CONDITION = eINSTANCE.getFlow_Condition();
+
+		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.SensorImpl <em>Sensor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2241,22 +2272,6 @@ public interface MindstormsPackage extends EPackage {
 		EClass IF = eINSTANCE.getIf();
 
 		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IF__CONDITION = eINSTANCE.getIf_Condition();
-
-		/**
-		 * The meta object literal for the '<em><b>Blocks</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IF__BLOCKS = eINSTANCE.getIf_Blocks();
-
-		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.WhileImpl <em>While</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2265,22 +2280,6 @@ public interface MindstormsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass WHILE = eINSTANCE.getWhile();
-
-		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference WHILE__CONDITION = eINSTANCE.getWhile_Condition();
-
-		/**
-		 * The meta object literal for the '<em><b>Blocks</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference WHILE__BLOCKS = eINSTANCE.getWhile_Blocks();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.GoForwardImpl <em>Go Forward</em>}' class.

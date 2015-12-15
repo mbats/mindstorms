@@ -10,8 +10,6 @@
  */
 package fr.obeo.dsl.mindstorms;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Behavior</b></em>'.
@@ -22,14 +20,13 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link fr.obeo.dsl.mindstorms.Behavior#getTakeControl <em>Take Control</em>}</li>
- *   <li>{@link fr.obeo.dsl.mindstorms.Behavior#getBlocks <em>Blocks</em>}</li>
  * </ul>
  *
  * @see fr.obeo.dsl.mindstorms.MindstormsPackage#getBehavior()
  * @model
  * @generated
  */
-public interface Behavior extends NamedElement {
+public interface Behavior extends NamedElement, BlockContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,21 +59,5 @@ public interface Behavior extends NamedElement {
 	 * @generated
 	 */
 	void setTakeControl(Condition value);
-
-	/**
-	 * Returns the value of the '<em><b>Blocks</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.obeo.dsl.mindstorms.Block}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Blocks</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Blocks</em>' containment reference list.
-	 * @see fr.obeo.dsl.mindstorms.MindstormsPackage#getBehavior_Blocks()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Block> getBlocks();
 
 } // Behavior

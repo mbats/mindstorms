@@ -77,8 +77,8 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS);
 			childrenFeatures.add(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL);
-			childrenFeatures.add(MindstormsPackage.Literals.BEHAVIOR__BLOCKS);
 		}
 		return childrenFeatures;
 	}
@@ -134,8 +134,8 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Behavior.class)) {
-			case MindstormsPackage.BEHAVIOR__TAKE_CONTROL:
 			case MindstormsPackage.BEHAVIOR__BLOCKS:
+			case MindstormsPackage.BEHAVIOR__TAKE_CONTROL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,6 +152,56 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createIf()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createWhile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createGoForward()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createGoBackward()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createRotate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createGoTo()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createReturnToBase()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createGrab()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createRelease()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createDelay()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -172,56 +222,6 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 			(createChildParameter
 				(MindstormsPackage.Literals.BEHAVIOR__TAKE_CONTROL,
 				 MindstormsFactory.eINSTANCE.createColorSensor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createIf()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createWhile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createGoForward()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createGoBackward()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createRotate()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createGoTo()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createReturnToBase()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createGrab()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createRelease()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BEHAVIOR__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createDelay()));
 	}
 
 }

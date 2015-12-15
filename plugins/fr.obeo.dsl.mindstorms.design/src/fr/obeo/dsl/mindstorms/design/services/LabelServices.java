@@ -16,6 +16,7 @@ import fr.obeo.dsl.mindstorms.Procedure;
 import fr.obeo.dsl.mindstorms.ReuseInstruction;
 import fr.obeo.dsl.mindstorms.Rotate;
 import fr.obeo.dsl.mindstorms.Timer;
+import fr.obeo.dsl.mindstorms.TouchSensor;
 import fr.obeo.dsl.mindstorms.UltrasonicSensor;
 import fr.obeo.dsl.mindstorms.While;
 
@@ -34,6 +35,8 @@ public class LabelServices {
 			label +=  " " + computeLabel((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
 			label +=  " " + computeLabel((UltrasonicSensor)condition);
+		} else if (condition instanceof TouchSensor) {
+			label +=  " " + computeLabel((TouchSensor)condition);
 		} else {
 			label += " <insert condition>";
 		}
@@ -49,6 +52,8 @@ public class LabelServices {
 			label +=  " " + computeLabel((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
 			label +=  " " + computeLabel((UltrasonicSensor)condition);
+		} else if (condition instanceof TouchSensor) {
+			label +=  " " + computeLabel((TouchSensor)condition);
 		} else {
 			label += " <insert condition>";
 		}
@@ -120,6 +125,10 @@ public class LabelServices {
 			label += color.getLiteral().toLowerCase();
 		}
 		return label;
+	}
+	
+	public String computeLabel(TouchSensor sensor) {
+		return "touch sensor is pressed";
 	}
 	
 	public String computeLabel(Procedure object) {

@@ -19,6 +19,7 @@ import fr.obeo.dsl.mindstorms.ReturnToBase;
 import fr.obeo.dsl.mindstorms.ReuseInstruction;
 import fr.obeo.dsl.mindstorms.Rotate;
 import fr.obeo.dsl.mindstorms.Timer;
+import fr.obeo.dsl.mindstorms.TouchSensor;
 import fr.obeo.dsl.mindstorms.UltrasonicSensor;
 import fr.obeo.dsl.mindstorms.While;
 
@@ -37,6 +38,8 @@ public class TooltipServices {
 			label +=  " " + computeTooltip((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
 			label +=  " " + computeTooltip((UltrasonicSensor)condition);
+		} else if (condition instanceof TouchSensor) {
+			label +=  " " + computeTooltip((TouchSensor)condition);
 		} else {
 			label += " <insert condition>";
 		}
@@ -52,6 +55,8 @@ public class TooltipServices {
 			label +=  " " + computeTooltip((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
 			label +=  " " + computeTooltip((UltrasonicSensor)condition);
+		} else if (condition instanceof TouchSensor) {
+			label +=  " " + computeTooltip((TouchSensor)condition);
 		} else {
 			label += " <insert condition>";
 		}
@@ -135,6 +140,10 @@ public class TooltipServices {
 			label += color.getLiteral().toLowerCase();
 		}
 		return label;
+	}
+	
+	public String computeTooltip(TouchSensor sensor) {
+		return "touch sensor is pressed";
 	}
 	
 	public String computeTooltip(Procedure proc) {

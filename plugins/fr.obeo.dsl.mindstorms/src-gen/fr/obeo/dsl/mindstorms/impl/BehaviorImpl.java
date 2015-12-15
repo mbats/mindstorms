@@ -12,6 +12,7 @@ package fr.obeo.dsl.mindstorms.impl;
 
 import fr.obeo.dsl.mindstorms.Behavior;
 import fr.obeo.dsl.mindstorms.Block;
+import fr.obeo.dsl.mindstorms.BlockContainer;
 import fr.obeo.dsl.mindstorms.Condition;
 import fr.obeo.dsl.mindstorms.MindstormsPackage;
 
@@ -38,8 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.obeo.dsl.mindstorms.impl.BehaviorImpl#getTakeControl <em>Take Control</em>}</li>
  *   <li>{@link fr.obeo.dsl.mindstorms.impl.BehaviorImpl#getBlocks <em>Blocks</em>}</li>
+ *   <li>{@link fr.obeo.dsl.mindstorms.impl.BehaviorImpl#getTakeControl <em>Take Control</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,16 +54,6 @@ public class BehaviorImpl extends NamedElementImpl implements Behavior {
 	public static final String copyright = "Copyright (c) 2015 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
 
 	/**
-	 * The cached value of the '{@link #getTakeControl() <em>Take Control</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTakeControl()
-	 * @generated
-	 * @ordered
-	 */
-	protected Condition takeControl;
-
-	/**
 	 * The cached value of the '{@link #getBlocks() <em>Blocks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,6 +62,16 @@ public class BehaviorImpl extends NamedElementImpl implements Behavior {
 	 * @ordered
 	 */
 	protected EList<Block> blocks;
+
+	/**
+	 * The cached value of the '{@link #getTakeControl() <em>Take Control</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTakeControl()
+	 * @generated
+	 * @ordered
+	 */
+	protected Condition takeControl;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,10 +155,10 @@ public class BehaviorImpl extends NamedElementImpl implements Behavior {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MindstormsPackage.BEHAVIOR__TAKE_CONTROL:
-				return basicSetTakeControl(null, msgs);
 			case MindstormsPackage.BEHAVIOR__BLOCKS:
 				return ((InternalEList<?>)getBlocks()).basicRemove(otherEnd, msgs);
+			case MindstormsPackage.BEHAVIOR__TAKE_CONTROL:
+				return basicSetTakeControl(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -170,10 +171,10 @@ public class BehaviorImpl extends NamedElementImpl implements Behavior {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MindstormsPackage.BEHAVIOR__TAKE_CONTROL:
-				return getTakeControl();
 			case MindstormsPackage.BEHAVIOR__BLOCKS:
 				return getBlocks();
+			case MindstormsPackage.BEHAVIOR__TAKE_CONTROL:
+				return getTakeControl();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -187,12 +188,12 @@ public class BehaviorImpl extends NamedElementImpl implements Behavior {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MindstormsPackage.BEHAVIOR__TAKE_CONTROL:
-				setTakeControl((Condition)newValue);
-				return;
 			case MindstormsPackage.BEHAVIOR__BLOCKS:
 				getBlocks().clear();
 				getBlocks().addAll((Collection<? extends Block>)newValue);
+				return;
+			case MindstormsPackage.BEHAVIOR__TAKE_CONTROL:
+				setTakeControl((Condition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -206,11 +207,11 @@ public class BehaviorImpl extends NamedElementImpl implements Behavior {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MindstormsPackage.BEHAVIOR__TAKE_CONTROL:
-				setTakeControl((Condition)null);
-				return;
 			case MindstormsPackage.BEHAVIOR__BLOCKS:
 				getBlocks().clear();
+				return;
+			case MindstormsPackage.BEHAVIOR__TAKE_CONTROL:
+				setTakeControl((Condition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -224,12 +225,44 @@ public class BehaviorImpl extends NamedElementImpl implements Behavior {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MindstormsPackage.BEHAVIOR__TAKE_CONTROL:
-				return takeControl != null;
 			case MindstormsPackage.BEHAVIOR__BLOCKS:
 				return blocks != null && !blocks.isEmpty();
+			case MindstormsPackage.BEHAVIOR__TAKE_CONTROL:
+				return takeControl != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == BlockContainer.class) {
+			switch (derivedFeatureID) {
+				case MindstormsPackage.BEHAVIOR__BLOCKS: return MindstormsPackage.BLOCK_CONTAINER__BLOCKS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == BlockContainer.class) {
+			switch (baseFeatureID) {
+				case MindstormsPackage.BLOCK_CONTAINER__BLOCKS: return MindstormsPackage.BEHAVIOR__BLOCKS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //BehaviorImpl

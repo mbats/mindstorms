@@ -100,10 +100,17 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MindstormsPackage.BLOCK_CONTAINER: {
+				BlockContainer blockContainer = (BlockContainer)theEObject;
+				T result = caseBlockContainer(blockContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case MindstormsPackage.PROCEDURE: {
 				Procedure procedure = (Procedure)theEObject;
 				T result = caseProcedure(procedure);
 				if (result == null) result = caseInstruction(procedure);
+				if (result == null) result = caseBlockContainer(procedure);
 				if (result == null) result = caseNamedElement(procedure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -120,6 +127,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				Behavior behavior = (Behavior)theEObject;
 				T result = caseBehavior(behavior);
 				if (result == null) result = caseNamedElement(behavior);
+				if (result == null) result = caseBlockContainer(behavior);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -152,6 +160,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				Flow flow = (Flow)theEObject;
 				T result = caseFlow(flow);
 				if (result == null) result = caseBlock(flow);
+				if (result == null) result = caseBlockContainer(flow);
 				if (result == null) result = caseInstruction(flow);
 				if (result == null) result = caseNamedElement(flow);
 				if (result == null) result = defaultCase(theEObject);
@@ -176,6 +185,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseIf(if_);
 				if (result == null) result = caseFlow(if_);
 				if (result == null) result = caseBlock(if_);
+				if (result == null) result = caseBlockContainer(if_);
 				if (result == null) result = caseInstruction(if_);
 				if (result == null) result = caseNamedElement(if_);
 				if (result == null) result = defaultCase(theEObject);
@@ -186,6 +196,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseWhile(while_);
 				if (result == null) result = caseFlow(while_);
 				if (result == null) result = caseBlock(while_);
+				if (result == null) result = caseBlockContainer(while_);
 				if (result == null) result = caseInstruction(while_);
 				if (result == null) result = caseNamedElement(while_);
 				if (result == null) result = defaultCase(theEObject);
@@ -276,6 +287,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseAvoidObstacle(avoidObstacle);
 				if (result == null) result = caseBehavior(avoidObstacle);
 				if (result == null) result = caseNamedElement(avoidObstacle);
+				if (result == null) result = caseBlockContainer(avoidObstacle);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -284,6 +296,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseReturnBottleToBase(returnBottleToBase);
 				if (result == null) result = caseBehavior(returnBottleToBase);
 				if (result == null) result = caseNamedElement(returnBottleToBase);
+				if (result == null) result = caseBlockContainer(returnBottleToBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -292,6 +305,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseExploreForward(exploreForward);
 				if (result == null) result = caseBehavior(exploreForward);
 				if (result == null) result = caseNamedElement(exploreForward);
+				if (result == null) result = caseBlockContainer(exploreForward);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -377,6 +391,21 @@ public class MindstormsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseInstruction(Instruction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Block Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Block Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBlockContainer(BlockContainer object) {
 		return null;
 	}
 
