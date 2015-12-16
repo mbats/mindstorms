@@ -87,29 +87,6 @@ public class MindstormsItemProviderAdapterFactory extends MindstormsAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.Program} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProgramItemProvider programItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.Program}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createProgramAdapter() {
-		if (programItemProvider == null) {
-			programItemProvider = new ProgramItemProvider(this);
-		}
-
-		return programItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.Main} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -202,95 +179,26 @@ public class MindstormsItemProviderAdapterFactory extends MindstormsAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.InstructionCall} instances.
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.ReuseInstruction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InstructionCallItemProvider instructionCallItemProvider;
+	protected ReuseInstructionItemProvider reuseInstructionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.InstructionCall}.
+	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.ReuseInstruction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createInstructionCallAdapter() {
-		if (instructionCallItemProvider == null) {
-			instructionCallItemProvider = new InstructionCallItemProvider(this);
+	public Adapter createReuseInstructionAdapter() {
+		if (reuseInstructionItemProvider == null) {
+			reuseInstructionItemProvider = new ReuseInstructionItemProvider(this);
 		}
 
-		return instructionCallItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.Condition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ConditionItemProvider conditionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.Condition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createConditionAdapter() {
-		if (conditionItemProvider == null) {
-			conditionItemProvider = new ConditionItemProvider(this);
-		}
-
-		return conditionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.BinaryCondition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BinaryConditionItemProvider binaryConditionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.BinaryCondition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBinaryConditionAdapter() {
-		if (binaryConditionItemProvider == null) {
-			binaryConditionItemProvider = new BinaryConditionItemProvider(this);
-		}
-
-		return binaryConditionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.UnaryCondition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected UnaryConditionItemProvider unaryConditionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.UnaryCondition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createUnaryConditionAdapter() {
-		if (unaryConditionItemProvider == null) {
-			unaryConditionItemProvider = new UnaryConditionItemProvider(this);
-		}
-
-		return unaryConditionItemProvider;
+		return reuseInstructionItemProvider;
 	}
 
 	/**
@@ -337,29 +245,6 @@ public class MindstormsItemProviderAdapterFactory extends MindstormsAdapterFacto
 		}
 
 		return whileItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.Travel} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TravelItemProvider travelItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.Travel}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTravelAdapter() {
-		if (travelItemProvider == null) {
-			travelItemProvider = new TravelItemProvider(this);
-		}
-
-		return travelItemProvider;
 	}
 
 	/**
@@ -806,18 +691,13 @@ public class MindstormsItemProviderAdapterFactory extends MindstormsAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
-		if (programItemProvider != null) programItemProvider.dispose();
 		if (mainItemProvider != null) mainItemProvider.dispose();
 		if (procedureItemProvider != null) procedureItemProvider.dispose();
 		if (arbitratorItemProvider != null) arbitratorItemProvider.dispose();
 		if (behaviorItemProvider != null) behaviorItemProvider.dispose();
-		if (instructionCallItemProvider != null) instructionCallItemProvider.dispose();
-		if (conditionItemProvider != null) conditionItemProvider.dispose();
-		if (binaryConditionItemProvider != null) binaryConditionItemProvider.dispose();
-		if (unaryConditionItemProvider != null) unaryConditionItemProvider.dispose();
+		if (reuseInstructionItemProvider != null) reuseInstructionItemProvider.dispose();
 		if (ifItemProvider != null) ifItemProvider.dispose();
 		if (whileItemProvider != null) whileItemProvider.dispose();
-		if (travelItemProvider != null) travelItemProvider.dispose();
 		if (goForwardItemProvider != null) goForwardItemProvider.dispose();
 		if (goBackwardItemProvider != null) goBackwardItemProvider.dispose();
 		if (rotateItemProvider != null) rotateItemProvider.dispose();

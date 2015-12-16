@@ -87,13 +87,6 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MindstormsPackage.PROGRAM: {
-				Program program = (Program)theEObject;
-				T result = caseProgram(program);
-				if (result == null) result = caseNamedElement(program);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MindstormsPackage.MAIN: {
 				Main main = (Main)theEObject;
 				T result = caseMain(main);
@@ -107,10 +100,17 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MindstormsPackage.BLOCK_CONTAINER: {
+				BlockContainer blockContainer = (BlockContainer)theEObject;
+				T result = caseBlockContainer(blockContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case MindstormsPackage.PROCEDURE: {
 				Procedure procedure = (Procedure)theEObject;
 				T result = caseProcedure(procedure);
 				if (result == null) result = caseInstruction(procedure);
+				if (result == null) result = caseBlockContainer(procedure);
 				if (result == null) result = caseNamedElement(procedure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -127,18 +127,22 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				Behavior behavior = (Behavior)theEObject;
 				T result = caseBehavior(behavior);
 				if (result == null) result = caseNamedElement(behavior);
+				if (result == null) result = caseBlockContainer(behavior);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MindstormsPackage.INSTRUCTION_CALL: {
-				InstructionCall instructionCall = (InstructionCall)theEObject;
-				T result = caseInstructionCall(instructionCall);
+			case MindstormsPackage.REUSE_INSTRUCTION: {
+				ReuseInstruction reuseInstruction = (ReuseInstruction)theEObject;
+				T result = caseReuseInstruction(reuseInstruction);
+				if (result == null) result = caseInstruction(reuseInstruction);
+				if (result == null) result = caseNamedElement(reuseInstruction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case MindstormsPackage.BLOCK: {
 				Block block = (Block)theEObject;
 				T result = caseBlock(block);
+				if (result == null) result = caseInstruction(block);
 				if (result == null) result = caseNamedElement(block);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -147,6 +151,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				Action action = (Action)theEObject;
 				T result = caseAction(action);
 				if (result == null) result = caseBlock(action);
+				if (result == null) result = caseInstruction(action);
 				if (result == null) result = caseNamedElement(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -155,6 +160,8 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				Flow flow = (Flow)theEObject;
 				T result = caseFlow(flow);
 				if (result == null) result = caseBlock(flow);
+				if (result == null) result = caseBlockContainer(flow);
+				if (result == null) result = caseInstruction(flow);
 				if (result == null) result = caseNamedElement(flow);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -173,25 +180,13 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MindstormsPackage.BINARY_CONDITION: {
-				BinaryCondition binaryCondition = (BinaryCondition)theEObject;
-				T result = caseBinaryCondition(binaryCondition);
-				if (result == null) result = caseCondition(binaryCondition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MindstormsPackage.UNARY_CONDITION: {
-				UnaryCondition unaryCondition = (UnaryCondition)theEObject;
-				T result = caseUnaryCondition(unaryCondition);
-				if (result == null) result = caseCondition(unaryCondition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MindstormsPackage.IF: {
 				If if_ = (If)theEObject;
 				T result = caseIf(if_);
 				if (result == null) result = caseFlow(if_);
 				if (result == null) result = caseBlock(if_);
+				if (result == null) result = caseBlockContainer(if_);
+				if (result == null) result = caseInstruction(if_);
 				if (result == null) result = caseNamedElement(if_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -201,16 +196,9 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseWhile(while_);
 				if (result == null) result = caseFlow(while_);
 				if (result == null) result = caseBlock(while_);
+				if (result == null) result = caseBlockContainer(while_);
+				if (result == null) result = caseInstruction(while_);
 				if (result == null) result = caseNamedElement(while_);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MindstormsPackage.TRAVEL: {
-				Travel travel = (Travel)theEObject;
-				T result = caseTravel(travel);
-				if (result == null) result = caseAction(travel);
-				if (result == null) result = caseBlock(travel);
-				if (result == null) result = caseNamedElement(travel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -219,6 +207,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseGoForward(goForward);
 				if (result == null) result = caseAction(goForward);
 				if (result == null) result = caseBlock(goForward);
+				if (result == null) result = caseInstruction(goForward);
 				if (result == null) result = caseNamedElement(goForward);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -228,6 +217,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseGoBackward(goBackward);
 				if (result == null) result = caseAction(goBackward);
 				if (result == null) result = caseBlock(goBackward);
+				if (result == null) result = caseInstruction(goBackward);
 				if (result == null) result = caseNamedElement(goBackward);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -237,6 +227,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseRotate(rotate);
 				if (result == null) result = caseAction(rotate);
 				if (result == null) result = caseBlock(rotate);
+				if (result == null) result = caseInstruction(rotate);
 				if (result == null) result = caseNamedElement(rotate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -246,6 +237,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseGoTo(goTo);
 				if (result == null) result = caseAction(goTo);
 				if (result == null) result = caseBlock(goTo);
+				if (result == null) result = caseInstruction(goTo);
 				if (result == null) result = caseNamedElement(goTo);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -255,6 +247,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseReturnToBase(returnToBase);
 				if (result == null) result = caseAction(returnToBase);
 				if (result == null) result = caseBlock(returnToBase);
+				if (result == null) result = caseInstruction(returnToBase);
 				if (result == null) result = caseNamedElement(returnToBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -264,6 +257,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseGrab(grab);
 				if (result == null) result = caseAction(grab);
 				if (result == null) result = caseBlock(grab);
+				if (result == null) result = caseInstruction(grab);
 				if (result == null) result = caseNamedElement(grab);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -273,6 +267,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseRelease(release);
 				if (result == null) result = caseAction(release);
 				if (result == null) result = caseBlock(release);
+				if (result == null) result = caseInstruction(release);
 				if (result == null) result = caseNamedElement(release);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -282,6 +277,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseDelay(delay);
 				if (result == null) result = caseAction(delay);
 				if (result == null) result = caseBlock(delay);
+				if (result == null) result = caseInstruction(delay);
 				if (result == null) result = caseNamedElement(delay);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -291,6 +287,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseAvoidObstacle(avoidObstacle);
 				if (result == null) result = caseBehavior(avoidObstacle);
 				if (result == null) result = caseNamedElement(avoidObstacle);
+				if (result == null) result = caseBlockContainer(avoidObstacle);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -299,6 +296,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseReturnBottleToBase(returnBottleToBase);
 				if (result == null) result = caseBehavior(returnBottleToBase);
 				if (result == null) result = caseNamedElement(returnBottleToBase);
+				if (result == null) result = caseBlockContainer(returnBottleToBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -307,6 +305,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseExploreForward(exploreForward);
 				if (result == null) result = caseBehavior(exploreForward);
 				if (result == null) result = caseNamedElement(exploreForward);
+				if (result == null) result = caseBlockContainer(exploreForward);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -366,21 +365,6 @@ public class MindstormsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Program</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Program</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProgram(Program object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Main</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -407,6 +391,21 @@ public class MindstormsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseInstruction(Instruction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Block Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Block Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBlockContainer(BlockContainer object) {
 		return null;
 	}
 
@@ -456,17 +455,17 @@ public class MindstormsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Instruction Call</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Reuse Instruction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Instruction Call</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Reuse Instruction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseInstructionCall(InstructionCall object) {
+	public T caseReuseInstruction(ReuseInstruction object) {
 		return null;
 	}
 
@@ -546,36 +545,6 @@ public class MindstormsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Binary Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Binary Condition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBinaryCondition(BinaryCondition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Unary Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Unary Condition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUnaryCondition(UnaryCondition object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>If</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -602,21 +571,6 @@ public class MindstormsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseWhile(While object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Travel</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Travel</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTravel(Travel object) {
 		return null;
 	}
 

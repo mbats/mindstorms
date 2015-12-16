@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class BlockImpl extends NamedElementImpl implements Block {
+public abstract class BlockImpl extends InstructionImpl implements Block {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

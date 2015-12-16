@@ -11,15 +11,22 @@
 package fr.obeo.dsl.mindstorms.provider;
 
 
-import fr.obeo.dsl.mindstorms.Flow;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import fr.obeo.dsl.mindstorms.ColorSensor;
+import fr.obeo.dsl.mindstorms.Condition;
+import fr.obeo.dsl.mindstorms.Flow;
+import fr.obeo.dsl.mindstorms.MindstormsFactory;
+import fr.obeo.dsl.mindstorms.MindstormsPackage;
+import fr.obeo.dsl.mindstorms.TouchSensor;
+import fr.obeo.dsl.mindstorms.UltrasonicSensor;
 
 /**
  * This is the item provider adapter for a {@link fr.obeo.dsl.mindstorms.Flow} object.
@@ -61,13 +68,54 @@ public class FlowItemProvider extends BlockItemProvider {
 	}
 
 	/**
-	 * This returns Flow.gif.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS);
+			childrenFeatures.add(MindstormsPackage.Literals.FLOW__CONDITION);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns Flow.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
 	public Object getImage(Object object) {
+		if (object instanceof Flow) {
+			Condition condition = ((Flow) object).getCondition();
+			if (condition instanceof ColorSensor) {
+				return overlayImage(object, getResourceLocator().getImage("full/obj16/ColorSensor"));
+			} else if (condition instanceof UltrasonicSensor) {
+				return overlayImage(object, getResourceLocator().getImage("full/obj16/UltrasonicSensor"));
+			} else if (condition instanceof TouchSensor) {
+				return overlayImage(object, getResourceLocator().getImage("full/obj16/TouchSensor"));
+			}
+		}
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Flow"));
 	}
 
@@ -96,6 +144,13 @@ public class FlowItemProvider extends BlockItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Flow.class)) {
+			case MindstormsPackage.FLOW__BLOCKS:
+			case MindstormsPackage.FLOW__CONDITION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -109,6 +164,76 @@ public class FlowItemProvider extends BlockItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createIf()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createWhile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createGoForward()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createGoBackward()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createRotate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createGoTo()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createReturnToBase()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createGrab()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createRelease()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createDelay()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.FLOW__CONDITION,
+				 MindstormsFactory.eINSTANCE.createTouchSensor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.FLOW__CONDITION,
+				 MindstormsFactory.eINSTANCE.createUltrasonicSensor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.FLOW__CONDITION,
+				 MindstormsFactory.eINSTANCE.createTimer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.FLOW__CONDITION,
+				 MindstormsFactory.eINSTANCE.createColorSensor()));
 	}
 
 }

@@ -16,11 +16,16 @@ import fr.obeo.dsl.mindstorms.MindstormsPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +36,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link fr.obeo.dsl.mindstorms.impl.ArbitratorImpl#getBehaviors <em>Behaviors</em>}</li>
+ *   <li>{@link fr.obeo.dsl.mindstorms.impl.ArbitratorImpl#getReuse <em>Reuse</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,7 +50,7 @@ public class ArbitratorImpl extends InstructionImpl implements Arbitrator {
 	public static final String copyright = "Copyright (c) 2015 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
 
 	/**
-	 * The cached value of the '{@link #getBehaviors() <em>Behaviors</em>}' reference list.
+	 * The cached value of the '{@link #getBehaviors() <em>Behaviors</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getBehaviors()
@@ -52,6 +58,16 @@ public class ArbitratorImpl extends InstructionImpl implements Arbitrator {
 	 * @ordered
 	 */
 	protected EList<Behavior> behaviors;
+
+	/**
+	 * The cached value of the '{@link #getReuse() <em>Reuse</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReuse()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Behavior> reuse;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,9 +95,35 @@ public class ArbitratorImpl extends InstructionImpl implements Arbitrator {
 	 */
 	public EList<Behavior> getBehaviors() {
 		if (behaviors == null) {
-			behaviors = new EObjectResolvingEList<Behavior>(Behavior.class, this, MindstormsPackage.ARBITRATOR__BEHAVIORS);
+			behaviors = new EObjectContainmentEList<Behavior>(Behavior.class, this, MindstormsPackage.ARBITRATOR__BEHAVIORS);
 		}
 		return behaviors;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Behavior> getReuse() {
+		if (reuse == null) {
+			reuse = new EObjectResolvingEList<Behavior>(Behavior.class, this, MindstormsPackage.ARBITRATOR__REUSE);
+		}
+		return reuse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MindstormsPackage.ARBITRATOR__BEHAVIORS:
+				return ((InternalEList<?>)getBehaviors()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -94,6 +136,8 @@ public class ArbitratorImpl extends InstructionImpl implements Arbitrator {
 		switch (featureID) {
 			case MindstormsPackage.ARBITRATOR__BEHAVIORS:
 				return getBehaviors();
+			case MindstormsPackage.ARBITRATOR__REUSE:
+				return getReuse();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -111,6 +155,10 @@ public class ArbitratorImpl extends InstructionImpl implements Arbitrator {
 				getBehaviors().clear();
 				getBehaviors().addAll((Collection<? extends Behavior>)newValue);
 				return;
+			case MindstormsPackage.ARBITRATOR__REUSE:
+				getReuse().clear();
+				getReuse().addAll((Collection<? extends Behavior>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -126,6 +174,9 @@ public class ArbitratorImpl extends InstructionImpl implements Arbitrator {
 			case MindstormsPackage.ARBITRATOR__BEHAVIORS:
 				getBehaviors().clear();
 				return;
+			case MindstormsPackage.ARBITRATOR__REUSE:
+				getReuse().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -140,6 +191,8 @@ public class ArbitratorImpl extends InstructionImpl implements Arbitrator {
 		switch (featureID) {
 			case MindstormsPackage.ARBITRATOR__BEHAVIORS:
 				return behaviors != null && !behaviors.isEmpty();
+			case MindstormsPackage.ARBITRATOR__REUSE:
+				return reuse != null && !reuse.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

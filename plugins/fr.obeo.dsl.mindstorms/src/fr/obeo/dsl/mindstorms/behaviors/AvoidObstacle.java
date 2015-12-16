@@ -18,7 +18,7 @@ public class AvoidObstacle extends RobotBehavior {
 	@Override
 	public void action() {
 		suppressed = false;
-		robot.travel(-20);
+		robot.goBackward(20);
 		robot.rotate(ThreadLocalRandom.current().nextDouble(0, 360 + 1));
 		while (robot.isMoving() && !suppressed) {
 			Thread.yield();

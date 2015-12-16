@@ -87,16 +87,16 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 				return createNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseProgram(Program object) {
-				return createProgramAdapter();
-			}
-			@Override
 			public Adapter caseMain(Main object) {
 				return createMainAdapter();
 			}
 			@Override
 			public Adapter caseInstruction(Instruction object) {
 				return createInstructionAdapter();
+			}
+			@Override
+			public Adapter caseBlockContainer(BlockContainer object) {
+				return createBlockContainerAdapter();
 			}
 			@Override
 			public Adapter caseProcedure(Procedure object) {
@@ -111,8 +111,8 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 				return createBehaviorAdapter();
 			}
 			@Override
-			public Adapter caseInstructionCall(InstructionCall object) {
-				return createInstructionCallAdapter();
+			public Adapter caseReuseInstruction(ReuseInstruction object) {
+				return createReuseInstructionAdapter();
 			}
 			@Override
 			public Adapter caseBlock(Block object) {
@@ -135,24 +135,12 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 				return createConditionAdapter();
 			}
 			@Override
-			public Adapter caseBinaryCondition(BinaryCondition object) {
-				return createBinaryConditionAdapter();
-			}
-			@Override
-			public Adapter caseUnaryCondition(UnaryCondition object) {
-				return createUnaryConditionAdapter();
-			}
-			@Override
 			public Adapter caseIf(If object) {
 				return createIfAdapter();
 			}
 			@Override
 			public Adapter caseWhile(While object) {
 				return createWhileAdapter();
-			}
-			@Override
-			public Adapter caseTravel(Travel object) {
-				return createTravelAdapter();
 			}
 			@Override
 			public Adapter caseGoForward(GoForward object) {
@@ -249,20 +237,6 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.Program <em>Program</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.obeo.dsl.mindstorms.Program
-	 * @generated
-	 */
-	public Adapter createProgramAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.Main <em>Main</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -287,6 +261,20 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInstructionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.BlockContainer <em>Block Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.mindstorms.BlockContainer
+	 * @generated
+	 */
+	public Adapter createBlockContainerAdapter() {
 		return null;
 	}
 
@@ -333,16 +321,16 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.InstructionCall <em>Instruction Call</em>}'.
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.ReuseInstruction <em>Reuse Instruction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.obeo.dsl.mindstorms.InstructionCall
+	 * @see fr.obeo.dsl.mindstorms.ReuseInstruction
 	 * @generated
 	 */
-	public Adapter createInstructionCallAdapter() {
+	public Adapter createReuseInstructionAdapter() {
 		return null;
 	}
 
@@ -417,34 +405,6 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.BinaryCondition <em>Binary Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.obeo.dsl.mindstorms.BinaryCondition
-	 * @generated
-	 */
-	public Adapter createBinaryConditionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.UnaryCondition <em>Unary Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.obeo.dsl.mindstorms.UnaryCondition
-	 * @generated
-	 */
-	public Adapter createUnaryConditionAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.If <em>If</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -469,20 +429,6 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createWhileAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.Travel <em>Travel</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.obeo.dsl.mindstorms.Travel
-	 * @generated
-	 */
-	public Adapter createTravelAdapter() {
 		return null;
 	}
 

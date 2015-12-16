@@ -37,15 +37,6 @@ public interface MindstormsFactory extends EFactory {
 	MindstormsFactory eINSTANCE = fr.obeo.dsl.mindstorms.impl.MindstormsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Program</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Program</em>'.
-	 * @generated
-	 */
-	Program createProgram();
-
-	/**
 	 * Returns a new object of class '<em>Main</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,40 +73,13 @@ public interface MindstormsFactory extends EFactory {
 	Behavior createBehavior();
 
 	/**
-	 * Returns a new object of class '<em>Instruction Call</em>'.
+	 * Returns a new object of class '<em>Reuse Instruction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Instruction Call</em>'.
+	 * @return a new object of class '<em>Reuse Instruction</em>'.
 	 * @generated
 	 */
-	InstructionCall createInstructionCall();
-
-	/**
-	 * Returns a new object of class '<em>Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition</em>'.
-	 * @generated
-	 */
-	Condition createCondition();
-
-	/**
-	 * Returns a new object of class '<em>Binary Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Binary Condition</em>'.
-	 * @generated
-	 */
-	BinaryCondition createBinaryCondition();
-
-	/**
-	 * Returns a new object of class '<em>Unary Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unary Condition</em>'.
-	 * @generated
-	 */
-	UnaryCondition createUnaryCondition();
+	ReuseInstruction createReuseInstruction();
 
 	/**
 	 * Returns a new object of class '<em>If</em>'.
@@ -134,15 +98,6 @@ public interface MindstormsFactory extends EFactory {
 	 * @generated
 	 */
 	While createWhile();
-
-	/**
-	 * Returns a new object of class '<em>Travel</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Travel</em>'.
-	 * @generated
-	 */
-	Travel createTravel();
 
 	/**
 	 * Returns a new object of class '<em>Go Forward</em>'.

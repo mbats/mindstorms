@@ -14,8 +14,8 @@ import fr.obeo.dsl.mindstorms.Action;
 import fr.obeo.dsl.mindstorms.Arbitrator;
 import fr.obeo.dsl.mindstorms.AvoidObstacle;
 import fr.obeo.dsl.mindstorms.Behavior;
-import fr.obeo.dsl.mindstorms.BinaryCondition;
 import fr.obeo.dsl.mindstorms.Block;
+import fr.obeo.dsl.mindstorms.BlockContainer;
 import fr.obeo.dsl.mindstorms.Color;
 import fr.obeo.dsl.mindstorms.ColorSensor;
 import fr.obeo.dsl.mindstorms.Condition;
@@ -28,24 +28,21 @@ import fr.obeo.dsl.mindstorms.GoTo;
 import fr.obeo.dsl.mindstorms.Grab;
 import fr.obeo.dsl.mindstorms.If;
 import fr.obeo.dsl.mindstorms.Instruction;
-import fr.obeo.dsl.mindstorms.InstructionCall;
 import fr.obeo.dsl.mindstorms.Main;
 import fr.obeo.dsl.mindstorms.MindstormsFactory;
 import fr.obeo.dsl.mindstorms.MindstormsPackage;
 import fr.obeo.dsl.mindstorms.NamedElement;
 import fr.obeo.dsl.mindstorms.OperatorKind;
 import fr.obeo.dsl.mindstorms.Procedure;
-import fr.obeo.dsl.mindstorms.Program;
 import fr.obeo.dsl.mindstorms.Release;
 import fr.obeo.dsl.mindstorms.ReturnBottleToBase;
 import fr.obeo.dsl.mindstorms.ReturnToBase;
+import fr.obeo.dsl.mindstorms.ReuseInstruction;
 import fr.obeo.dsl.mindstorms.Rotate;
 import fr.obeo.dsl.mindstorms.Sensor;
 import fr.obeo.dsl.mindstorms.Timer;
 import fr.obeo.dsl.mindstorms.TouchSensor;
-import fr.obeo.dsl.mindstorms.Travel;
 import fr.obeo.dsl.mindstorms.UltrasonicSensor;
-import fr.obeo.dsl.mindstorms.UnaryCondition;
 import fr.obeo.dsl.mindstorms.While;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -82,13 +79,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass programEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass mainEClass = null;
 
 	/**
@@ -97,6 +87,13 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * @generated
 	 */
 	private EClass instructionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass blockContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,7 +121,7 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass instructionCallEClass = null;
+	private EClass reuseInstructionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,20 +163,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass binaryConditionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass unaryConditionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass ifEClass = null;
 
 	/**
@@ -188,13 +171,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * @generated
 	 */
 	private EClass whileEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass travelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -399,42 +375,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProgram() {
-		return programEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProgram_Instructions() {
-		return (EReference)programEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProgram_Behaviors() {
-		return (EReference)programEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProgram_Main() {
-		return (EReference)programEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMain() {
 		return mainEClass;
 	}
@@ -444,7 +384,7 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMain_Calls() {
+	public EReference getMain_Instructions() {
 		return (EReference)mainEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -462,8 +402,8 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProcedure() {
-		return procedureEClass;
+	public EClass getBlockContainer() {
+		return blockContainerEClass;
 	}
 
 	/**
@@ -471,8 +411,17 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProcedure_Blocks() {
-		return (EReference)procedureEClass.getEStructuralFeatures().get(0);
+	public EReference getBlockContainer_Blocks() {
+		return (EReference)blockContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProcedure() {
+		return procedureEClass;
 	}
 
 	/**
@@ -498,6 +447,15 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getArbitrator_Reuse() {
+		return (EReference)arbitratorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBehavior() {
 		return behaviorEClass;
 	}
@@ -516,8 +474,8 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBehavior_Blocks() {
-		return (EReference)behaviorEClass.getEStructuralFeatures().get(1);
+	public EClass getReuseInstruction() {
+		return reuseInstructionEClass;
 	}
 
 	/**
@@ -525,17 +483,8 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getInstructionCall() {
-		return instructionCallEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInstructionCall_Instruction() {
-		return (EReference)instructionCallEClass.getEStructuralFeatures().get(0);
+	public EReference getReuseInstruction_Reuse() {
+		return (EReference)reuseInstructionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -570,6 +519,15 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getFlow_Condition() {
+		return (EReference)flowEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSensor() {
 		return sensorEClass;
 	}
@@ -588,89 +546,8 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getBinaryCondition() {
-		return binaryConditionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBinaryCondition_Left() {
-		return (EReference)binaryConditionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBinaryCondition_Op() {
-		return (EAttribute)binaryConditionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBinaryCondition_Right() {
-		return (EReference)binaryConditionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUnaryCondition() {
-		return unaryConditionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUnaryCondition_Not() {
-		return (EAttribute)unaryConditionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUnaryCondition_Condition() {
-		return (EReference)unaryConditionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getIf() {
 		return ifEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getIf_Condition() {
-		return (EReference)ifEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getIf_Blocks() {
-		return (EReference)ifEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -687,42 +564,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getWhile_Condition() {
-		return (EReference)whileEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getWhile_Blocks() {
-		return (EReference)whileEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTravel() {
-		return travelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTravel_Cm() {
-		return (EAttribute)travelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getGoForward() {
 		return goForwardEClass;
 	}
@@ -732,8 +573,44 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGoForward_Cm() {
+		return (EAttribute)goForwardEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGoForward_Infinite() {
+		return (EAttribute)goForwardEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGoBackward() {
 		return goBackwardEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGoBackward_Cm() {
+		return (EAttribute)goBackwardEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGoBackward_Infinite() {
+		return (EAttribute)goBackwardEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -894,7 +771,7 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUltrasonicSensor_Distance() {
+	public EAttribute getUltrasonicSensor_Operator() {
 		return (EAttribute)ultrasonicSensorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -903,17 +780,8 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUltrasonicSensor_Operator() {
-		return (EAttribute)ultrasonicSensorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getUltrasonicSensor_Value() {
-		return (EAttribute)ultrasonicSensorEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)ultrasonicSensorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1001,62 +869,48 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
-		programEClass = createEClass(PROGRAM);
-		createEReference(programEClass, PROGRAM__INSTRUCTIONS);
-		createEReference(programEClass, PROGRAM__BEHAVIORS);
-		createEReference(programEClass, PROGRAM__MAIN);
-
 		mainEClass = createEClass(MAIN);
-		createEReference(mainEClass, MAIN__CALLS);
+		createEReference(mainEClass, MAIN__INSTRUCTIONS);
 
 		instructionEClass = createEClass(INSTRUCTION);
 
+		blockContainerEClass = createEClass(BLOCK_CONTAINER);
+		createEReference(blockContainerEClass, BLOCK_CONTAINER__BLOCKS);
+
 		procedureEClass = createEClass(PROCEDURE);
-		createEReference(procedureEClass, PROCEDURE__BLOCKS);
 
 		arbitratorEClass = createEClass(ARBITRATOR);
 		createEReference(arbitratorEClass, ARBITRATOR__BEHAVIORS);
+		createEReference(arbitratorEClass, ARBITRATOR__REUSE);
 
 		behaviorEClass = createEClass(BEHAVIOR);
 		createEReference(behaviorEClass, BEHAVIOR__TAKE_CONTROL);
-		createEReference(behaviorEClass, BEHAVIOR__BLOCKS);
 
-		instructionCallEClass = createEClass(INSTRUCTION_CALL);
-		createEReference(instructionCallEClass, INSTRUCTION_CALL__INSTRUCTION);
+		reuseInstructionEClass = createEClass(REUSE_INSTRUCTION);
+		createEReference(reuseInstructionEClass, REUSE_INSTRUCTION__REUSE);
 
 		blockEClass = createEClass(BLOCK);
 
 		actionEClass = createEClass(ACTION);
 
 		flowEClass = createEClass(FLOW);
+		createEReference(flowEClass, FLOW__CONDITION);
 
 		sensorEClass = createEClass(SENSOR);
 
 		conditionEClass = createEClass(CONDITION);
 
-		binaryConditionEClass = createEClass(BINARY_CONDITION);
-		createEReference(binaryConditionEClass, BINARY_CONDITION__LEFT);
-		createEAttribute(binaryConditionEClass, BINARY_CONDITION__OP);
-		createEReference(binaryConditionEClass, BINARY_CONDITION__RIGHT);
-
-		unaryConditionEClass = createEClass(UNARY_CONDITION);
-		createEAttribute(unaryConditionEClass, UNARY_CONDITION__NOT);
-		createEReference(unaryConditionEClass, UNARY_CONDITION__CONDITION);
-
 		ifEClass = createEClass(IF);
-		createEReference(ifEClass, IF__CONDITION);
-		createEReference(ifEClass, IF__BLOCKS);
 
 		whileEClass = createEClass(WHILE);
-		createEReference(whileEClass, WHILE__CONDITION);
-		createEReference(whileEClass, WHILE__BLOCKS);
-
-		travelEClass = createEClass(TRAVEL);
-		createEAttribute(travelEClass, TRAVEL__CM);
 
 		goForwardEClass = createEClass(GO_FORWARD);
+		createEAttribute(goForwardEClass, GO_FORWARD__CM);
+		createEAttribute(goForwardEClass, GO_FORWARD__INFINITE);
 
 		goBackwardEClass = createEClass(GO_BACKWARD);
+		createEAttribute(goBackwardEClass, GO_BACKWARD__CM);
+		createEAttribute(goBackwardEClass, GO_BACKWARD__INFINITE);
 
 		rotateEClass = createEClass(ROTATE);
 		createEAttribute(rotateEClass, ROTATE__DEGREES);
@@ -1085,7 +939,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		createEAttribute(touchSensorEClass, TOUCH_SENSOR__IS_PRESSED);
 
 		ultrasonicSensorEClass = createEClass(ULTRASONIC_SENSOR);
-		createEAttribute(ultrasonicSensorEClass, ULTRASONIC_SENSOR__DISTANCE);
 		createEAttribute(ultrasonicSensorEClass, ULTRASONIC_SENSOR__OPERATOR);
 		createEAttribute(ultrasonicSensorEClass, ULTRASONIC_SENSOR__VALUE);
 
@@ -1128,21 +981,21 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		programEClass.getESuperTypes().add(this.getNamedElement());
 		instructionEClass.getESuperTypes().add(this.getNamedElement());
 		procedureEClass.getESuperTypes().add(this.getInstruction());
+		procedureEClass.getESuperTypes().add(this.getBlockContainer());
 		arbitratorEClass.getESuperTypes().add(this.getInstruction());
 		behaviorEClass.getESuperTypes().add(this.getNamedElement());
-		blockEClass.getESuperTypes().add(this.getNamedElement());
+		behaviorEClass.getESuperTypes().add(this.getBlockContainer());
+		reuseInstructionEClass.getESuperTypes().add(this.getInstruction());
+		blockEClass.getESuperTypes().add(this.getInstruction());
 		actionEClass.getESuperTypes().add(this.getBlock());
 		flowEClass.getESuperTypes().add(this.getBlock());
+		flowEClass.getESuperTypes().add(this.getBlockContainer());
 		sensorEClass.getESuperTypes().add(this.getNamedElement());
 		sensorEClass.getESuperTypes().add(this.getCondition());
-		binaryConditionEClass.getESuperTypes().add(this.getCondition());
-		unaryConditionEClass.getESuperTypes().add(this.getCondition());
 		ifEClass.getESuperTypes().add(this.getFlow());
 		whileEClass.getESuperTypes().add(this.getFlow());
-		travelEClass.getESuperTypes().add(this.getAction());
 		goForwardEClass.getESuperTypes().add(this.getAction());
 		goBackwardEClass.getESuperTypes().add(this.getAction());
 		rotateEClass.getESuperTypes().add(this.getAction());
@@ -1163,62 +1016,48 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProgram_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProgram_Behaviors(), this.getBehavior(), null, "behaviors", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProgram_Main(), this.getMain(), null, "main", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(mainEClass, Main.class, "Main", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMain_Calls(), this.getInstructionCall(), null, "calls", null, 0, -1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMain_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(instructionEClass, Instruction.class, "Instruction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(blockContainerEClass, BlockContainer.class, "BlockContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBlockContainer_Blocks(), this.getBlock(), null, "blocks", null, 0, -1, BlockContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(procedureEClass, Procedure.class, "Procedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProcedure_Blocks(), this.getBlock(), null, "blocks", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(arbitratorEClass, Arbitrator.class, "Arbitrator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getArbitrator_Behaviors(), this.getBehavior(), null, "behaviors", null, 0, -1, Arbitrator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArbitrator_Behaviors(), this.getBehavior(), null, "behaviors", null, 0, -1, Arbitrator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArbitrator_Reuse(), this.getBehavior(), null, "reuse", null, 0, -1, Arbitrator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(behaviorEClass, Behavior.class, "Behavior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBehavior_TakeControl(), this.getCondition(), null, "takeControl", null, 0, 1, Behavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBehavior_Blocks(), this.getBlock(), null, "blocks", null, 0, -1, Behavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(instructionCallEClass, InstructionCall.class, "InstructionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInstructionCall_Instruction(), this.getInstruction(), null, "instruction", null, 0, 1, InstructionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(reuseInstructionEClass, ReuseInstruction.class, "ReuseInstruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getReuseInstruction_Reuse(), this.getInstruction(), null, "reuse", null, 0, 1, ReuseInstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(blockEClass, Block.class, "Block", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(flowEClass, Flow.class, "Flow", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFlow_Condition(), this.getCondition(), null, "condition", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sensorEClass, Sensor.class, "Sensor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(binaryConditionEClass, BinaryCondition.class, "BinaryCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBinaryCondition_Left(), this.getCondition(), null, "left", null, 0, 1, BinaryCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBinaryCondition_Op(), this.getOperatorKind(), "op", null, 0, 1, BinaryCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBinaryCondition_Right(), this.getCondition(), null, "right", null, 0, 1, BinaryCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(unaryConditionEClass, UnaryCondition.class, "UnaryCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUnaryCondition_Not(), this.getOperatorKind(), "not", null, 0, 1, UnaryCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUnaryCondition_Condition(), this.getCondition(), null, "condition", null, 0, 1, UnaryCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIf_Condition(), this.getCondition(), null, "condition", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIf_Blocks(), this.getBlock(), null, "blocks", null, 0, -1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(whileEClass, While.class, "While", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getWhile_Condition(), this.getCondition(), null, "condition", null, 0, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getWhile_Blocks(), this.getBlock(), null, "blocks", null, 0, -1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(travelEClass, Travel.class, "Travel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTravel_Cm(), ecorePackage.getEInt(), "cm", null, 0, 1, Travel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(goForwardEClass, GoForward.class, "GoForward", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGoForward_Cm(), ecorePackage.getEInt(), "cm", null, 0, 1, GoForward.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGoForward_Infinite(), ecorePackage.getEBoolean(), "infinite", null, 0, 1, GoForward.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(goBackwardEClass, GoBackward.class, "GoBackward", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGoBackward_Cm(), ecorePackage.getEInt(), "cm", null, 0, 1, GoBackward.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGoBackward_Infinite(), ecorePackage.getEBoolean(), "infinite", null, 0, 1, GoBackward.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rotateEClass, Rotate.class, "Rotate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRotate_Degrees(), ecorePackage.getEInt(), "degrees", null, 0, 1, Rotate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1247,7 +1086,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		initEAttribute(getTouchSensor_IsPressed(), ecorePackage.getEBoolean(), "isPressed", null, 0, 1, TouchSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ultrasonicSensorEClass, UltrasonicSensor.class, "UltrasonicSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUltrasonicSensor_Distance(), ecorePackage.getEFloat(), "distance", null, 0, 1, UltrasonicSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUltrasonicSensor_Operator(), this.getOperatorKind(), "operator", null, 0, 1, UltrasonicSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUltrasonicSensor_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, UltrasonicSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1280,7 +1118,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		addEEnumLiteral(operatorKindEEnum, OperatorKind.NOT_EQUAL);
 		addEEnumLiteral(operatorKindEEnum, OperatorKind.UPPER_OR_EQUAL);
 		addEEnumLiteral(operatorKindEEnum, OperatorKind.LOWER_OR_EQUAL);
-		addEEnumLiteral(operatorKindEEnum, OperatorKind.NOT);
 
 		// Create resource
 		createResource(eNS_URI);

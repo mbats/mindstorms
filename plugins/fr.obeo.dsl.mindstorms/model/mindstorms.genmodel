@@ -31,60 +31,45 @@
       <genEnumLiterals ecoreEnumLiteral="mindstorms.ecore#//OperatorKind/notEqual"/>
       <genEnumLiterals ecoreEnumLiteral="mindstorms.ecore#//OperatorKind/upperOrEqual"/>
       <genEnumLiterals ecoreEnumLiteral="mindstorms.ecore#//OperatorKind/lowerOrEqual"/>
-      <genEnumLiterals ecoreEnumLiteral="mindstorms.ecore#//OperatorKind/not"/>
     </genEnums>
     <genClasses image="false" ecoreClass="mindstorms.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//NamedElement/name"/>
     </genClasses>
-    <genClasses ecoreClass="mindstorms.ecore#//Program">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Program/instructions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Program/behaviors"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Program/main"/>
-    </genClasses>
     <genClasses ecoreClass="mindstorms.ecore#//Main">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Main/calls"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Main/instructions"/>
     </genClasses>
     <genClasses image="false" ecoreClass="mindstorms.ecore#//Instruction"/>
-    <genClasses ecoreClass="mindstorms.ecore#//Procedure">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Procedure/blocks"/>
+    <genClasses image="false" ecoreClass="mindstorms.ecore#//BlockContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//BlockContainer/blocks"/>
     </genClasses>
+    <genClasses ecoreClass="mindstorms.ecore#//Procedure"/>
     <genClasses ecoreClass="mindstorms.ecore#//Arbitrator">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Arbitrator/behaviors"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Arbitrator/behaviors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Arbitrator/reuse"/>
     </genClasses>
     <genClasses ecoreClass="mindstorms.ecore#//Behavior">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Behavior/takeControl"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Behavior/blocks"/>
     </genClasses>
-    <genClasses ecoreClass="mindstorms.ecore#//InstructionCall">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mindstorms.ecore#//InstructionCall/instruction"/>
+    <genClasses ecoreClass="mindstorms.ecore#//ReuseInstruction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mindstorms.ecore#//ReuseInstruction/reuse"/>
     </genClasses>
     <genClasses image="false" ecoreClass="mindstorms.ecore#//Block"/>
     <genClasses ecoreClass="mindstorms.ecore#//Action"/>
-    <genClasses ecoreClass="mindstorms.ecore#//Flow"/>
+    <genClasses ecoreClass="mindstorms.ecore#//Flow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//Flow/condition"/>
+    </genClasses>
     <genClasses ecoreClass="mindstorms.ecore#//Sensor"/>
     <genClasses ecoreClass="mindstorms.ecore#//Condition"/>
-    <genClasses ecoreClass="mindstorms.ecore#//BinaryCondition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//BinaryCondition/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//BinaryCondition/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//BinaryCondition/right"/>
+    <genClasses ecoreClass="mindstorms.ecore#//If"/>
+    <genClasses ecoreClass="mindstorms.ecore#//While"/>
+    <genClasses ecoreClass="mindstorms.ecore#//GoForward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//GoForward/cm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//GoForward/infinite"/>
     </genClasses>
-    <genClasses ecoreClass="mindstorms.ecore#//UnaryCondition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//UnaryCondition/not"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mindstorms.ecore#//UnaryCondition/condition"/>
+    <genClasses ecoreClass="mindstorms.ecore#//GoBackward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//GoBackward/cm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//GoBackward/infinite"/>
     </genClasses>
-    <genClasses ecoreClass="mindstorms.ecore#//If">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//If/condition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//If/blocks"/>
-    </genClasses>
-    <genClasses ecoreClass="mindstorms.ecore#//While">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mindstorms.ecore#//While/condition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mindstorms.ecore#//While/blocks"/>
-    </genClasses>
-    <genClasses ecoreClass="mindstorms.ecore#//Travel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//Travel/cm"/>
-    </genClasses>
-    <genClasses ecoreClass="mindstorms.ecore#//GoForward"/>
-    <genClasses ecoreClass="mindstorms.ecore#//GoBackward"/>
     <genClasses ecoreClass="mindstorms.ecore#//Rotate">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//Rotate/degrees"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//Rotate/random"/>
@@ -106,7 +91,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//TouchSensor/isPressed"/>
     </genClasses>
     <genClasses ecoreClass="mindstorms.ecore#//UltrasonicSensor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//UltrasonicSensor/distance"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//UltrasonicSensor/operator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mindstorms.ecore#//UltrasonicSensor/value"/>
     </genClasses>

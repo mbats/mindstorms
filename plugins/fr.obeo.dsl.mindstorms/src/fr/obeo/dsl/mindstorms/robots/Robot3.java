@@ -2,7 +2,6 @@ package fr.obeo.dsl.mindstorms.robots;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 import fr.obeo.dsl.mindstorms.AbstractRobot;
 import fr.obeo.dsl.mindstorms.behaviors.AvoidObstacle;
@@ -56,8 +55,8 @@ public class Robot3 extends AbstractRobot {
 		}
 		// Release object in the base, backward on 20 cm, and then rotate randomly between 0 to 360 degrees.
 		robot.release();
-		robot.travel(-20);
-		robot.rotate(ThreadLocalRandom.current().nextDouble(0, 360 + 1));
+		robot.goBackward(20);
+		robot.rotateRandomly();
 	}
 
 }

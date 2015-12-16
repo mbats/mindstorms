@@ -20,16 +20,16 @@ public class GoSpirale extends RobotBehavior {
 	public void action() {
 		suppressed = false;
 		while (d < 200) {			
-			robot.travel(d);
+			robot.goForward(d);
 			while (robot.isMoving() && !suppressed)Thread.yield();
 			robot.rotate(-90);
-			robot.travel(d);
+			robot.goForward(d);
 			while (robot.isMoving() && !suppressed)Thread.yield();
 			robot.rotate(-90);
-			robot.travel(d);
+			robot.goForward(d);
 			while (robot.isMoving() && !suppressed)Thread.yield();
 			robot.rotate(-90);
-			robot.travel(d);
+			robot.goForward(d);
 			while (robot.isMoving() && !suppressed)Thread.yield();
 			robot.rotate(-90);
 			d += 10;

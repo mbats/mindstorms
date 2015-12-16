@@ -10,7 +10,7 @@
  */
 package fr.obeo.dsl.mindstorms.impl;
 
-import fr.obeo.dsl.mindstorms.InstructionCall;
+import fr.obeo.dsl.mindstorms.Instruction;
 import fr.obeo.dsl.mindstorms.Main;
 import fr.obeo.dsl.mindstorms.MindstormsPackage;
 
@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.obeo.dsl.mindstorms.impl.MainImpl#getCalls <em>Calls</em>}</li>
+ *   <li>{@link fr.obeo.dsl.mindstorms.impl.MainImpl#getInstructions <em>Instructions</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,14 +50,14 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	public static final String copyright = "Copyright (c) 2015 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
 
 	/**
-	 * The cached value of the '{@link #getCalls() <em>Calls</em>}' containment reference list.
+	 * The cached value of the '{@link #getInstructions() <em>Instructions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCalls()
+	 * @see #getInstructions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<InstructionCall> calls;
+	protected EList<Instruction> instructions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,11 +83,11 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<InstructionCall> getCalls() {
-		if (calls == null) {
-			calls = new EObjectContainmentEList<InstructionCall>(InstructionCall.class, this, MindstormsPackage.MAIN__CALLS);
+	public EList<Instruction> getInstructions() {
+		if (instructions == null) {
+			instructions = new EObjectContainmentEList<Instruction>(Instruction.class, this, MindstormsPackage.MAIN__INSTRUCTIONS);
 		}
-		return calls;
+		return instructions;
 	}
 
 	/**
@@ -98,8 +98,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MindstormsPackage.MAIN__CALLS:
-				return ((InternalEList<?>)getCalls()).basicRemove(otherEnd, msgs);
+			case MindstormsPackage.MAIN__INSTRUCTIONS:
+				return ((InternalEList<?>)getInstructions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -112,8 +112,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MindstormsPackage.MAIN__CALLS:
-				return getCalls();
+			case MindstormsPackage.MAIN__INSTRUCTIONS:
+				return getInstructions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -127,9 +127,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MindstormsPackage.MAIN__CALLS:
-				getCalls().clear();
-				getCalls().addAll((Collection<? extends InstructionCall>)newValue);
+			case MindstormsPackage.MAIN__INSTRUCTIONS:
+				getInstructions().clear();
+				getInstructions().addAll((Collection<? extends Instruction>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -143,8 +143,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MindstormsPackage.MAIN__CALLS:
-				getCalls().clear();
+			case MindstormsPackage.MAIN__INSTRUCTIONS:
+				getInstructions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -158,8 +158,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MindstormsPackage.MAIN__CALLS:
-				return calls != null && !calls.isEmpty();
+			case MindstormsPackage.MAIN__INSTRUCTIONS:
+				return instructions != null && !instructions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

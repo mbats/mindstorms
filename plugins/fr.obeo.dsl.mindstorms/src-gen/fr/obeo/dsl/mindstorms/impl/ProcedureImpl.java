@@ -11,6 +11,7 @@
 package fr.obeo.dsl.mindstorms.impl;
 
 import fr.obeo.dsl.mindstorms.Block;
+import fr.obeo.dsl.mindstorms.BlockContainer;
 import fr.obeo.dsl.mindstorms.MindstormsPackage;
 import fr.obeo.dsl.mindstorms.Procedure;
 
@@ -160,6 +161,38 @@ public class ProcedureImpl extends InstructionImpl implements Procedure {
 				return blocks != null && !blocks.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == BlockContainer.class) {
+			switch (derivedFeatureID) {
+				case MindstormsPackage.PROCEDURE__BLOCKS: return MindstormsPackage.BLOCK_CONTAINER__BLOCKS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == BlockContainer.class) {
+			switch (baseFeatureID) {
+				case MindstormsPackage.BLOCK_CONTAINER__BLOCKS: return MindstormsPackage.PROCEDURE__BLOCKS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //ProcedureImpl

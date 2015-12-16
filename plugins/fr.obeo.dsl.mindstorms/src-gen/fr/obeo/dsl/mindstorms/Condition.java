@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see fr.obeo.dsl.mindstorms.MindstormsPackage#getCondition()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Condition extends EObject {

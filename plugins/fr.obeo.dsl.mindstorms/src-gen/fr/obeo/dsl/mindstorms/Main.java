@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.obeo.dsl.mindstorms.Main#getCalls <em>Calls</em>}</li>
+ *   <li>{@link fr.obeo.dsl.mindstorms.Main#getInstructions <em>Instructions</em>}</li>
  * </ul>
  *
  * @see fr.obeo.dsl.mindstorms.MindstormsPackage#getMain()
@@ -39,19 +39,19 @@ public interface Main extends EObject {
 	String copyright = "Copyright (c) 2015 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
 
 	/**
-	 * Returns the value of the '<em><b>Calls</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.obeo.dsl.mindstorms.InstructionCall}.
+	 * Returns the value of the '<em><b>Instructions</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.obeo.dsl.mindstorms.Instruction}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Calls</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Instructions</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Calls</em>' containment reference list.
-	 * @see fr.obeo.dsl.mindstorms.MindstormsPackage#getMain_Calls()
+	 * @return the value of the '<em>Instructions</em>' containment reference list.
+	 * @see fr.obeo.dsl.mindstorms.MindstormsPackage#getMain_Instructions()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<InstructionCall> getCalls();
+	EList<Instruction> getInstructions();
 
 } // Main

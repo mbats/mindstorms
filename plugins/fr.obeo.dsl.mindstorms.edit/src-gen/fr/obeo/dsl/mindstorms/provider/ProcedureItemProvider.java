@@ -77,7 +77,7 @@ public class ProcedureItemProvider extends InstructionItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MindstormsPackage.Literals.PROCEDURE__BLOCKS);
+			childrenFeatures.add(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS);
 		}
 		return childrenFeatures;
 	}
@@ -153,57 +153,52 @@ public class ProcedureItemProvider extends InstructionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createIf()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createWhile()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createTravel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createGoForward()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createGoBackward()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createRotate()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createGoTo()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createReturnToBase()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createGrab()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createRelease()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.PROCEDURE__BLOCKS,
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createDelay()));
 	}
 

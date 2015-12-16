@@ -1,5 +1,7 @@
 package fr.obeo.dsl.mindstorms;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import lejos.hardware.Button;
 import lejos.hardware.Key;
 import lejos.hardware.KeyListener;
@@ -16,9 +18,9 @@ import lejos.robotics.SampleProvider;
 import lejos.robotics.geometry.Point;
 import lejos.robotics.localization.OdometryPoseProvider;
 import lejos.robotics.navigation.DifferentialPilot;
-import lejos.robotics.navigation.MoveController;
 import lejos.robotics.navigation.Navigator;
 import lejos.robotics.navigation.Pose;
+import lejos.utility.Delay;
 import lejos.utility.Timer;
 import lejos.utility.TimerListener;
 
@@ -61,7 +63,7 @@ public abstract class AbstractRobot {
 		Button.ESCAPE.addKeyListener(new KeyListener() {
 			@Override
 			public void keyPressed(Key k) {
-				if (Button.ESCAPE.equals(k)) {					
+				if (Button.ESCAPE.equals(k)) {
 					System.exit(0);
 				}
 			}
@@ -106,52 +108,97 @@ public abstract class AbstractRobot {
 		timer.stop();
 	}
 
-	public void explore(double distance, double angle) {
-		pilot.rotate(angle);
-		pilot.travel(distance);
-	}
-
+	// Actions
+	
 	public void goForward() {
 		pilot.forward();
 	}
-
-	public int getColor() {
-		return color.getColorID();
+	
+	public void goForward(int distance) {
+		pilot.travel(distance*10);
 	}
 	
-	public EV3ColorSensor getColorSensor() {
-		return color;
+	public void goBackward() {
+		pilot.backward();
+	}
+	
+	public void goBackward(int distance) {
+		pilot.travel(-distance*10);
 	}
 
+	public void delay(int ms) {
+		Delay.msDelay(ms);
+	}
+	
+	public void grab() {
+		grabMotor.forward();
+		while (!grabMotor.isStalled())
+			Thread.yield();
+	}
+
+	public void release() {
+		grabMotor.backward();
+		while (!grabMotor.isStalled())
+			Thread.yield();
+	}
+	
+	public void rotate(double angle) {
+		pilot.rotate(angle);
+	}
+	
+	public void rotateRandomly() {
+		rotate(ThreadLocalRandom.current().nextDouble(0, 360 + 1));
+	}
+	
 	public void returnToBase() {
 		goTo(0, 0);
 	}
-
-	private void goTo(float x, float y) {
+	
+	public void goTo(float x, float y) {
 		Pose currentPose = poseProvider.getPose();
 		float heading = currentPose.relativeBearing(new Point(x, y));
 		float distance = currentPose.distanceTo(new Point(x, y));
 		pilot.rotate(heading);
 		pilot.travel(distance);
-		
 	}
 	
-	/**
-	 * Moves the robot forward. If the given distance is negative, the robot will move backward.
-	 * 
-	 * @param distance distance to travel in centimeters.
-	 */
-	public void travel(double distance) {
-		pilot.travel(distance*10);
+	// Sensors
+	
+	public boolean touchSensorIsPressed() {
+		try {
+			SampleProvider sampleProvider = touch.getTouchMode();
+			float[] sample = new float[1];
+			sampleProvider.fetchSample(sample, 0);
+			return sample[0] == 1;
+		} catch (IndexOutOfBoundsException ex) {
+			return false;
+		}
 	}
 	
-	/**
-	 * Rotates the robot to a given angle. Positive angle rotate left (anti-clockwise), negative right.
-	 * 
-	 * @param angle angle of rotation in degrees.
-	 */
-	public void rotate(double angle) {
+	public float getDistance() {
+		try {
+			SampleProvider sampleProvider = sonar.getDistanceMode();
+			float[] sample = new float[1];
+			sampleProvider.fetchSample(sample, 0);
+			return sample[0];
+		} catch (IndexOutOfBoundsException ex) {
+			return 0;
+		}
+	}
+	
+	public int getColor() {
+		return color.getColorID();
+	}
+	
+	// Misc.
+	
+	public void explore(double distance, double angle) {
 		pilot.rotate(angle);
+		pilot.travel(distance);
+	}
+
+	public EV3ColorSensor getColorSensor() {
+		return color;
 	}
 
 	public void stop() {
@@ -174,17 +221,6 @@ public abstract class AbstractRobot {
 		return poseProvider.getPose();
 	}
 
-	public boolean touchSensorIsPressed() {
-		try {
-			SampleProvider sampleProvider = touch.getTouchMode();
-			float[] sample = new float[1];
-			sampleProvider.fetchSample(sample, 0);
-			return sample[0] == 1;
-		} catch (IndexOutOfBoundsException ex) {
-			return false;
-		}
-	}
-	
 	public boolean obstacleDetected() {
 		try {
 			SampleProvider sampleProvider = sonar.getDistanceMode();
@@ -194,18 +230,6 @@ public abstract class AbstractRobot {
 		} catch (IndexOutOfBoundsException ex) {
 			return false;
 		}
-	}
-
-	public void release() {
-		grabMotor.backward();
-		while (!grabMotor.isStalled())
-			Thread.yield();
-	}
-
-	public void grab() {
-		grabMotor.forward();
-		while (!grabMotor.isStalled())
-			Thread.yield();
 	}
 
 	public boolean isMoving() {
