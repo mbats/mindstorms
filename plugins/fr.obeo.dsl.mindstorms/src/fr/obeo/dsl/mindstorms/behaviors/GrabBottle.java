@@ -1,9 +1,6 @@
 package fr.obeo.dsl.mindstorms.behaviors;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import fr.obeo.dsl.mindstorms.AbstractRobot;
-import lejos.robotics.Color;
 
 public class GrabBottle extends RobotBehavior {
 
@@ -38,8 +35,8 @@ public class GrabBottle extends RobotBehavior {
 			// stop = true;
 		//}
 		robot.release();
-		robot.travel(-20);
-		robot.rotate(ThreadLocalRandom.current().nextDouble(0, 360 + 1));
+		robot.goBackward(20);
+		robot.rotateRandomly();
 		while (robot.isMoving() && !suppressed) {
 			Thread.yield();
 		}
