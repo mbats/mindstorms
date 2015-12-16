@@ -48,6 +48,8 @@ public class EditServices {
 			travel.setInfinite(true);
 		} else if ("*".equalsIgnoreCase(valueOf)) {
 			travel.setInfinite(true);
+		} else {
+			travel.setInfinite(false);
 		}
 	}
 
@@ -63,6 +65,8 @@ public class EditServices {
 			travel.setInfinite(true);
 		} else if ("*".equalsIgnoreCase(valueOf)) {
 			travel.setInfinite(true);
+		} else {
+			travel.setInfinite(false);
 		}
 	}
 
@@ -82,6 +86,8 @@ public class EditServices {
 			rotate.setRandom(true);
 		} else if ("*".equalsIgnoreCase(valueOf)) {
 			rotate.setRandom(true);
+		} else {
+			rotate.setRandom(false);
 		}
 	}
 

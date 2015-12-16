@@ -1,4 +1,30 @@
-package fr.obeo.dsl.mindstorms;
+[comment encoding = UTF-8 
+ Copyright (c) 2015 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Obeo - initial API and implementation
+/]
+[module abstractRobot('http://www.obeo.fr/dsl/mindstorms/1.0.0')]
+
+[import fr::obeo::dsl::mindstorms::gen::java::common::common /]
+
+[template public genAbstractRobot(aMain : Main)]
+[file (aMain.genPackagePath() + 'AbstractRobot.java', false, 'UTF-8')]
+/**
+ * Copyright (c) 2015 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ */
+package [aMain.genPackageQualifiedName()/];
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -45,7 +71,7 @@ public abstract class AbstractRobot {
 	}
 	
 	public AbstractRobot() {
-		this(30000); // 30 seconds : default game time
+		this(120000); // 120 seconds : default game time
 	}
 	
 	public AbstractRobot(int gameTime) {
@@ -63,7 +89,7 @@ public abstract class AbstractRobot {
 		Button.ESCAPE.addKeyListener(new KeyListener() {
 			@Override
 			public void keyPressed(Key k) {
-				if (Button.ESCAPE.equals(k)) {
+				if (Button.ESCAPE.equals(k)) {					
 					System.exit(0);
 				}
 			}
@@ -77,7 +103,7 @@ public abstract class AbstractRobot {
 	public void run() {
 		// Wait for start signal
 		this.waitForStartSignal();
-
+		
 		// Whenever the user push the escape button during the game time, it will exit the program.
 		this.terminateProgramOnExitButton();
 		
@@ -109,15 +135,15 @@ public abstract class AbstractRobot {
 	}
 
 	// Actions
-	
+
 	public void goForward() {
 		pilot.forward();
 	}
-	
+
 	public void goForward(int distance) {
 		pilot.travel(distance*10);
 	}
-	
+
 	public void goBackward() {
 		pilot.backward();
 	}
@@ -129,7 +155,7 @@ public abstract class AbstractRobot {
 	public void delay(int ms) {
 		Delay.msDelay(ms);
 	}
-	
+
 	public void grab() {
 		grabMotor.backward();
 		while (!grabMotor.isStalled())
@@ -141,7 +167,7 @@ public abstract class AbstractRobot {
 		while (!grabMotor.isStalled())
 			Thread.yield();
 	}
-	
+
 	public void rotate(double angle) {
 		pilot.rotate(angle);
 	}
@@ -149,11 +175,11 @@ public abstract class AbstractRobot {
 	public void rotateRandomly() {
 		rotate(ThreadLocalRandom.current().nextDouble(0, 360 + 1));
 	}
-	
+
 	public void returnToBase() {
 		goTo(0, 0);
 	}
-	
+
 	public void goTo(float x, float y) {
 		Pose currentPose = poseProvider.getPose();
 		float heading = currentPose.relativeBearing(new Point(x, y));
@@ -161,15 +187,15 @@ public abstract class AbstractRobot {
 		pilot.rotate(heading);
 		pilot.travel(distance);
 	}
-	
+
 	// Sensors
 	
 	public boolean touchSensorIsPressed() {
 		try {
 			SampleProvider sampleProvider = touch.getTouchMode();
-			float[] sample = new float[1];
+			float['[]'/] sample = new float['[1]'/];
 			sampleProvider.fetchSample(sample, 0);
-			return sample[0] == 1;
+			return sample['[0]'/] == 1;
 		} catch (IndexOutOfBoundsException ex) {
 			return false;
 		}
@@ -178,24 +204,19 @@ public abstract class AbstractRobot {
 	public float getDistance() {
 		try {
 			SampleProvider sampleProvider = sonar.getDistanceMode();
-			float[] sample = new float[1];
+			float['[]'/] sample = new float['[1]'/];
 			sampleProvider.fetchSample(sample, 0);
-			return sample[0];
+			return sample['[0]'/];
 		} catch (IndexOutOfBoundsException ex) {
 			return 0;
 		}
 	}
-	
+
 	public int getColor() {
 		return color.getColorID();
 	}
 	
 	// Misc.
-	
-	public void explore(double distance, double angle) {
-		pilot.rotate(angle);
-		pilot.travel(distance);
-	}
 
 	public EV3ColorSensor getColorSensor() {
 		return color;
@@ -221,12 +242,17 @@ public abstract class AbstractRobot {
 		return poseProvider.getPose();
 	}
 
+	public void explore(double distance, double angle) {
+		pilot.rotate(angle);
+		pilot.travel(distance);
+	}
+
 	public boolean obstacleDetected() {
 		try {
 			SampleProvider sampleProvider = sonar.getDistanceMode();
-			float[] sample = new float[1];
+			float['[]'/] sample = new float['[1]'/];
 			sampleProvider.fetchSample(sample, 0);
-			return sample[0] < 0.30; // 30 cm
+			return sample['[0]'/] < 0.30; // 30 cm
 		} catch (IndexOutOfBoundsException ex) {
 			return false;
 		}
@@ -239,11 +265,13 @@ public abstract class AbstractRobot {
 	public float getColoredPoint() {
 		try {
 			SampleProvider sampleProvider = color.getColorIDMode();
-			float[] sample = new float[1];
+			float['[]'/] sample = new float['[1]'/];
 			sampleProvider.fetchSample(sample, 0);
-			return sample[0];
+			return sample['[0]'/];
 		} catch (IndexOutOfBoundsException ex) {
 			return Color.NONE;
 		}
 	}
 }
+[/file]
+[/template]

@@ -68,14 +68,14 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="MDN_Begin" label="Begin" semanticCandidatesExpression="aql:self" domainClass="mindstorms.Main">
+        <nodeMappings name="MDN_Begin" label="Begin" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DoNotDeleteBeginEnd']" semanticCandidatesExpression="aql:self" domainClass="mindstorms.Main">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:''" labelAlignment="LEFT" tooltipExpression="aql:'Begin'" sizeComputationExpression="-1" workspacePath="/fr.obeo.dsl.mindstorms.design/icons/Begin_48px.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="MDN_End" label="End" semanticCandidatesExpression="aql:self" domainClass="mindstorms.Main">
+        <nodeMappings name="MDN_End" label="End" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DoNotDeleteBeginEnd']" semanticCandidatesExpression="aql:self" domainClass="mindstorms.Main">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:''" labelAlignment="LEFT" tooltipExpression="aql:'End'" sizeComputationExpression="-1" workspacePath="/fr.obeo.dsl.mindstorms.design/icons/End_48px.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -236,7 +236,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MDN_BehaviorAvoidObstacle" label="Behavior Avoid Obstacle" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Arbitrator']/@subNodeMappings[name='MN_Behavior']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="MDN_BehaviorAvoidObstacle" label="Behavior Avoid Obstacle" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Arbitrator']/@subNodeMappings[name='MN_Behavior']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/AvoidObstacle_16px.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -272,7 +272,7 @@
         </toolSections>
         <toolSections name="MS_Blocks" label="Blocks">
           <subSections name="MS_Actions" label="Actions">
-            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Delay" label="Delay" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Delay_16px.png">
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Delay" label="Delay" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure']/@subNodeMappings[name='MDN_ProcedureBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_If']/@subNodeMappings[name='MDN_IfBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_While']/@subNodeMappings[name='MDN_WhileBlock']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Delay_16px.png">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -290,7 +290,7 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_GoBackward" label="Go backward" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/GoBackward_16px.png">
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_GoBackward" label="Go backward" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_If']/@subNodeMappings[name='MDN_IfBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure']/@subNodeMappings[name='MDN_ProcedureBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_While']/@subNodeMappings[name='MDN_WhileBlock']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/GoBackward_16px.png">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -310,7 +310,7 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_GoForward" label="Go forward" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/GoForward_16px.png">
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_GoForward" label="Go forward" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_If']/@subNodeMappings[name='MDN_IfBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure']/@subNodeMappings[name='MDN_ProcedureBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_While']/@subNodeMappings[name='MDN_WhileBlock']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/GoForward_16px.png">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -330,7 +330,7 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_GoTo" label="Go to" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/GoTo_16px.png">
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_GoTo" label="Go to" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_If']/@subNodeMappings[name='MDN_IfBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure']/@subNodeMappings[name='MDN_ProcedureBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_While']/@subNodeMappings[name='MDN_WhileBlock']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/GoTo_16px.png">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -350,7 +350,7 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Grab" label="Grab" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Grab_16px.png">
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Grab" label="Grab" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_If']/@subNodeMappings[name='MDN_IfBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure']/@subNodeMappings[name='MDN_ProcedureBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_While']/@subNodeMappings[name='MDN_WhileBlock']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Grab_16px.png">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -364,7 +364,7 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Release" label="Release" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Release_16px.png">
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Release" label="Release" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_If']/@subNodeMappings[name='MDN_IfBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure']/@subNodeMappings[name='MDN_ProcedureBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_While']/@subNodeMappings[name='MDN_WhileBlock']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Release_16px.png">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -378,7 +378,7 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_ReturnToBase" label="Return to base" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/ReturnToBase_16px.png">
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_ReturnToBase" label="Return to base" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_If']/@subNodeMappings[name='MDN_IfBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure']/@subNodeMappings[name='MDN_ProcedureBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_While']/@subNodeMappings[name='MDN_WhileBlock']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/ReturnToBase_16px.png">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -392,7 +392,7 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Rotate" label="Rotate" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Rotate_16px.png">
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Rotate" label="Rotate" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_If']/@subNodeMappings[name='MDN_IfBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure']/@subNodeMappings[name='MDN_ProcedureBlock'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_While']/@subNodeMappings[name='MDN_WhileBlock']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Rotate_16px.png">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -520,6 +520,12 @@
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="MD_DoNotDeleteBeginEnd" label="Do Not Delete Begin and End" precondition="false">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation/>
           </ownedTools>
         </toolSections>
       </defaultLayer>
