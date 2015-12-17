@@ -23,6 +23,7 @@ import fr.obeo.dsl.mindstorms.GoTo;
 import fr.obeo.dsl.mindstorms.Grab;
 import fr.obeo.dsl.mindstorms.If;
 import fr.obeo.dsl.mindstorms.Instruction;
+import fr.obeo.dsl.mindstorms.NamedElement;
 import fr.obeo.dsl.mindstorms.Procedure;
 import fr.obeo.dsl.mindstorms.Release;
 import fr.obeo.dsl.mindstorms.ReturnToBase;
@@ -36,6 +37,16 @@ public class TooltipServices {
 
 	public String computeTooltip(EObject object) {
 		return "";
+	}
+	
+	public String computeTooltip(NamedElement object) {
+		String tooltip = object.getName();
+		if (LabelServices.nameIsInvalid(object)) {
+			tooltip += " : Invalid name !";
+		} else if (LabelServices.nameIsDuplicated(object)) {
+			tooltip += " : Duplicated name !";
+		}
+		return tooltip;
 	}
 	
 	public String computeTooltip(While object) {
@@ -145,14 +156,6 @@ public class TooltipServices {
 	
 	public String computeTooltip(TouchSensor sensor) {
 		return "touch sensor is pressed";
-	}
-	
-	public String computeTooltip(Procedure proc) {
-		return proc.getName();
-	}
-	
-	public String computeTooltip(Behavior behavior) {
-		return behavior.getName();
 	}
 	
 	public String computeTooltip(ReuseInstruction instruction) {

@@ -33,7 +33,9 @@ public class EditServices {
 	}
 
 	public void editElement(NamedElement object, String value) {
-		object.setName(value);
+		if (value != null && value.matches("[a-zA-Z]+[a-zA-Z0-9]*")) {
+			object.setName(value);
+		}
 	}
 
 	public void editElement(GoForward travel, String value) {
