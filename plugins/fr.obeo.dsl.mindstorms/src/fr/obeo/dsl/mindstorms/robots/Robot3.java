@@ -7,6 +7,7 @@ import fr.obeo.dsl.mindstorms.AbstractRobot;
 import fr.obeo.dsl.mindstorms.behaviors.AvoidObstacle;
 import fr.obeo.dsl.mindstorms.behaviors.GoForward;
 import fr.obeo.dsl.mindstorms.behaviors.GrabBottle;
+import lejos.robotics.Color;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 
@@ -26,13 +27,7 @@ public class Robot3 extends AbstractRobot {
 
 		definedSequenceOfActions();
 		
-		List<Behavior> behaviors = new ArrayList<Behavior>();
-		behaviors.add(new GoForward(robot));
-		behaviors.add(new GrabBottle(robot));
-		behaviors.add(new AvoidObstacle(robot));
-		// If all behaviors are inactive, then arbitrator stops.
-		Arbitrator arbitrator = new Arbitrator((Behavior[]) behaviors.toArray(new Behavior[behaviors.size()]), true);
-		arbitrator.start();
+		
 		System.out.println("End of behaviors");
 		definedSequenceOfActions();
 		
@@ -57,6 +52,26 @@ public class Robot3 extends AbstractRobot {
 		robot.release();
 		robot.goBackward(20);
 		robot.rotateRandomly();
+	}
+	
+	public void behavior1() {
+		List<Behavior> behaviors = new ArrayList<Behavior>();
+		behaviors.add(new GoForward(robot));
+		behaviors.add(new GrabBottle(robot));
+		behaviors.add(new AvoidObstacle(robot));
+		// If all behaviors are inactive, then arbitrator stops.
+		Arbitrator arbitrator = new Arbitrator((Behavior[]) behaviors.toArray(new Behavior[behaviors.size()]), true);
+		arbitrator.start();
+	}
+	
+	public void behavior2() {
+		List<Behavior> behaviors = new ArrayList<Behavior>();
+		behaviors.add(new GoForward(robot));
+		behaviors.add(new GrabBottle(robot));
+		behaviors.add(new AvoidObstacle(robot));
+		// If all behaviors are inactive, then arbitrator stops.
+		Arbitrator arbitrator = new Arbitrator((Behavior[]) behaviors.toArray(new Behavior[behaviors.size()]), true);
+		arbitrator.start();
 	}
 
 }

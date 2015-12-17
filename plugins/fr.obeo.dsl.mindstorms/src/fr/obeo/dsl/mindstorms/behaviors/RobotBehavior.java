@@ -11,4 +11,5 @@ public abstract class RobotBehavior implements Behavior {
 	public RobotBehavior(AbstractRobot robot) {
 		this.robot = robot;
 	}
+	
 }

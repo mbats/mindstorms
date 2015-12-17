@@ -21,7 +21,7 @@ else
 			if (a.behaviors->oclIsUndefined()) then
 				OrderedSet{}
 			else
-				a.behaviors->reject(el | el.oclIsTypeOf(AvoidObstacle) or el.oclIsTypeOf(ExploreForward) or el.oclIsTypeOf(ReturnBottleToBase))->asOrderedSet()
+				a.behaviors->asOrderedSet()
 			endif
 		endif
 endif

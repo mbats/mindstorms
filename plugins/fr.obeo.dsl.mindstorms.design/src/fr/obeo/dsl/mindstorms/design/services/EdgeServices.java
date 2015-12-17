@@ -26,7 +26,7 @@ import fr.obeo.dsl.mindstorms.While;
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class EdgeServices {
 
-	public Instruction getNextInstruction(Instruction element) {
+	public static Instruction getNextInstruction(Instruction element) {
 		EObject container = element.eContainer();
 		if (container instanceof Main) {
 			Object blocks = container.eGet(element.eContainingFeature());

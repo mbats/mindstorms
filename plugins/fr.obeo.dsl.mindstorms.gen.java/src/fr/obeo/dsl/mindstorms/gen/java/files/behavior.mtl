@@ -44,6 +44,7 @@ public class [aBehavior.genName()/] extends RobotBehavior {
 		suppressed = false;
 		if ([aBehavior.genStopCondition()/]) {
 			stop = true;
+			return;
 		}
 	[for (b : Block | if aBehavior.blocks->oclIsUndefined() then Sequence{} else aBehavior.blocks endif)]
 		[b.genInstruction()/]
@@ -66,10 +67,3 @@ true
 [/if]
 [/template]
 
-[template public genStopCondition(aBehavior : Behavior)]
-[if (aBehavior.eContainer(Arbitrator).condition.oclIsUndefined())]
-true
-[else]	
-[aBehavior.eContainer(Arbitrator).condition.genCondition()/]
-[/if]
-[/template]

@@ -11,15 +11,9 @@
 package fr.obeo.dsl.mindstorms.provider;
 
 
-import fr.obeo.dsl.mindstorms.ColorSensor;
-import fr.obeo.dsl.mindstorms.Condition;
 import fr.obeo.dsl.mindstorms.ConditionContainer;
-import fr.obeo.dsl.mindstorms.Flow;
 import fr.obeo.dsl.mindstorms.MindstormsFactory;
 import fr.obeo.dsl.mindstorms.MindstormsPackage;
-import fr.obeo.dsl.mindstorms.TouchSensor;
-import fr.obeo.dsl.mindstorms.UltrasonicSensor;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -126,27 +120,6 @@ public class ConditionContainerItemProvider
 		return getString("_UI_ConditionContainer_type");
 	}
 	
-	/**
-	 * This returns the image for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public Object getImage(Object object) {
-		if (object instanceof ConditionContainer) {
-			Condition condition = ((ConditionContainer) object).getCondition();
-			if (condition instanceof ColorSensor) {
-				return overlayImage(object, getResourceLocator().getImage("full/obj16/ColorSensor"));
-			} else if (condition instanceof UltrasonicSensor) {
-				return overlayImage(object, getResourceLocator().getImage("full/obj16/UltrasonicSensor"));
-			} else if (condition instanceof TouchSensor) {
-				return overlayImage(object, getResourceLocator().getImage("full/obj16/TouchSensor"));
-			}
-		}
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ConditionContainer"));
-	}
-
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.

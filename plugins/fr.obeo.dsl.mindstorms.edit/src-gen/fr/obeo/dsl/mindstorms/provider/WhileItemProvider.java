@@ -63,7 +63,7 @@ public class WhileItemProvider extends FlowItemProvider {
 	 * This returns While.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
