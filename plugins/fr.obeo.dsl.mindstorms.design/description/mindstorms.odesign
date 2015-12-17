@@ -129,7 +129,7 @@
         </containerMappings>
         <containerMappings name="MC_Arbitrator" label="Container Arbitrator" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="feature:instructions" domainClass="mindstorms.Arbitrator" childrenPresentation="List">
           <subNodeMappings name="MN_Behavior" label="Node Behavior" detailDescriptions="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDC_NewIDD']" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="aql:self.behaviors->concat(self.reuse)" doubleClickDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDC_OpenDiagram']" domainClass="mindstorms.Behavior">
-            <style xsi:type="style:SquareDescription" borderColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='GreenInstruction']" labelSize="12" labelExpression="aql:self.computeLabel()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()" resizeKind="NSEW" color="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='GreenInstruction']">
+            <style xsi:type="style:SquareDescription" borderColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='GreenInstruction']" labelSize="12" labelExpression="aql:self.computeLabel()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()" sizeComputationExpression="-1" resizeKind="NSEW" color="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='GreenInstruction']">
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
@@ -386,39 +386,13 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Behaviors">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="MCC_Arbitrator" label="Arbitrator" containerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Arbitrator']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Arbitrator_16px.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="MCC_Arbitrator" label="Scheduler" containerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Arbitrator']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Arbitrator_16px.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Arbitrator" referenceName="instructions">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'New Arbitrator'"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_Behavior" label="Behavior" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Arbitrator']/@subNodeMappings[name='MN_Behavior']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Behavior" referenceName="behaviors">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'New Behavior'"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MNC_ReuseBehavior" label="Reuse existing Behavior" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Arbitrator']/@subNodeMappings[name='MN_Behavior']">
-            <variable name="container">
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="elements" candidatesExpression="aql:self.eContainerOrSelf(mindstorms::Main).instructions->filter(mindstorms::Arbitrator).behaviors - container.behaviors - container.reuse" multiple="true" message="Select the behaviors that will be part of the Arbitrator :"/>
-            </variable>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool_1:For" expression="var:elements">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="reuse" valueExpression="var:i"/>
-                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -458,25 +432,32 @@
           </ownedTools>
         </toolSections>
         <toolSections name="MT_Procedures" label="Procedures">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="MCC_Procedure" label="Procedure" containerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Procedure_16px.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="MCC_Procedure" label="Procedure" containerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Procedure_16px.png" extraMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Arbitrator']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.Procedure" referenceName="instructions">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'New Procedure'"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.createProcedure()"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="MCC_ReuseProcedure" label="Reuse existing Procedure" containerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MD_ReuseProcedure']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Procedure_16px.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="MCC_ReuseProcedure" label="Reuse existing Procedure" containerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MD_ReuseProcedure']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Procedure_16px.png" extraMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Arbitrator']">
             <variable name="container">
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="proc" candidatesExpression="aql:self.eContainerOrSelf(mindstorms::Main).instructions->filter(mindstorms::Procedure)" message="Select the procedure the reuse :"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="procedures" candidatesExpression="aql:container.getExistingProcedures()" message="Select the procedure the reuse :"/>
             </variable>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.ReuseInstruction" referenceName="instructions">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="reuse" valueExpression="var:proc"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:proc.name"/>
+                <subModelOperations xsi:type="tool_1:For" expression="var:procedures">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:container.oclIsTypeOf(mindstorms::Main)">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="mindstorms.ReuseInstruction" referenceName="instructions">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="reuse" valueExpression="var:i"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:i.name"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:container.oclIsTypeOf(mindstorms::Arbitrator)">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="reuse" valueExpression="var:i"/>
+                    </subModelOperations>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -835,6 +816,7 @@
     <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.mindstorms.design.services.EditServices"/>
     <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.mindstorms.design.services.LabelServices"/>
     <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.mindstorms.design.services.TooltipServices"/>
+    <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.mindstorms.design.services.CreateServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="MindstormsColorsPalette">
     <entries xsi:type="description:UserFixedColor" red="196" green="226" blue="219" name="GreenArbitrator"/>
