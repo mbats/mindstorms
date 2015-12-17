@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- The icon can be used freely in both personal and commercial projects with no attribution required, but always appreciated. 
+You may NOT sub-license, resell, rent, redistribute or otherwise transfer the icon without express written permission from iconmonstr.com -->
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<path id="map-3-icon" d="M462,406.896l-46.923-46.924c6.86-10.814,10.841-23.629,10.841-37.355
+	c0-38.557-31.368-69.923-69.924-69.923c-38.554,0-69.922,31.366-69.922,69.923c0,38.556,31.368,69.923,69.922,69.923
+	c13.048,0,25.268-3.595,35.73-9.841l47.235,47.235L462,406.896z M312.139,322.616c0-24.183,19.673-43.856,43.855-43.856
+	c24.184,0,43.857,19.674,43.857,43.856s-19.674,43.856-43.857,43.856C331.812,366.473,312.139,346.799,312.139,322.616z
+	 M256.31,327.468l-20.989-13.575V123.565l72.137,36.494v75.377c4.236-2.368,8.661-4.437,13.248-6.176v-69.81l66.102-33.456v101.689
+	c9.54,3.104,18.455,7.605,26.498,13.268V82.066l-99.812,51.231l-84.489-42.98l-82.724,42.98L50,82.066V341.56l96.279,54.962
+	l82.724-54.954l36.918,24.013C260.347,353.938,256.963,341.056,256.31,327.468z M139.066,361.996l-62.567-35.892V125.995
+	l62.567,33.456V361.996z M222.687,313.893l-70.37,46.657V160.06l70.37-36.494V313.893z"/>
+</svg>
