@@ -12,8 +12,11 @@ package fr.obeo.dsl.mindstorms.design.services;
 
 import org.eclipse.emf.ecore.EObject;
 
+import fr.obeo.dsl.mindstorms.Arbitrator;
+import fr.obeo.dsl.mindstorms.Behavior;
 import fr.obeo.dsl.mindstorms.Color;
 import fr.obeo.dsl.mindstorms.ColorSensor;
+import fr.obeo.dsl.mindstorms.ConditionContainer;
 import fr.obeo.dsl.mindstorms.Delay;
 import fr.obeo.dsl.mindstorms.Flow;
 import fr.obeo.dsl.mindstorms.GoBackward;
@@ -141,35 +144,64 @@ public class EditServices {
 		}
 	}
 
+	public void editElement(Arbitrator arbitrator, String value) {
+		if (value != null && !value.isEmpty()) {
+			String arbitratorName = value;
+			if (value.contains(":")) {
+				arbitratorName = value.substring(0, value.indexOf(":"));
+				String condition = value.substring(value.indexOf(":") + 1);
+				setCondition(arbitrator, condition);
+			}
+			arbitrator.setName(arbitratorName);
+		}
+	}
+
+	public void editElement(Behavior behavior, String value) {
+		if (value != null && !value.isEmpty()) {
+			String arbitratorName = value;
+			if (value.contains(":")) {
+				arbitratorName = value.substring(0, value.indexOf(":"));
+				String condition = value.substring(value.indexOf(":") + 1);
+				setCondition(behavior, condition.trim());
+			}
+			behavior.setName(arbitratorName);
+		}
+	}
+
 	public void editElement(Flow f, String value) {
 		String condition = value;
 		if (value == null || value.isEmpty()) {
 			condition = "";
 		} else if (value.startsWith("While") || value.startsWith("while")) {
 			condition = value.substring(5, value.length()).trim();
+		} else if (value.startsWith("If") || value.startsWith("if")) {
+			condition = value.substring(2, value.length()).trim();
 		}
 
+		setCondition(f, condition);
+	}
+
+	private void setCondition(ConditionContainer container, String condition) {
 		if (condition.startsWith("Color is") || condition.startsWith("color is")) {
 			String newColor = condition.substring(8, condition.length()).trim();
-			setColorSensorCondition(f, newColor);
+			setColorSensorCondition(container, newColor);
 		} else if (condition.startsWith("Distance") || condition.startsWith("distance")) {
 			String newValue = condition.substring(8, condition.length()).trim();
-			setUltrasonicSensorCondition(f, newValue);
-		} else if (condition.startsWith("is press") || condition.startsWith("Is press")
-				|| condition.startsWith("press") || condition.startsWith("Press")
-				|| condition.startsWith("is touch") || condition.startsWith("Is touch")
+			setUltrasonicSensorCondition(container, newValue);
+		} else if (condition.startsWith("is press") || condition.startsWith("Is press") || condition.startsWith("press")
+				|| condition.startsWith("Press") || condition.startsWith("is touch") || condition.startsWith("Is touch")
 				|| condition.startsWith("touch") || condition.startsWith("Touch")) {
-			setTouchSensorCondition(f);
+			setTouchSensorCondition(container);
 		} else {
 			String trimmedCondition = condition.trim();
-			boolean setSuccessful = setColorSensorCondition(f, trimmedCondition);
+			boolean setSuccessful = setColorSensorCondition(container, trimmedCondition);
 			if (!setSuccessful) {
-				setSuccessful = setUltrasonicSensorCondition(f, trimmedCondition);
+				setSuccessful = setUltrasonicSensorCondition(container, trimmedCondition);
 			}
 		}
 	}
 
-	private boolean setUltrasonicSensorCondition(Flow f, String newValue) {
+	private boolean setUltrasonicSensorCondition(ConditionContainer container, String newValue) {
 		OperatorKind newOperator = null;
 		if (newValue.startsWith(">=")) {
 			newOperator = OperatorKind.UPPER_OR_EQUAL;
@@ -195,7 +227,7 @@ public class EditServices {
 				UltrasonicSensor sensor = MindstormsFactory.eINSTANCE.createUltrasonicSensor();
 				sensor.setOperator(newOperator);
 				sensor.setValue(parseInt);
-				f.setCondition(sensor);
+				container.setCondition(sensor);
 				return true;
 			} catch (NumberFormatException e) {
 				return false;
@@ -204,25 +236,25 @@ public class EditServices {
 		return false;
 	}
 
-	private boolean setColorSensorCondition(Flow f, String newColor) {
+	private boolean setColorSensorCondition(ConditionContainer container, String newColor) {
 		for (Color color : Color.VALUES) {
 			if (color.getLiteral().equalsIgnoreCase(newColor)) {
 				ColorSensor sensor = MindstormsFactory.eINSTANCE.createColorSensor();
 				sensor.setColor(color);
-				f.setCondition(sensor);
+				container.setCondition(sensor);
 				return true;
 			}
 		}
 		return false;
 	}
-	
-	private boolean setTouchSensorCondition(Flow f) {
+
+	private boolean setTouchSensorCondition(ConditionContainer container) {
 		TouchSensor sensor = MindstormsFactory.eINSTANCE.createTouchSensor();
 		sensor.setIsPressed(true);
-		f.setCondition(sensor);
+		container.setCondition(sensor);
 		return true;
 	}
-	
+
 	public boolean isColor(ColorSensor sensor, Color color) {
 		return color == sensor.getColor();
 	}

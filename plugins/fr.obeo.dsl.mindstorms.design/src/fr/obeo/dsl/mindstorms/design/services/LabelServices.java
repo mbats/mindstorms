@@ -13,6 +13,7 @@ package fr.obeo.dsl.mindstorms.design.services;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 
+import fr.obeo.dsl.mindstorms.Arbitrator;
 import fr.obeo.dsl.mindstorms.Behavior;
 import fr.obeo.dsl.mindstorms.Color;
 import fr.obeo.dsl.mindstorms.ColorSensor;
@@ -37,7 +38,7 @@ public class LabelServices {
 	public static boolean nameInError(NamedElement element) {
 		return nameIsInvalid(element) || nameIsDuplicated(element);
 	}
-	
+
 	public static boolean nameIsInvalid(NamedElement element) {
 		String name = element.getName();
 		if (name != null && name.matches("[a-zA-Z]+[a-zA-Z0-9]*")) {
@@ -45,14 +46,14 @@ public class LabelServices {
 		}
 		return true;
 	}
-	
+
 	public static boolean nameIsDuplicated(NamedElement element) {
 		String name = element.getName();
 		if (name == null) {
 			return false;
 		}
 		Main main = getMain(element);
-		if (main != null) {			
+		if (main != null) {
 			TreeIterator<EObject> eAllContents = main.eAllContents();
 			while (eAllContents.hasNext()) {
 				EObject next = (EObject) eAllContents.next();
@@ -66,82 +67,76 @@ public class LabelServices {
 		}
 		return false;
 	}
-	
+
 	private static Main getMain(NamedElement element) {
 		EObject container = element.eContainer();
 		while (container != null) {
 			if (container instanceof Main) {
-				return (Main)container;
+				return (Main) container;
 			} else {
 				container = container.eContainer();
 			}
 		}
 		return null;
 	}
-	
+
 	public String computeLabel(EObject object) {
 		return "";
 	}
-	
+
 	public String computeLabel(While object) {
 		String label = "While";
 		Condition condition = object.getCondition();
-		if (condition instanceof ColorSensor) {
-			label +=  " " + computeLabel((ColorSensor)condition);
-		} else if (condition instanceof UltrasonicSensor) {
-			label +=  " " + computeLabel((UltrasonicSensor)condition);
-		} else if (condition instanceof TouchSensor) {
-			label +=  " " + computeLabel((TouchSensor)condition);
-		} else {
+		String conditionLabel = computeLabel(condition);
+		if (conditionLabel.isEmpty()) {
 			label += " <insert condition>";
+		} else {
+			label += conditionLabel;
 		}
 		return label;
 	}
-	
+
 	public String computeLabel(If object) {
 		String label = "If";
 		Condition condition = object.getCondition();
-		if (condition instanceof ColorSensor) {
-			label +=  " " + computeLabel((ColorSensor)condition);
-		} else if (condition instanceof UltrasonicSensor) {
-			label +=  " " + computeLabel((UltrasonicSensor)condition);
-		} else if (condition instanceof TouchSensor) {
-			label +=  " " + computeLabel((TouchSensor)condition);
-		} else {
+		String conditionLabel = computeLabel(condition);
+		if (conditionLabel.isEmpty()) {
 			label += " <insert condition>";
+		} else {
+			label += conditionLabel;
 		}
 		return label;
 	}
-	
+
 	public String computeLabel(Delay delay) {
 		return "" + delay.getMs() + " ms";
 	}
-	
+
 	public String computeLabel(GoTo block) {
 		return block.getX() + " ; " + block.getY();
 	}
-	
+
 	public String computeLabel(Rotate block) {
 		if (block.isRandom()) {
 			return "?";
 		}
 		return "" + block.getDegrees() + "°";
 	}
-	
+
 	public String computeLabel(GoForward block) {
 		if (block.isInfinite()) {
 			return "\u221e";
 		}
 		return "" + block.getCm() + " cm";
 	}
-	
+
 	public String computeLabel(GoBackward block) {
 		if (block.isInfinite()) {
 			return "\u221e";
 		}
 		return "-" + block.getCm() + " cm";
 	}
-	
+
 	public String computeLabel(UltrasonicSensor sensor) {
 		String label = "Distance ";
 		switch (sensor.getOperator()) {
@@ -161,12 +156,12 @@ public class LabelServices {
 			label += "";
 			break;
 		}
-		
+
 		label += " " + sensor.getValue() + " cm";
-		
+
 		return label;
 	}
-	
+
 	public String computeLabel(ColorSensor sensor) {
 		String label = "Color is ";
 		Color color = sensor.getColor();
@@ -175,27 +170,49 @@ public class LabelServices {
 		}
 		return label;
 	}
-	
+
 	public String computeLabel(TouchSensor sensor) {
 		return "touch sensor is pressed";
 	}
-	
+
 	public String computeLabel(Procedure object) {
 		return object.getName();
 	}
-	
+
 	public String computeLabel(Behavior object) {
-		return object.getName();
+		String label = object.getName();
+		Condition condition = object.getCondition();
+		label += computeLabel(condition);
+		return label;
 	}
-	
+
+	private String computeLabel(Condition condition) {
+		String label = "";
+		if (condition instanceof ColorSensor) {
+			label += " : " + computeLabel((ColorSensor) condition);
+		} else if (condition instanceof UltrasonicSensor) {
+			label += " : " + computeLabel((UltrasonicSensor) condition);
+		} else if (condition instanceof TouchSensor) {
+			label += " : " + computeLabel((TouchSensor) condition);
+		}
+		return label;
+	}
+
+	public String computeLabel(Arbitrator object) {
+		String label = object.getName();
+		Condition condition = object.getCondition();
+		label += computeLabel(condition);
+		return label;
+	}
+
 	public String computeLabel(ReuseInstruction instruction) {
 		Instruction reuse = instruction.getReuse();
-		if (reuse instanceof Procedure) {			
-			return "Reuse " + computeLabel((Procedure)reuse);
-		} else if (reuse instanceof Behavior) {			
-			return "Reuse " + computeLabel((Behavior)reuse);
+		if (reuse instanceof Procedure) {
+			return "Reuse " + computeLabel((Procedure) reuse);
+		} else if (reuse instanceof Behavior) {
+			return "Reuse " + computeLabel((Behavior) reuse);
 		}
-		
+
 		return "Reuse " + reuse.getName();
 	}
 }
