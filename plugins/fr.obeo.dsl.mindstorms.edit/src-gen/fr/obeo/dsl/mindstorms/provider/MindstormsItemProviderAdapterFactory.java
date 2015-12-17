@@ -547,29 +547,6 @@ public class MindstormsItemProviderAdapterFactory extends MindstormsAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.Timer} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TimerItemProvider timerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.Timer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTimerAdapter() {
-		if (timerItemProvider == null) {
-			timerItemProvider = new TimerItemProvider(this);
-		}
-
-		return timerItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.ColorSensor} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -711,7 +688,6 @@ public class MindstormsItemProviderAdapterFactory extends MindstormsAdapterFacto
 		if (exploreForwardItemProvider != null) exploreForwardItemProvider.dispose();
 		if (touchSensorItemProvider != null) touchSensorItemProvider.dispose();
 		if (ultrasonicSensorItemProvider != null) ultrasonicSensorItemProvider.dispose();
-		if (timerItemProvider != null) timerItemProvider.dispose();
 		if (colorSensorItemProvider != null) colorSensorItemProvider.dispose();
 	}
 

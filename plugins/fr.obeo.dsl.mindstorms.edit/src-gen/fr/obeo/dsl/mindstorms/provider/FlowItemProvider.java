@@ -228,11 +228,6 @@ public class FlowItemProvider extends BlockItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
-				 MindstormsFactory.eINSTANCE.createTimer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
 				 MindstormsFactory.eINSTANCE.createColorSensor()));
 	}
 

@@ -335,15 +335,6 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MindstormsPackage.TIMER: {
-				Timer timer = (Timer)theEObject;
-				T result = caseTimer(timer);
-				if (result == null) result = caseSensor(timer);
-				if (result == null) result = caseNamedElement(timer);
-				if (result == null) result = caseCondition(timer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MindstormsPackage.COLOR_SENSOR: {
 				ColorSensor colorSensor = (ColorSensor)theEObject;
 				T result = caseColorSensor(colorSensor);
@@ -780,21 +771,6 @@ public class MindstormsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUltrasonicSensor(UltrasonicSensor object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Timer</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Timer</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTimer(Timer object) {
 		return null;
 	}
 
