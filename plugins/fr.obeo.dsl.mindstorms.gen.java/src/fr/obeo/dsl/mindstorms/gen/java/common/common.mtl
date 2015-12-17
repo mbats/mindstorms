@@ -27,6 +27,18 @@
 [aBehavior.name.replaceAll('\\s', '').toUpperFirst()/]
 [/template]
 
+[template public genName(aBehavior : ExploreForward)]
+ExploreForward[aBehavior.eContainer(Arbitrator).genName()/]
+[/template]
+
+[template public genName(aBehavior : ReturnBottleToBase)]
+ReturnBottleToBase[aBehavior.eContainer(Arbitrator).genName()/]
+[/template]
+
+[template public genName(aBehavior : AvoidObstacle)]
+AvoidObstacle[aBehavior.eContainer(Arbitrator).genName()/]
+[/template]
+
 [template public genInstruction(aInstruction : Instruction)]
 	// Instruction not managed yet [aInstruction.eClass().name/]
 [/template]
@@ -140,7 +152,7 @@ false
 	// Sensor not managed yet [aSensor.eClass().name/]
 [/template]
 
-[template public genCondition(aColor : ColorSensor)]
+[template public genCondition(aColor : ColorSensor) post (trim())]
 [if (aColor.color.oclIsUndefined())]
 robot.getColor() == Color.NONE
 [else]	
@@ -152,11 +164,19 @@ robot.getColor() == Color.[aColor.color/]
 robot.touchSensorIsPressed() == [aTouch.isPressed/]
 [/template]
 
-[template public genCondition(aUS : UltrasonicSensor)]
+[template public genCondition(aUS : UltrasonicSensor) post (trim())]
 [if (aUS.operator.oclIsUndefined() or aUS.value.oclIsUndefined())]
 false
 [else]	
 robot.getDistance() [aUS.operator/] [aUS.value/]
+[/if]
+[/template]
+
+[template public genStopCondition(aBehavior : Behavior) post (trim())]
+[if (aBehavior.eContainer(Arbitrator).condition.oclIsUndefined())]
+false
+[else]	
+[aBehavior.eContainer(Arbitrator).condition.genCondition()/]
 [/if]
 [/template]
 

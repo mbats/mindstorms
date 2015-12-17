@@ -12,8 +12,8 @@
 
 [import fr::obeo::dsl::mindstorms::gen::java::common::common /]
 
-[template public genReturnBottleToBaseBehavior(aMain : Main)]
-[file (aMain.genPackagePath() + 'ReturnBottleToBase.java', false, 'UTF-8')]
+[template public genReturnBottleToBaseBehavior(aBehavior : Behavior)]
+[file (aBehavior.genPackagePath() + aBehavior.genName() + '.java', false, 'UTF-8')]
 /**
  * Copyright (c) 2015 Obeo.
  * All rights reserved. This program and the accompanying materials
@@ -24,11 +24,13 @@
  * Contributors:
  *     Obeo - initial API and implementation
  */
-package [aMain.genPackageQualifiedName()/];
+package [aBehavior.genPackageQualifiedName()/];
 
-public class ReturnBottleToBase extends RobotBehavior {
+import lejos.robotics.Color;
 
-	public ReturnBottleToBase(AbstractRobot robot) {
+public class [aBehavior.genName()/] extends RobotBehavior {
+
+	public [aBehavior.genName()/](AbstractRobot robot) {
 		super(robot);
 	}
 
@@ -40,6 +42,10 @@ public class ReturnBottleToBase extends RobotBehavior {
 	@Override
 	public void action() {
 		suppressed = false;
+		if ([aBehavior.genStopCondition()/]) {
+			stop = true;
+			return;
+		}
 		// Grab the detected object.
 		robot.grab();
 		robot.returnToBase();

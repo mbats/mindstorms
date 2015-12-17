@@ -12,6 +12,7 @@ package fr.obeo.dsl.mindstorms.design.services;
 
 import org.eclipse.emf.ecore.EObject;
 
+import fr.obeo.dsl.mindstorms.Arbitrator;
 import fr.obeo.dsl.mindstorms.Behavior;
 import fr.obeo.dsl.mindstorms.Color;
 import fr.obeo.dsl.mindstorms.ColorSensor;
@@ -45,6 +46,18 @@ public class TooltipServices {
 			tooltip += " : Invalid name !";
 		} else if (LabelServices.nameIsDuplicated(object)) {
 			tooltip += " : Duplicated name !";
+		}
+		return tooltip;
+	}
+	
+	public String computeTooltip(Arbitrator object) {
+		String tooltip = object.getName();
+		if (LabelServices.nameIsInvalid(object)) {
+			tooltip += " : Invalid name !";
+		} else if (LabelServices.nameIsDuplicated(object)) {
+			tooltip += " : Duplicated name !";
+		} else if (object.getCondition() == null && EdgeServices.getNextInstruction(object) != null) {
+			tooltip += " : an Arbitrator with no stop condition can't have following siblings !";
 		}
 		return tooltip;
 	}

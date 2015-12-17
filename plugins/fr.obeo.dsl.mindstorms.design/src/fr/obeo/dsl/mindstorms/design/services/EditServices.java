@@ -152,7 +152,7 @@ public class EditServices {
 				String condition = value.substring(value.indexOf(":") + 1);
 				setCondition(arbitrator, condition);
 			}
-			arbitrator.setName(arbitratorName);
+			arbitrator.setName(arbitratorName.trim());
 		}
 	}
 
@@ -164,7 +164,7 @@ public class EditServices {
 				String condition = value.substring(value.indexOf(":") + 1);
 				setCondition(behavior, condition.trim());
 			}
-			behavior.setName(arbitratorName);
+			behavior.setName(arbitratorName.trim());
 		}
 	}
 

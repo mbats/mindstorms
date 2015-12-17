@@ -14,11 +14,13 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 
 import fr.obeo.dsl.mindstorms.Arbitrator;
+import fr.obeo.dsl.mindstorms.AvoidObstacle;
 import fr.obeo.dsl.mindstorms.Behavior;
 import fr.obeo.dsl.mindstorms.Color;
 import fr.obeo.dsl.mindstorms.ColorSensor;
 import fr.obeo.dsl.mindstorms.Condition;
 import fr.obeo.dsl.mindstorms.Delay;
+import fr.obeo.dsl.mindstorms.ExploreForward;
 import fr.obeo.dsl.mindstorms.GoBackward;
 import fr.obeo.dsl.mindstorms.GoForward;
 import fr.obeo.dsl.mindstorms.GoTo;
@@ -27,6 +29,7 @@ import fr.obeo.dsl.mindstorms.Instruction;
 import fr.obeo.dsl.mindstorms.Main;
 import fr.obeo.dsl.mindstorms.NamedElement;
 import fr.obeo.dsl.mindstorms.Procedure;
+import fr.obeo.dsl.mindstorms.ReturnBottleToBase;
 import fr.obeo.dsl.mindstorms.ReuseInstruction;
 import fr.obeo.dsl.mindstorms.Rotate;
 import fr.obeo.dsl.mindstorms.TouchSensor;
@@ -50,6 +53,10 @@ public class LabelServices {
 	public static boolean nameIsDuplicated(NamedElement element) {
 		String name = element.getName();
 		if (name == null) {
+			return false;
+		} else if (element instanceof AvoidObstacle 
+					|| element instanceof ExploreForward 
+					|| element instanceof ReturnBottleToBase) {
 			return false;
 		}
 		Main main = getMain(element);

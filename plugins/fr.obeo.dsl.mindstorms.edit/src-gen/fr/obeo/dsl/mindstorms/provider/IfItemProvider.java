@@ -62,7 +62,7 @@ public class IfItemProvider extends FlowItemProvider {
 	 * This returns If.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {

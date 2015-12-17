@@ -19,14 +19,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import fr.obeo.dsl.mindstorms.ColorSensor;
-import fr.obeo.dsl.mindstorms.Condition;
 import fr.obeo.dsl.mindstorms.Flow;
 import fr.obeo.dsl.mindstorms.MindstormsFactory;
 import fr.obeo.dsl.mindstorms.MindstormsPackage;
-import fr.obeo.dsl.mindstorms.TouchSensor;
-import fr.obeo.dsl.mindstorms.UltrasonicSensor;
 
 /**
  * This is the item provider adapter for a {@link fr.obeo.dsl.mindstorms.Flow} object.
@@ -96,6 +91,17 @@ public class FlowItemProvider extends BlockItemProvider {
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns Flow.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Flow"));
 	}
 
 	/**
