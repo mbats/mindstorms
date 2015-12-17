@@ -28,7 +28,6 @@ import fr.obeo.dsl.mindstorms.Release;
 import fr.obeo.dsl.mindstorms.ReturnToBase;
 import fr.obeo.dsl.mindstorms.ReuseInstruction;
 import fr.obeo.dsl.mindstorms.Rotate;
-import fr.obeo.dsl.mindstorms.Timer;
 import fr.obeo.dsl.mindstorms.TouchSensor;
 import fr.obeo.dsl.mindstorms.UltrasonicSensor;
 import fr.obeo.dsl.mindstorms.While;
@@ -42,9 +41,7 @@ public class TooltipServices {
 	public String computeTooltip(While object) {
 		String label = "While";
 		Condition condition = object.getCondition();
-		if (condition instanceof Timer) {
-			label +=  " " + computeLabel((Timer)condition);
-		} else if (condition instanceof ColorSensor) {
+		if (condition instanceof ColorSensor) {
 			label +=  " " + computeTooltip((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
 			label +=  " " + computeTooltip((UltrasonicSensor)condition);
@@ -59,9 +56,7 @@ public class TooltipServices {
 	public String computeTooltip(If object) {
 		String label = "If";
 		Condition condition = object.getCondition();
-		if (condition instanceof Timer) {
-			label +=  " " + computeLabel((Timer)condition);
-		} else if (condition instanceof ColorSensor) {
+		if (condition instanceof ColorSensor) {
 			label +=  " " + computeTooltip((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
 			label +=  " " + computeTooltip((UltrasonicSensor)condition);
@@ -112,10 +107,6 @@ public class TooltipServices {
 			return "Go backward indefinitely";
 		}
 		return "Go backward on " + block.getCm() + " cm";
-	}
-	
-	public String computeLabel(Timer timer) {
-		return "Timer : " + timer.getValue() + " ms";
 	}
 	
 	public String computeTooltip(UltrasonicSensor sensor) {

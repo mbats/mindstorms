@@ -59,13 +59,17 @@ public class [aBehavior.genName()/] extends RobotBehavior {
 [/template]
 
 [template public genTakeControl(aBehavior : Behavior) post (trim())]
-[if (aBehavior.takeControl.oclIsUndefined())]
+[if (aBehavior.condition.oclIsUndefined())]
 true
 [else]	
-[aBehavior.takeControl.genCondition()/]
+[aBehavior.condition.genCondition()/]
 [/if]
 [/template]
 
 [template public genStopCondition(aBehavior : Behavior)]
-false
+[if (aBehavior.eContainer(Arbitrator).condition.oclIsUndefined())]
+true
+[else]	
+[aBehavior.eContainer(Arbitrator).condition.genCondition()/]
+[/if]
 [/template]

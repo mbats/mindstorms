@@ -25,7 +25,6 @@ import fr.obeo.dsl.mindstorms.Instruction;
 import fr.obeo.dsl.mindstorms.Procedure;
 import fr.obeo.dsl.mindstorms.ReuseInstruction;
 import fr.obeo.dsl.mindstorms.Rotate;
-import fr.obeo.dsl.mindstorms.Timer;
 import fr.obeo.dsl.mindstorms.TouchSensor;
 import fr.obeo.dsl.mindstorms.UltrasonicSensor;
 import fr.obeo.dsl.mindstorms.While;
@@ -39,9 +38,7 @@ public class LabelServices {
 	public String computeLabel(While object) {
 		String label = "While";
 		Condition condition = object.getCondition();
-		if (condition instanceof Timer) {
-			label +=  " " + computeLabel((Timer)condition);
-		} else if (condition instanceof ColorSensor) {
+		if (condition instanceof ColorSensor) {
 			label +=  " " + computeLabel((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
 			label +=  " " + computeLabel((UltrasonicSensor)condition);
@@ -56,9 +53,7 @@ public class LabelServices {
 	public String computeLabel(If object) {
 		String label = "If";
 		Condition condition = object.getCondition();
-		if (condition instanceof Timer) {
-			label +=  " " + computeLabel((Timer)condition);
-		} else if (condition instanceof ColorSensor) {
+		if (condition instanceof ColorSensor) {
 			label +=  " " + computeLabel((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
 			label +=  " " + computeLabel((UltrasonicSensor)condition);
@@ -97,10 +92,6 @@ public class LabelServices {
 			return "\u221e";
 		}
 		return "-" + block.getCm() + " cm";
-	}
-	
-	public String computeLabel(Timer timer) {
-		return "Timer : " + timer.getValue() + " ms";
 	}
 	
 	public String computeLabel(UltrasonicSensor sensor) {
