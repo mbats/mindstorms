@@ -33,7 +33,9 @@ public class EditServices {
 	}
 
 	public void editElement(NamedElement object, String value) {
-		object.setName(value);
+		if (value != null && value.matches("[a-zA-Z]+[a-zA-Z0-9]*")) {
+			object.setName(value);
+		}
 	}
 
 	public void editElement(GoForward travel, String value) {
@@ -48,6 +50,8 @@ public class EditServices {
 			travel.setInfinite(true);
 		} else if ("*".equalsIgnoreCase(valueOf)) {
 			travel.setInfinite(true);
+		} else {
+			travel.setInfinite(false);
 		}
 	}
 
@@ -63,6 +67,8 @@ public class EditServices {
 			travel.setInfinite(true);
 		} else if ("*".equalsIgnoreCase(valueOf)) {
 			travel.setInfinite(true);
+		} else {
+			travel.setInfinite(false);
 		}
 	}
 
@@ -82,6 +88,8 @@ public class EditServices {
 			rotate.setRandom(true);
 		} else if ("*".equalsIgnoreCase(valueOf)) {
 			rotate.setRandom(true);
+		} else {
+			rotate.setRandom(false);
 		}
 	}
 

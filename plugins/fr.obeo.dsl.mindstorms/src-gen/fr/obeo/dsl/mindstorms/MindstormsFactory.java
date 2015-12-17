@@ -217,15 +217,6 @@ public interface MindstormsFactory extends EFactory {
 	UltrasonicSensor createUltrasonicSensor();
 
 	/**
-	 * Returns a new object of class '<em>Timer</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Timer</em>'.
-	 * @generated
-	 */
-	Timer createTimer();
-
-	/**
 	 * Returns a new object of class '<em>Color Sensor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

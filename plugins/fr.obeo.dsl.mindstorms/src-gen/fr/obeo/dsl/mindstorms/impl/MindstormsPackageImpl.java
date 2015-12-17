@@ -41,7 +41,6 @@ import fr.obeo.dsl.mindstorms.ReturnToBase;
 import fr.obeo.dsl.mindstorms.ReuseInstruction;
 import fr.obeo.dsl.mindstorms.Rotate;
 import fr.obeo.dsl.mindstorms.Sensor;
-import fr.obeo.dsl.mindstorms.Timer;
 import fr.obeo.dsl.mindstorms.TouchSensor;
 import fr.obeo.dsl.mindstorms.UltrasonicSensor;
 import fr.obeo.dsl.mindstorms.While;
@@ -263,13 +262,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * @generated
 	 */
 	private EClass ultrasonicSensorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass timerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -779,24 +771,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTimer() {
-		return timerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTimer_Value() {
-		return (EAttribute)timerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getColorSensor() {
 		return colorSensorEClass;
 	}
@@ -948,9 +922,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		createEAttribute(ultrasonicSensorEClass, ULTRASONIC_SENSOR__OPERATOR);
 		createEAttribute(ultrasonicSensorEClass, ULTRASONIC_SENSOR__VALUE);
 
-		timerEClass = createEClass(TIMER);
-		createEAttribute(timerEClass, TIMER__VALUE);
-
 		colorSensorEClass = createEClass(COLOR_SENSOR);
 		createEAttribute(colorSensorEClass, COLOR_SENSOR__COLOR);
 
@@ -1021,7 +992,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		exploreForwardEClass.getESuperTypes().add(this.getBehavior());
 		touchSensorEClass.getESuperTypes().add(this.getSensor());
 		ultrasonicSensorEClass.getESuperTypes().add(this.getSensor());
-		timerEClass.getESuperTypes().add(this.getSensor());
 		colorSensorEClass.getESuperTypes().add(this.getSensor());
 
 		// Initialize classes, features, and operations; add parameters
@@ -1098,9 +1068,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		initEClass(ultrasonicSensorEClass, UltrasonicSensor.class, "UltrasonicSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUltrasonicSensor_Operator(), this.getOperatorKind(), "operator", null, 0, 1, UltrasonicSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUltrasonicSensor_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, UltrasonicSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(timerEClass, Timer.class, "Timer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTimer_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Timer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(colorSensorEClass, ColorSensor.class, "ColorSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColorSensor_Color(), this.getColor(), "color", "NONE", 0, 1, ColorSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

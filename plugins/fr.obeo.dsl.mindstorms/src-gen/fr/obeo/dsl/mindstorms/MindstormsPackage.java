@@ -1379,52 +1379,6 @@ public interface MindstormsPackage extends EPackage {
 	int ULTRASONIC_SENSOR_OPERATION_COUNT = SENSOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.TimerImpl <em>Timer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.obeo.dsl.mindstorms.impl.TimerImpl
-	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getTimer()
-	 * @generated
-	 */
-	int TIMER = 28;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMER__NAME = SENSOR__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMER__VALUE = SENSOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Timer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMER_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Timer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMER_OPERATION_COUNT = SENSOR_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.ColorSensorImpl <em>Color Sensor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1432,7 +1386,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getColorSensor()
 	 * @generated
 	 */
-	int COLOR_SENSOR = 29;
+	int COLOR_SENSOR = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1478,7 +1432,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getConditionContainer()
 	 * @generated
 	 */
-	int CONDITION_CONTAINER = 30;
+	int CONDITION_CONTAINER = 29;
 
 	/**
 	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -1515,7 +1469,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 31;
+	int COLOR = 30;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.OperatorKind <em>Operator Kind</em>}' enum.
@@ -1525,7 +1479,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getOperatorKind()
 	 * @generated
 	 */
-	int OPERATOR_KIND = 32;
+	int OPERATOR_KIND = 31;
 
 
 	/**
@@ -2005,27 +1959,6 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUltrasonicSensor_Value();
-
-	/**
-	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.Timer <em>Timer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Timer</em>'.
-	 * @see fr.obeo.dsl.mindstorms.Timer
-	 * @generated
-	 */
-	EClass getTimer();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.obeo.dsl.mindstorms.Timer#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see fr.obeo.dsl.mindstorms.Timer#getValue()
-	 * @see #getTimer()
-	 * @generated
-	 */
-	EAttribute getTimer_Value();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.ColorSensor <em>Color Sensor</em>}'.
@@ -2535,24 +2468,6 @@ public interface MindstormsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ULTRASONIC_SENSOR__VALUE = eINSTANCE.getUltrasonicSensor_Value();
-
-		/**
-		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.TimerImpl <em>Timer</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see fr.obeo.dsl.mindstorms.impl.TimerImpl
-		 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getTimer()
-		 * @generated
-		 */
-		EClass TIMER = eINSTANCE.getTimer();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TIMER__VALUE = eINSTANCE.getTimer_Value();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.ColorSensorImpl <em>Color Sensor</em>}' class.

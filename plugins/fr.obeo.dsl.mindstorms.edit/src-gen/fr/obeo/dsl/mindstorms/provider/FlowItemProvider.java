@@ -99,27 +99,6 @@ public class FlowItemProvider extends BlockItemProvider {
 	}
 
 	/**
-	 * This returns Flow.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public Object getImage(Object object) {
-		if (object instanceof Flow) {
-			Condition condition = ((Flow) object).getCondition();
-			if (condition instanceof ColorSensor) {
-				return overlayImage(object, getResourceLocator().getImage("full/obj16/ColorSensor"));
-			} else if (condition instanceof UltrasonicSensor) {
-				return overlayImage(object, getResourceLocator().getImage("full/obj16/UltrasonicSensor"));
-			} else if (condition instanceof TouchSensor) {
-				return overlayImage(object, getResourceLocator().getImage("full/obj16/TouchSensor"));
-			}
-		}
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Flow"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -224,11 +203,6 @@ public class FlowItemProvider extends BlockItemProvider {
 			(createChildParameter
 				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
 				 MindstormsFactory.eINSTANCE.createUltrasonicSensor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
-				 MindstormsFactory.eINSTANCE.createTimer()));
 
 		newChildDescriptors.add
 			(createChildParameter

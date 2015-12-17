@@ -195,10 +195,6 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 				return createUltrasonicSensorAdapter();
 			}
 			@Override
-			public Adapter caseTimer(Timer object) {
-				return createTimerAdapter();
-			}
-			@Override
 			public Adapter caseColorSensor(ColorSensor object) {
 				return createColorSensorAdapter();
 			}
@@ -615,20 +611,6 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUltrasonicSensorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.Timer <em>Timer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.obeo.dsl.mindstorms.Timer
-	 * @generated
-	 */
-	public Adapter createTimerAdapter() {
 		return null;
 	}
 

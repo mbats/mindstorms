@@ -10,6 +10,7 @@
  *******************************************************************************/
 package fr.obeo.dsl.mindstorms.design.services;
 
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 
 import fr.obeo.dsl.mindstorms.Behavior;
@@ -22,16 +23,62 @@ import fr.obeo.dsl.mindstorms.GoForward;
 import fr.obeo.dsl.mindstorms.GoTo;
 import fr.obeo.dsl.mindstorms.If;
 import fr.obeo.dsl.mindstorms.Instruction;
+import fr.obeo.dsl.mindstorms.Main;
+import fr.obeo.dsl.mindstorms.NamedElement;
 import fr.obeo.dsl.mindstorms.Procedure;
 import fr.obeo.dsl.mindstorms.ReuseInstruction;
 import fr.obeo.dsl.mindstorms.Rotate;
-import fr.obeo.dsl.mindstorms.Timer;
 import fr.obeo.dsl.mindstorms.TouchSensor;
 import fr.obeo.dsl.mindstorms.UltrasonicSensor;
 import fr.obeo.dsl.mindstorms.While;
 
 public class LabelServices {
 
+	public static boolean nameInError(NamedElement element) {
+		return nameIsInvalid(element) || nameIsDuplicated(element);
+	}
+	
+	public static boolean nameIsInvalid(NamedElement element) {
+		String name = element.getName();
+		if (name != null && name.matches("[a-zA-Z]+[a-zA-Z0-9]*")) {
+			return false;
+		}
+		return true;
+	}
+	
+	public static boolean nameIsDuplicated(NamedElement element) {
+		String name = element.getName();
+		if (name == null) {
+			return false;
+		}
+		Main main = getMain(element);
+		if (main != null) {			
+			TreeIterator<EObject> eAllContents = main.eAllContents();
+			while (eAllContents.hasNext()) {
+				EObject next = (EObject) eAllContents.next();
+				if (next instanceof NamedElement && !next.equals(element)) {
+					String nextName = ((NamedElement) next).getName();
+					if (name.equals(nextName)) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
+	private static Main getMain(NamedElement element) {
+		EObject container = element.eContainer();
+		while (container != null) {
+			if (container instanceof Main) {
+				return (Main)container;
+			} else {
+				container = container.eContainer();
+			}
+		}
+		return null;
+	}
+	
 	public String computeLabel(EObject object) {
 		return "";
 	}
@@ -39,9 +86,7 @@ public class LabelServices {
 	public String computeLabel(While object) {
 		String label = "While";
 		Condition condition = object.getCondition();
-		if (condition instanceof Timer) {
-			label +=  " " + computeLabel((Timer)condition);
-		} else if (condition instanceof ColorSensor) {
+		if (condition instanceof ColorSensor) {
 			label +=  " " + computeLabel((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
 			label +=  " " + computeLabel((UltrasonicSensor)condition);
@@ -56,9 +101,7 @@ public class LabelServices {
 	public String computeLabel(If object) {
 		String label = "If";
 		Condition condition = object.getCondition();
-		if (condition instanceof Timer) {
-			label +=  " " + computeLabel((Timer)condition);
-		} else if (condition instanceof ColorSensor) {
+		if (condition instanceof ColorSensor) {
 			label +=  " " + computeLabel((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
 			label +=  " " + computeLabel((UltrasonicSensor)condition);
@@ -97,10 +140,6 @@ public class LabelServices {
 			return "\u221e";
 		}
 		return "-" + block.getCm() + " cm";
-	}
-	
-	public String computeLabel(Timer timer) {
-		return "Timer : " + timer.getValue() + " ms";
 	}
 	
 	public String computeLabel(UltrasonicSensor sensor) {

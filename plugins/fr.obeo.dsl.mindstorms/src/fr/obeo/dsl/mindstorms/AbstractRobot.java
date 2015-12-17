@@ -131,13 +131,13 @@ public abstract class AbstractRobot {
 	}
 	
 	public void grab() {
-		grabMotor.forward();
+		grabMotor.backward();
 		while (!grabMotor.isStalled())
 			Thread.yield();
 	}
 
 	public void release() {
-		grabMotor.backward();
+		grabMotor.forward();
 		while (!grabMotor.isStalled())
 			Thread.yield();
 	}

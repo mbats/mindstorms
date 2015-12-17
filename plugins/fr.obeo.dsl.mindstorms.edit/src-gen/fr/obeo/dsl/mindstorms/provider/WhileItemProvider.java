@@ -67,7 +67,7 @@ public class WhileItemProvider extends FlowItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return super.getImage(object);
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/While"));
 	}
 
 	/**

@@ -23,12 +23,12 @@ import fr.obeo.dsl.mindstorms.GoTo;
 import fr.obeo.dsl.mindstorms.Grab;
 import fr.obeo.dsl.mindstorms.If;
 import fr.obeo.dsl.mindstorms.Instruction;
+import fr.obeo.dsl.mindstorms.NamedElement;
 import fr.obeo.dsl.mindstorms.Procedure;
 import fr.obeo.dsl.mindstorms.Release;
 import fr.obeo.dsl.mindstorms.ReturnToBase;
 import fr.obeo.dsl.mindstorms.ReuseInstruction;
 import fr.obeo.dsl.mindstorms.Rotate;
-import fr.obeo.dsl.mindstorms.Timer;
 import fr.obeo.dsl.mindstorms.TouchSensor;
 import fr.obeo.dsl.mindstorms.UltrasonicSensor;
 import fr.obeo.dsl.mindstorms.While;
@@ -39,12 +39,20 @@ public class TooltipServices {
 		return "";
 	}
 	
+	public String computeTooltip(NamedElement object) {
+		String tooltip = object.getName();
+		if (LabelServices.nameIsInvalid(object)) {
+			tooltip += " : Invalid name !";
+		} else if (LabelServices.nameIsDuplicated(object)) {
+			tooltip += " : Duplicated name !";
+		}
+		return tooltip;
+	}
+	
 	public String computeTooltip(While object) {
 		String label = "While";
 		Condition condition = object.getCondition();
-		if (condition instanceof Timer) {
-			label +=  " " + computeLabel((Timer)condition);
-		} else if (condition instanceof ColorSensor) {
+		if (condition instanceof ColorSensor) {
 			label +=  " " + computeTooltip((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
 			label +=  " " + computeTooltip((UltrasonicSensor)condition);
@@ -59,9 +67,7 @@ public class TooltipServices {
 	public String computeTooltip(If object) {
 		String label = "If";
 		Condition condition = object.getCondition();
-		if (condition instanceof Timer) {
-			label +=  " " + computeLabel((Timer)condition);
-		} else if (condition instanceof ColorSensor) {
+		if (condition instanceof ColorSensor) {
 			label +=  " " + computeTooltip((ColorSensor)condition);
 		} else if (condition instanceof UltrasonicSensor) {
 			label +=  " " + computeTooltip((UltrasonicSensor)condition);
@@ -114,10 +120,6 @@ public class TooltipServices {
 		return "Go backward on " + block.getCm() + " cm";
 	}
 	
-	public String computeLabel(Timer timer) {
-		return "Timer : " + timer.getValue() + " ms";
-	}
-	
 	public String computeTooltip(UltrasonicSensor sensor) {
 		String label = "Distance ";
 		switch (sensor.getOperator()) {
@@ -154,14 +156,6 @@ public class TooltipServices {
 	
 	public String computeTooltip(TouchSensor sensor) {
 		return "touch sensor is pressed";
-	}
-	
-	public String computeTooltip(Procedure proc) {
-		return proc.getName();
-	}
-	
-	public String computeTooltip(Behavior behavior) {
-		return behavior.getName();
 	}
 	
 	public String computeTooltip(ReuseInstruction instruction) {

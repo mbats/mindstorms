@@ -1,0 +1,91 @@
+[comment encoding = UTF-8 
+ Copyright (c) 2015 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Obeo - initial API and implementation
+/]
+[module robot('http://www.obeo.fr/dsl/mindstorms/1.0.0')]
+
+[import fr::obeo::dsl::mindstorms::gen::java::common::common /]
+
+[template public genRobot(aMain : Main)]
+[file (aMain.genPackagePath() + 'Robot.java', false, 'UTF-8')]
+/**
+ * Copyright (c) 2015 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ */
+package [aMain.genPackageQualifiedName()/];
+
+import java.util.ArrayList;
+import java.util.List;
+
+import lejos.robotics.Color;
+import lejos.robotics.subsumption.Arbitrator;
+import lejos.robotics.subsumption.Behavior;
+
+public class Robot extends AbstractRobot {
+	final static Robot robot = new Robot();
+
+	public static void main(String['[]'/] args) {
+		robot.run();
+	}
+
+	@Override
+	public void execute() {
+		init();
+	[for (ins : Instruction | if aMain.instructions->oclIsUndefined() then Sequence{} else aMain.instructions endif)]
+		[ins.genInstruction()/]
+	[/for]
+	}
+
+	public void init() {
+		robot.release();
+	}
+
+[for (proc : Procedure | if aMain.instructions->oclIsUndefined() then Sequence{} else aMain.instructions->filter(Procedure) endif)]
+	[proc.genProcedure()/]
+[/for]
+[for (arbi : Arbitrator | if aMain.instructions->oclIsUndefined() then Sequence{} else aMain.instructions->filter(Arbitrator) endif)]
+	[arbi.genArbitrator()/]
+[/for]
+}
+[/file]
+[/template]
+
+[template public genProcedure(aProcedure : Procedure) post (trim())]
+public void [aProcedure.genName()/]() {
+[for (b : Block | if aProcedure.blocks->oclIsUndefined() then Sequence{} else aProcedure.blocks endif)]
+	[b.genInstruction()/]
+[/for]
+}
+[/template]
+
+[template public genArbitrator(aArbitrator : Arbitrator) post (trim())]
+public void [aArbitrator.genName()/]() {
+	List<Behavior> behaviors = new ArrayList<Behavior>();
+	[for (aBehavior : Behavior | if aArbitrator.behaviors->oclIsUndefined() then Sequence{} else aArbitrator.behaviors endif)]
+	behaviors.add([aBehavior.genBehaviorAsParam()/]);
+	[/for]
+	[for (aBehavior : Behavior | if aArbitrator.reuse->oclIsUndefined() then Sequence{} else aArbitrator.reuse endif)]
+	behaviors.add([aBehavior.genBehaviorAsParam()/]);
+	[/for]
+	// If all behaviors are inactive, then arbitrator stops.
+	Arbitrator arbitrator = new Arbitrator((Behavior['[]'/]) behaviors.toArray(new Behavior['['/]behaviors.size()[']'/]), true);
+	arbitrator.start();
+}
+[/template]
+
+[template public genBehaviorAsParam(aBehavior : Behavior)]
+new [aBehavior.genName()/](robot)
+[/template]
+

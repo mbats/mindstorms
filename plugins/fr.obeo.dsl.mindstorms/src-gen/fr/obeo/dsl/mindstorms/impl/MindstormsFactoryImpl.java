@@ -92,7 +92,6 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 			case MindstormsPackage.EXPLORE_FORWARD: return createExploreForward();
 			case MindstormsPackage.TOUCH_SENSOR: return createTouchSensor();
 			case MindstormsPackage.ULTRASONIC_SENSOR: return createUltrasonicSensor();
-			case MindstormsPackage.TIMER: return createTimer();
 			case MindstormsPackage.COLOR_SENSOR: return createColorSensor();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -331,16 +330,6 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 	public UltrasonicSensor createUltrasonicSensor() {
 		UltrasonicSensorImpl ultrasonicSensor = new UltrasonicSensorImpl();
 		return ultrasonicSensor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Timer createTimer() {
-		TimerImpl timer = new TimerImpl();
-		return timer;
 	}
 
 	/**
