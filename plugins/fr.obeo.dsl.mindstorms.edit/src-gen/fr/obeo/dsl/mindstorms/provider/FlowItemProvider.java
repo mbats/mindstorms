@@ -80,7 +80,7 @@ public class FlowItemProvider extends BlockItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS);
-			childrenFeatures.add(MindstormsPackage.Literals.FLOW__CONDITION);
+			childrenFeatures.add(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION);
 		}
 		return childrenFeatures;
 	}
@@ -217,22 +217,22 @@ public class FlowItemProvider extends BlockItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.FLOW__CONDITION,
+				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
 				 MindstormsFactory.eINSTANCE.createTouchSensor()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.FLOW__CONDITION,
+				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
 				 MindstormsFactory.eINSTANCE.createUltrasonicSensor()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.FLOW__CONDITION,
+				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
 				 MindstormsFactory.eINSTANCE.createTimer()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MindstormsPackage.Literals.FLOW__CONDITION,
+				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
 				 MindstormsFactory.eINSTANCE.createColorSensor()));
 	}
 

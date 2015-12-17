@@ -286,13 +286,22 @@ public interface MindstormsPackage extends EPackage {
 	int ARBITRATOR__NAME = INSTRUCTION__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARBITRATOR__CONDITION = INSTRUCTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Behaviors</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARBITRATOR__BEHAVIORS = INSTRUCTION_FEATURE_COUNT + 0;
+	int ARBITRATOR__BEHAVIORS = INSTRUCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Reuse</b></em>' reference list.
@@ -301,7 +310,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARBITRATOR__REUSE = INSTRUCTION_FEATURE_COUNT + 1;
+	int ARBITRATOR__REUSE = INSTRUCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Arbitrator</em>' class.
@@ -310,7 +319,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARBITRATOR_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
+	int ARBITRATOR_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Arbitrator</em>' class.
@@ -350,13 +359,13 @@ public interface MindstormsPackage extends EPackage {
 	int BEHAVIOR__BLOCKS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Take Control</b></em>' containment reference.
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOR__TAKE_CONTROL = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int BEHAVIOR__CONDITION = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Behavior</em>' class.
@@ -1132,13 +1141,13 @@ public interface MindstormsPackage extends EPackage {
 	int AVOID_OBSTACLE__BLOCKS = BEHAVIOR__BLOCKS;
 
 	/**
-	 * The feature id for the '<em><b>Take Control</b></em>' containment reference.
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AVOID_OBSTACLE__TAKE_CONTROL = BEHAVIOR__TAKE_CONTROL;
+	int AVOID_OBSTACLE__CONDITION = BEHAVIOR__CONDITION;
 
 	/**
 	 * The number of structural features of the '<em>Avoid Obstacle</em>' class.
@@ -1187,13 +1196,13 @@ public interface MindstormsPackage extends EPackage {
 	int RETURN_BOTTLE_TO_BASE__BLOCKS = BEHAVIOR__BLOCKS;
 
 	/**
-	 * The feature id for the '<em><b>Take Control</b></em>' containment reference.
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RETURN_BOTTLE_TO_BASE__TAKE_CONTROL = BEHAVIOR__TAKE_CONTROL;
+	int RETURN_BOTTLE_TO_BASE__CONDITION = BEHAVIOR__CONDITION;
 
 	/**
 	 * The number of structural features of the '<em>Return Bottle To Base</em>' class.
@@ -1242,13 +1251,13 @@ public interface MindstormsPackage extends EPackage {
 	int EXPLORE_FORWARD__BLOCKS = BEHAVIOR__BLOCKS;
 
 	/**
-	 * The feature id for the '<em><b>Take Control</b></em>' containment reference.
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPLORE_FORWARD__TAKE_CONTROL = BEHAVIOR__TAKE_CONTROL;
+	int EXPLORE_FORWARD__CONDITION = BEHAVIOR__CONDITION;
 
 	/**
 	 * The number of structural features of the '<em>Explore Forward</em>' class.
@@ -1462,6 +1471,43 @@ public interface MindstormsPackage extends EPackage {
 	int COLOR_SENSOR_OPERATION_COUNT = SENSOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.ConditionContainerImpl <em>Condition Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.mindstorms.impl.ConditionContainerImpl
+	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getConditionContainer()
+	 * @generated
+	 */
+	int CONDITION_CONTAINER = 30;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_CONTAINER__CONDITION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Condition Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_CONTAINER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Condition Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_CONTAINER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.Color <em>Color</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1469,7 +1515,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 30;
+	int COLOR = 31;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.OperatorKind <em>Operator Kind</em>}' enum.
@@ -1479,7 +1525,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getOperatorKind()
 	 * @generated
 	 */
-	int OPERATOR_KIND = 31;
+	int OPERATOR_KIND = 32;
 
 
 	/**
@@ -1608,17 +1654,6 @@ public interface MindstormsPackage extends EPackage {
 	EClass getBehavior();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link fr.obeo.dsl.mindstorms.Behavior#getTakeControl <em>Take Control</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Take Control</em>'.
-	 * @see fr.obeo.dsl.mindstorms.Behavior#getTakeControl()
-	 * @see #getBehavior()
-	 * @generated
-	 */
-	EReference getBehavior_TakeControl();
-
-	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.ReuseInstruction <em>Reuse Instruction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1668,17 +1703,6 @@ public interface MindstormsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getFlow();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link fr.obeo.dsl.mindstorms.Flow#getCondition <em>Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Condition</em>'.
-	 * @see fr.obeo.dsl.mindstorms.Flow#getCondition()
-	 * @see #getFlow()
-	 * @generated
-	 */
-	EReference getFlow_Condition();
 
 	/**
 	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.Sensor <em>Sensor</em>}'.
@@ -2025,6 +2049,27 @@ public interface MindstormsPackage extends EPackage {
 	EAttribute getColorSensor_Color();
 
 	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.ConditionContainer <em>Condition Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Condition Container</em>'.
+	 * @see fr.obeo.dsl.mindstorms.ConditionContainer
+	 * @generated
+	 */
+	EClass getConditionContainer();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link fr.obeo.dsl.mindstorms.ConditionContainer#getCondition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Condition</em>'.
+	 * @see fr.obeo.dsl.mindstorms.ConditionContainer#getCondition()
+	 * @see #getConditionContainer()
+	 * @generated
+	 */
+	EReference getConditionContainer_Condition();
+
+	/**
 	 * Returns the meta object for enum '{@link fr.obeo.dsl.mindstorms.Color <em>Color</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2178,14 +2223,6 @@ public interface MindstormsPackage extends EPackage {
 		EClass BEHAVIOR = eINSTANCE.getBehavior();
 
 		/**
-		 * The meta object literal for the '<em><b>Take Control</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BEHAVIOR__TAKE_CONTROL = eINSTANCE.getBehavior_TakeControl();
-
-		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.ReuseInstructionImpl <em>Reuse Instruction</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2232,14 +2269,6 @@ public interface MindstormsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass FLOW = eINSTANCE.getFlow();
-
-		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FLOW__CONDITION = eINSTANCE.getFlow_Condition();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.SensorImpl <em>Sensor</em>}' class.
@@ -2542,6 +2571,24 @@ public interface MindstormsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COLOR_SENSOR__COLOR = eINSTANCE.getColorSensor_Color();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.ConditionContainerImpl <em>Condition Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.mindstorms.impl.ConditionContainerImpl
+		 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getConditionContainer()
+		 * @generated
+		 */
+		EClass CONDITION_CONTAINER = eINSTANCE.getConditionContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITION_CONTAINER__CONDITION = eINSTANCE.getConditionContainer_Condition();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.Color <em>Color</em>}' enum.

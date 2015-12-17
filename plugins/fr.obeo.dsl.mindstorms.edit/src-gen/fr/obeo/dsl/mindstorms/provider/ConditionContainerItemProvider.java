@@ -11,7 +11,7 @@
 package fr.obeo.dsl.mindstorms.provider;
 
 
-import fr.obeo.dsl.mindstorms.Behavior;
+import fr.obeo.dsl.mindstorms.ConditionContainer;
 import fr.obeo.dsl.mindstorms.MindstormsFactory;
 import fr.obeo.dsl.mindstorms.MindstormsPackage;
 
@@ -21,18 +21,33 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.obeo.dsl.mindstorms.Behavior} object.
+ * This is the item provider adapter for a {@link fr.obeo.dsl.mindstorms.ConditionContainer} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class BehaviorItemProvider extends NamedElementItemProvider {
+public class ConditionContainerItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,7 +61,7 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BehaviorItemProvider(AdapterFactory adapterFactory) {
+	public ConditionContainerItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -77,7 +92,6 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS);
 			childrenFeatures.add(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION);
 		}
 		return childrenFeatures;
@@ -97,17 +111,6 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This returns Behavior.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Behavior"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -115,10 +118,7 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Behavior)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Behavior_type") :
-			getString("_UI_Behavior_type") + " " + label;
+		return getString("_UI_ConditionContainer_type");
 	}
 	
 
@@ -133,9 +133,8 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Behavior.class)) {
-			case MindstormsPackage.BEHAVIOR__BLOCKS:
-			case MindstormsPackage.BEHAVIOR__CONDITION:
+		switch (notification.getFeatureID(ConditionContainer.class)) {
+			case MindstormsPackage.CONDITION_CONTAINER__CONDITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,56 +151,6 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createIf()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createWhile()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createGoForward()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createGoBackward()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createRotate()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createGoTo()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createReturnToBase()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createGrab()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createRelease()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
-				 MindstormsFactory.eINSTANCE.createDelay()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -222,6 +171,17 @@ public class BehaviorItemProvider extends NamedElementItemProvider {
 			(createChildParameter
 				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
 				 MindstormsFactory.eINSTANCE.createColorSensor()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return MindstormsEditPlugin.INSTANCE;
 	}
 
 }

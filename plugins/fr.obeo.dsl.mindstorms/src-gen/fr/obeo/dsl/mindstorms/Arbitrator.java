@@ -29,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Arbitrator extends Instruction {
+public interface Arbitrator extends Instruction, ConditionContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

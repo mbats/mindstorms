@@ -124,6 +124,7 @@ public class ArbitratorItemProvider extends InstructionItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION);
 			childrenFeatures.add(MindstormsPackage.Literals.ARBITRATOR__BEHAVIORS);
 		}
 		return childrenFeatures;
@@ -180,6 +181,7 @@ public class ArbitratorItemProvider extends InstructionItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Arbitrator.class)) {
+			case MindstormsPackage.ARBITRATOR__CONDITION:
 			case MindstormsPackage.ARBITRATOR__BEHAVIORS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -197,6 +199,26 @@ public class ArbitratorItemProvider extends InstructionItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
+				 MindstormsFactory.eINSTANCE.createTouchSensor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
+				 MindstormsFactory.eINSTANCE.createUltrasonicSensor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
+				 MindstormsFactory.eINSTANCE.createTimer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
+				 MindstormsFactory.eINSTANCE.createColorSensor()));
 
 		newChildDescriptors.add
 			(createChildParameter

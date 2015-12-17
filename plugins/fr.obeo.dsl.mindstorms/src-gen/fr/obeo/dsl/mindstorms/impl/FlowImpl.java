@@ -13,6 +13,7 @@ package fr.obeo.dsl.mindstorms.impl;
 import fr.obeo.dsl.mindstorms.Block;
 import fr.obeo.dsl.mindstorms.BlockContainer;
 import fr.obeo.dsl.mindstorms.Condition;
+import fr.obeo.dsl.mindstorms.ConditionContainer;
 import fr.obeo.dsl.mindstorms.Flow;
 import fr.obeo.dsl.mindstorms.MindstormsPackage;
 
@@ -241,6 +242,12 @@ public abstract class FlowImpl extends BlockImpl implements Flow {
 				default: return -1;
 			}
 		}
+		if (baseClass == ConditionContainer.class) {
+			switch (derivedFeatureID) {
+				case MindstormsPackage.FLOW__CONDITION: return MindstormsPackage.CONDITION_CONTAINER__CONDITION;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -254,6 +261,12 @@ public abstract class FlowImpl extends BlockImpl implements Flow {
 		if (baseClass == BlockContainer.class) {
 			switch (baseFeatureID) {
 				case MindstormsPackage.BLOCK_CONTAINER__BLOCKS: return MindstormsPackage.FLOW__BLOCKS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ConditionContainer.class) {
+			switch (baseFeatureID) {
+				case MindstormsPackage.CONDITION_CONTAINER__CONDITION: return MindstormsPackage.FLOW__CONDITION;
 				default: return -1;
 			}
 		}

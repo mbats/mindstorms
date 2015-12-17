@@ -15,25 +15,19 @@
         eType="#//Block" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Procedure" eSuperTypes="#//Instruction #//BlockContainer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Arbitrator" eSuperTypes="#//Instruction">
+  <eClassifiers xsi:type="ecore:EClass" name="Arbitrator" eSuperTypes="#//Instruction #//ConditionContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="behaviors" upperBound="-1"
         eType="#//Behavior" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="reuse" upperBound="-1"
         eType="#//Behavior"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Behavior" eSuperTypes="#//NamedElement #//BlockContainer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="takeControl" eType="#//Condition"
-        containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Behavior" eSuperTypes="#//NamedElement #//BlockContainer #//ConditionContainer"/>
   <eClassifiers xsi:type="ecore:EClass" name="ReuseInstruction" eSuperTypes="#//Instruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="reuse" eType="#//Instruction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Block" abstract="true" eSuperTypes="#//Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" eSuperTypes="#//Block"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Flow" abstract="true" eSuperTypes="#//Block #//BlockContainer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
-        containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Flow" abstract="true" eSuperTypes="#//Block #//BlockContainer #//ConditionContainer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Sensor" abstract="true" eSuperTypes="#//NamedElement #//Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="#//Flow"/>
@@ -99,5 +93,9 @@
     <eLiterals name="notEqual"/>
     <eLiterals name="upperOrEqual"/>
     <eLiterals name="lowerOrEqual"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionContainer" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

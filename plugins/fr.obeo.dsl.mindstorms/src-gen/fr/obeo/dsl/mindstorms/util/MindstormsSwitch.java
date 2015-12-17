@@ -119,6 +119,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				Arbitrator arbitrator = (Arbitrator)theEObject;
 				T result = caseArbitrator(arbitrator);
 				if (result == null) result = caseInstruction(arbitrator);
+				if (result == null) result = caseConditionContainer(arbitrator);
 				if (result == null) result = caseNamedElement(arbitrator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -128,6 +129,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseBehavior(behavior);
 				if (result == null) result = caseNamedElement(behavior);
 				if (result == null) result = caseBlockContainer(behavior);
+				if (result == null) result = caseConditionContainer(behavior);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -161,6 +163,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				T result = caseFlow(flow);
 				if (result == null) result = caseBlock(flow);
 				if (result == null) result = caseBlockContainer(flow);
+				if (result == null) result = caseConditionContainer(flow);
 				if (result == null) result = caseInstruction(flow);
 				if (result == null) result = caseNamedElement(flow);
 				if (result == null) result = defaultCase(theEObject);
@@ -186,6 +189,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseFlow(if_);
 				if (result == null) result = caseBlock(if_);
 				if (result == null) result = caseBlockContainer(if_);
+				if (result == null) result = caseConditionContainer(if_);
 				if (result == null) result = caseInstruction(if_);
 				if (result == null) result = caseNamedElement(if_);
 				if (result == null) result = defaultCase(theEObject);
@@ -197,6 +201,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseFlow(while_);
 				if (result == null) result = caseBlock(while_);
 				if (result == null) result = caseBlockContainer(while_);
+				if (result == null) result = caseConditionContainer(while_);
 				if (result == null) result = caseInstruction(while_);
 				if (result == null) result = caseNamedElement(while_);
 				if (result == null) result = defaultCase(theEObject);
@@ -288,6 +293,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBehavior(avoidObstacle);
 				if (result == null) result = caseNamedElement(avoidObstacle);
 				if (result == null) result = caseBlockContainer(avoidObstacle);
+				if (result == null) result = caseConditionContainer(avoidObstacle);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -297,6 +303,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBehavior(returnBottleToBase);
 				if (result == null) result = caseNamedElement(returnBottleToBase);
 				if (result == null) result = caseBlockContainer(returnBottleToBase);
+				if (result == null) result = caseConditionContainer(returnBottleToBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -306,6 +313,7 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBehavior(exploreForward);
 				if (result == null) result = caseNamedElement(exploreForward);
 				if (result == null) result = caseBlockContainer(exploreForward);
+				if (result == null) result = caseConditionContainer(exploreForward);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -342,6 +350,12 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseSensor(colorSensor);
 				if (result == null) result = caseNamedElement(colorSensor);
 				if (result == null) result = caseCondition(colorSensor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MindstormsPackage.CONDITION_CONTAINER: {
+				ConditionContainer conditionContainer = (ConditionContainer)theEObject;
+				T result = caseConditionContainer(conditionContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -796,6 +810,21 @@ public class MindstormsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseColorSensor(ColorSensor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Condition Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Condition Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConditionContainer(ConditionContainer object) {
 		return null;
 	}
 

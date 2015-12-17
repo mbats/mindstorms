@@ -19,6 +19,7 @@ import fr.obeo.dsl.mindstorms.BlockContainer;
 import fr.obeo.dsl.mindstorms.Color;
 import fr.obeo.dsl.mindstorms.ColorSensor;
 import fr.obeo.dsl.mindstorms.Condition;
+import fr.obeo.dsl.mindstorms.ConditionContainer;
 import fr.obeo.dsl.mindstorms.Delay;
 import fr.obeo.dsl.mindstorms.ExploreForward;
 import fr.obeo.dsl.mindstorms.Flow;
@@ -282,6 +283,13 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass conditionContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum colorEEnum = null;
 
 	/**
@@ -465,15 +473,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBehavior_TakeControl() {
-		return (EReference)behaviorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getReuseInstruction() {
 		return reuseInstructionEClass;
 	}
@@ -512,15 +511,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 */
 	public EClass getFlow() {
 		return flowEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFlow_Condition() {
-		return (EReference)flowEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -825,6 +815,24 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getConditionContainer() {
+		return conditionContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConditionContainer_Condition() {
+		return (EReference)conditionContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getColor() {
 		return colorEEnum;
 	}
@@ -884,7 +892,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		createEReference(arbitratorEClass, ARBITRATOR__REUSE);
 
 		behaviorEClass = createEClass(BEHAVIOR);
-		createEReference(behaviorEClass, BEHAVIOR__TAKE_CONTROL);
 
 		reuseInstructionEClass = createEClass(REUSE_INSTRUCTION);
 		createEReference(reuseInstructionEClass, REUSE_INSTRUCTION__REUSE);
@@ -894,7 +901,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		actionEClass = createEClass(ACTION);
 
 		flowEClass = createEClass(FLOW);
-		createEReference(flowEClass, FLOW__CONDITION);
 
 		sensorEClass = createEClass(SENSOR);
 
@@ -948,6 +954,9 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		colorSensorEClass = createEClass(COLOR_SENSOR);
 		createEAttribute(colorSensorEClass, COLOR_SENSOR__COLOR);
 
+		conditionContainerEClass = createEClass(CONDITION_CONTAINER);
+		createEReference(conditionContainerEClass, CONDITION_CONTAINER__CONDITION);
+
 		// Create enums
 		colorEEnum = createEEnum(COLOR);
 		operatorKindEEnum = createEEnum(OPERATOR_KIND);
@@ -985,13 +994,16 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		procedureEClass.getESuperTypes().add(this.getInstruction());
 		procedureEClass.getESuperTypes().add(this.getBlockContainer());
 		arbitratorEClass.getESuperTypes().add(this.getInstruction());
+		arbitratorEClass.getESuperTypes().add(this.getConditionContainer());
 		behaviorEClass.getESuperTypes().add(this.getNamedElement());
 		behaviorEClass.getESuperTypes().add(this.getBlockContainer());
+		behaviorEClass.getESuperTypes().add(this.getConditionContainer());
 		reuseInstructionEClass.getESuperTypes().add(this.getInstruction());
 		blockEClass.getESuperTypes().add(this.getInstruction());
 		actionEClass.getESuperTypes().add(this.getBlock());
 		flowEClass.getESuperTypes().add(this.getBlock());
 		flowEClass.getESuperTypes().add(this.getBlockContainer());
+		flowEClass.getESuperTypes().add(this.getConditionContainer());
 		sensorEClass.getESuperTypes().add(this.getNamedElement());
 		sensorEClass.getESuperTypes().add(this.getCondition());
 		ifEClass.getESuperTypes().add(this.getFlow());
@@ -1031,7 +1043,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		initEReference(getArbitrator_Reuse(), this.getBehavior(), null, "reuse", null, 0, -1, Arbitrator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(behaviorEClass, Behavior.class, "Behavior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBehavior_TakeControl(), this.getCondition(), null, "takeControl", null, 0, 1, Behavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(reuseInstructionEClass, ReuseInstruction.class, "ReuseInstruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReuseInstruction_Reuse(), this.getInstruction(), null, "reuse", null, 0, 1, ReuseInstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1041,7 +1052,6 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(flowEClass, Flow.class, "Flow", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFlow_Condition(), this.getCondition(), null, "condition", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sensorEClass, Sensor.class, "Sensor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1094,6 +1104,9 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 
 		initEClass(colorSensorEClass, ColorSensor.class, "ColorSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColorSensor_Color(), this.getColor(), "color", "NONE", 0, 1, ColorSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(conditionContainerEClass, ConditionContainer.class, "ConditionContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConditionContainer_Condition(), this.getCondition(), null, "condition", null, 0, 1, ConditionContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(colorEEnum, Color.class, "Color");
