@@ -108,7 +108,7 @@
           </style>
         </edgeMappings>
         <containerMappings name="MC_Procedure" label="Container Procedure" detailDescriptions="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDC_NewIDD']" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="feature:instructions" domainClass="mindstorms.Procedure" childrenPresentation="List">
-          <subNodeMappings name="MDN_ProcedureBlock" label="Procedure Blocks" semanticCandidatesExpression="aql:self.blocks" domainClass="mindstorms.Block">
+          <subNodeMappings name="MDN_ProcedureBlock" label="Procedure Blocks" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="aql:self.blocks" domainClass="mindstorms.Block">
             <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
@@ -134,7 +134,7 @@
           </style>
         </containerMappings>
         <containerMappings name="MC_While" label="Container While" detailDescriptions="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDC_NewIDD']" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="feature:instructions" doubleClickDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDD_SwitchColor']" domainClass="mindstorms.While" childrenPresentation="List">
-          <subNodeMappings name="MDN_WhileBlock" label="While Blocks" semanticCandidatesExpression="aql:self.blocks" domainClass="mindstorms.Block">
+          <subNodeMappings name="MDN_WhileBlock" label="While Blocks" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="aql:self.blocks" domainClass="mindstorms.Block">
             <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
@@ -148,7 +148,7 @@
           </style>
         </containerMappings>
         <containerMappings name="MC_If" label="Container If" detailDescriptions="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDC_NewIDD']" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="feature:instructions" doubleClickDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDD_SwitchColor']" domainClass="mindstorms.If" childrenPresentation="List">
-          <subNodeMappings name="MDN_IfBlock" label="If Blocks" semanticCandidatesExpression="aql:self.blocks" domainClass="mindstorms.Block">
+          <subNodeMappings name="MDN_IfBlock" label="If Blocks" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="aql:self.blocks" domainClass="mindstorms.Block">
             <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
@@ -534,15 +534,15 @@
       <metamodel href="http://www.obeo.fr/dsl/mindstorms/1.0.0#/"/>
       <layout xsi:type="description_1:CompositeLayout" direction="LeftToRight"/>
       <defaultLayer name="BlockContainerDiagramDefaultLayer" label="Default">
-        <nodeMappings xsi:type="description_1:NodeMappingImport" name="BDN_Action" label="Detailed Action" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='IDE_Element']" semanticCandidatesExpression="aql:self.blocks" domainClass="mindstorms.Action" importedMapping="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action']"/>
-        <nodeMappings name="BDN_DetailedBegin" label="Detailed Begin" semanticCandidatesExpression="aql:self" domainClass="mindstorms.BlockContainer">
+        <nodeMappings xsi:type="description_1:NodeMappingImport" name="BDN_Action" label="Detailed Action" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='BDE_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='BDE_Element']" semanticCandidatesExpression="aql:self.blocks" domainClass="mindstorms.Action" importedMapping="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@nodeMappings[name='MDN_Action']"/>
+        <nodeMappings name="BDN_DetailedBegin" label="Detailed Begin" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='BDE_DoNotDeleteBeginEnd']" semanticCandidatesExpression="aql:self" domainClass="mindstorms.BlockContainer">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:''" labelAlignment="LEFT" tooltipExpression="aql:'Begin'" sizeComputationExpression="-1" workspacePath="/fr.obeo.dsl.mindstorms.design/icons/Begin_48px.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="BDN_DetailedEnd" label="Detailed End" semanticCandidatesExpression="aql:self" domainClass="mindstorms.BlockContainer">
+        <nodeMappings name="BDN_DetailedEnd" label="Detailed End" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='BDE_DoNotDeleteBeginEnd']" semanticCandidatesExpression="aql:self" domainClass="mindstorms.BlockContainer">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:''" labelAlignment="LEFT" tooltipExpression="aql:'End'" sizeComputationExpression="-1" workspacePath="/fr.obeo.dsl.mindstorms.design/icons/End_48px.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -575,8 +575,8 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings xsi:type="description_1:ContainerMappingImport" name="BDC_DetailedWhile" label="Detailed While" detailDescriptions="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDC_NewIDD']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='IDE_Element']" semanticCandidatesExpression="aql:self.blocks" domainClass="mindstorms.While" reusedNodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@nodeMappings[name='BDN_Action']" reusedContainerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@containerMappings[name='BDC_DetailedIf'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@containerMappings[name='BDC_DetailedWhile']" childrenPresentation="List" importedMapping="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_While']"/>
-        <containerMappings xsi:type="description_1:ContainerMappingImport" name="BDC_DetailedIf" label="Detailed If" detailDescriptions="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDC_NewIDD']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='IDE_Element']" semanticCandidatesExpression="aql:self.blocks" reusedNodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@nodeMappings[name='BDN_Action']" reusedContainerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@containerMappings[name='BDC_DetailedIf'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@containerMappings[name='BDC_DetailedWhile']" childrenPresentation="List" importedMapping="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_If']"/>
+        <containerMappings xsi:type="description_1:ContainerMappingImport" name="BDC_DetailedWhile" label="Detailed While" detailDescriptions="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDC_NewIDD']" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='BDE_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='BDE_Element']" semanticCandidatesExpression="aql:self.blocks" domainClass="mindstorms.While" reusedNodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_While']/@subNodeMappings[name='MDN_WhileBlock']" reusedContainerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@containerMappings[name='BDC_DetailedIf'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@containerMappings[name='BDC_DetailedWhile']" childrenPresentation="List" importedMapping="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_While']"/>
+        <containerMappings xsi:type="description_1:ContainerMappingImport" name="BDC_DetailedIf" label="Detailed If" detailDescriptions="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.2/@ownedTools[name='MDC_NewIDD']" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='BDE_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='BDE_Element']" semanticCandidatesExpression="aql:self.blocks" reusedNodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_If']/@subNodeMappings[name='MDN_IfBlock']" reusedContainerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@containerMappings[name='BDC_DetailedIf'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@containerMappings[name='BDC_DetailedWhile']" childrenPresentation="List" importedMapping="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_If']"/>
         <toolSections name="BDS_Blocks" label="Blocks">
           <subSections name="BDS_Actions" label="Actions">
             <ownedTools xsi:type="tool:NodeCreationDescription" name="BDC_Delay" label="Delay" nodeMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@nodeMappings[name='BDN_Action']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Delay_16px.png">
@@ -760,11 +760,27 @@
           </subSections>
         </toolSections>
         <toolSections name="BDS_Edit" label="Edit">
-          <ownedTools xsi:type="tool:DirectEditLabel" name="IDE_Element" label="Edit Element">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="BDE_Element" label="Edit Element">
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.editElement(arg0)"/>
             </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="BDE_DeleteElement" label="Delete Element">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="BDE_DoNotDeleteBeginEnd" label="Do Not Delete Begin and End" precondition="false">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation/>
           </ownedTools>
         </toolSections>
       </defaultLayer>
