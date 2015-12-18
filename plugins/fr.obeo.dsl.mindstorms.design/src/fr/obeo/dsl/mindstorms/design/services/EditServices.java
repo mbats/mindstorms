@@ -14,11 +14,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import fr.obeo.dsl.mindstorms.Arbitrator;
+import fr.obeo.dsl.mindstorms.AvoidObstacle;
 import fr.obeo.dsl.mindstorms.Behavior;
 import fr.obeo.dsl.mindstorms.Color;
 import fr.obeo.dsl.mindstorms.ColorSensor;
 import fr.obeo.dsl.mindstorms.ConditionContainer;
 import fr.obeo.dsl.mindstorms.Delay;
+import fr.obeo.dsl.mindstorms.ExploreForward;
 import fr.obeo.dsl.mindstorms.Flow;
 import fr.obeo.dsl.mindstorms.GoBackward;
 import fr.obeo.dsl.mindstorms.GoForward;
@@ -26,6 +28,7 @@ import fr.obeo.dsl.mindstorms.GoTo;
 import fr.obeo.dsl.mindstorms.MindstormsFactory;
 import fr.obeo.dsl.mindstorms.NamedElement;
 import fr.obeo.dsl.mindstorms.OperatorKind;
+import fr.obeo.dsl.mindstorms.ReturnBottleToBase;
 import fr.obeo.dsl.mindstorms.Rotate;
 import fr.obeo.dsl.mindstorms.TouchSensor;
 import fr.obeo.dsl.mindstorms.UltrasonicSensor;
@@ -44,56 +47,57 @@ public class EditServices {
 
 	public void editElement(GoForward travel, String value) {
 		String valueOf = String.valueOf(value);
-		try {
-			int parseInt = Integer.parseInt(valueOf);
-			travel.setCm(Math.abs(parseInt));
-		} catch (NumberFormatException e) {
-			// Do nothing
-		}
 		if ("infinite".equalsIgnoreCase(valueOf)) {
 			travel.setInfinite(true);
 		} else if ("*".equalsIgnoreCase(valueOf)) {
 			travel.setInfinite(true);
 		} else {
-			travel.setInfinite(false);
+			try {
+				int parseInt = Integer.parseInt(valueOf);
+				travel.setCm(Math.abs(parseInt));
+				travel.setInfinite(false);
+				return;
+			} catch (NumberFormatException e) {
+				// Do nothing
+			}
 		}
 	}
 
 	public void editElement(GoBackward travel, String value) {
 		String valueOf = String.valueOf(value);
-		try {
-			int parseInt = Integer.parseInt(valueOf);
-			travel.setCm(Math.abs(parseInt));
-		} catch (NumberFormatException e) {
-			// Do nothing
-		}
 		if ("infinite".equalsIgnoreCase(valueOf)) {
 			travel.setInfinite(true);
 		} else if ("*".equalsIgnoreCase(valueOf)) {
 			travel.setInfinite(true);
 		} else {
-			travel.setInfinite(false);
+			try {
+				int parseInt = Integer.parseInt(valueOf);
+				travel.setCm(Math.abs(parseInt));
+				travel.setInfinite(false);
+				return;
+			} catch (NumberFormatException e) {
+				// Do nothing
+			}
 		}
 	}
 
 	public void editElement(Rotate rotate, String value) {
 		String valueOf = String.valueOf(value);
-		try {
-			int parseInt = Integer.parseInt(valueOf);
-			if (parseInt < 360 && parseInt > -360) {
-				rotate.setDegrees(parseInt);
-				rotate.setRandom(false);
-				return;
-			}
-		} catch (NumberFormatException e) {
-			// Do nothing
-		}
 		if ("random".equalsIgnoreCase(valueOf)) {
 			rotate.setRandom(true);
 		} else if ("*".equalsIgnoreCase(valueOf)) {
 			rotate.setRandom(true);
 		} else {
-			rotate.setRandom(false);
+			try {
+				int parseInt = Integer.parseInt(valueOf);
+				if (parseInt < 360 && parseInt > -360) {
+					rotate.setDegrees(parseInt);
+					rotate.setRandom(false);
+					return;
+				}
+			} catch (NumberFormatException e) {
+				// Do nothing
+			}
 		}
 	}
 
@@ -127,6 +131,18 @@ public class EditServices {
 		} catch (NumberFormatException e) {
 			// Do nothing
 		}
+	}
+	
+	public void editElement(ExploreForward ef, String value) {
+		// Do nothing
+	}
+	
+	public void editElement(AvoidObstacle ao, String value) {
+		// Do nothing
+	}
+	
+	public void editElement(ReturnBottleToBase rb, String value) {
+		// Do nothing
 	}
 
 	public void editElement(ColorSensor sensor, String value) {
