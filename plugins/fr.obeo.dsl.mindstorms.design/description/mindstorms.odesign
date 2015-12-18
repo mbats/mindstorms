@@ -109,12 +109,44 @@
         </edgeMappings>
         <containerMappings name="MC_Procedure" label="Container Procedure" detailDescriptions="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDC_NewIDD']" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="feature:instructions" doubleClickDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDC_OpenDiagram']" domainClass="mindstorms.Procedure" childrenPresentation="List">
           <subNodeMappings name="MDN_ProcedureBlock" label="Procedure Blocks" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="aql:self.blocks" domainClass="mindstorms.Block">
-            <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()" resizeKind="NSEW">
+            <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition = null">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition.oclIsKindOf(mindstorms::ColorSensor)">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" iconPath="/fr.obeo.dsl.mindstorms.design/icons/ColorSensor_16px.png" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition.oclIsKindOf(mindstorms::TouchSensor)">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" iconPath="/fr.obeo.dsl.mindstorms.design/icons/TouchSensor_16px.png" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition.oclIsKindOf(mindstorms::UltrasonicSensor)">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" iconPath="/fr.obeo.dsl.mindstorms.design/icons/While_16px.png" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='BlueProcedure']" labelSize="12" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Procedure_16px.png" tooltipExpression="aql:self.computeTooltip()" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='BlueProcedure']" foregroundColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='BlueProcedure']">
             <labelFormat>bold</labelFormat>
@@ -128,7 +160,7 @@
           </conditionnalStyles>
         </containerMappings>
         <containerMappings name="MC_Arbitrator" label="Container Arbitrator" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="feature:instructions" doubleClickDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDD_SwitchColor']" domainClass="mindstorms.Arbitrator" childrenPresentation="List">
-          <subNodeMappings name="MN_Behavior" label="Node Behavior" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="aql:self.behaviors->concat(self.reuse)" doubleClickDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDC_OpenDiagram']" domainClass="mindstorms.Behavior">
+          <subNodeMappings name="MN_Behavior" label="Node Behavior" detailDescriptions="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDC_NewIDD']" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="aql:self.behaviors->concat(self.reuse)" doubleClickDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDC_OpenDiagram']" domainClass="mindstorms.Behavior">
             <style xsi:type="style:SquareDescription" borderColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='GreenInstruction']" labelSize="12" labelExpression="aql:self.computeLabel()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()" color="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='GreenInstruction']">
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -195,12 +227,44 @@
         </containerMappings>
         <containerMappings name="MC_While" label="Container While" detailDescriptions="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDC_NewIDD']" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="feature:instructions" doubleClickDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDD_SwitchColor']" domainClass="mindstorms.While" childrenPresentation="List">
           <subNodeMappings name="MDN_WhileBlock" label="While Blocks" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="aql:self.blocks" domainClass="mindstorms.Block">
-            <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()" resizeKind="NSEW">
+            <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition = null">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition.oclIsKindOf(mindstorms::ColorSensor)">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" iconPath="/fr.obeo.dsl.mindstorms.design/icons/ColorSensor_16px.png" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition.oclIsKindOf(mindstorms::TouchSensor)">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" iconPath="/fr.obeo.dsl.mindstorms.design/icons/TouchSensor_16px.png" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition.oclIsKindOf(mindstorms::UltrasonicSensor)">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" iconPath="/fr.obeo.dsl.mindstorms.design/icons/While_16px.png" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='GreenInstruction']" labelSize="12" labelExpression="aql:self.computeLabel()" tooltipExpression="aql:self.computeTooltip()" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='GreenInstruction']" foregroundColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='GreenInstruction']">
             <labelFormat>bold</labelFormat>
@@ -233,12 +297,44 @@
         </containerMappings>
         <containerMappings name="MC_If" label="Container If" detailDescriptions="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDC_NewIDD']" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="feature:instructions" doubleClickDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDD_SwitchColor']" domainClass="mindstorms.If" childrenPresentation="List">
           <subNodeMappings name="MDN_IfBlock" label="If Blocks" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDE_Element']" semanticCandidatesExpression="aql:self.blocks" domainClass="mindstorms.Block">
-            <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()" resizeKind="NSEW">
+            <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition = null">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition.oclIsKindOf(mindstorms::ColorSensor)">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" iconPath="/fr.obeo.dsl.mindstorms.design/icons/ColorSensor_16px.png" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition.oclIsKindOf(mindstorms::TouchSensor)">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" iconPath="/fr.obeo.dsl.mindstorms.design/icons/TouchSensor_16px.png" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition.oclIsKindOf(mindstorms::UltrasonicSensor)">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" iconPath="/fr.obeo.dsl.mindstorms.design/icons/While_16px.png" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='GreenInstruction']" labelSize="12" labelExpression="aql:self.computeLabel()" tooltipExpression="aql:self.computeTooltip()" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='GreenInstruction']" foregroundColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='GreenInstruction']">
             <labelFormat>bold</labelFormat>
@@ -271,12 +367,44 @@
         </containerMappings>
         <containerMappings name="MD_ReuseProcedure" label="Container Reuse Procedure" deletionDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MD_DeleteElement']" semanticCandidatesExpression="aql:self.instructions->filter(mindstorms::ReuseInstruction)->select(ins | ins.reuse.oclIsKindOf(mindstorms::Procedure))" doubleClickDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@toolSections.4/@ownedTools[name='MDC_OpenDiagramReuse']" domainClass="mindstorms.ReuseInstruction" childrenPresentation="List">
           <subNodeMappings name="MDN_ReuseBlock" label="Node Reuse Block" semanticCandidatesExpression="aql:self.reuse.blocks" domainClass="mindstorms.Block">
-            <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()" resizeKind="NSEW">
+            <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition = null">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition.oclIsKindOf(mindstorms::ColorSensor)">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" iconPath="/fr.obeo.dsl.mindstorms.design/icons/ColorSensor_16px.png" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition.oclIsKindOf(mindstorms::TouchSensor)">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" iconPath="/fr.obeo.dsl.mindstorms.design/icons/TouchSensor_16px.png" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(mindstorms::Flow) and self.condition.oclIsKindOf(mindstorms::UltrasonicSensor)">
+              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="aql:self.computeTooltip()" iconPath="/fr.obeo.dsl.mindstorms.design/icons/While_16px.png" labelAlignment="LEFT" tooltipExpression="aql:self.computeTooltip()">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='BlueReuse']" labelSize="12" labelExpression="service:computeLabel()" iconPath="/fr.obeo.dsl.mindstorms.design/icons/Procedure_16px.png" tooltipExpression="service:computeTooltip()" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='BlueReuse']" foregroundColor="//@userColorsPalettes[name='MindstormsColorsPalette']/@entries[name='BlueReuse']">
             <labelFormat>bold</labelFormat>
@@ -426,7 +554,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="MS_Flow" label="Flow">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="MCC_While" label="While" containerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_While'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@containerMappings[name='BDC_DetailedWhile']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/While_16px.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="MCC_While" label="While" containerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_While'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@containerMappings[name='BDC_DetailedWhile']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/While_16px.png" extraMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -444,7 +572,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="MCC_If" label="If" containerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_If'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@containerMappings[name='BDC_DetailedIf']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/If_16px.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="MCC_If" label="If" containerMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_If'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']/@defaultLayer/@containerMappings[name='BDC_DetailedIf']" iconPath="/fr.obeo.dsl.mindstorms.design/icons/If_16px.png" extraMappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -551,9 +679,7 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element">
-                <subModelOperations xsi:type="tool_1:RemoveElement"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.deleteElement(containerView.target)"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="MRE_InstructionSource" label="Reconnect Instruction Source" reconnectionKind="RECONNECT_SOURCE">
@@ -578,7 +704,7 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="MDC_NewIDD" label="New Instruction Detailed Diagram" titleExpression="aql:self.name + ' Detailed Diagram'" diagramDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="MDC_NewIDD" label="New Instruction Detailed Diagram" precondition="aql:not(self.oclIsTypeOf(mindstorms::AvoidObstacle) or self.oclIsTypeOf(mindstorms::ExploreForward) or self.oclIsTypeOf(mindstorms::ReturnBottleToBase))" titleExpression="aql:self.name + ' Detailed Diagram'" diagramDescription="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='BlockContainerDiagram']">
             <initialOperation/>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
@@ -614,7 +740,7 @@
             <containerView name="containerView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="MDC_OpenDiagram" label="Open Detailed Diagram" mappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Arbitrator']/@subNodeMappings[name='MN_Behavior']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="MDC_OpenDiagram" label="Open Detailed Diagram" precondition="aql:not(self.oclIsTypeOf(mindstorms::AvoidObstacle) or self.oclIsTypeOf(mindstorms::ExploreForward) or self.oclIsTypeOf(mindstorms::ReturnBottleToBase))" mappings="//@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Procedure'] //@ownedViewpoints[name='MindstormsViewpoint']/@ownedRepresentations[name='MindstormsDiagram']/@defaultLayer/@containerMappings[name='MC_Arbitrator']/@subNodeMappings[name='MN_Behavior']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -913,6 +1039,7 @@
     <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.mindstorms.design.services.LabelServices"/>
     <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.mindstorms.design.services.TooltipServices"/>
     <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.mindstorms.design.services.CreateServices"/>
+    <ownedJavaExtensions qualifiedClassName="fr.obeo.dsl.mindstorms.design.services.DeleteServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="MindstormsColorsPalette">
     <entries xsi:type="description:UserFixedColor" red="196" green="226" blue="219" name="GreenArbitrator"/>
