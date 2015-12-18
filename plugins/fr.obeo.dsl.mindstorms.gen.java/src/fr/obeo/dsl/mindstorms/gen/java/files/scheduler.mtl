@@ -62,6 +62,8 @@ public class [aArbitrator.genClassName()/]
    */
   private Monitor monitor;
 
+  private AbstractRobot robot;
+
   /**
    * Allocates an [aArbitrator.genClassName()/] object and initializes it with an array of
    * Behavior objects. The index of a behavior in this array is its priority level, so 
@@ -73,10 +75,11 @@ public class [aArbitrator.genClassName()/]
    * @param behaviorList an array of Behavior objects.
    * @param returnWhenInactive if <B>true</B>, the <B>start()</B> method returns when no Behavior is active.
    */
-  public [aArbitrator.genClassName()/](Behavior['[]'/] behaviorList)
+  public [aArbitrator.genClassName()/](Behavior['[]'/] behaviorList, AbstractRobot arobot)
   {
     _behavior = behaviorList;
     _returnWhenInactive = false;
+	robot = arobot;
     monitor = new Monitor();
     monitor.setDaemon(true);
   }

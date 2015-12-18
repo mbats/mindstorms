@@ -86,7 +86,7 @@ public void [aArbitrator.genName()/]() {
 	behaviors.add([aBehavior.genBehaviorAsParam()/]);
 	[/for]
 	// If all behaviors are inactive, then arbitrator stops.
-	[aArbitrator.genClassName()/] scheduler = new [aArbitrator.genClassName()/]((Behavior['[]'/]) behaviors.toArray(new Behavior['['/]behaviors.size()[']'/]));
+	[aArbitrator.genClassName()/] scheduler = new [aArbitrator.genClassName()/]((Behavior['[]'/]) behaviors.toArray(new Behavior['['/]behaviors.size()[']'/]), robot);
 	scheduler.start();
 }
 [/template]

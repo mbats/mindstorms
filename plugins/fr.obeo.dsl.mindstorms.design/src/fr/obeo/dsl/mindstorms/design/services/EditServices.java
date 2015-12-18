@@ -150,7 +150,7 @@ public class EditServices {
 			if (value.contains(":")) {
 				arbitratorName = value.substring(0, value.indexOf(":"));
 				String condition = value.substring(value.indexOf(":") + 1);
-				setCondition(arbitrator, condition);
+				setCondition(arbitrator, condition.trim());
 			}
 			arbitrator.setName(arbitratorName.trim());
 		}
