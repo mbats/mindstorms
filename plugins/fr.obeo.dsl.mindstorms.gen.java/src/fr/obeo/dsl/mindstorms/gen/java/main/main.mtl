@@ -16,6 +16,7 @@
 [import fr::obeo::dsl::mindstorms::gen::java::files::exploreForward /]
 [import fr::obeo::dsl::mindstorms::gen::java::files::returnBottleToBase /]
 [import fr::obeo::dsl::mindstorms::gen::java::files::robot /]
+[import fr::obeo::dsl::mindstorms::gen::java::files::scheduler /]
 [import fr::obeo::dsl::mindstorms::gen::java::files::behavior /]
 [import fr::obeo::dsl::mindstorms::gen::java::requests::requests /]
 
@@ -24,6 +25,9 @@
 [aMain.genAbstractRobot()/]
 [aMain.genRobotBehavior()/]
 [aMain.genRobot()/]
+[for (a : Arbitrator | aMain.getArbitrators())]
+	[a.genScheduler()/]
+[/for]
 [for (b : Behavior | aMain.getBehaviors())]
 	[if (b.oclIsKindOf(ExploreForward))]
 		[b.genExploreForwardBehavior()/]

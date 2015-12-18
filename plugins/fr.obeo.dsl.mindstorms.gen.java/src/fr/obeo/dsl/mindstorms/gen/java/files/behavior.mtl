@@ -42,10 +42,6 @@ public class [aBehavior.genName()/] extends RobotBehavior {
 	@Override
 	public void action() {
 		suppressed = false;
-		if ([aBehavior.genStopCondition()/]) {
-			stop = true;
-			return;
-		}
 	[for (b : Block | if aBehavior.blocks->oclIsUndefined() then Sequence{} else aBehavior.blocks endif)]
 		[b.genInstruction()/]
 	[/for]

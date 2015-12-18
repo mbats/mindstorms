@@ -10,6 +10,19 @@
 /]
 [module requests('http://www.obeo.fr/dsl/mindstorms/1.0.0')]
 
+[query public getArbitrators(aMain : Main) : OrderedSet(Arbitrator) = 
+if (aMain.instructions->oclIsUndefined()) then
+	OrderedSet{}
+else
+	let a : Set(Arbitrator) = aMain.instructions->filter(Arbitrator) in 
+		if (a->oclIsUndefined()) then
+			OrderedSet{}
+		else
+			a->asOrderedSet()
+		endif
+endif
+/]
+
 [query public getBehaviors(aMain : Main) : OrderedSet(Behavior) = 
 if (aMain.instructions->oclIsUndefined()) then
 	OrderedSet{}
@@ -24,6 +37,26 @@ else
 				a.behaviors->asOrderedSet()
 			endif
 		endif
+endif
+/]
+
+[query public getBehaviors(aArbitrator : Arbitrator) : OrderedSet(Behavior) = 
+if (aArbitrator.oclIsUndefined()) then
+	OrderedSet{}
+else
+	if (aArbitrator.behaviors->oclIsUndefined() and aArbitrator.reuse->oclIsUndefined()) then
+		OrderedSet{}
+	else
+		if (aArbitrator.behaviors->oclIsUndefined()) then
+			aArbitrator.reuse->asOrderedSet()
+		else
+			if (aArbitrator.reuse->oclIsUndefined()) then
+				aArbitrator.behaviors->asOrderedSet()
+			else
+				aArbitrator.behaviors->union(aArbitrator.reuse)->asOrderedSet()
+			endif
+		endif
+	endif
 endif
 /]
 

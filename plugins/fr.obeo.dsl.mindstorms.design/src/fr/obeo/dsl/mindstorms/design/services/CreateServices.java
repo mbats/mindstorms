@@ -13,7 +13,7 @@ import fr.obeo.dsl.mindstorms.Procedure;
 public class CreateServices {
 	public void createProcedure(Arbitrator arbitrator) {
 		Behavior behavior = MindstormsFactory.eINSTANCE.createBehavior();
-		behavior.setName("NewBehavior");
+		behavior.setName("NewProcedure");
 		arbitrator.getBehaviors().add(behavior);
 	}
 

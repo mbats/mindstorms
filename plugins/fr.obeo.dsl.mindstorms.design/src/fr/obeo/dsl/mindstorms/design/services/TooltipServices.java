@@ -57,7 +57,7 @@ public class TooltipServices {
 		} else if (LabelServices.nameIsDuplicated(object)) {
 			tooltip += " : Duplicated name !";
 		} else if (object.getCondition() == null && EdgeServices.getNextInstruction(object) != null) {
-			tooltip += " : an Arbitrator with no stop condition can't have following siblings !";
+			tooltip += " : a Scheduler with no stop condition can't have following siblings !";
 		}
 		return tooltip;
 	}

@@ -23,6 +23,10 @@
 [aArbitrator.name.replaceAll('\\s', '').toLowerFirst()/]
 [/template]
 
+[template public genClassName(aArbitrator : Arbitrator)]
+[aArbitrator.name.replaceAll('\\s', '').toUpperFirst()/]
+[/template]
+
 [template public genName(aBehavior : Behavior)]
 [aBehavior.name.replaceAll('\\s', '').toUpperFirst()/]
 [/template]
@@ -172,11 +176,11 @@ robot.getDistance() [aUS.operator/] [aUS.value/]
 [/if]
 [/template]
 
-[template public genStopCondition(aBehavior : Behavior) post (trim())]
-[if (aBehavior.eContainer(Arbitrator).condition.oclIsUndefined())]
+[template public genStopCondition(aArbitrator : Arbitrator) post (trim())]
+[if (aArbitrator.condition.oclIsUndefined())]
 false
 [else]	
-[aBehavior.eContainer(Arbitrator).condition.genCondition()/]
+[aArbitrator.condition.genCondition()/]
 [/if]
 [/template]
 

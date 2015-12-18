@@ -36,16 +36,12 @@ public class [aBehavior.genName()/] extends RobotBehavior {
 
 	@Override
 	public boolean takeControl() {
-		return stop == false && robot.touchSensorIsPressed();
+		return robot.touchSensorIsPressed();
 	}
 
 	@Override
 	public void action() {
 		suppressed = false;
-		if ([aBehavior.genStopCondition()/]) {
-			stop = true;
-			return;
-		}
 		// Grab the detected object.
 		robot.grab();
 		robot.returnToBase();
