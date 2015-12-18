@@ -36,16 +36,12 @@ public class [aBehavior.genName()/] extends RobotBehavior {
 
 	@Override
 	public boolean takeControl() {
-		return stop == false && robot.obstacleDetected();
+		return robot.obstacleDetected();
 	}
 
 	@Override
 	public void action() {
 		suppressed = false;
-		if ([aBehavior.genStopCondition()/]) {
-			stop = true;
-			return;
-		}
 		robot.goBackward(20);
 		robot.rotateRandomly();
 		while (robot.isMoving() && !suppressed) {
