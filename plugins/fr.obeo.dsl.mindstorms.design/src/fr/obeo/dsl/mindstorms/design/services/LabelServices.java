@@ -56,7 +56,8 @@ public class LabelServices {
 			return false;
 		} else if (element instanceof AvoidObstacle 
 					|| element instanceof ExploreForward 
-					|| element instanceof ReturnBottleToBase) {
+					|| element instanceof ReturnBottleToBase
+					|| element instanceof ReuseInstruction) {
 			return false;
 		}
 		Main main = getMain(element);
@@ -64,7 +65,7 @@ public class LabelServices {
 			TreeIterator<EObject> eAllContents = main.eAllContents();
 			while (eAllContents.hasNext()) {
 				EObject next = (EObject) eAllContents.next();
-				if (next instanceof NamedElement && !next.equals(element)) {
+				if (next instanceof NamedElement &&  !(next instanceof ReuseInstruction) && !next.equals(element)) {
 					String nextName = ((NamedElement) next).getName();
 					if (name.equals(nextName)) {
 						return true;
