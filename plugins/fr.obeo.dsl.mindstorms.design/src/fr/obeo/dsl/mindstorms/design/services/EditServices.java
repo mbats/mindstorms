@@ -11,6 +11,7 @@
 package fr.obeo.dsl.mindstorms.design.services;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import fr.obeo.dsl.mindstorms.Arbitrator;
 import fr.obeo.dsl.mindstorms.Behavior;
@@ -151,6 +152,8 @@ public class EditServices {
 				arbitratorName = value.substring(0, value.indexOf(":"));
 				String condition = value.substring(value.indexOf(":") + 1);
 				setCondition(arbitrator, condition.trim());
+			} else {
+				setCondition(arbitrator, null);
 			}
 			arbitrator.setName(arbitratorName.trim());
 		}
@@ -163,6 +166,8 @@ public class EditServices {
 				arbitratorName = value.substring(0, value.indexOf(":"));
 				String condition = value.substring(value.indexOf(":") + 1);
 				setCondition(behavior, condition.trim());
+			} else {
+				setCondition(behavior, null);
 			}
 			behavior.setName(arbitratorName.trim());
 		}
@@ -171,17 +176,26 @@ public class EditServices {
 	public void editElement(Flow f, String value) {
 		String condition = value;
 		if (value == null || value.isEmpty()) {
-			condition = "";
+			condition = null;
 		} else if (value.startsWith("While") || value.startsWith("while")) {
 			condition = value.substring(5, value.length()).trim();
+			if (condition == null || condition.isEmpty()) {
+				condition = null;
+			}
 		} else if (value.startsWith("If") || value.startsWith("if")) {
 			condition = value.substring(2, value.length()).trim();
+			if (condition == null || condition.isEmpty()) {
+				condition = null;
+			}
 		}
 
 		setCondition(f, condition);
 	}
 
 	private void setCondition(ConditionContainer container, String condition) {
+		if (condition == null) {
+			EcoreUtil.delete(container.getCondition());
+		}
 		if (condition.startsWith("Color is") || condition.startsWith("color is")) {
 			String newColor = condition.substring(8, condition.length()).trim();
 			setColorSensorCondition(container, newColor);
