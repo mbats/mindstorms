@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="fr.obeo.dsl.mindstorms.application.MindstormsApplication">
+         </run>
+      </application>
+   </extension>
+   <extension
+         id="MindstormsDesigner"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="fr.obeo.dsl.mindstorms.application.application"
+            name="Mindstorms Designer">
+         <property
+               name="applicationCSS"
+               value="platform:/plugin/fr.obeo.dsl.mindstorms.application/default.css">
+         </property>
+         <property
+               name="appName"
+               value="Mindstorms Designer">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

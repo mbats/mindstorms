@@ -1,0 +1,35 @@
+target "Eclipse Mars"
+
+include
+"http://download.eclipse.org/sirius/updates/nightly/targets/modules/aql-3.6.tpd"
+
+with source requirements
+
+location Eclipse-Mars "http://download.eclipse.org/releases/mars" {
+	org.eclipse.platform.feature.group lazy
+	org.eclipse.sdk.feature.group lazy
+	org.eclipse.platform.sdk lazy
+	org.eclipse.equinox.executable.feature.group lazy
+	org.eclipse.epp.mpc.feature.group lazy
+}
+
+location Sirius "http://download.eclipse.org/sirius/updates/nightly/latest/mars" {
+	org.eclipse.sirius.doc.feature.feature.group lazy
+	org.eclipse.sirius.runtime.acceleo.feature.group lazy
+	org.eclipse.sirius.runtime.feature.group lazy
+	org.eclipse.sirius.runtime.ide.eef.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.feature.group lazy
+	org.eclipse.sirius.runtime.ide.xtext.feature.group lazy
+	org.eclipse.sirius.runtime.ocl.feature.group lazy
+	org.eclipse.sirius.runtime.aql.feature.group lazy
+	org.eclipse.sirius.samples.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.aql.feature.group lazy
+	org.eclipse.sirius.specifier.ide.ui.feature.group lazy
+	org.eclipse.sirius.tests.support.feature.group lazy
+}
+
+location Lejos "http://lejos.sourceforge.net/tools/eclipse/plugin/ev3" {
+	org.lejos.ev3.ldt.feature.feature.group lazy
+}

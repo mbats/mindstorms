@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/fr.obeo.dsl.mindstorms.feature_1.0.0.qualifier.jar" id="fr.obeo.dsl.mindstorms.feature" version="1.0.0.qualifier">
+      <category name="Mindstorms Designer"/>
+   </feature>
+   <category-def name="Mindstorms Designer" label="Mindstorms Designer"/>
+</site>
