@@ -17,6 +17,13 @@
                   tooltip="New">
             </command>
             <command
+                  commandId="fr.obeo.dsl.mindstorms.ui.command.open"
+                  icon="images/Open-48px.png"
+                  label="Open"
+                  style="push"
+                  tooltip="Open">
+            </command>
+            <command
                   commandId="fr.obeo.dsl.mindstorms.ui.command.save"
                   icon="images/Save-48px.png"
                   label="Save"
@@ -45,6 +52,10 @@
             name="New">
       </command>
       <command
+            id="fr.obeo.dsl.mindstorms.ui.command.open"
+            name="Open">
+      </command>
+      <command
             id="fr.obeo.dsl.mindstorms.ui.command.upload"
             name="Upload">
       </command>
@@ -66,14 +77,53 @@
       <handler
             class="fr.obeo.dsl.mindstorms.ui.command.UploadHandler"
             commandId="fr.obeo.dsl.mindstorms.ui.command.upload">
+         <enabledWhen>
+            <with
+                  variable="activeContexts">
+               <iterate
+                     operator="and">
+                  <test
+                        property="fr.obeo.dsl.mindstorms.ui.properties.isNotDirty">
+                  </test>
+                  <test
+                        property="fr.obeo.dsl.mindstorms.ui.properties.validEV3Home">
+                  </test>
+               </iterate>
+            </with>
+         </enabledWhen>
       </handler>
       <handler
             class="fr.obeo.dsl.mindstorms.ui.command.SaveHandler"
             commandId="fr.obeo.dsl.mindstorms.ui.command.save">
+         <enabledWhen>
+            <with
+                  variable="activeContexts">
+               <iterate
+                     operator="and">
+                  <test
+                        property="fr.obeo.dsl.mindstorms.ui.properties.isDirty">
+                  </test>
+               </iterate>
+            </with>
+         </enabledWhen>
       </handler>
       <handler
             class="fr.obeo.dsl.mindstorms.ui.command.PreferencesHandler"
             commandId="fr.obeo.dsl.mindstorms.ui.command.preferences">
+      </handler>
+      <handler
+            class="fr.obeo.dsl.mindstorms.ui.command.OpenHandler"
+            commandId="fr.obeo.dsl.mindstorms.ui.command.open">
+         <enabledWhen>
+            <with
+                  variable="activeContexts">
+               <iterate
+                     operator="and">
+                  <test
+                        property="fr.obeo.dsl.mindstorms.ui.properties.validSession">
+                  </test></iterate>
+            </with>
+         </enabledWhen>
       </handler>
    </extension>
    <extension
@@ -113,6 +163,16 @@
             activityId="fr.obeo.dsl.mindstorms.ui.activity"
             pattern="org.eclipse.amalgam.*">
       </activityPatternBinding>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="fr.obeo.dsl.mindstorms.ui.testers.MindstormsPropertyTester"
+            id="fr.obeo.dsl.mindstorms.ui.mindstormsPropertyTester"
+            namespace="fr.obeo.dsl.mindstorms.ui.properties"
+            properties="validSession,isDirty,isNotDirty,validEV3Home"
+            type="java.lang.Object">
+      </propertyTester>
    </extension>
 
 </plugin>

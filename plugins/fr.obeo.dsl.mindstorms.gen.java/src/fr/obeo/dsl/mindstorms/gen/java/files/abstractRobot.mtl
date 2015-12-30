@@ -51,7 +51,7 @@ import lejos.utility.Timer;
 import lejos.utility.TimerListener;
 
 public abstract class AbstractRobot {
-	private static final int TRACK_WIDTH = 120;
+	private static final int TRACK_WIDTH = 166;
 	private static final int WHEEL_DIAMETER = 56;
 
 	private RegulatedMotor grabMotor = new EV3MediumRegulatedMotor(MotorPort.A);
@@ -157,15 +157,11 @@ public abstract class AbstractRobot {
 	}
 
 	public void grab() {
-		grabMotor.backward();
-		while (!grabMotor.isStalled())
-			Thread.yield();
+		grabMotor.rotateTo(260,true);
 	}
 
 	public void release() {
-		grabMotor.forward();
-		while (!grabMotor.isStalled())
-			Thread.yield();
+		grabMotor.rotateTo(-260,true);
 	}
 
 	public void rotate(double angle) {

@@ -7,8 +7,10 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -24,6 +26,8 @@ import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.PlatformUI;
 
 import com.google.common.collect.Maps;
 
@@ -34,10 +38,30 @@ public class NewHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+
+		IProgressMonitor monitor = new NullProgressMonitor();
+
 		System.out.println("New");
+		
+
+		Display.getDefault().syncExec(new Runnable() {
+			public void run() {
+				// Close existing editors
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closeAllEditors(true);
+				IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+				try {
+					for (IProject project : projects) {
+						project.delete(true, true, monitor);
+					}
+				} catch (CoreException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+
 		try {
 			final IProject project = ModelingProjectManager.INSTANCE.createNewModelingProject("MindstormsProject", true,
-					new NullProgressMonitor());
+					monitor);
 
 			Option<ModelingProject> modelingProjectOption = ModelingProject.asModelingProject(project);
 			if (modelingProjectOption.some()) {
@@ -64,18 +88,17 @@ public class NewHandler extends AbstractHandler {
 									e.printStackTrace();
 								}
 
-								session.addSemanticResource(semanticModelURI, new NullProgressMonitor());
+								session.addSemanticResource(semanticModelURI, monitor);
 
-								enableViewpoints(session, "MindstormsViewpoint");
+								enableViewpoints(monitor, session, "MindstormsViewpoint");
 
-								session.save(new NullProgressMonitor());
+								session.save(monitor);
 
 								Collection<DRepresentation> representations = DialectManager.INSTANCE
 										.getAllRepresentations(session);
 								for (DRepresentation representation : representations) {
 									if ("Mindstorms Diagram".equals(representation.getName())) {
-										DialectUIManager.INSTANCE.openEditor(session, representation,
-												new NullProgressMonitor());
+										DialectUIManager.INSTANCE.openEditor(session, representation, monitor);
 										return;
 									}
 								}
@@ -88,10 +111,12 @@ public class NewHandler extends AbstractHandler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return null;
 	}
 
-	private static void enableViewpoints(final Session session, final String... viewpointsToActivate) {
+	private static void enableViewpoints(final IProgressMonitor monitor, final Session session,
+			final String... viewpointsToActivate) {
 		if (session != null) {
 			session.getTransactionalEditingDomain().getCommandStack()
 					.execute(new RecordingCommand(session.getTransactionalEditingDomain()) {
@@ -102,7 +127,7 @@ public class NewHandler extends AbstractHandler {
 							for (Viewpoint vp : ViewpointRegistry.getInstance().getViewpoints()) {
 								for (String viewpoint : viewpointsToActivate) {
 									if (viewpoint.equals(vp.getName()))
-										callback.selectViewpoint(vp, session, new NullProgressMonitor());
+										callback.selectViewpoint(vp, session, monitor);
 								}
 							}
 						}

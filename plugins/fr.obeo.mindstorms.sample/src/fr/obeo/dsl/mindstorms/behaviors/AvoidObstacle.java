@@ -19,7 +19,7 @@ public class AvoidObstacle extends RobotBehavior {
 	public void action() {
 		suppressed = false;
 		robot.goBackward(20);
-		robot.rotate(ThreadLocalRandom.current().nextDouble(0, 360 + 1));
+		robot.rotate(ThreadLocalRandom.current().nextDouble(0, 180 + 1));
 		while (robot.isMoving() && !suppressed) {
 			Thread.yield();
 		}

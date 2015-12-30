@@ -6,6 +6,7 @@ import java.util.List;
 import fr.obeo.dsl.mindstorms.AbstractRobot;
 import fr.obeo.dsl.mindstorms.behaviors.AvoidObstacle;
 import fr.obeo.dsl.mindstorms.behaviors.GoForward;
+import fr.obeo.dsl.mindstorms.behaviors.GoRectangle;
 import fr.obeo.dsl.mindstorms.behaviors.GrabBottle;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
@@ -26,6 +27,7 @@ public class Robot4 extends AbstractRobot {
 
 	@Override
 	public void execute() {
+		robot.release();
 		List<Behavior> behaviors = new ArrayList<Behavior>();
 		behaviors.add(new GoForward(robot));
 		behaviors.add(new GrabBottle(robot));

@@ -12,6 +12,9 @@ package fr.obeo.dsl.mindstorms.design.services;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jface.dialogs.IInputValidator;
+import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.ui.PlatformUI;
 
 import fr.obeo.dsl.mindstorms.Arbitrator;
 import fr.obeo.dsl.mindstorms.Behavior;
@@ -26,6 +29,8 @@ import fr.obeo.dsl.mindstorms.GoTo;
 import fr.obeo.dsl.mindstorms.MindstormsFactory;
 import fr.obeo.dsl.mindstorms.NamedElement;
 import fr.obeo.dsl.mindstorms.OperatorKind;
+import fr.obeo.dsl.mindstorms.Procedure;
+import fr.obeo.dsl.mindstorms.ReuseInstruction;
 import fr.obeo.dsl.mindstorms.Rotate;
 import fr.obeo.dsl.mindstorms.TouchSensor;
 import fr.obeo.dsl.mindstorms.UltrasonicSensor;
@@ -34,6 +39,16 @@ public class EditServices {
 
 	public void editElement(EObject object, String value) {
 		// Do nothing
+	}
+
+	public void editElement(ConditionContainer object, String value) {
+		if (object instanceof Arbitrator) {
+			editElement((Arbitrator) object, value);
+		} else if (object instanceof Behavior) {
+			editElement((Behavior) object, value);
+		} else if (object instanceof Flow) {
+			editElement((Flow) object, value);
+		}
 	}
 
 	public void editElement(NamedElement object, String value) {
@@ -153,7 +168,7 @@ public class EditServices {
 				String condition = value.substring(value.indexOf(":") + 1);
 				setCondition(arbitrator, condition.trim());
 			} else {
-				setCondition(arbitrator, null);
+				setCondition(arbitrator, "");
 			}
 			arbitrator.setName(arbitratorName.trim());
 		}
@@ -167,7 +182,7 @@ public class EditServices {
 				String condition = value.substring(value.indexOf(":") + 1);
 				setCondition(behavior, condition.trim());
 			} else {
-				setCondition(behavior, null);
+				setCondition(behavior, "");
 			}
 			behavior.setName(arbitratorName.trim());
 		}
@@ -179,11 +194,13 @@ public class EditServices {
 			condition = null;
 		} else if (value.startsWith("While") || value.startsWith("while")) {
 			condition = value.substring(5, value.length()).trim();
+			condition = condition.replace(":", "");
 			if (condition == null || condition.isEmpty()) {
 				condition = null;
 			}
 		} else if (value.startsWith("If") || value.startsWith("if")) {
 			condition = value.substring(2, value.length()).trim();
+			condition = condition.replace(":", "");
 			if (condition == null || condition.isEmpty()) {
 				condition = null;
 			}
@@ -193,18 +210,21 @@ public class EditServices {
 	}
 
 	private void setCondition(ConditionContainer container, String condition) {
-		if (condition == null) {
+		if (condition == null && container.getCondition() != null) {
 			EcoreUtil.delete(container.getCondition());
 		}
 		if (condition.startsWith("Color is") || condition.startsWith("color is")) {
+			condition = condition.trim();
 			String newColor = condition.substring(8, condition.length()).trim();
 			setColorSensorCondition(container, newColor);
 		} else if (condition.startsWith("Distance") || condition.startsWith("distance")) {
+			condition = condition.trim();
 			String newValue = condition.substring(8, condition.length()).trim();
 			setUltrasonicSensorCondition(container, newValue);
 		} else if (condition.startsWith("is press") || condition.startsWith("Is press") || condition.startsWith("press")
 				|| condition.startsWith("Press") || condition.startsWith("is touch") || condition.startsWith("Is touch")
 				|| condition.startsWith("touch") || condition.startsWith("Touch")) {
+			condition = condition.trim();
 			setTouchSensorCondition(container);
 		} else {
 			String trimmedCondition = condition.trim();
@@ -225,6 +245,10 @@ public class EditServices {
 			newOperator = OperatorKind.EQUAL;
 		} else if (newValue.startsWith("!=")) {
 			newOperator = OperatorKind.NOT_EQUAL;
+		} else if (newValue.startsWith("<")) {
+			newOperator = OperatorKind.LOWER_OR_EQUAL;
+		} else if (newValue.startsWith(">")) {
+			newOperator = OperatorKind.UPPER_OR_EQUAL;
 		}
 
 		if (newOperator != null) {
@@ -262,6 +286,15 @@ public class EditServices {
 		return false;
 	}
 
+	public void editElement(ReuseInstruction instruction, String value) {
+		EObject element = instruction.getReuse();
+		if (element instanceof Procedure) {
+			editElement((Procedure) element, value);
+		} else if (element instanceof Behavior) {
+			editElement((Behavior) element, value);
+		}
+	}
+
 	private boolean setTouchSensorCondition(ConditionContainer container) {
 		TouchSensor sensor = MindstormsFactory.eINSTANCE.createTouchSensor();
 		sensor.setIsPressed(true);
@@ -271,5 +304,27 @@ public class EditServices {
 
 	public boolean isColor(ColorSensor sensor, Color color) {
 		return color == sensor.getColor();
+	}
+
+	public void editDistance(ConditionContainer container) {
+		IInputValidator validator = new IInputValidator() {
+
+			@Override
+			public String isValid(String newText) {
+				String errorMessage = null;
+				String pattern = "[Dd]ist[ance]*(\\s)*[=<>!]+(\\s)*(\\d)*";
+				if (!newText.matches(pattern)) {
+					errorMessage = "Invalid distance, it should looks like : Distance < 50";
+				}
+				return errorMessage;
+			}
+		};
+		InputDialog dialog = new InputDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+				"Condition",
+				"Enter a distance in cm. A valid distance looks like : Distance == 50. The operators <, >, <=, >= or ==, != are supported.",
+				"Distance < 50", validator);
+		dialog.open();
+		String distance = dialog.getValue();
+		editElement(container, ((NamedElement) container).getName() + ": " + distance);
 	}
 }

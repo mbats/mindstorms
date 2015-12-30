@@ -19,6 +19,7 @@ import fr.obeo.dsl.mindstorms.Behavior;
 import fr.obeo.dsl.mindstorms.Color;
 import fr.obeo.dsl.mindstorms.ColorSensor;
 import fr.obeo.dsl.mindstorms.Condition;
+import fr.obeo.dsl.mindstorms.ConditionContainer;
 import fr.obeo.dsl.mindstorms.Delay;
 import fr.obeo.dsl.mindstorms.ExploreForward;
 import fr.obeo.dsl.mindstorms.GoBackward;
@@ -54,10 +55,8 @@ public class LabelServices {
 		String name = element.getName();
 		if (name == null) {
 			return false;
-		} else if (element instanceof AvoidObstacle 
-					|| element instanceof ExploreForward 
-					|| element instanceof ReturnBottleToBase
-					|| element instanceof ReuseInstruction) {
+		} else if (element instanceof AvoidObstacle || element instanceof ExploreForward
+				|| element instanceof ReturnBottleToBase || element instanceof ReuseInstruction) {
 			return false;
 		}
 		Main main = getMain(element);
@@ -65,7 +64,7 @@ public class LabelServices {
 			TreeIterator<EObject> eAllContents = main.eAllContents();
 			while (eAllContents.hasNext()) {
 				EObject next = (EObject) eAllContents.next();
-				if (next instanceof NamedElement &&  !(next instanceof ReuseInstruction) && !next.equals(element)) {
+				if (next instanceof NamedElement && !(next instanceof ReuseInstruction) && !next.equals(element)) {
 					String nextName = ((NamedElement) next).getName();
 					if (name.equals(nextName)) {
 						return true;
@@ -89,6 +88,19 @@ public class LabelServices {
 	}
 
 	public String computeLabel(EObject object) {
+		return "";
+	}
+
+	public String computeLabel(ConditionContainer object) {
+		if (object instanceof Arbitrator) {
+			return computeLabel((Arbitrator) object);
+		} else if (object instanceof Behavior) {
+			return computeLabel((Behavior) object);
+		} else if (object instanceof If) {
+			return computeLabel((If) object);
+		} else if (object instanceof While) {
+			return computeLabel((While) object);
+		}
 		return "";
 	}
 
@@ -216,11 +228,39 @@ public class LabelServices {
 	public String computeLabel(ReuseInstruction instruction) {
 		Instruction reuse = instruction.getReuse();
 		if (reuse instanceof Procedure) {
-			return "Reuse " + computeLabel((Procedure) reuse);
+			return computeLabel((Procedure) reuse);
 		} else if (reuse instanceof Behavior) {
-			return "Reuse " + computeLabel((Behavior) reuse);
+			return computeLabel((Behavior) reuse);
 		}
 
-		return "Reuse " + reuse.getName();
+		return reuse.getName();
+	}
+
+	public String getEditLabel(EObject object) {
+		String editLabel = "";
+		if (object instanceof Delay) {
+			editLabel += ((Delay) object).getMs();
+		} else if (object instanceof GoForward) {
+			editLabel += ((GoForward) object).getCm();
+		} else if (object instanceof GoBackward) {
+			editLabel += ((GoBackward) object).getCm();
+		} else if (object instanceof GoTo) {
+			editLabel += computeLabel((GoTo) object);
+		} else if (object instanceof Rotate) {
+			editLabel += ((Rotate) object).getDegrees();
+		} else if (object instanceof ConditionContainer) {
+			editLabel += computeLabel((ConditionContainer) object);
+		} else if (object instanceof ReuseInstruction) {
+			editLabel += computeLabel((ReuseInstruction) object);
+		}else if (object instanceof Procedure) {
+			editLabel += computeLabel((Procedure) object);
+		}else if (object instanceof Arbitrator) {
+			editLabel += computeLabel((Arbitrator) object);
+		}else if (object instanceof Behavior) {
+			editLabel += computeLabel((Behavior) object);
+		}else {
+			editLabel += computeLabel(object);
+		}
+		return editLabel;
 	}
 }

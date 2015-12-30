@@ -17,6 +17,7 @@ import lejos.robotics.RegulatedMotor;
 import lejos.robotics.SampleProvider;
 import lejos.robotics.geometry.Point;
 import lejos.robotics.localization.OdometryPoseProvider;
+import lejos.robotics.localization.PoseProvider;
 import lejos.robotics.navigation.DifferentialPilot;
 import lejos.robotics.navigation.Navigator;
 import lejos.robotics.navigation.Pose;
@@ -25,7 +26,7 @@ import lejos.utility.Timer;
 import lejos.utility.TimerListener;
 
 public abstract class AbstractRobot {
-	private static final int TRACK_WIDTH = 134;
+	private static final int TRACK_WIDTH = 166;
 	private static final int WHEEL_DIAMETER = 56;
 
 	private RegulatedMotor grabMotor = new EV3MediumRegulatedMotor(MotorPort.A);
@@ -37,6 +38,9 @@ public abstract class AbstractRobot {
 	private DifferentialPilot pilot = new DifferentialPilot(WHEEL_DIAMETER, TRACK_WIDTH, leftMotor, rightMotor);
 	private Navigator navigator = new Navigator(pilot);
 	private OdometryPoseProvider poseProvider = new OdometryPoseProvider(pilot);
+	//	private EV3GyroSensor gs = new EV3GyroSensor(SensorPort.S1);
+//	private CompassPoseProvider poseProvider = new CompassPoseProvider(pilot,
+//			new GyroDirectionFinder(new GyroscopeAdapter(gs.getAngleAndRateMode(), 100)));
 	private Pose goal;
 	private final int gameTime; 
 	
@@ -131,15 +135,15 @@ public abstract class AbstractRobot {
 	}
 	
 	public void grab() {
-		grabMotor.backward();
-		while (!grabMotor.isStalled())
-			Thread.yield();
+		grabMotor.rotateTo(260, true);
+//		while (!grabMotor.isMoving())
+//			Thread.yield();
 	}
 
 	public void release() {
-		grabMotor.forward();
-		while (!grabMotor.isStalled())
-			Thread.yield();
+		grabMotor.rotateTo(-260, true);
+//		while (!grabMotor.isMoving())
+//			Thread.yield();
 	}
 	
 	public void rotate(double angle) {
@@ -207,6 +211,10 @@ public abstract class AbstractRobot {
 
 	public DifferentialPilot getPilot() {
 		return pilot;
+	}
+	
+	public PoseProvider getPoseProvider(){
+		return poseProvider;
 	}
 
 	public Navigator getNavigator() {
