@@ -48,6 +48,9 @@
             <product>
               <id>${product-id}</id>
               <rootFolder>MindstormsDesigner</rootFolder>
+               <rootFolders>
+               	<macosx>MindstormsDesigner.app</macosx>
+               </rootFolders>
               <archiveFileName>MindstormsDesigner</archiveFileName>
             </product>
           </products>

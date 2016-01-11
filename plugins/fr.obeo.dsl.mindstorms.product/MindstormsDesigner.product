@@ -3,6 +3,7 @@
 
 <product name="Mindstorms Designer" uid="fr.obeo.dsl.mindstorms.product" id="fr.obeo.dsl.mindstorms.application.MindstormsDesigner" application="fr.obeo.dsl.mindstorms.application.application" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
+
    <configIni use="default">
    </configIni>
 
@@ -21,16 +22,18 @@
    <windowImages/>
 
 
-   <launcher name="mindstormsdesigner">
+   <launcher name="MindstormsDesigner">
       <solaris/>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
 
+
    <vm>
       <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</linux>
    </vm>
+
 
    <plugins>
       <plugin id="fr.obeo.dsl.mindstorms"/>
@@ -60,6 +63,7 @@
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+      <property name="osgi.instance.area.default" value="@user.home/mindstormdesignerws" os="macosx" />
    </configurations>
 
    <preferencesInfo>
