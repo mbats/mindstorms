@@ -1,0 +1,15 @@
+language: java
+script: mvn clean package
+jdk: oraclejdk7
+
+# Depploy on Obeo S3
+deploy:
+  provider: s3
+  access_key_id: AKIAJJVZATSVUD3VGHXA
+  secret_access_key:
+    secure: q9J3Muil0JKxYhwQYSWJT7QdpQJmx2iVhC+iNZJgiLRBuOIJMaah5D+QUdPVVjCCA+si1WRgJ/AjJ5jjloM1vagzDsTsIZmi6FUQ+zK9ZMkuvvOGrgMF5jKwGbPMucafVpN86JzSBAVJBVspP8yt6sWDJIPh8dSF1b8UeqDIGLrt0D11uI/mwGMW4YBtQSedMQImfeCKLclY8U9+KLVbh1dFnvMxO6FrfWZMrXMMMuZD49RaECdSZj3r3uUamkIjJsJ5MshLS7ZJcyF4hKFAG+RUbaBj5gt86HlZxsfFjFqKl2SQpjFX0Skt7P9qfsMhgdSF82sZX4g8fDa+jem0hQD74JLto70CpX9pn6VzEGYQxg3ilfuTdrXm8cILmYyx5GcJ99K/Re1iO4tMX6VOazssYDIKXM2geHpnSnjBgzC8dOx5AGYTDLyHk8YB4/abiag3bd773JMaMQvpASAkq80ULaEn5FNjpfOyfaGMpLmWXtifsqjPVpGSObcnQHIQfZrgMBgUE7gLO2Iheqkoofn87HwW5TxKF1DninnwanT+fSmifugaTj0zQHTUqNId/3P6oKvyTwGZSmjz7sFMNNQyComnvvHoqMyHLKeVfxA7P9ymQzJtVzs9srE59cdtdhyQbYg1y2tRgbHd73/w/nkxmF9Dy2BcqjCjUWq+dqc=
+  bucket: obeo-mindstormsdesigner-nightly
+  local-dir: plugins/fr.obeo.dsl.mindstorms.product/target/products
+  acl: public_read
+  on:
+    repo: mbats/mindstorms
