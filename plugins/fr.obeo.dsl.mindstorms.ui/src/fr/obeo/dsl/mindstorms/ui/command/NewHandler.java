@@ -39,7 +39,7 @@ public class NewHandler extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
-		IProgressMonitor monitor = new NullProgressMonitor();
+		final IProgressMonitor monitor = new NullProgressMonitor();
 
 		System.out.println("New");
 		
