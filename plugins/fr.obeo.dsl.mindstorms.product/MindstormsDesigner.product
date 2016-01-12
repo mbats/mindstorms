@@ -3,6 +3,9 @@
 
 <product name="Mindstorms Designer" uid="fr.obeo.dsl.mindstorms.product" id="fr.obeo.dsl.mindstorms.application.MindstormsDesigner" application="fr.obeo.dsl.mindstorms.application.application" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
+   <aboutInfo>
+      <image path="/fr.obeo.dsl.mindstorms.product/icons/about.gif"/>
+   </aboutInfo>
 
    <configIni use="default">
    </configIni>
@@ -19,9 +22,10 @@
       </vmArgsMac>
    </launcherArgs>
 
-   <windowImages/>
+   <windowImages i16="/fr.obeo.dsl.mindstorms.product/icons/logo_16.png" i32="/fr.obeo.dsl.mindstorms.product/icons/logo_32.png" i48="/fr.obeo.dsl.mindstorms.product/icons/logo_48.png" i64="/fr.obeo.dsl.mindstorms.product/icons/logo_64.png" i128="/fr.obeo.dsl.mindstorms.product/icons/logo_128.png"/>
 
-
+   <splash
+      location="fr.obeo.dsl.mindstorms.application" />
    <launcher name="MindstormsDesigner">
       <solaris/>
       <win useIco="false">
