@@ -14,6 +14,17 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <pluginRepositories>
+     <pluginRepository>
+       <id>Eclipse - Acceleo Snapshots</id>
+       <url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
+     </pluginRepository>
+     <pluginRepository>
+       <id>Eclipse - Acceleo Release</id>
+       <url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+     </pluginRepository>
+  </pluginRepositories>
+
   <build>
     <plugins>
       <plugin>
