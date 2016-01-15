@@ -6,6 +6,8 @@ import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.lejos.ev3.ldt.LeJOSEV3Plugin;
 import org.lejos.ev3.ldt.preferences.PreferenceConstants;
@@ -22,20 +24,30 @@ public class MindstormsPropertyTester extends PropertyTester {
 			return sessions.size() > 0;
 		}
 		if ("isDirty".equals(property)) {
-			IEditorReference[] editors = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
-					.getEditorReferences();
-			for (IEditorReference editor : editors) {
-				if (editor.isDirty()) {
-					return true;
+			IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			if (activeWorkbenchWindow != null) {
+				IWorkbenchPage activePage = activeWorkbenchWindow.getActivePage();
+				if (activePage != null) {
+					IEditorReference[] editors = activePage.getEditorReferences();
+					for (IEditorReference editor : editors) {
+						if (editor.isDirty()) {
+							return true;
+						}
+					}
 				}
 			}
 		}
 		if ("isNotDirty".equals(property)) {
-			IEditorReference[] editors = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
-					.getEditorReferences();
-			for (IEditorReference editor : editors) {
-				if (editor.isDirty()) {
-					return false;
+			IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			if (activeWorkbenchWindow != null) {
+				IWorkbenchPage activePage = activeWorkbenchWindow.getActivePage();
+				if (activePage != null) {
+					IEditorReference[] editors = activePage.getEditorReferences();
+					for (IEditorReference editor : editors) {
+						if (editor.isDirty()) {
+							return false;
+						}
+					}
 				}
 			}
 			return true;

@@ -12,6 +12,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -33,6 +34,7 @@ import com.google.common.collect.Maps;
 
 import fr.obeo.dsl.mindstorms.Main;
 import fr.obeo.dsl.mindstorms.MindstormsFactory;
+import fr.obeo.dsl.mindstorms.ui.MindstormsUiActivator;
 
 public class NewHandler extends AbstractHandler {
 
@@ -54,7 +56,7 @@ public class NewHandler extends AbstractHandler {
 						project.delete(true, true, monitor);
 					}
 				} catch (CoreException e) {
-					e.printStackTrace();
+					MindstormsUiActivator.log(Status.ERROR, "Project deletion failed", e);
 				}
 			}
 		});
@@ -85,7 +87,7 @@ public class NewHandler extends AbstractHandler {
 								try {
 									res.save(Maps.newHashMap());
 								} catch (IOException e) {
-									e.printStackTrace();
+									MindstormsUiActivator.log(Status.ERROR, "Modeling project initialization failed", e);
 								}
 
 								session.addSemanticResource(semanticModelURI, monitor);
@@ -108,8 +110,7 @@ public class NewHandler extends AbstractHandler {
 			}
 
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			MindstormsUiActivator.log(Status.ERROR, "Project creation failed", e);
 		}
 
 		return null;

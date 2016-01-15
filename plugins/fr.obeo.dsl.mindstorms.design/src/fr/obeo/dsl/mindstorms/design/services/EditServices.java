@@ -117,10 +117,11 @@ public class EditServices {
 		if (valueOf == null) {
 			return;
 		}
-		String[] strings = valueOf.split("\\s");
+		String[] strings = valueOf.split(";");
 		try {
 			for (int i = 0; i < strings.length; i++) {
 				String string = strings[i];
+				string=string.trim();
 				int parseInt = Integer.parseInt(string);
 				if (i == 0) {
 					gt.setX(parseInt);
@@ -206,7 +207,7 @@ public class EditServices {
 			}
 		}
 
-		setCondition(f, condition);
+		setCondition(f, condition.trim());
 	}
 
 	private void setCondition(ConditionContainer container, String condition) {
@@ -325,6 +326,6 @@ public class EditServices {
 				"Distance < 50", validator);
 		dialog.open();
 		String distance = dialog.getValue();
-		editElement(container, ((NamedElement) container).getName() + ": " + distance);
+		editElement(container, ((NamedElement) container).getName() + ":" + distance);
 	}
 }

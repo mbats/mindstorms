@@ -17,6 +17,7 @@ public class GrabBottle extends RobotBehavior {
 	@Override
 	public void action() {
 		suppressed = false;
+		robot.stop();
 		// Grab the detected object.
 		robot.grab();
 		// If the color of the grabbed object is BLUE or BROWN, then returns it
@@ -25,17 +26,17 @@ public class GrabBottle extends RobotBehavior {
 		// Else release it, backward on 20 cm and then rotate randomly between 0
 		// to 360 degrees.
 
-		int color = robot.getColor();
-		System.out.println("Color : " + color);
-		if (Color.BLACK == color) {
-			robot.returnToBase();
-			while (robot.isMoving() && !suppressed) {
-				Thread.yield();
-			}
+//		int color = robot.getColor();
+//		System.out.println("Color : " + color);
+//		if (Color.BLACK == color) {
+//			robot.returnToBase();
+//			while (robot.isMoving() && !suppressed) {
+//				Thread.yield();
+//			}
 
 			// End of all behaviors
 			// stop = true;
-		}
+//		}
 		robot.release();
 		robot.delay(1000);
 		robot.goBackward(50);

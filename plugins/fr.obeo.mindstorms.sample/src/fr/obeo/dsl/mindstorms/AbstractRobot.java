@@ -26,8 +26,8 @@ import lejos.utility.Timer;
 import lejos.utility.TimerListener;
 
 public abstract class AbstractRobot {
-	private static final int TRACK_WIDTH = 166;
-	private static final int WHEEL_DIAMETER = 56;
+	private static final float TRACK_WIDTH = 17.9f;
+	private static final float WHEEL_DIAMETER = 5.6f;
 
 	private RegulatedMotor grabMotor = new EV3MediumRegulatedMotor(MotorPort.A);
 	private RegulatedMotor leftMotor = new EV3LargeRegulatedMotor(MotorPort.B);
@@ -38,20 +38,21 @@ public abstract class AbstractRobot {
 	private DifferentialPilot pilot = new DifferentialPilot(WHEEL_DIAMETER, TRACK_WIDTH, leftMotor, rightMotor);
 	private Navigator navigator = new Navigator(pilot);
 	private OdometryPoseProvider poseProvider = new OdometryPoseProvider(pilot);
-	//	private EV3GyroSensor gs = new EV3GyroSensor(SensorPort.S1);
-//	private CompassPoseProvider poseProvider = new CompassPoseProvider(pilot,
-//			new GyroDirectionFinder(new GyroscopeAdapter(gs.getAngleAndRateMode(), 100)));
+	// private EV3GyroSensor gs = new EV3GyroSensor(SensorPort.S1);
+	// private CompassPoseProvider poseProvider = new CompassPoseProvider(pilot,
+	// new GyroDirectionFinder(new GyroscopeAdapter(gs.getAngleAndRateMode(),
+	// 100)));
 	private Pose goal;
-	private final int gameTime; 
-	
+	private final int gameTime;
+
 	public enum PlaygroundArea {
 		BASE, NEUTRAL, OPPONENT_BASE
 	}
-	
+
 	public AbstractRobot() {
-		this(30000); // 30 seconds : default game time
+		this(600000); // 30 seconds : default game time
 	}
-	
+
 	public AbstractRobot(int gameTime) {
 		this.gameTime = gameTime;
 	}
@@ -62,13 +63,13 @@ public abstract class AbstractRobot {
 		System.out.println("Ready...");
 		Button.waitForAnyPress();
 	}
-	
+
 	public void terminateProgramOnExitButton() {
 		Button.ESCAPE.addKeyListener(new KeyListener() {
 			@Override
 			public void keyPressed(Key k) {
 				if (Button.ESCAPE.equals(k)) {
-					System.exit(0);
+					terminateProgram();
 				}
 			}
 
@@ -82,22 +83,17 @@ public abstract class AbstractRobot {
 		// Wait for start signal
 		this.waitForStartSignal();
 
-		// Whenever the user push the escape button during the game time, it will exit the program.
+		// Whenever the user push the escape button during the game time, it
+		// will exit the program.
 		this.terminateProgramOnExitButton();
-		
+
 		// Initialize timer
 		Timer timer = new Timer(gameTime, new TimerListener() {
 			@Override
 			public void timedOut() {
-				System.out.println("Stop");
-				pilot.stop();
-				leftMotor.close();
-				rightMotor.close();
-				sonar.close();
-				color.close();
-				touch.close();
-				System.exit(0);
+				terminateProgram();
 			}
+
 		});
 
 		// Start timer
@@ -112,20 +108,32 @@ public abstract class AbstractRobot {
 		timer.stop();
 	}
 
+	private void terminateProgram() {
+		System.out.println("Stop");
+		release();
+		pilot.stop();
+		leftMotor.close();
+		rightMotor.close();
+		sonar.close();
+		color.close();
+		touch.close();
+		System.exit(0);
+	}
+
 	// Actions
-	
+
 	public void goForward() {
 		pilot.forward();
 	}
-	
+
 	public void goForward(int distance) {
-		pilot.travel(distance*10);
+		pilot.travel(distance);
 	}
-	
+
 	public void goBackward() {
 		pilot.backward();
 	}
-	
+
 	public void goBackward(int distance) {
 		pilot.travel(-distance*10);
 	}
@@ -133,41 +141,37 @@ public abstract class AbstractRobot {
 	public void delay(int ms) {
 		Delay.msDelay(ms);
 	}
-	
+
 	public void grab() {
-		grabMotor.rotateTo(260, true);
-//		while (!grabMotor.isMoving())
-//			Thread.yield();
+		grabMotor.rotateTo(-1440);
 	}
 
 	public void release() {
-		grabMotor.rotateTo(-260, true);
-//		while (!grabMotor.isMoving())
-//			Thread.yield();
+		grabMotor.rotateTo(1440);
 	}
-	
+
 	public void rotate(double angle) {
 		pilot.rotate(angle);
 	}
-	
+
 	public void rotateRandomly() {
-		rotate(ThreadLocalRandom.current().nextDouble(0, 360 + 1));
+		rotate(ThreadLocalRandom.current().nextDouble(0, 180 + 1));
 	}
-	
+
 	public void returnToBase() {
 		goTo(0, 0);
 	}
-	
+
 	public void goTo(float x, float y) {
 		Pose currentPose = poseProvider.getPose();
-		float heading = currentPose.relativeBearing(new Point(x, y));
-		float distance = currentPose.distanceTo(new Point(x, y));
+		float heading = currentPose.relativeBearing(new Point(x*10, y*10));
+		float distance = currentPose.distanceTo(new Point(x*10, y*10));
 		pilot.rotate(heading);
 		pilot.travel(distance);
 	}
-	
+
 	// Sensors
-	
+
 	public boolean touchSensorIsPressed() {
 		try {
 			SampleProvider sampleProvider = touch.getTouchMode();
@@ -178,24 +182,24 @@ public abstract class AbstractRobot {
 			return false;
 		}
 	}
-	
+
 	public float getDistance() {
 		try {
 			SampleProvider sampleProvider = sonar.getDistanceMode();
 			float[] sample = new float[1];
 			sampleProvider.fetchSample(sample, 0);
-			return sample[0];
+			return sample[0] * 100;
 		} catch (IndexOutOfBoundsException ex) {
 			return 0;
 		}
 	}
-	
+
 	public int getColor() {
 		return color.getColorID();
 	}
-	
+
 	// Misc.
-	
+
 	public void explore(double distance, double angle) {
 		pilot.rotate(angle);
 		pilot.travel(distance);
@@ -212,15 +216,15 @@ public abstract class AbstractRobot {
 	public DifferentialPilot getPilot() {
 		return pilot;
 	}
-	
-	public PoseProvider getPoseProvider(){
+
+	public PoseProvider getPoseProvider() {
 		return poseProvider;
 	}
 
 	public Navigator getNavigator() {
 		return navigator;
 	}
-	
+
 	public Pose getGoal() {
 		return goal;
 	}
@@ -240,6 +244,18 @@ public abstract class AbstractRobot {
 		}
 	}
 
+	public boolean obstacleDetected(float distance) {
+		try {
+			SampleProvider sampleProvider = sonar.getDistanceMode();
+			float[] sample = new float[1];
+			sampleProvider.fetchSample(sample, 0);
+			System.out.println(sample[0] + "<" + (distance / 100));
+			return sample[0] < (distance / 100); // 30 cm
+		} catch (IndexOutOfBoundsException ex) {
+			return false;
+		}
+	}
+
 	public boolean isMoving() {
 		return pilot.isMoving();
 	}
@@ -253,5 +269,22 @@ public abstract class AbstractRobot {
 		} catch (IndexOutOfBoundsException ex) {
 			return Color.NONE;
 		}
+	}
+
+	public void goForwardSlowly(int distance) {
+		double travelSpeed = pilot.getTravelSpeed();
+		pilot.setTravelSpeed(travelSpeed / 4);
+		pilot.travel(distance * 10, true);
+		pilot.setTravelSpeed(travelSpeed);
+	}
+
+	public float getXPosition() {
+		Pose currentPose = poseProvider.getPose();
+		return currentPose.getX();
+	}
+	
+	public float getYPosition() {
+		Pose currentPose = poseProvider.getPose();
+		return currentPose.getY();
 	}
 }

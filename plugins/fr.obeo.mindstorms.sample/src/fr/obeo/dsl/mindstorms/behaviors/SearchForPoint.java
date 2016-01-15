@@ -18,7 +18,7 @@ public class SearchForPoint extends RobotBehavior {
 	public void action() {
 		suppressed = false;
 		double distance = ThreadLocalRandom.current().nextDouble(100, 1000 + 1);
-		double angle = ThreadLocalRandom.current().nextDouble(100, 1000 + 1);
+		double angle = ThreadLocalRandom.current().nextDouble(180, 180 + 1);
 		robot.explore(distance, angle);
 		while (robot.isMoving() && !suppressed) {
 			Thread.yield();

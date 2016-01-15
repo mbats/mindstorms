@@ -1,25 +1,23 @@
 package fr.obeo.dsl.mindstorms.behaviors;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import fr.obeo.dsl.mindstorms.AbstractRobot;
 
-public class AvoidObstacle extends RobotBehavior {
+public class Explore extends RobotBehavior {
 
-	public AvoidObstacle(AbstractRobot robot) {
+	public Explore(AbstractRobot robot) {
 		super(robot);
 	}
 
 	@Override
 	public boolean takeControl() {
-		return stop == false && robot.obstacleDetected(30);
+		return true;
 	}
 
 	@Override
 	public void action() {
 		suppressed = false;
-		robot.goBackward(20);
 		robot.rotateRandomly();
+		robot.goForward(50);
 		while (robot.isMoving() && !suppressed) {
 			Thread.yield();
 		}
@@ -29,4 +27,5 @@ public class AvoidObstacle extends RobotBehavior {
 	public void suppress() {
 		suppressed = true;
 	}
+
 }

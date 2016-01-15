@@ -172,7 +172,7 @@ robot.touchSensorIsPressed() == [aTouch.isPressed/]
 [if (aUS.operator.oclIsUndefined() or aUS.value.oclIsUndefined())]
 false
 [else]	
-robot.getDistance() [aUS.operator/] [aUS.value/]
+robot.getDistance() [aUS.operator.getOperator()/] [aUS.value/]
 [/if]
 [/template]
 
@@ -191,3 +191,23 @@ fr/obeo/dsl/mindstorms/robot/
 [template public genPackageQualifiedName(any : OclAny)]
 fr.obeo.dsl.mindstorms.robot
 [/template]
+
+[query public getOperator(aOperator : OperatorKind) : String = 
+if (aOperator->oclIsUndefined()) then
+	''
+else 
+	if (aOperator.toString().equalsIgnoreCase('lowerOrEqual')) then
+	'<='
+	else 
+		if (aOperator.toString().equalsIgnoreCase('upperOrEqual')) then
+		'>='
+		else
+			if (aOperator.toString().equalsIgnoreCase('notEqual')) then
+			'!='
+			else
+			'=='
+			endif
+		endif
+	endif
+endif
+/]

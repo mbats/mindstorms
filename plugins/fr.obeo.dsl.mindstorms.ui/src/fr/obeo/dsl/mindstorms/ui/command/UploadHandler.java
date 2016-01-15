@@ -1,10 +1,8 @@
 package fr.obeo.dsl.mindstorms.ui.command;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.rmi.Naming;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -19,12 +17,14 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
@@ -41,41 +41,56 @@ import org.eclipse.jdt.launching.JavaRuntime;
 import org.eclipse.jdt.launching.environments.IExecutionEnvironment;
 import org.eclipse.jdt.launching.environments.IExecutionEnvironmentsManager;
 import org.eclipse.jdt.ui.PreferenceConstants;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.ext.base.Option;
+import org.eclipse.ui.PlatformUI;
 import org.lejos.ev3.ldt.actions.ConvertToLeJOSEV3ProjectAction;
 import org.lejos.ev3.ldt.container.LeJOSEV3LibContainer;
-import org.lejos.ev3.ldt.util.BrickInfo;
-import org.lejos.ev3.ldt.util.Discover;
-import org.lejos.ev3.ldt.util.LeJOSEV3Util;
-import org.lejos.ev3.ldt.util.ToolStarter;
 
 import fr.obeo.dsl.mindstorms.gen.java.main.Main;
-import lejos.remote.ev3.RMIMenu;
+import fr.obeo.dsl.mindstorms.ui.MindstormsUiActivator;
 
 public class UploadHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		System.out.println("Generate");
-		IJavaProject lejosProject = generateCode();
-
-		System.out.println("Upload");
+		ProgressMonitorDialog dialog = new ProgressMonitorDialog(
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
 		try {
-			upload(lejosProject);
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			dialog.run(true, true, new IRunnableWithProgress() {
+				public void run(IProgressMonitor monitor) {
+					monitor.beginTask("Upload the code to the robot...", 100);
+					monitor.subTask("Generate");
+					IJavaProject lejosProject = generateCode();
+					monitor.worked(33);
+					// Build
+					monitor.subTask("Build");
+					try {
+						ResourcesPlugin.getWorkspace().build(IncrementalProjectBuilder.FULL_BUILD,
+								new NullProgressMonitor());
+					} catch (CoreException e) {
+						MindstormsUiActivator.log(Status.ERROR, "Build failed", e);
+					}
+					monitor.worked(33);
+
+					monitor.subTask("Upload");
+					try {
+						upload(lejosProject);
+					} catch (CoreException e) {
+						MindstormsUiActivator.log(Status.ERROR, "Upload failed", e);
+					}
+					monitor.done();
+				}
+			});
+		} catch (InvocationTargetException e) {
+			MindstormsUiActivator.log(Status.ERROR, "Upload cannot be invoked", e);
+		} catch (InterruptedException e) {
+			MindstormsUiActivator.log(Status.ERROR, "Upload was interrupted", e);
 		}
 
-		// System.out.println("Run program");
-		// run(lejosProject);
-
 		return null;
-	}
-
-	private void run(IJavaProject lejosProject) {
-		String appName = "Robot";
 	}
 
 	private void upload(IJavaProject lejosProject) throws CoreException {
@@ -94,50 +109,6 @@ public class UploadHandler extends AbstractHandler {
 		wc.setAttribute(IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, "fr.obeo.dsl.mindstorms.robot.Robot");
 		ILaunchConfiguration config = wc.doSave();
 		config.launch(ILaunchManager.RUN_MODE, null);
-
-		// IFile iFile = lejosProject.getProject().getFile("Robot.jar");
-		// uploadFile(new NullProgressMonitor(),
-		// iFile.getRawLocation().makeAbsolute().toFile());
-	}
-
-	private void uploadFile(IProgressMonitor progressMonitor, File file) {
-		try {
-			progressMonitor.beginTask("Uploading files...", IProgressMonitor.UNKNOWN);
-			try {
-				ToolStarter starter = LeJOSEV3Util.getCachedToolStarter();
-
-				ArrayList<String> args = new ArrayList<String>();
-				LeJOSEV3Util.getUploadOpts(args);
-
-				BrickInfo[] bricks = Discover.discover(null);
-
-				if (bricks.length == 0) {
-					LeJOSEV3Util.error("No EV3 Found");
-				} else {
-
-					RMIMenu menu = (RMIMenu) Naming.lookup("//" + bricks[0].getIPAddress() + "/RemoteMenu");
-
-					args.add(file.getAbsolutePath());
-
-					FileInputStream in = new FileInputStream(file);
-					byte[] data = new byte[(int) file.length()];
-					in.read(data);
-					in.close();
-					menu.uploadFile("/home/lejos/programs/" + file.getName(), data);
-
-					LeJOSEV3Util.message("Files have been uploaded successfully");
-				}
-
-			} finally {
-				progressMonitor.done();
-			}
-		} catch (Throwable t) {
-			if (t instanceof InvocationTargetException)
-				t = ((InvocationTargetException) t).getTargetException();
-
-			// log
-			LeJOSEV3Util.error("upload of " + file + " failed", t);
-		}
 	}
 
 	private IJavaProject createLejosProject() {
@@ -156,7 +127,7 @@ public class UploadHandler extends AbstractHandler {
 
 			ConvertToLeJOSEV3ProjectAction.addLeJOSEV3Nature(javaProject.getProject());
 		} catch (CoreException e) {
-			e.printStackTrace();
+			MindstormsUiActivator.log(Status.ERROR, "Lejos project creation failed", e);
 		}
 
 		return javaProject;
@@ -229,105 +200,6 @@ public class UploadHandler extends AbstractHandler {
 		return javaProject;
 	}
 
-	// public static void addLeJOSEV3Nature(IProject project) throws
-	// CoreException {
-	// IProjectDescription description = project.getDescription();
-	//
-	// LinkedHashSet<String> newNatures = new LinkedHashSet<String>();
-	// newNatures.add(LeJOSEV3Nature.ID);
-	// newNatures.addAll(Arrays.asList(description.getNatureIds()));
-	//
-	// String[] tmp = new String[newNatures.size()];
-	// newNatures.toArray(tmp);
-	// description.setNatureIds(tmp);
-	// project.setDescription(description, null);
-	// }
-	//
-	// private void setEV3Home() {
-	// IEclipsePreferences store = new
-	// DefaultScope().getNode(LeJOSEV3Plugin.ID);
-	// // TODO MEB Get from mindstorm preference
-	// String ev3Home =
-	// "/home/melanie/Obeo/dev/programs/lejos/leJOS_EV3_0.9.0-beta";
-	// if (ev3Home != null)
-	// store.put(PreferenceConstants.KEY_EV3_HOME, ev3Home);
-	// }
-	//
-	// /**
-	// * update the project's classpath with additional leJOS libraries.
-	// *
-	// * @param aProject
-	// * a java project
-	// */
-	// private void updateClasspath(IJavaProject project) throws
-	// JavaModelException, LeJOSEV3Exception {
-	// File ev3Home = LeJOSEV3Util.getEV3Home();
-	// ArrayList<File> tmp = new ArrayList<File>();
-	// LeJOSEV3Util.buildEV3Classpath(ev3Home, tmp);
-	// LinkedHashSet<IPath> ev3Files = new LinkedHashSet<IPath>();
-	// for (File e : tmp)
-	// ev3Files.add(LeJOSEV3Util.toPath(e));
-	//
-	// ev3Files.add(LeJOSEV3Util.toPath(new File(ev3Home, LeJOSEV3Util.LIBDIR +
-	// "/ev3classes.jar")));
-	// ev3Files.add(LeJOSEV3Util.toPath(new File(ev3Home, LeJOSEV3Util.LIBDIR +
-	// "/dbusjava.jar")));
-	//
-	// // create new classpath with additional leJOS libraries last
-	// ArrayList<IClasspathEntry> newClasspath = new
-	// ArrayList<IClasspathEntry>();
-	// Path lcp = new Path(LeJOSEV3LibContainer.ID);
-	// IClasspathEntry lc = JavaCore.newContainerEntry(lcp);
-	//
-	// // get existing classpath
-	// IClasspathEntry[] existingClasspath = project.getRawClasspath();
-	// for (IClasspathEntry cpEntry : existingClasspath) {
-	// boolean skip = false;
-	// boolean insertBefore = false;
-	// switch (cpEntry.getEntryKind()) {
-	// case IClasspathEntry.CPE_CONTAINER:
-	// IPath p = cpEntry.getPath();
-	// if (p != null && p.segmentCount() > 0) {
-	// String s = p.segment(0);
-	// if (s.equals(LeJOSEV3LibContainer.ID)) {
-	// // skip leJOS container
-	// skip = true;
-	// }
-	// }
-	// insertBefore = true;
-	// break;
-	// case IClasspathEntry.CPE_LIBRARY:
-	// if (ev3Files.contains(cpEntry.getPath().makeAbsolute())) {
-	// skip = true;
-	// }
-	// insertBefore = true;
-	// break;
-	// case IClasspathEntry.CPE_PROJECT:
-	// case IClasspathEntry.CPE_VARIABLE:
-	// insertBefore = true;
-	// default:
-	// skip = false;
-	//
-	// }
-	//
-	// if (insertBefore && lc != null) {
-	// newClasspath.add(lc);
-	// lc = null;
-	// }
-	// if (!skip) {
-	// newClasspath.add(cpEntry);
-	// }
-	// }
-	//
-	// if (lc != null)
-	// newClasspath.add(lc);
-	//
-	// // set new classpath to project
-	// IClasspathEntry[] cpEntries = newClasspath.toArray(new
-	// IClasspathEntry[newClasspath.size()]);
-	// project.setRawClasspath(cpEntries, null);
-	// }
-
 	private IJavaProject generateCode() {
 		// Create lejos project
 		IJavaProject lejosProject = createLejosProject();
@@ -354,7 +226,7 @@ public class UploadHandler extends AbstractHandler {
 					generator.doGenerate(new BasicMonitor());
 					break;
 				} catch (IOException e) {
-					e.printStackTrace();
+					MindstormsUiActivator.log(Status.ERROR, "Code generation failed", e);
 				}
 			}
 		}
@@ -365,7 +237,7 @@ public class UploadHandler extends AbstractHandler {
 		try {
 			lejosProject.getProject().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 		} catch (CoreException e) {
-			e.printStackTrace();
+			MindstormsUiActivator.log(Status.ERROR, "Refresh project failed", e);
 		}
 		return lejosProject;
 	}

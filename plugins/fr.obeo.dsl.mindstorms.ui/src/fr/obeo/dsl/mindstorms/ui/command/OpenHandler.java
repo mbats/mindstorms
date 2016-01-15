@@ -8,6 +8,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
@@ -16,6 +17,8 @@ import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
 import org.eclipse.sirius.viewpoint.DRepresentation;
+
+import fr.obeo.dsl.mindstorms.ui.MindstormsUiActivator;
 
 public class OpenHandler extends AbstractHandler {
 
@@ -49,7 +52,7 @@ public class OpenHandler extends AbstractHandler {
 			}
 
 		} catch (CoreException e) {
-			e.printStackTrace();
+			MindstormsUiActivator.log(Status.ERROR, "Open project failed", e);
 		}
 		return null;
 	}

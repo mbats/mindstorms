@@ -177,7 +177,7 @@ public class LabelServices {
 			break;
 		}
 
-		label += " " + sensor.getValue() + " cm";
+		label += " " + Math.round(sensor.getValue()) + " cm";
 
 		return label;
 	}

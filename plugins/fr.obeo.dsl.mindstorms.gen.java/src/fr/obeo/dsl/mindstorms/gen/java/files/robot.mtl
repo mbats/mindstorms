@@ -37,12 +37,12 @@ public class Robot extends AbstractRobot {
 	final static Robot robot = new Robot();
 
 	public static void main(String['[]'/] args) {
+		init();
 		robot.run();
 	}
 
 	@Override
 	public void execute() {
-		init();
 	[for (ins : Instruction | if aMain.instructions->oclIsUndefined() then Sequence{} else aMain.instructions endif)]
 		[ins.genInstruction()/]
 	[/for]

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="main" name="fr.obeo.dsl.mindstorms.gen.java">
-    <property name="ECLIPSE_HOME" value="../../../../../programs/lejos/ObeoDesigner-Community"/>
+    <property name="ECLIPSE_HOME" value="../../../../../programs/lejos/ObeoDesigner-Community (2)"/>
     <property name="ECLIPSE_WORKSPACE" value="../../../../../programs/lejos/ws"/>
 
     <!-- The classpath with only the dependencies used by the project -->
