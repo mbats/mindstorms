@@ -59,7 +59,7 @@ public class UploadHandler extends AbstractHandler {
 		ProgressMonitorDialog dialog = new ProgressMonitorDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
 		try {
-			dialog.run(true, true, new IRunnableWithProgress() {
+			dialog.run(true, false, new IRunnableWithProgress() {
 				public void run(IProgressMonitor monitor) {
 					monitor.beginTask("Upload the code to the robot...", 100);
 					monitor.subTask("Generate");
