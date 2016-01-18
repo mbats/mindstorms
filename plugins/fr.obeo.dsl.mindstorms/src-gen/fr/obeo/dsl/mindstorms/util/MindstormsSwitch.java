@@ -350,6 +350,16 @@ public class MindstormsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MindstormsPackage.GO_TO_ENEMY: {
+				GoToEnemy goToEnemy = (GoToEnemy)theEObject;
+				T result = caseGoToEnemy(goToEnemy);
+				if (result == null) result = caseAction(goToEnemy);
+				if (result == null) result = caseBlock(goToEnemy);
+				if (result == null) result = caseInstruction(goToEnemy);
+				if (result == null) result = caseNamedElement(goToEnemy);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -801,6 +811,21 @@ public class MindstormsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseConditionContainer(ConditionContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Go To Enemy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Go To Enemy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGoToEnemy(GoToEnemy object) {
 		return null;
 	}
 

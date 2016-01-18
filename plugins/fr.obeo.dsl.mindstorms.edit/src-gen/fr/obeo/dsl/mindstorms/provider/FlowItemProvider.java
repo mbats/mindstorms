@@ -202,6 +202,11 @@ public class FlowItemProvider extends BlockItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createGoToEnemy()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(MindstormsPackage.Literals.CONDITION_CONTAINER__CONDITION,
 				 MindstormsFactory.eINSTANCE.createTouchSensor()));
 

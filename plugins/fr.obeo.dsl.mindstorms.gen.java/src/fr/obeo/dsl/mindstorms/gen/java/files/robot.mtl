@@ -48,7 +48,7 @@ public class Robot extends AbstractRobot {
 	[/for]
 	}
 
-	public void init() {
+	public static void init() {
 		robot.release();
 	}
 

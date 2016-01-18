@@ -45,7 +45,10 @@ public class LabelServices {
 
 	public static boolean nameIsInvalid(NamedElement element) {
 		String name = element.getName();
-		if (name != null && name.matches("[a-zA-Z]+[a-zA-Z0-9]*")) {
+		if (name == null) {
+			return false;
+		}
+		if (name != null && name.matches("[a-zA-Z0-9]+[a-zA-Z0-9]*")) {
 			return false;
 		}
 		return true;
@@ -56,7 +59,8 @@ public class LabelServices {
 		if (name == null) {
 			return false;
 		} else if (element instanceof AvoidObstacle || element instanceof ExploreForward
-				|| element instanceof ReturnBottleToBase || element instanceof ReuseInstruction) {
+				|| element instanceof ReturnBottleToBase || element instanceof ReuseInstruction
+				|| element instanceof ConditionContainer) {
 			return false;
 		}
 		Main main = getMain(element);
@@ -140,7 +144,8 @@ public class LabelServices {
 		if (block.isRandom()) {
 			return "?";
 		}
-		return "" + block.getDegrees() + "°";
+		int degrees = block.getDegrees();
+		return "" + Math.abs(degrees) + "°";
 	}
 
 	public String computeLabel(GoForward block) {
@@ -252,13 +257,13 @@ public class LabelServices {
 			editLabel += computeLabel((ConditionContainer) object);
 		} else if (object instanceof ReuseInstruction) {
 			editLabel += computeLabel((ReuseInstruction) object);
-		}else if (object instanceof Procedure) {
+		} else if (object instanceof Procedure) {
 			editLabel += computeLabel((Procedure) object);
-		}else if (object instanceof Arbitrator) {
+		} else if (object instanceof Arbitrator) {
 			editLabel += computeLabel((Arbitrator) object);
-		}else if (object instanceof Behavior) {
+		} else if (object instanceof Behavior) {
 			editLabel += computeLabel((Behavior) object);
-		}else {
+		} else {
 			editLabel += computeLabel(object);
 		}
 		return editLabel;

@@ -200,6 +200,11 @@ public class BlockContainerItemProvider
 			(createChildParameter
 				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
 				 MindstormsFactory.eINSTANCE.createDelay()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.BLOCK_CONTAINER__BLOCKS,
+				 MindstormsFactory.eINSTANCE.createGoToEnemy()));
 	}
 
 	/**

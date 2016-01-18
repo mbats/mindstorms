@@ -26,6 +26,7 @@ import fr.obeo.dsl.mindstorms.Flow;
 import fr.obeo.dsl.mindstorms.GoBackward;
 import fr.obeo.dsl.mindstorms.GoForward;
 import fr.obeo.dsl.mindstorms.GoTo;
+import fr.obeo.dsl.mindstorms.GoToEnemy;
 import fr.obeo.dsl.mindstorms.Grab;
 import fr.obeo.dsl.mindstorms.If;
 import fr.obeo.dsl.mindstorms.Instruction;
@@ -276,6 +277,13 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * @generated
 	 */
 	private EClass conditionContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass goToEnemyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -807,6 +815,15 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGoToEnemy() {
+		return goToEnemyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getColor() {
 		return colorEEnum;
 	}
@@ -928,6 +945,8 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		conditionContainerEClass = createEClass(CONDITION_CONTAINER);
 		createEReference(conditionContainerEClass, CONDITION_CONTAINER__CONDITION);
 
+		goToEnemyEClass = createEClass(GO_TO_ENEMY);
+
 		// Create enums
 		colorEEnum = createEEnum(COLOR);
 		operatorKindEEnum = createEEnum(OPERATOR_KIND);
@@ -993,6 +1012,7 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 		touchSensorEClass.getESuperTypes().add(this.getSensor());
 		ultrasonicSensorEClass.getESuperTypes().add(this.getSensor());
 		colorSensorEClass.getESuperTypes().add(this.getSensor());
+		goToEnemyEClass.getESuperTypes().add(this.getAction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1074,6 +1094,8 @@ public class MindstormsPackageImpl extends EPackageImpl implements MindstormsPac
 
 		initEClass(conditionContainerEClass, ConditionContainer.class, "ConditionContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConditionContainer_Condition(), this.getCondition(), null, "condition", null, 0, 1, ConditionContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(goToEnemyEClass, GoToEnemy.class, "GoToEnemy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(colorEEnum, Color.class, "Color");

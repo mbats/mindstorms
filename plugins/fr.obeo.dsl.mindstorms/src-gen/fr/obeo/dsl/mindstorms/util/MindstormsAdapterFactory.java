@@ -203,6 +203,10 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 				return createConditionContainerAdapter();
 			}
 			@Override
+			public Adapter caseGoToEnemy(GoToEnemy object) {
+				return createGoToEnemyAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -639,6 +643,20 @@ public class MindstormsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConditionContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.mindstorms.GoToEnemy <em>Go To Enemy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.obeo.dsl.mindstorms.GoToEnemy
+	 * @generated
+	 */
+	public Adapter createGoToEnemyAdapter() {
 		return null;
 	}
 

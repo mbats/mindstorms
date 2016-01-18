@@ -96,6 +96,9 @@ public class EditServices {
 		try {
 			int parseInt = Integer.parseInt(valueOf);
 			if (parseInt < 360 && parseInt > -360) {
+				if(rotate.getDegrees() < 0){
+					parseInt *= -1;
+				}
 				rotate.setDegrees(parseInt);
 				rotate.setRandom(false);
 				return;
@@ -107,7 +110,9 @@ public class EditServices {
 			rotate.setRandom(true);
 		} else if ("*".equalsIgnoreCase(valueOf)) {
 			rotate.setRandom(true);
-		} else {
+		} else if ("?".equalsIgnoreCase(valueOf)) {
+			rotate.setRandom(true);
+		}else {
 			rotate.setRandom(false);
 		}
 	}

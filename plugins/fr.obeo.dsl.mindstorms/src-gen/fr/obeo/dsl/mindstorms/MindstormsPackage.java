@@ -1462,6 +1462,43 @@ public interface MindstormsPackage extends EPackage {
 	int CONDITION_CONTAINER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.impl.GoToEnemyImpl <em>Go To Enemy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.obeo.dsl.mindstorms.impl.GoToEnemyImpl
+	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGoToEnemy()
+	 * @generated
+	 */
+	int GO_TO_ENEMY = 30;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GO_TO_ENEMY__NAME = ACTION__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Go To Enemy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GO_TO_ENEMY_FEATURE_COUNT = ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Go To Enemy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GO_TO_ENEMY_OPERATION_COUNT = ACTION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.Color <em>Color</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1469,7 +1506,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 30;
+	int COLOR = 31;
 
 	/**
 	 * The meta object id for the '{@link fr.obeo.dsl.mindstorms.OperatorKind <em>Operator Kind</em>}' enum.
@@ -1479,7 +1516,7 @@ public interface MindstormsPackage extends EPackage {
 	 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getOperatorKind()
 	 * @generated
 	 */
-	int OPERATOR_KIND = 31;
+	int OPERATOR_KIND = 32;
 
 
 	/**
@@ -2003,6 +2040,16 @@ public interface MindstormsPackage extends EPackage {
 	EReference getConditionContainer_Condition();
 
 	/**
+	 * Returns the meta object for class '{@link fr.obeo.dsl.mindstorms.GoToEnemy <em>Go To Enemy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Go To Enemy</em>'.
+	 * @see fr.obeo.dsl.mindstorms.GoToEnemy
+	 * @generated
+	 */
+	EClass getGoToEnemy();
+
+	/**
 	 * Returns the meta object for enum '{@link fr.obeo.dsl.mindstorms.Color <em>Color</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2504,6 +2551,16 @@ public interface MindstormsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONDITION_CONTAINER__CONDITION = eINSTANCE.getConditionContainer_Condition();
+
+		/**
+		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.impl.GoToEnemyImpl <em>Go To Enemy</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.obeo.dsl.mindstorms.impl.GoToEnemyImpl
+		 * @see fr.obeo.dsl.mindstorms.impl.MindstormsPackageImpl#getGoToEnemy()
+		 * @generated
+		 */
+		EClass GO_TO_ENEMY = eINSTANCE.getGoToEnemy();
 
 		/**
 		 * The meta object literal for the '{@link fr.obeo.dsl.mindstorms.Color <em>Color</em>}' enum.

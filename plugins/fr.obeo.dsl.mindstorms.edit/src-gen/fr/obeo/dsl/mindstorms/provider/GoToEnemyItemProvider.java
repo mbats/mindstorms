@@ -11,8 +11,7 @@
 package fr.obeo.dsl.mindstorms.provider;
 
 
-import fr.obeo.dsl.mindstorms.MindstormsPackage;
-import fr.obeo.dsl.mindstorms.Rotate;
+import fr.obeo.dsl.mindstorms.GoToEnemy;
 
 import java.util.Collection;
 import java.util.List;
@@ -20,18 +19,15 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.obeo.dsl.mindstorms.Rotate} object.
+ * This is the item provider adapter for a {@link fr.obeo.dsl.mindstorms.GoToEnemy} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RotateItemProvider extends ActionItemProvider {
+public class GoToEnemyItemProvider extends ActionItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,7 +41,7 @@ public class RotateItemProvider extends ActionItemProvider {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RotateItemProvider(AdapterFactory adapterFactory) {
+	public GoToEnemyItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,71 +56,19 @@ public class RotateItemProvider extends ActionItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDegreesPropertyDescriptor(object);
-			addRandomPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Degrees feature.
+	 * This returns GoToEnemy.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
-	protected void addDegreesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Rotate_degrees_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Rotate_degrees_feature", "_UI_Rotate_type"),
-				 MindstormsPackage.Literals.ROTATE__DEGREES,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Random feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRandomPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Rotate_random_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Rotate_random_feature", "_UI_Rotate_type"),
-				 MindstormsPackage.Literals.ROTATE__RANDOM,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Rotate.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		if(object instanceof Rotate){
-			int degrees = ((Rotate) object).getDegrees();
-			if(degrees <0){
-				return overlayImage(object, getResourceLocator().getImage("full/obj16/Rotate_Right"));
-			}
-		}
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Rotate"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GoToEnemy"));
 	}
 
 	/**
@@ -135,10 +79,10 @@ public class RotateItemProvider extends ActionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Rotate)object).getName();
+		String label = ((GoToEnemy)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Rotate_type") :
-			getString("_UI_Rotate_type") + " " + label;
+			getString("_UI_GoToEnemy_type") :
+			getString("_UI_GoToEnemy_type") + " " + label;
 	}
 	
 
@@ -152,13 +96,6 @@ public class RotateItemProvider extends ActionItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Rotate.class)) {
-			case MindstormsPackage.ROTATE__DEGREES:
-			case MindstormsPackage.ROTATE__RANDOM:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

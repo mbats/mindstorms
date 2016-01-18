@@ -93,6 +93,7 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 			case MindstormsPackage.TOUCH_SENSOR: return createTouchSensor();
 			case MindstormsPackage.ULTRASONIC_SENSOR: return createUltrasonicSensor();
 			case MindstormsPackage.COLOR_SENSOR: return createColorSensor();
+			case MindstormsPackage.GO_TO_ENEMY: return createGoToEnemy();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -340,6 +341,16 @@ public class MindstormsFactoryImpl extends EFactoryImpl implements MindstormsFac
 	public ColorSensor createColorSensor() {
 		ColorSensorImpl colorSensor = new ColorSensorImpl();
 		return colorSensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GoToEnemy createGoToEnemy() {
+		GoToEnemyImpl goToEnemy = new GoToEnemyImpl();
+		return goToEnemy;
 	}
 
 	/**

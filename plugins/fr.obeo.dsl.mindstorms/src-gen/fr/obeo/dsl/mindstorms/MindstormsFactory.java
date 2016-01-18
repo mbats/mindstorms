@@ -226,6 +226,15 @@ public interface MindstormsFactory extends EFactory {
 	ColorSensor createColorSensor();
 
 	/**
+	 * Returns a new object of class '<em>Go To Enemy</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Go To Enemy</em>'.
+	 * @generated
+	 */
+	GoToEnemy createGoToEnemy();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

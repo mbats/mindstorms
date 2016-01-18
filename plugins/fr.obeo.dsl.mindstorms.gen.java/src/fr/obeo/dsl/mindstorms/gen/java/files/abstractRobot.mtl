@@ -52,8 +52,8 @@ import lejos.utility.Timer;
 import lejos.utility.TimerListener;
 
 public abstract class AbstractRobot {
-	private static final float TRACK_WIDTH = 17.7f;
-	private static final float WHEEL_DIAMETER = 5.6f;
+	private static final int TRACK_WIDTH = 177;
+	private static final int WHEEL_DIAMETER = 56;
 
 	private RegulatedMotor grabMotor = new EV3MediumRegulatedMotor(MotorPort.A);
 	private RegulatedMotor leftMotor = new EV3LargeRegulatedMotor(MotorPort.B);

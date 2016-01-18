@@ -105,6 +105,10 @@ while (robot.isMoving()) {
 }
 [/template]
 
+[template public genInstruction(aGoToEnemy : GoToEnemy) post (trim())]
+robot.goTo(80,50);
+[/template]
+
 [template public genInstruction(aGoTo : GoTo)]
 robot.goTo([aGoTo.x/], [aGoTo.y/]);
 [/template]

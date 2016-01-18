@@ -227,6 +227,11 @@ public class MainItemProvider
 			(createChildParameter
 				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
 				 MindstormsFactory.eINSTANCE.createDelay()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MindstormsPackage.Literals.MAIN__INSTRUCTIONS,
+				 MindstormsFactory.eINSTANCE.createGoToEnemy()));
 	}
 
 	/**

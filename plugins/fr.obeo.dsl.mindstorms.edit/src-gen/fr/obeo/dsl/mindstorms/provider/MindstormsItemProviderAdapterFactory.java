@@ -570,6 +570,29 @@ public class MindstormsItemProviderAdapterFactory extends MindstormsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.obeo.dsl.mindstorms.GoToEnemy} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GoToEnemyItemProvider goToEnemyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.obeo.dsl.mindstorms.GoToEnemy}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGoToEnemyAdapter() {
+		if (goToEnemyItemProvider == null) {
+			goToEnemyItemProvider = new GoToEnemyItemProvider(this);
+		}
+
+		return goToEnemyItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -689,6 +712,7 @@ public class MindstormsItemProviderAdapterFactory extends MindstormsAdapterFacto
 		if (touchSensorItemProvider != null) touchSensorItemProvider.dispose();
 		if (ultrasonicSensorItemProvider != null) ultrasonicSensorItemProvider.dispose();
 		if (colorSensorItemProvider != null) colorSensorItemProvider.dispose();
+		if (goToEnemyItemProvider != null) goToEnemyItemProvider.dispose();
 	}
 
 }

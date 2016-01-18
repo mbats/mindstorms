@@ -95,4 +95,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GoToEnemy" eSuperTypes="#//Action"/>
 </ecore:EPackage>
