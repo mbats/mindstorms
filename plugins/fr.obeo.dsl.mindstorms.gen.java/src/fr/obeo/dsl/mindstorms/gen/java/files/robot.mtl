@@ -49,6 +49,8 @@ public class Robot extends AbstractRobot {
 	}
 
 	public static void init() {
+// Robot should have its claw released
+		robot.grab();
 		robot.release();
 	}
 

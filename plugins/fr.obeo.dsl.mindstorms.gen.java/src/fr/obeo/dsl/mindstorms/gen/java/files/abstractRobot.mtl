@@ -52,8 +52,9 @@ import lejos.utility.Timer;
 import lejos.utility.TimerListener;
 
 public abstract class AbstractRobot {
-	private static final int TRACK_WIDTH = 177;
+	private static final int TRACK_WIDTH = 140;
 	private static final int WHEEL_DIAMETER = 56;
+	private static final int GRAB_RELEASE_ANGLE = -1000;
 
 	private RegulatedMotor grabMotor = new EV3MediumRegulatedMotor(MotorPort.A);
 	private RegulatedMotor leftMotor = new EV3LargeRegulatedMotor(MotorPort.B);
@@ -73,6 +74,7 @@ public abstract class AbstractRobot {
 
 	public AbstractRobot() {
 		this(60000); // 30 seconds : default game time
+		grabMotor.resetTachoCount();
 	}
 
 	public AbstractRobot(int gameTime) {
@@ -128,6 +130,7 @@ public abstract class AbstractRobot {
 			ex.printStackTrace();
 		}
 		timer.stop();
+		terminateProgram();
 	}
 
 	private void terminateProgram() {
@@ -165,11 +168,24 @@ public abstract class AbstractRobot {
 	}
 
 	public void grab() {
-		grabMotor.rotateTo(-1440);
+		int tachoCount = grabMotor.getTachoCount();
+		if (Math.abs(tachoCount-GRAB_RELEASE_ANGLE) < 3) {
+			// Already grabed: rotate a few degrees to show the action
+			grabMotor.rotate(10);
+			System.out.println("Already grabbed");
+		}
+		grabMotor.rotateTo(GRAB_RELEASE_ANGLE);
 	}
 
 	public void release() {
-		grabMotor.rotateTo(1440);
+		int tachoCount = grabMotor.getTachoCount();
+		if (Math.abs(tachoCount) < 3) {
+			// Already released: rotate a few degrees to show the action
+			grabMotor.rotate(-10);
+			System.out.println("Already released");
+		}
+		grabMotor.rotateTo(0);
+		grabMotor.resetTachoCount();
 	}
 
 	public void rotate(double angle) {
@@ -182,12 +198,18 @@ public abstract class AbstractRobot {
 
 	public void returnToBase() {
 		goTo(0, 0);
+
+		Pose currentPose = poseProvider.getPose();
+		System.out.print(currentPose.getLocation());
+		float heading = currentPose.relativeBearing(new Point(100, 0));
+		pilot.rotate(heading);
 	}
 
 	public void goTo(float x, float y) {
 		Pose currentPose = poseProvider.getPose();
-		float heading = currentPose.relativeBearing(new Point(x*10, y*10));
-		float distance = currentPose.distanceTo(new Point(x*10, y*10));
+		Point destination = new Point(x * 10, y * 10);
+		float heading = currentPose.relativeBearing(destination);
+		float distance = currentPose.distanceTo(destination);
 		pilot.rotate(heading);
 		pilot.travel(distance);
 	}

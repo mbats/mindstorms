@@ -197,7 +197,11 @@ public class LabelServices {
 	}
 
 	public String computeLabel(TouchSensor sensor) {
-		return "touch sensor is pressed";
+		String label = "touch sensor is";
+		if(!sensor.isIsPressed()) {
+			label = label + " not";
+		}
+		return label + " pressed";
 	}
 
 	public String computeLabel(Procedure object) {

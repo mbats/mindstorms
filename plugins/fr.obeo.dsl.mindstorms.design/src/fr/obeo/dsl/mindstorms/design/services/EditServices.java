@@ -96,7 +96,7 @@ public class EditServices {
 		try {
 			int parseInt = Integer.parseInt(valueOf);
 			if (parseInt < 360 && parseInt > -360) {
-				if(rotate.getDegrees() < 0){
+				if (rotate.getDegrees() < 0) {
 					parseInt *= -1;
 				}
 				rotate.setDegrees(parseInt);
@@ -112,7 +112,7 @@ public class EditServices {
 			rotate.setRandom(true);
 		} else if ("?".equalsIgnoreCase(valueOf)) {
 			rotate.setRandom(true);
-		}else {
+		} else {
 			rotate.setRandom(false);
 		}
 	}
@@ -126,7 +126,7 @@ public class EditServices {
 		try {
 			for (int i = 0; i < strings.length; i++) {
 				String string = strings[i];
-				string=string.trim();
+				string = string.trim();
 				int parseInt = Integer.parseInt(string);
 				if (i == 0) {
 					gt.setX(parseInt);
@@ -172,7 +172,7 @@ public class EditServices {
 			if (value.contains(":")) {
 				arbitratorName = value.substring(0, value.indexOf(":"));
 				String condition = value.substring(value.indexOf(":") + 1);
-				setCondition(arbitrator, condition.trim());
+				setCondition(arbitrator, condition);
 			} else {
 				setCondition(arbitrator, "");
 			}
@@ -186,7 +186,7 @@ public class EditServices {
 			if (value.contains(":")) {
 				arbitratorName = value.substring(0, value.indexOf(":"));
 				String condition = value.substring(value.indexOf(":") + 1);
-				setCondition(behavior, condition.trim());
+				setCondition(behavior, condition);
 			} else {
 				setCondition(behavior, "");
 			}
@@ -212,31 +212,34 @@ public class EditServices {
 			}
 		}
 
-		setCondition(f, condition.trim());
+		setCondition(f, condition);
 	}
 
-	private void setCondition(ConditionContainer container, String condition) {
-		if (condition == null && container.getCondition() != null) {
+	private void setCondition(ConditionContainer container, String aCondition) {
+		if (aCondition == null && container.getCondition() != null) {
 			EcoreUtil.delete(container.getCondition());
 		}
-		if (condition.startsWith("Color is") || condition.startsWith("color is")) {
-			condition = condition.trim();
-			String newColor = condition.substring(8, condition.length()).trim();
-			setColorSensorCondition(container, newColor);
-		} else if (condition.startsWith("Distance") || condition.startsWith("distance")) {
-			condition = condition.trim();
-			String newValue = condition.substring(8, condition.length()).trim();
-			setUltrasonicSensorCondition(container, newValue);
-		} else if (condition.startsWith("is press") || condition.startsWith("Is press") || condition.startsWith("press")
-				|| condition.startsWith("Press") || condition.startsWith("is touch") || condition.startsWith("Is touch")
-				|| condition.startsWith("touch") || condition.startsWith("Touch")) {
-			condition = condition.trim();
-			setTouchSensorCondition(container);
-		} else {
-			String trimmedCondition = condition.trim();
-			boolean setSuccessful = setColorSensorCondition(container, trimmedCondition);
-			if (!setSuccessful) {
-				setSuccessful = setUltrasonicSensorCondition(container, trimmedCondition);
+
+		if (aCondition != null) {
+			String condition = aCondition.trim().toLowerCase();
+
+			if (condition.startsWith("color is")) {
+				String newColor = condition.substring(8, condition.length()).trim();
+				setColorSensorCondition(container, newColor);
+			} else if (condition.startsWith("distance")) {
+				String newValue = condition.substring(8, condition.length()).trim();
+				setUltrasonicSensorCondition(container, newValue);
+			} else if (condition.startsWith("is press") || condition.startsWith("press")
+					|| condition.startsWith("is touch") || condition.startsWith("touch")) {
+				setTouchSensorCondition(container, true);
+			} else if (condition.startsWith("is not press") || condition.startsWith("not press")
+					|| condition.startsWith("is not touch") || condition.startsWith("not touch")) {
+				setTouchSensorCondition(container, false);
+			} else {
+				boolean setSuccessful = setColorSensorCondition(container, condition);
+				if (!setSuccessful) {
+					setSuccessful = setUltrasonicSensorCondition(container, condition);
+				}
 			}
 		}
 	}
@@ -301,9 +304,9 @@ public class EditServices {
 		}
 	}
 
-	private boolean setTouchSensorCondition(ConditionContainer container) {
+	private boolean setTouchSensorCondition(ConditionContainer container, boolean pressed) {
 		TouchSensor sensor = MindstormsFactory.eINSTANCE.createTouchSensor();
-		sensor.setIsPressed(true);
+		sensor.setIsPressed(pressed);
 		container.setCondition(sensor);
 		return true;
 	}
